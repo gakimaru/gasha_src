@@ -16,10 +16,43 @@
     <Filter Include="ソース ファイル\crc">
       <UniqueIdentifier>{e1ad7375-cef2-41af-9c6b-254349cef507}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\crc">
+      <UniqueIdentifier>{d9273d8f-a983-4c8c-a208-aa2e19bbfb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\build_settings">
+      <UniqueIdentifier>{7abcb39d-eb4c-4597-a9a8-8730145d8f27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\build_settings\common">
+      <UniqueIdentifier>{5d7f0893-6438-428c-b061-ed91f9b9f8cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\build_settings\project">
+      <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\standard.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\crc32.h">
+      <Filter>ヘッダー ファイル\crc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\language_auto_settings.h">
+      <Filter>ヘッダー ファイル\build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\platform_auto_settings.h">
+      <Filter>ヘッダー ファイル\build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compiler_auto_settings.h">
+      <Filter>ヘッダー ファイル\build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\build_settings.h">
+      <Filter>ヘッダー ファイル\build_settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\settings\include\project_build_settings_first.h">
+      <Filter>ヘッダー ファイル\build_settings\project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\settings\include\project_build_settings.h">
+      <Filter>ヘッダー ファイル\build_settings\project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
