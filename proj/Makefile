@@ -5,10 +5,22 @@
 # Gakimaru's researched and standard library for C++ - GASHA
 #   Copyright (c) 2014 Itagaki Mamoru
 #   Released under the MIT license
-#     https://github.com/gakimaru/gasha/blob/master/LICENSE
+#     https://github.com/gakimaru/gasha_src/blob/master/LICENSE
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
+
+# ビルドプラットフォーム
+ifndef BUILD_PLATFORM
+	BUILD_PLATFORM = x86
+	#BUILD_PLATFORM = x64
+endif
+
+# ビルド設定
+ifndef BUILD_TYPE
+	BUILD_TYPE := Release
+	#BUILD_TYPE := Debug
+endif
 
 #-------------------------------------------------------------------------------
 
@@ -19,74 +31,48 @@ ARC_DIR := ../../gasha/lib/gcc
 SRC_BASE_DIR := ../src
 
 # ヘッダーファイル用基本ディレクトリ
-HEADER_BASE_DIR := ./
+HEADER_BASE_DIR := .
+
+# 出力ディレクトリ
+OUT_BASE_DIR := _gcc/$(BUILD_PLATFORM)/$(BUILD_TYPE)
+OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
+
+#-------------------------------------------------------------------------------
 
 # アーカイブファイル
-ARC := $(ARC_DIR)/gasha_x86.a
+ifeq ($(BUILD_TYPE),Release)
+	# リリースビルド用
+	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM).a
+endif
+ifeq ($(BUILD_TYPE),Debug)
+	# デバッグビルド用
+	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM)_debug.a
+endif
+ifndef ARC
+	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM)_unknown.a
+endif
 
 # ソースファイル
 SRCS := \
 	$(SRC_BASE_DIR)/crc/crc32.cpp \
 
 # オブジェクトファイル
-OBJS := $(SRCS:%.cpp=%.o)
+OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)
 
 # 標準ヘッダーファイル（強制インクルードファイル）
-STD_HEADER := $(HEADER_BASE_DIR)/standard.h
+STD_HEADER_NAME := standard.h
+STD_HEADER := $(HEADER_BASE_DIR)/$(STD_HEADER_NAME)
 
 # プリコンパイル済み標準ヘッダーファイル
-PC_HEADER := $(STD_HEADER:%.h=%.h.gch)
+PC_STD_HEADER := $(OUT_DIR)/$(STD_HEADER:%.h=%.h.gch)
 
 # ソース／ヘッダーファイルの依存ファイル
-DEPS := $(SRCS:%.cpp=%.d) $(PC_HEADER:%.gch=%.d)
+DEPS := $(SRCS:%.cpp=$(OUT_DIR)/%.d) $(PC_STD_HEADER:$(OUT_DIR)/%.gch=%.d)
 
 #-------------------------------------------------------------------------------
+# 共通部分をインクルード
 
-# アーカイブコマンド
-AR := ar
-
-# アーカイブオプション
-ARFLAGS = rcsv
-
-# C++コマンド
-CXX := g++ -std=c++11
-
-CPPFLAGS += \
-# C++プリプロセッサオプション
-CPPFLAGS += \
-	-I. \
-	-I../src/crc \
-	-I../../gasha/include \
-	-I../../gasha_settings/include \
-
-# C++コンパイルオプション
-CXXFLAGS += \
-	-g \
-	-Wall \
-	-Wextra \
-	-O3 \
-	-msse4.2 \
-	-fopenmp \
-
-# C++コンパイルオプション（C++ファイル用）
-CXXFLAGS_CPP := \
-	-include $(STD_HEADER) \
-
-# C++コンパイルオプション（プリコンパイル済みヘッダー用）
-CXXFLAGS_GCH := \
-	-x c++-header
-
-#-------------------------------------------------------------------------------
-
-# 型ルール：オブジェクトファイル生成
-# ※依存関係定義ファイルも自動生成
-%.o : %.cpp
-	$(CXX) $(CFLAGS) $(CPPFLAGS) $(CXXFLAGS_COMMON) $(CXXFLAGS) $(CXXFLAGS_CPP) -MMD -c $< -o $@
-
-# 型ルール：プリコンパイル済みヘッダーファイル生成
-# ※依存関係定義ファイルも自動生成
-%.h.gch : %.h
-	$(CXX) $(CFLAGS) $(CPPFLAGS) $(CXXFLAGS_COMMON) $(CXXFLAGS) $(CXXFLAGS_GCH) -MMD -c $< -o $@
+include ../../gasha/proj/Makefile_common
 
 #-------------------------------------------------------------------------------
 
@@ -95,12 +81,12 @@ $(ARC) : $(OBJS)
 	mkdir -p $(dir $@); \
 	$(AR) $(ARFLAGS) $@ $<
 
+# ターゲット：オブジェクトファイルとプリコンパイル済みヘッダーファイル
+#$(OUT_DIR)/../src/crc/crc32.o: ../src/crc/crc32.cpp $(PC_STD_HEADER)
+
 # ターゲット：オブジェクトファイル
 # ※オブジェクトファイルの依存関係定義ファイル（自動生成）をインクルード
 -include $(DEPS)
-
-# ターゲット：プリコンパイル済みヘッダーファイル（の依存ファイル定義ファイル）
-$(PC_HEADER:%.gch=%.d) : $(PC_HEADER)
 
 #-------------------------------------------------------------------------------
 
@@ -109,14 +95,14 @@ all : $(ARC)
 
 # ターゲット：clean
 clean :
-	rm -vf $(ARC) $(OBJS) $(DEPS) $(PC_HEADER)
+	rm -vf $(ARC) $(PC_STD_HEADER) $(OBJS) $(DEPS)
 
 # ターゲット：distclean
 distclean :
-	rm -vf $(ARC) $(OBJS) $(DEPS) $(PC_HEADER)
+	rm -rf $(OUT_BASE_DIR)
 
 # 擬似ターゲット設定
-.PHONY: all clean
+.PHONY: all clean distclean
 
 #-------------------------------------------------------------------------------
 
