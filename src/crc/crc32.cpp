@@ -14,9 +14,9 @@
 
 NAMESPACE_GASHA_BEGIN//ネームスペース：開始
 
-#ifdef CALC_RUNTIME_CRC32_BY_SSE
+#ifdef USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2
-#endif//CALC_RUNTIME_CRC32_BY_SSE
+#endif//USE_SSE4_2
 
 //--------------------
 //【ランタイム関数版：ループ処理版】CRC32計算（共通処理部）
