@@ -30,33 +30,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\standard.h">
+    <ClInclude Include="standard.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\crc32.h">
+    <ClInclude Include="..\..\gasha\include\crc32.h">
       <Filter>ヘッダー ファイル\crc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\language_auto_settings.h">
+    <ClInclude Include="..\..\gasha\include\language_auto_settings.h">
       <Filter>ヘッダー ファイル\build_settings\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\platform_auto_settings.h">
+    <ClInclude Include="..\..\gasha\include\platform_auto_settings.h">
       <Filter>ヘッダー ファイル\build_settings\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\compiler_auto_settings.h">
+    <ClInclude Include="..\..\gasha\include\compiler_auto_settings.h">
       <Filter>ヘッダー ファイル\build_settings\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\build_settings.h">
+    <ClInclude Include="..\..\gasha\include\build_settings.h">
       <Filter>ヘッダー ファイル\build_settings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\settings\include\project_build_settings_first.h">
+    <ClInclude Include="..\..\gasha_settings\include\project_build_settings_first.h">
       <Filter>ヘッダー ファイル\build_settings\project</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\settings\include\project_build_settings.h">
+    <ClInclude Include="..\..\gasha_settings\include\project_build_settings.h">
       <Filter>ヘッダー ファイル\build_settings\project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\standard.cpp">
+    <ClCompile Include="standard.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\src\crc\crc32.cpp">

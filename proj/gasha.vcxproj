@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\build_settings.h" />
-    <ClInclude Include="..\..\include\compiler_auto_settings.h" />
-    <ClInclude Include="..\..\include\crc32.h" />
-    <ClInclude Include="..\..\include\language_auto_settings.h" />
-    <ClInclude Include="..\..\include\platform_auto_settings.h" />
-    <ClInclude Include="..\..\settings\include\project_build_settings.h" />
-    <ClInclude Include="..\..\settings\include\project_build_settings_first.h" />
-    <ClInclude Include="src\standard.h" />
+    <ClInclude Include="..\..\gasha\include\build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\compiler_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\language_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\platform_auto_settings.h" />
+    <ClInclude Include="..\..\gasha_settings\include\project_build_settings.h" />
+    <ClInclude Include="..\..\gasha_settings\include\project_build_settings_first.h" />
+    <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\crc\crc32.cpp" />
-    <ClCompile Include="src\standard.cpp">
+    <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -110,7 +110,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../include;$(ProjectDir)../../settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -127,7 +127,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\lib\VC\$(TargetName)_x86_debug$(TargetExt)</Command>
+      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\gasha\lib\VC\$(TargetName)_x86_debug$(TargetExt)</Command>
       <Message>
       </Message>
     </PostBuildEvent>
@@ -140,7 +140,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../include;$(ProjectDir)../../settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -157,7 +157,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\lib\VC\$(TargetName)_x64_debug$(TargetExt)</Command>
+      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\gasha\lib\VC\$(TargetName)_x64_debug$(TargetExt)</Command>
       <Message>
       </Message>
     </PostBuildEvent>
@@ -172,7 +172,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../include;$(ProjectDir)../../settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
@@ -192,7 +192,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\lib\VC\$(TargetName)_x86$(TargetExt)</Command>
+      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\gasha\lib\VC\$(TargetName)_x86$(TargetExt)</Command>
       <Message>
       </Message>
     </PostBuildEvent>
@@ -207,7 +207,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../include;$(ProjectDir)../../settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
@@ -227,7 +227,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\lib\VC\$(TargetName)_x64$(TargetExt)</Command>
+      <Command>COPY $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)..\..\gasha\lib\VC\$(TargetName)_x64$(TargetExt)</Command>
       <Message>
       </Message>
     </PostBuildEvent>
