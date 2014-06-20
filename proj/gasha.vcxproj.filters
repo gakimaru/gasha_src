@@ -28,11 +28,11 @@
     <Filter Include="ヘッダー ファイル\build_settings\project">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="プリコンパイル済みヘッダー">
+      <UniqueIdentifier>{18517398-9e5d-4832-8dc8-dee19c7f7071}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="standard.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\crc32.h">
       <Filter>ヘッダー ファイル\crc</Filter>
     </ClInclude>
@@ -54,13 +54,16 @@
     <ClInclude Include="..\..\gasha_settings\include\project_build_settings.h">
       <Filter>ヘッダー ファイル\build_settings\project</Filter>
     </ClInclude>
+    <ClInclude Include="standard.h">
+      <Filter>プリコンパイル済みヘッダー</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="standard.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\crc\crc32.cpp">
       <Filter>ソース ファイル\crc</Filter>
+    </ClCompile>
+    <ClCompile Include="standard.cpp">
+      <Filter>プリコンパイル済みヘッダー</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
