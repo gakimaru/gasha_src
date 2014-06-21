@@ -29,7 +29,7 @@ Released under the [MIT license][MIT].
 > * [`gasha_proj` ライブラリビルド用リポジトリ][gasha_proj]  
 >   ライブラリとソースをサブモジュール配置  
 [gasha]: https://github.com/gakimaru/gasha
-[gasha_settings]: https://github.com/gakimaru/gasha_settngs
+[gasha_settings]: https://github.com/gakimaru/gasha_settings
 [gasha_src]: https://github.com/gakimaru/gasha_src
 [gasha_examples]: https://github.com/gakimaru/gasha_examples
 [gasha_proj]: https://github.com/gakimaru/gasha_proj
