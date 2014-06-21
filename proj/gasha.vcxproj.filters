@@ -48,17 +48,17 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\compiler_auto_settings.h">
       <Filter>ヘッダー ファイル\gasha\build_settings\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\project_build_settings_first.h">
-      <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\project_build_settings.h">
-      <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h">
       <Filter>ヘッダー ファイル\gasha\build_settings</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h">
       <Filter>ヘッダー ファイル\gasha\crc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h">
+      <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h">
+      <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
