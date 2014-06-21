@@ -10,7 +10,7 @@
 
 #define MAKE_CRC_INSTANCE//"constexpr.h"内に定義されている関数を実体化
 
-#include "crc32.h"
+#include "gasha/crc32.h"
 
 NAMESPACE_GASHA_BEGIN//ネームスペース：開始
 

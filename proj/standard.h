@@ -12,7 +12,7 @@
 //     https://github.com/gakimaru/gasha_src/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <build_settings.h>
+#include <gasha/build_settings/build_settings.h>
 
 #endif//__STANDARD_H_
 

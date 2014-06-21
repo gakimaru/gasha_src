@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\gasha\include\build_settings.h" />
-    <ClInclude Include="..\..\gasha\include\compiler_auto_settings.h" />
-    <ClInclude Include="..\..\gasha\include\crc32.h" />
-    <ClInclude Include="..\..\gasha\include\language_auto_settings.h" />
-    <ClInclude Include="..\..\gasha\include\platform_auto_settings.h" />
-    <ClInclude Include="..\..\gasha_settings\include\project_build_settings.h" />
-    <ClInclude Include="..\..\gasha_settings\include\project_build_settings_first.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\compiler_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\language_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\platform_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\project_build_settings.h" />
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\project_build_settings_first.h" />
     <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
