@@ -12,8 +12,8 @@
 
 # ビルドプラットフォーム
 ifndef BUILD_PLATFORM
-	BUILD_PLATFORM = x86
-	#BUILD_PLATFORM = x64
+	BUILD_PLATFORM := x86
+	#BUILD_PLATFORM := x64
 endif
 
 # ビルド設定
@@ -24,8 +24,8 @@ endif
 
 #-------------------------------------------------------------------------------
 
-# アーカイブファイル用ディレクトリ
-ARC_DIR := ../../gasha/lib/gcc
+# ライブラリの基本ディレクトリ
+LIB_SRC_BASE := ../..
 
 # ソースファイル用基本ディレクトリ
 SRC_BASE_DIR := ../src
@@ -38,19 +38,6 @@ OUT_BASE_DIR := _gcc/$(BUILD_PLATFORM)/$(BUILD_TYPE)
 OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
 
 #-------------------------------------------------------------------------------
-
-# アーカイブファイル
-ifeq ($(BUILD_TYPE),Release)
-	# リリースビルド用
-	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM).a
-endif
-ifeq ($(BUILD_TYPE),Debug)
-	# デバッグビルド用
-	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM)_debug.a
-endif
-ifndef ARC
-	ARC := $(ARC_DIR)/gasha_$(BUILD_PLATFORM)_unknown.a
-endif
 
 # ソースファイル
 SRCS := \
