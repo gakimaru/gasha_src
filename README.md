@@ -9,19 +9,16 @@ Released under the [MIT license][MIT].
 ライブラリソースリポジトリ
 ---
 このリポジトリは、「GASHA」のソースファイル用です。  
-> 共同開発メンバーに対して、ソースコードを非公開でライブラリを
-> 提供するような場面を想定し、ライブラリ本体（インクルード
-> ファイルとライブラリファイル）とリポジトリを切り分けて
-> 扱っています。  
+> 共同開発メンバーに対して、ソースコードを非公開でライブラリを提供するような場面を想定し、ライブラリ本体（インクルードファイルとライブラリファイル）とリポジトリを切り分けて扱っています。  
 > 
 > ライブラリファイル作成用のプロジェクト／Makefileも扱っています。
-> 
-> **関連リポジトリ**
-> * [`gasha` ライブラリ本体用リポジトリ][gasha]  
-> * [`gasha_settings` ライブラリ挙動設定用リポジトリ][gasha_settings]  
-> * [`gasha_src` ライブラリソース用リポジトリ][gasha_src]  
-> * [`gasha_examples` サンプルプログラム用リポジトリ][gasha_examples]  
-> * [`gasha_proj` ライブラリビルド用リポジトリ][gasha_proj]  
+
+**関連リポジトリ**
+* [`gasha` ライブラリ本体用リポジトリ][gasha]  
+* [`gasha_settings` ライブラリ挙動設定用リポジトリ][gasha_settings]  
+* [`gasha_src` ライブラリソース用リポジトリ][gasha_src]  
+* [`gasha_examples` サンプルプログラム用リポジトリ][gasha_examples]  
+* [`gasha_proj` ライブラリビルド用リポジトリ][gasha_proj]  
 [gasha]: https://github.com/gakimaru/gasha
 [gasha_settings]: https://github.com/gakimaru/gasha_settings
 [gasha_src]: https://github.com/gakimaru/gasha_src
