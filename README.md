@@ -36,7 +36,6 @@ Released under the [MIT license][MIT].
 
 「GASHA」とは？
 ---
-詳しくは、「GASHA」の[サンプルプログラム][SAMPLE]に記述しています。
-[SAMPLE]: https://github.com/gakimaru/gasha_examples/blob/master/README.md
+詳しくは、「GASHA」の[サンプルプログラム][gasha_examples]に記述しています。
 
 ■■以上
