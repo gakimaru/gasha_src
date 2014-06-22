@@ -34,6 +34,21 @@
     <Filter Include="ヘッダー ファイル\gasha\build_settings\project">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm">
+      <UniqueIdentifier>{e3c2751d-4db2-472c-9a36-3e91d96ee897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread">
+      <UniqueIdentifier>{85811cce-b7d0-4830-b170-7587129eef6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort">
+      <UniqueIdentifier>{2e104f62-97f0-487a-8520-683babd3b76c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\search">
+      <UniqueIdentifier>{86bdf5a2-2b94-4a21-92bb-d43928ebb84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\basic">
+      <UniqueIdentifier>{e74a01d8-8e83-4be2-97f9-4d96fe98d0af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -59,6 +74,66 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h">
       <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_search.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\search</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\heap_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\insertion_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\iterator.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linear_search.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\search</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\radix_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\swap_values.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\search_basic.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h">
+      <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
