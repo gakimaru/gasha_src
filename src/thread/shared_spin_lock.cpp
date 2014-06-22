@@ -35,7 +35,7 @@ void shared_spin_lock::lock(const int spin_count)
 		{						//※カウンタを更新したままなので、後続の共有ロック／排他ロックは取得できない。
 			while (m_lockCounter.load() != 0)//カウンタが0になるのを待つ
 			{
-				if (spin_count == 1 || spin_count > 1 && --spin_count_now == 0)
+				if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 				{
 					std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
 					spin_count_now = spin_count;
@@ -44,7 +44,7 @@ void shared_spin_lock::lock(const int spin_count)
 			return;//ロック取得成功
 		}
 		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを戻してリトライ
-		if (spin_count == 1 || spin_count > 1 && --spin_count_now == 0)
+		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
 			spin_count_now = spin_count;
@@ -73,7 +73,7 @@ void shared_spin_lock::lock_shared(const int spin_count)
 		if (lock_counter > 0)
 			return;//ロック取得成功
 		m_lockCounter.fetch_add(1);//カウンタを戻してリトライ
-		if (spin_count == 1 || spin_count > 1 && --spin_count_now == 0)
+		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
 			spin_count_now = spin_count;

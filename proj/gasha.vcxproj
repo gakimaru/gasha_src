@@ -38,7 +38,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\linear_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\lock_helper.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h" />
@@ -47,7 +46,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_helper.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
@@ -55,6 +53,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\swap_values.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h" />

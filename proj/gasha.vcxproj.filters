@@ -150,13 +150,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h">
       <Filter>ヘッダー ファイル\gasha\thread</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\lock_helper.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_helper.h">
       <Filter>ヘッダー ファイル\gasha\thread</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h">
@@ -172,6 +166,12 @@
       <Filter>ヘッダー ファイル\gasha\thread</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h">
       <Filter>ヘッダー ファイル\gasha\thread</Filter>
     </ClInclude>
   </ItemGroup>

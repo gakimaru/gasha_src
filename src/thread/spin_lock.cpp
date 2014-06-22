@@ -30,7 +30,7 @@ void spin_lock::lock(const int spin_count)
 	{
 		if (!m_lock.test_and_set())
 			return;
-		if (spin_count == 1 || spin_count > 1 && --spin_count_now == 0)
+		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
 			spin_count_now = spin_count;
