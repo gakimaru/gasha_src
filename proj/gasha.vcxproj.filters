@@ -49,6 +49,9 @@
     <Filter Include="ヘッダー ファイル\gasha\algorithm\basic">
       <UniqueIdentifier>{e74a01d8-8e83-4be2-97f9-4d96fe98d0af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\thread">
+      <UniqueIdentifier>{f72a6f4b-2d37-4352-9f70-c10515a2b335}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -135,6 +138,42 @@
     <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h">
       <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_helper.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_helper.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\crc\crc32.cpp">
@@ -142,6 +181,21 @@
     </ClCompile>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\spin_lock.cpp">
+      <Filter>ソース ファイル\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lw_spin_lock.cpp">
+      <Filter>ソース ファイル\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\shared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\unshared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

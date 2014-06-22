@@ -27,6 +27,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\platform_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\heap_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h" />
@@ -34,22 +36,37 @@
     <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\linear_search.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lock_helper.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\radix_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\search_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_helper.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\swap_values.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h" />
     <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\crc\crc32.cpp" />
+    <ClCompile Include="..\src\thread\lw_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\shared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\unshared_spin_lock.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>
