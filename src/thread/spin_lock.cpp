@@ -17,7 +17,7 @@
 #include <thread>//C++11 std::this_thread::sleep_for
 #include <chrono>//C++11 std::chrono::milliseconds
 
-NAMESPACE_GASHA_BEGIN//ネームスペース：開始
+NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 
 //----------------------------------------
 //スピンロッククラス
@@ -38,6 +38,6 @@ void spin_lock::lock(const int spin_count)
 	}
 }
 
-NAMESPACE_GASHA_END//ネームスペース：終了
+NAMESPACE_GASHA_END;//ネームスペース：終了
 
 // End of file

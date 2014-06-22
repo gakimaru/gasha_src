@@ -12,7 +12,7 @@
 
 #include "gasha/crc32.h"
 
-NAMESPACE_GASHA_BEGIN//ネームスペース：開始
+NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 
 #ifdef USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2
@@ -237,6 +237,6 @@ void makeAndPrintPolyTable()
 	printf("\n\t};\n");
 }
 
-NAMESPACE_GASHA_END//ネームスペース：終了
+NAMESPACE_GASHA_END;//ネームスペース：終了
 
 // End of file

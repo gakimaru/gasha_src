@@ -17,7 +17,7 @@
 #include <thread>//C++11 std::this_thread::sleep_for
 #include <chrono>//C++11 std::chrono::milliseconds
 
-NAMESPACE_GASHA_BEGIN//ネームスペース：開始
+NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 
 //----------------------------------------
 //単純共有スピンロッククラス
@@ -79,6 +79,6 @@ bool simple_shared_spin_lock::try_lock_shared()
 	return false;//ロック取得失敗
 }
 
-NAMESPACE_GASHA_END//ネームスペース：終了
+NAMESPACE_GASHA_END;//ネームスペース：終了
 
 // End of file
