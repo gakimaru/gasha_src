@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\gasha\include\gasha\basic_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
@@ -52,16 +53,19 @@
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\swap_values.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h" />
     <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\crc\crc32.cpp" />
+    <ClCompile Include="..\src\build_settings\build_settings.cpp" />
+    <ClCompile Include="..\src\math\basic_math.cpp" />
+    <ClCompile Include="..\src\math\crc\crc32.cpp" />
     <ClCompile Include="..\src\thread\lw_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\shared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp" />
@@ -149,7 +153,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(ProjectDir);$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -179,7 +183,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(ProjectDir);$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -211,7 +215,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(ProjectDir);$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
@@ -246,7 +250,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>src;$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(ProjectDir);$(ProjectDir)../../gasha/include;$(ProjectDir)../../gasha_settings/include</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>

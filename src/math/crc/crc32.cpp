@@ -8,15 +8,15 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#define MAKE_CRC_INSTANCE//"constexpr.h"内に定義されている関数を実体化
+#include <gasha/crc32.h>//CRC32計算
 
-#include "gasha/crc32.h"
-
-NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
+#include <stdio.h>//printf()
 
 #ifdef USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2
 #endif//USE_SSE4_2
+
+NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 
 //--------------------
 //【ランタイム関数版：ループ処理版】CRC32計算（共通処理部）
@@ -215,7 +215,6 @@ crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 
 //--------------------
 //【プログラム作成補助処理】事前計算済み多項式テーブルの作成と表示
-#include <stdio.h>
 void makeAndPrintPolyTable()
 {
 	printf("\tstatic const crc32_t s_polyTable[256] =\n");

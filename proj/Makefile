@@ -41,7 +41,9 @@ OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
 
 # ソースファイル
 SRCS := \
-	$(SRC_BASE_DIR)/crc/crc32.cpp \
+	$(SRC_BASE_DIR)/build_settings/build_settings.cpp \
+	$(SRC_BASE_DIR)/math/basic_math.cpp \
+	$(SRC_BASE_DIR)/math/crc/crc32.cpp \
 	$(SRC_BASE_DIR)/thread/spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/lw_spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/shared_spin_lock.cpp \
@@ -71,7 +73,7 @@ include ../../gasha/proj/Makefile_common
 # ターゲット：アーカイブファイル
 $(ARC) : $(OBJS)
 	mkdir -p $(dir $@); \
-	$(AR) $(ARFLAGS) $@ $<
+	$(AR) $(ARFLAGS) $@ $^
 
 # ターゲット：オブジェクトファイルとプリコンパイル済みヘッダーファイル
 #$(OUT_DIR)/../src/crc/crc32.o: ../src/crc/crc32.cpp $(PC_STD_HEADER)

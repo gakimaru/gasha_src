@@ -13,17 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\crc">
-      <UniqueIdentifier>{e1ad7375-cef2-41af-9c6b-254349cef507}</UniqueIdentifier>
-    </Filter>
     <Filter Include="プリコンパイル済みヘッダー">
       <UniqueIdentifier>{18517398-9e5d-4832-8dc8-dee19c7f7071}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\gasha">
       <UniqueIdentifier>{1218dd6f-a862-4065-a41f-dd6db3539aef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\crc">
-      <UniqueIdentifier>{d9273d8f-a983-4c8c-a208-aa2e19bbfb99}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\gasha\build_settings">
       <UniqueIdentifier>{7abcb39d-eb4c-4597-a9a8-8730145d8f27}</UniqueIdentifier>
@@ -52,6 +46,24 @@
     <Filter Include="ソース ファイル\thread">
       <UniqueIdentifier>{f72a6f4b-2d37-4352-9f70-c10515a2b335}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\utility">
+      <UniqueIdentifier>{e6ed858c-96e4-41b2-8aef-eeaaf1639ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\math">
+      <UniqueIdentifier>{1238a7f3-9fc4-438a-a1bc-b92e78f77d71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\math\crc">
+      <UniqueIdentifier>{d9273d8f-a983-4c8c-a208-aa2e19bbfb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\math">
+      <UniqueIdentifier>{cbf73fd1-1c06-4768-8283-4bb661b30847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\math\crc">
+      <UniqueIdentifier>{e1ad7375-cef2-41af-9c6b-254349cef507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\build_settings">
+      <UniqueIdentifier>{372ca7f5-11c8-4909-b63c-7785737b8df3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -70,7 +82,7 @@
       <Filter>ヘッダー ファイル\gasha\build_settings</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h">
-      <Filter>ヘッダー ファイル\gasha\crc</Filter>
+      <Filter>ヘッダー ファイル\gasha\math\crc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h">
       <Filter>ヘッダー ファイル\gasha\build_settings\project</Filter>
@@ -129,9 +141,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h">
       <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\swap_values.h">
-      <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\search_basic.h">
       <Filter>ヘッダー ファイル\gasha\algorithm\basic</Filter>
     </ClInclude>
@@ -174,11 +183,17 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h">
       <Filter>ヘッダー ファイル\gasha\thread</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\utility.h">
+      <Filter>ヘッダー ファイル\gasha\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\type_traits.h">
+      <Filter>ヘッダー ファイル\gasha\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
+      <Filter>ヘッダー ファイル\gasha\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\crc\crc32.cpp">
-      <Filter>ソース ファイル\crc</Filter>
-    </ClCompile>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
     </ClCompile>
@@ -196,6 +211,15 @@
     </ClCompile>
     <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp">
       <Filter>ソース ファイル\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\crc\crc32.cpp">
+      <Filter>ソース ファイル\math\crc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\basic_math.cpp">
+      <Filter>ソース ファイル\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\build_settings\build_settings.cpp">
+      <Filter>ソース ファイル\build_settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
