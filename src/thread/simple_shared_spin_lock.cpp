@@ -23,7 +23,7 @@ NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 //単純共有スピンロッククラス
 
 //排他ロック（ライトロック）取得
-void simple_shared_spin_lock::lock(const int spin_count)
+void simpleSharedSpinLock::lock(const int spin_count)
 {
 	int spin_count_now = spin_count;
 	while (1)
@@ -42,7 +42,7 @@ void simple_shared_spin_lock::lock(const int spin_count)
 
 //排他ロック（ライトロック）取得を試行
 //※取得に成功した場合、trueが返るので、ロックを解放する必要がある
-bool simple_shared_spin_lock::try_lock()
+bool simpleSharedSpinLock::try_lock()
 {
 	const int lock_counter = m_lockCounter.fetch_sub(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを更新
 	if (lock_counter == SHARED_LOCK_COUNTER_UNLOCKED)
@@ -52,7 +52,7 @@ bool simple_shared_spin_lock::try_lock()
 }
 
 //共有ロック（リードロック）取得
-void simple_shared_spin_lock::lock_shared(const int spin_count)
+void simpleSharedSpinLock::lock_shared(const int spin_count)
 {
 	int spin_count_now = spin_count;
 	while (1)
@@ -70,7 +70,7 @@ void simple_shared_spin_lock::lock_shared(const int spin_count)
 }
 
 //共有ロック（リードロック）取得を試行
-bool simple_shared_spin_lock::try_lock_shared()
+bool simpleSharedSpinLock::try_lock_shared()
 {
 	const int lock_counter = m_lockCounter.fetch_sub(1);//カウンタを更新
 	if (lock_counter >= 0)

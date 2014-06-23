@@ -23,7 +23,7 @@ NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 //非共有スピンロッククラス
 
 //排他ロック（ライトロック）取得
-void unshared_spin_lock::lock(const int spin_count)
+void unsharedSpinLock::lock(const int spin_count)
 {
 	int spin_count_now = spin_count;
 	while (true)

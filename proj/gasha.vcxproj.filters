@@ -64,6 +64,30 @@
     <Filter Include="ソース ファイル\build_settings">
       <UniqueIdentifier>{372ca7f5-11c8-4909-b63c-7785737b8df3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\lock">
+      <UniqueIdentifier>{6f4349b3-b5dd-4779-a1a8-77ca036fc620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\scoped_lock">
+      <UniqueIdentifier>{9771ddd3-1ec1-4645-90fe-358d275b8e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\lock\shared">
+      <UniqueIdentifier>{c9a1835a-3c5b-44ce-9ce4-558437bcfb67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\scoped_lock\shared">
+      <UniqueIdentifier>{bfaca42b-ad28-4b4d-a8ff-f662fd6733fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\thread\lock">
+      <UniqueIdentifier>{d4191e64-3478-4156-9966-7714e6bf16a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\thread\lock\shared">
+      <UniqueIdentifier>{1a6fee83-2b8a-4e1b-a151-843152a7cbfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data">
+      <UniqueIdentifier>{1ed1809c-9019-4eeb-96fa-7dc631da2cb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\lockfree">
+      <UniqueIdentifier>{b0d98dcd-96ac-418a-b172-bbc60c0c2bca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -147,42 +171,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h">
       <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h">
-      <Filter>ヘッダー ファイル\gasha\thread</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\utility.h">
       <Filter>ヘッダー ファイル\gasha\utility</Filter>
     </ClInclude>
@@ -191,6 +179,54 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
       <Filter>ヘッダー ファイル\gasha\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\scoped_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h">
+      <Filter>ヘッダー ファイル\gasha\thread\scoped_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\scoped_lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h">
+      <Filter>ヘッダー ファイル\gasha\thread\lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h">
+      <Filter>ヘッダー ファイル\gasha\thread\scoped_lock\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lockfree_pool_allocator.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lockfree_queue.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lockfree_stack.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

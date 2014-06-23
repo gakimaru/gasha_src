@@ -23,7 +23,7 @@ NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 //スピンロッククラス
 
 //ロック取得
-void spin_lock::lock(const int spin_count)
+void spinLock::lock(const int spin_count)
 {
 	int spin_count_now = spin_count;
 	while (true)
