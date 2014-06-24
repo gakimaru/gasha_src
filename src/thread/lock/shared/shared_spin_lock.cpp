@@ -10,12 +10,12 @@
 
 #include <gasha/shared_spin_lock.h>//共有スピンロック
 
-//例外を無効化した状態で std::thread をインクルードすると、warning C4530 が発生する
+//例外を無効化した状態で <thread> をインクルードすると、warning C4530 が発生する
 //  warning C4530: C++ 例外処理を使っていますが、アンワインド セマンティクスは有効にはなりません。/EHsc を指定してください。
 #pragma warning(disable: 4530)//C4530を抑える
 
-#include <thread>//C++11 std::this_thread::sleep_for
-#include <chrono>//C++11 std::chrono::milliseconds
+#include <thread>//C++11 std::this_thread
+#include <chrono>//C++11 std::chrono
 
 NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
 

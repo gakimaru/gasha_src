@@ -50,7 +50,10 @@
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_stack.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
@@ -70,11 +73,11 @@
     <ClCompile Include="..\src\build_settings\build_settings.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc\crc32.cpp" />
-    <ClCompile Include="..\src\thread\lw_spin_lock.cpp" />
-    <ClCompile Include="..\src\thread\shared_spin_lock.cpp" />
-    <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp" />
-    <ClCompile Include="..\src\thread\spin_lock.cpp" />
-    <ClCompile Include="..\src\thread\unshared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\lock\shared\shared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\lock\shared\simple_shared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\lock\shared\unshared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\lock\spin_lock.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>

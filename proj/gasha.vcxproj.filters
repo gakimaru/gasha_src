@@ -228,25 +228,19 @@
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h">
       <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_stack.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.h">
+      <Filter>ヘッダー ファイル\gasha\thread\shared_data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\thread\spin_lock.cpp">
-      <Filter>ソース ファイル\thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\thread\lw_spin_lock.cpp">
-      <Filter>ソース ファイル\thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\thread\shared_spin_lock.cpp">
-      <Filter>ソース ファイル\thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\thread\unshared_spin_lock.cpp">
-      <Filter>ソース ファイル\thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\thread\simple_shared_spin_lock.cpp">
-      <Filter>ソース ファイル\thread</Filter>
     </ClCompile>
     <ClCompile Include="..\src\math\crc\crc32.cpp">
       <Filter>ソース ファイル\math\crc</Filter>
@@ -256,6 +250,21 @@
     </ClCompile>
     <ClCompile Include="..\src\build_settings\build_settings.cpp">
       <Filter>ソース ファイル\build_settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\shared\shared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread\lock\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\shared\simple_shared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread\lock\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\shared\unshared_spin_lock.cpp">
+      <Filter>ソース ファイル\thread\lock\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\spin_lock.cpp">
+      <Filter>ソース ファイル\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp">
+      <Filter>ソース ファイル\thread\lock</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
