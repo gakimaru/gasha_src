@@ -10,20 +10,20 @@
 
 #include <gasha/build_settings/build_settings.h>//ビルド設定
 
-#ifdef IS_VC
+#ifdef GASHA_IS_VC
 #include <intrin.h>//__cpuid()
-#endif//IS_VC
+#endif//GASHA_IS_VC
 
-#ifdef USE_AVX
+#ifdef GASHA_USE_AVX
 #include <immintrin.h>//AVX
-#endif//USE_AVX
+#endif//GASHA_USE_AVX
 
 #include <stdio.h>//printf(), fprintf()
 #include <string.h>//strncpy_s()
 #include <assert.h>//assert()
 #include <stdlib.h>//abort()
 
-NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
+GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------
 //ビルド設定が実行環境に適合するかチェック
@@ -35,7 +35,7 @@ void checkBuildSettings()
 	printf("\n");
 	bool is_error = false;
 //Visual C++ の場合のチェック
-#ifdef IS_VC
+#ifdef GASHA_IS_VC
 	char cpu_info_str[12];
 	int cpu_info[4] = {-1, -1, -1, -1};
 	__cpuid(cpu_info, 0);//CPU情報取得：Type0
@@ -54,87 +54,87 @@ void checkBuildSettings()
 	const bool osxsave_is_supported = (cpu_info[2] & (1 << 27)) || false;//OSXSAVE対応
 	const bool _avx_is_supported = (cpu_info[2] & (1 << 28)) || false;//AVX対応（仮）
 	bool avx_is_supported = false;//AVX対応
-#ifdef USE_SSE
+#ifdef GASHA_USE_SSE
 	if(!sse_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE is NOT supported!\n");
 	}
 	printf("[OK] SSE is supported.\n");
-#else//USE_SSE
+#else//GASHA_USE_SSE
 	printf("[--] SSE is not used.\n");
-#endif//USE_SSE
-#ifdef USE_SSE2
+#endif//GASHA_USE_SSE
+#ifdef GASHA_USE_SSE2
 	if(!sse2_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE2 is NOT supported!\n");
 	}
 	printf("[OK] SSE2 is supported.\n");
-#else//USE_SSE2
+#else//GASHA_USE_SSE2
 	printf("[--] SSE2 is not used.\n");
-#endif//USE_SSE2
-#ifdef USE_SSE3
+#endif//GASHA_USE_SSE2
+#ifdef GASHA_USE_SSE3
 	if(!sse3_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE3 is NOT supported!\n");
 	}
 	printf("[OK] SSE3 is supported.\n");
-#else//USE_SSE3
+#else//GASHA_USE_SSE3
 	printf("[--] SSE3 is not used.\n");
-#endif//USE_SSE3
-#ifdef USE_SSE4A
+#endif//GASHA_USE_SSE3
+#ifdef GASHA_USE_SSE4A
 	if (!sse4a_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE4a is NOT supported!\n");
 	}
 	printf("[OK] SSE4a is NOT supported.\n");
-#else//USE_SSE4A
+#else//GASHA_USE_SSE4A
 	printf("[--] SSE 4a is not used.\n");
-#endif//USE_SSE4A
-#ifdef USE_SSE4_1
+#endif//GASHA_USE_SSE4A
+#ifdef GASHA_USE_SSE4_1
 	if(!sse4_1_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE4.1 is NOT supported!\n");
 	}
 	printf("[OK] SSE4.1 is NOT supported.\n");
-#else//USE_SSE4_1
+#else//GASHA_USE_SSE4_1
 	printf("[--] SSE4.1 is not used.\n");
-#endif//USE_SSE4_1
-#ifdef USE_SSE4_2
+#endif//GASHA_USE_SSE4_1
+#ifdef GASHA_USE_SSE4_2
 	if(!sse4_2_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] SSE4.2 is NOT supported!\n");
 	}
 	printf("[OK] SSE4.2 is supported.\n");
-#else//USE_SSE4_2
+#else//GASHA_USE_SSE4_2
 	printf("[--] SSE4.2 is not used.\n");
-#endif//USE_SSE4_2
-#ifdef USE_POPCNT
+#endif//GASHA_USE_SSE4_2
+#ifdef GASHA_USE_POPCNT
 	if(!poopcnt_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] POPCNT is NOT supported!\n");
 	}
 	printf("[OK] POPCNT is supported.\n");
-#else//USE_POPCNT
+#else//GASHA_USE_POPCNT
 	printf("[--] POPCNT is not used.\n");
-#endif//USE_POPCNT
-#ifdef USE_AES
+#endif//GASHA_USE_POPCNT
+#ifdef GASHA_USE_AES
 	if(!aes_is_supported)
 	{
 		is_error = true;
 		fprintf(stderr, "[NG] AES is NOT supported!\n");
 	}
 	printf("[OK] AES is supported.\n");
-#else//USE_AES
+#else//GASHA_USE_AES
 	printf("[--] AES is not used.\n");
-#endif//USE_AES
-#ifdef USE_AVX
+#endif//GASHA_USE_AES
+#ifdef GASHA_USE_AVX
 	if(osxsave_is_supported && _avx_is_supported)
 	{
 		unsigned long long xcr_feature_enabled = _xgetbv(_XCR_XFEATURE_ENABLED_MASK);
@@ -146,70 +146,70 @@ void checkBuildSettings()
 		fprintf(stderr, "[NG] AVX is NOT supported!\n");
 	}
 	printf("[OK] AVX is supported.\n");
-#else//USE_AVX
+#else//GASHA_USE_AVX
 	printf("[--] AVX is not used.\n");
-#endif//USE_AVX
-#ifdef USE_AVX2//※判定未対応
+#endif//GASHA_USE_AVX
+#ifdef GASHA_USE_AVX2//※判定未対応
 	printf("[OK?] AVX2 is supported?\n");
-#else//USE_AVX2
+#else//GASHA_USE_AVX2
 	printf("[--] AVX2 is not used.\n");
-#endif//USE_AVX2
-#endif//IS_VC
+#endif//GASHA_USE_AVX2
+#endif//GASHA_IS_VC
 
 //GCCの場合のチェック
 //※未作成
-#ifdef IS_GCC
-#ifdef USE_SSE
+#ifdef GASHA_IS_GCC
+#ifdef GASHA_USE_SSE
 	printf("[OK?] SSE is supported?\n");
-#else//USE_SSE
+#else//GASHA_USE_SSE
 	printf("[--] SSE is not used.\n");
-#endif//USE_SSE
-#ifdef USE_SSE2
+#endif//GASHA_USE_SSE
+#ifdef GASHA_USE_SSE2
 	printf("[OK?] SSE2 is supported?\n");
-#else//USE_SSE2
+#else//GASHA_USE_SSE2
 	printf("[--] SSE2 is not used.\n");
-#endif//USE_SSE2
-#ifdef USE_SSE3
+#endif//GASHA_USE_SSE2
+#ifdef GASHA_USE_SSE3
 	printf("[OK?] SSE3 is supported?\n");
-#else//USE_SSE3
+#else//GASHA_USE_SSE3
 	printf("[--] SSE3 is not used.\n");
-#endif//USE_SSE3
-#ifdef USE_SSE4A
+#endif//GASHA_USE_SSE3
+#ifdef GASHA_USE_SSE4A
 	printf("[OK?] SSE4a is NOT supported?\n");
-#else//USE_SSE4A
+#else//GASHA_USE_SSE4A
 	printf("[--] SSE4a is not used.\n");
-#endif//USE_SSE4A
-#ifdef USE_SSE4_1
+#endif//GASHA_USE_SSE4A
+#ifdef GASHA_USE_SSE4_1
 	printf("[OK?] SSE4.1 is NOT supported?\n");
-#else//USE_SSE4_1
+#else//GASHA_USE_SSE4_1
 	printf("[--] SSE4.1 is not used.\n");
-#endif//USE_SSE4_1
-#ifdef USE_SSE4_2
+#endif//GASHA_USE_SSE4_1
+#ifdef GASHA_USE_SSE4_2
 	printf("[OK?] SSE4.2 is supported?\n");
-#else//USE_SSE4_2
+#else//GASHA_USE_SSE4_2
 	printf("[--] SSE4.2 is not used.\n");
-#endif//USE_SSE4_2
-#ifdef USE_POPCNT
+#endif//GASHA_USE_SSE4_2
+#ifdef GASHA_USE_POPCNT
 	printf("[OK?] POPCNT is supported?\n");
-#else//USE_POPCNT
+#else//GASHA_USE_POPCNT
 	printf("[--] POPCNT is not used.\n");
-#endif//USE_POPCNT
-#ifdef USE_AES
+#endif//GASHA_USE_POPCNT
+#ifdef GASHA_USE_AES
 	printf("[OK?] AES is supported?\n");
-#else//USE_AES
+#else//GASHA_USE_AES
 	printf("[--] AES is not used.\n");
-#endif//USE_AES
-#ifdef USE_AVX
+#endif//GASHA_USE_AES
+#ifdef GASHA_USE_AVX
 	printf("[OK?] AVX is supported?\n");
-#else//USE_AVX
+#else//GASHA_USE_AVX
 	printf("[--] AVX is not used.\n");
-#endif//USE_AVX
-#ifdef USE_AVX2
+#endif//GASHA_USE_AVX
+#ifdef GASHA_USE_AVX2
 	printf("[OK?] AVX2 is supported?\n");
-#else//USE_AVX2
+#else//GASHA_USE_AVX2
 	printf("[--] AVX2 is not used.\n");
-#endif//USE_AVX2
-#endif//IS_GCC
+#endif//GASHA_USE_AVX2
+#endif//GASHA_IS_GCC
 
 	printf("------------------------------------------------------------------------------\n");
 	
@@ -221,6 +221,6 @@ void checkBuildSettings()
 	}
 }
 
-NAMESPACE_GASHA_END;//ネームスペース：終了
+GASHA_NAMESPACE_END;//ネームスペース：終了
 
 // End of file

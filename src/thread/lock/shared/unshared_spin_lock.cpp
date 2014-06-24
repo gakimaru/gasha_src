@@ -17,7 +17,7 @@
 #include <thread>//C++11 std::this_thread
 #include <chrono>//C++11 std::chrono
 
-NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
+GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //----------------------------------------
 //非共有スピンロッククラス
@@ -38,6 +38,6 @@ void unsharedSpinLock::lock(const int spin_count)
 	}
 }
 
-NAMESPACE_GASHA_END;//ネームスペース：終了
+GASHA_NAMESPACE_END;//ネームスペース：終了
 
 // End of file

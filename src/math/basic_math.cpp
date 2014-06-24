@@ -11,19 +11,19 @@
 #include <gasha/basic_math.h>//基本算術
 
 #ifdef ENABLE_BUILTIN_POPCNT
-#ifdef IS_VC
+#ifdef GASHA_IS_VC
 #include <intrin.h>//__popcnt()
-#endif//IS_VC
-#ifdef IS_GCC
+#endif//GASHA_IS_VC
+#ifdef GASHA_IS_GCC
 //#include "icint.h"//__builtin_popcount()//インクルード不要
-#endif//IS_GCC
+#endif//GASHA_IS_GCC
 #endif//ENABLE_BUILTIN_POPCNT
 
 #ifdef ENABLE_SSE_POPCNT
 #include <nmmintrin.h>//SSE4.2
 #endif//ENABLE_SSE_POPCNT
 
-NAMESPACE_GASHA_BEGIN;//ネームスペース：開始
+GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
 //素数計算
@@ -145,12 +145,12 @@ int countBits_custom(const unsigned int value)
 //※ビルトイン処理版
 int countBits_builtin(const unsigned int value)
 {
-#ifdef IS_VC
+#ifdef GASHA_IS_VC
 	return __popcnt(value);
-#endif//IS_VC
-#ifdef IS_GCC
+#endif//GASHA_IS_VC
+#ifdef GASHA_IS_GCC
 	return __builtin_popcount(value);
-#endif//IS_GCC
+#endif//GASHA_IS_GCC
 }
 #endif//ENABLE_BUILTIN_POPCNT
 #ifdef ENABLE_SSE_POPCNT
@@ -537,6 +537,6 @@ int calcLSB(const unsigned int value)
 #endif
 }
 
-NAMESPACE_GASHA_END;//ネームスペース：終了
+GASHA_NAMESPACE_END;//ネームスペース：終了
 
 // End of file
