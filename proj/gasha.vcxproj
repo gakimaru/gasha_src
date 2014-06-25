@@ -30,16 +30,22 @@
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\heap_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\insertion_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\is_ordered.h" />
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack.h" />
     <ClInclude Include="..\..\gasha\include\gasha\linear_search.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\lockfree_pool_allocator.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\lockfree_queue.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\lockfree_stack.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
@@ -50,9 +56,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_queue.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\shared_stack.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_stack.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
@@ -88,6 +97,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">standard.h</PrecompiledHeaderFile>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_stack.inl" />
+    <None Include="..\..\gasha\include\gasha\shared_pool_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\shared_queue.inl" />
+    <None Include="..\..\gasha\include\gasha\shared_stack.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F178704C-7D9B-4C88-BFB8-2D4452B7E159}</ProjectGuid>
