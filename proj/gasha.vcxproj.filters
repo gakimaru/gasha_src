@@ -112,15 +112,6 @@
     <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\hybrid_sort">
       <UniqueIdentifier>{288bacdb-5410-4557-98c4-5f57d094004d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\container\dynamic_array">
-      <UniqueIdentifier>{cb4e2126-3a09-4333-b205-464b8495912b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\pool_allocator">
-      <UniqueIdentifier>{2bb60380-eec1-4af4-941b-05bb37c5dff1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\queue">
-      <UniqueIdentifier>{b24ddf39-6266-4795-a35c-1dc4132ed0bf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\stack">
       <UniqueIdentifier>{2863d9ca-cc6e-401f-b4e9-21d548da2d6c}</UniqueIdentifier>
     </Filter>
@@ -132,6 +123,45 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\lockfree\pool_allocator">
       <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\pool_allocator">
+      <UniqueIdentifier>{2bb60380-eec1-4af4-941b-05bb37c5dff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\queue">
+      <UniqueIdentifier>{b24ddf39-6266-4795-a35c-1dc4132ed0bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external">
+      <UniqueIdentifier>{091503fd-a0c2-4142-97fa-bfd1c61f1d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external\dynamic_array">
+      <UniqueIdentifier>{cb4e2126-3a09-4333-b205-464b8495912b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external\linked_list">
+      <UniqueIdentifier>{03a40798-5287-4b9c-a03f-504de3c6ff50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external\rb_tree">
+      <UniqueIdentifier>{93a695ce-9f7b-4e23-8bdb-11db52d299be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external\singly_linked_list">
+      <UniqueIdentifier>{88c9b527-755d-469e-ac90-f315189e77fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\external\ring_buffer">
+      <UniqueIdentifier>{b0d77940-222f-4156-938d-af33a959fe99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\internal">
+      <UniqueIdentifier>{d4cff857-c74d-419a-b1a4-1dcda76227e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\internal\binary_heap">
+      <UniqueIdentifier>{9e15e71a-e911-4576-86d8-d9718130cc45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\internal\hash_table">
+      <UniqueIdentifier>{456f1dac-cc74-4806-90a7-7897cc61c732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\adapter">
+      <UniqueIdentifier>{4207ef47-879f-4715-a16a-1eb9bd793b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\container\adapter\priority_queue">
+      <UniqueIdentifier>{d789a57a-6e4c-43c1-8c1f-a1fe37346799}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -268,10 +298,10 @@
       <Filter>ヘッダー ファイル\gasha\algorithm\sort</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h">
-      <Filter>ヘッダー ファイル\gasha\container\dynamic_array</Filter>
+      <Filter>ヘッダー ファイル\gasha\container\external\dynamic_array</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h">
-      <Filter>ヘッダー ファイル\gasha\container\dynamic_array</Filter>
+      <Filter>ヘッダー ファイル\gasha\container\external\dynamic_array</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h">
       <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree\pool_allocator</Filter>
@@ -309,6 +339,48 @@
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.cpp.h">
       <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree\stack</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\ring_buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\ring_buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\singly_linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\external\singly_linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.h">
+      <Filter>ヘッダー ファイル\gasha\container\internal\hash_table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\internal\hash_table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h">
+      <Filter>ヘッダー ファイル\gasha\container\internal\binary_heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\internal\binary_heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h">
+      <Filter>ヘッダー ファイル\gasha\container\adapter\priority_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h">
+      <Filter>ヘッダー ファイル\gasha\container\adapter\priority_queue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -341,7 +413,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl">
-      <Filter>ヘッダー ファイル\gasha\container\dynamic_array</Filter>
+      <Filter>ヘッダー ファイル\gasha\container\external\dynamic_array</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\shared_queue.inl">
       <Filter>ヘッダー ファイル\gasha\thread\shared_data\queue</Filter>
@@ -360,6 +432,27 @@
     </None>
     <None Include="..\..\gasha\include\gasha\lf_stack.inl">
       <Filter>ヘッダー ファイル\gasha\thread\shared_data\lockfree\stack</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\ring_buffer.inl">
+      <Filter>ヘッダー ファイル\gasha\container\external\ring_buffer</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\rb_tree.inl">
+      <Filter>ヘッダー ファイル\gasha\container\external\rb_tree</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\linked_list.inl">
+      <Filter>ヘッダー ファイル\gasha\container\external\linked_list</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singly_linked_list.inl">
+      <Filter>ヘッダー ファイル\gasha\container\external\singly_linked_list</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\hash_table.inl">
+      <Filter>ヘッダー ファイル\gasha\container\internal\hash_table</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\binary_heap.inl">
+      <Filter>ヘッダー ファイル\gasha\container\internal\binary_heap</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\priority_queue.inl">
+      <Filter>ヘッダー ファイル\gasha\container\adapter\priority_queue</Filter>
     </None>
   </ItemGroup>
 </Project>

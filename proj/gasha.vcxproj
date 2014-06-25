@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
@@ -33,6 +35,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.h" />
     <ClInclude Include="..\..\gasha\include\gasha\heap_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\insertion_sort.h" />
@@ -46,12 +50,20 @@
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.h" />
     <ClInclude Include="..\..\gasha\include\gasha\linear_search.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\radix_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.h" />
     <ClInclude Include="..\..\gasha\include\gasha\search_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
@@ -66,6 +78,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
@@ -99,13 +113,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
+    <None Include="..\..\gasha\include\gasha\hash_table.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
     <None Include="..\..\gasha\include\gasha\lf_stack.inl" />
+    <None Include="..\..\gasha\include\gasha\linked_list.inl" />
+    <None Include="..\..\gasha\include\gasha\priority_queue.inl" />
+    <None Include="..\..\gasha\include\gasha\rb_tree.inl" />
+    <None Include="..\..\gasha\include\gasha\ring_buffer.inl" />
     <None Include="..\..\gasha\include\gasha\shared_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\shared_queue.inl" />
     <None Include="..\..\gasha\include\gasha\shared_stack.inl" />
+    <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F178704C-7D9B-4C88-BFB8-2D4452B7E159}</ProjectGuid>
