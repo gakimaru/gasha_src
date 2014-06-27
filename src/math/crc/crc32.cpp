@@ -27,7 +27,7 @@ static crc32_t calcPoly(const crc32_t poly)
 	{
 		//生成多項式
 		//多項式計算
-		_poly = _poly & 1 ? __crc32::POLYNOMIAL ^ (_poly >> 1) : (_poly >> 1);
+		_poly = _poly & 1 ? _private::POLYNOMIAL ^ (_poly >> 1) : (_poly >> 1);
 	}
 	return _poly;
 }
@@ -117,7 +117,7 @@ crc32_t calcCRC32_recursive(const char* str)
 	const char* p = str;
 	while (*p)
 	{
-		crc = __crc32::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
+		crc = _private::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
 	}
 	return ~crc;
 }
@@ -129,7 +129,7 @@ crc32_t calcCRC32_recursive(const char* data, const std::size_t len)
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
-		crc = __crc32::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
+		crc = _private::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
 	}
 	return ~crc;
 }
@@ -231,7 +231,7 @@ void makeAndPrintPolyTable()
 		}
 		if (i % 8 == 0)
 			printf("\t\t");
-		printf("0x%08xu", __crc32::calcPoly(i));
+		printf("0x%08xu", _private::calcPoly(i));
 	}
 	printf("\n\t};\n");
 }
