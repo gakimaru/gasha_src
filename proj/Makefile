@@ -42,6 +42,7 @@ OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
 # ソースファイル
 SRCS := \
 	$(SRC_BASE_DIR)/build_settings/build_settings.cpp \
+	$(SRC_BASE_DIR)/utility/cpuid.cpp \
 	$(SRC_BASE_DIR)/math/basic_math.cpp \
 	$(SRC_BASE_DIR)/math/crc/crc32.cpp \
 	$(SRC_BASE_DIR)/thread/lock/spin_lock.cpp \

@@ -101,6 +101,7 @@
     <ClCompile Include="..\src\thread\lock\shared\simple_shared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\shared\unshared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\spin_lock.cpp" />
+    <ClCompile Include="..\src\utility\cpuid.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>

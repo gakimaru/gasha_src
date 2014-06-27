@@ -163,6 +163,9 @@
     <Filter Include="ヘッダー ファイル\gasha\container\adapter\priority_queue">
       <UniqueIdentifier>{d789a57a-6e4c-43c1-8c1f-a1fe37346799}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\utility">
+      <UniqueIdentifier>{10fad7b9-a4c1-474d-a884-0da6289a2bae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -409,6 +412,9 @@
     </ClCompile>
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp">
       <Filter>ソース ファイル\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\cpuid.cpp">
+      <Filter>ソース ファイル\utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
