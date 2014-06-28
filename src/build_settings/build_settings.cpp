@@ -327,6 +327,14 @@ void checkBuildSettings()
 	printf("is NOT available.\n");
 #endif//GASHA_HAS_LAMBDA_EXPRESSION
 
+	//【C++11仕様】範囲に基づくforループ
+	printf("- range-based for ... ");
+#ifdef GASHA_HAS_RANGE_BASED_FOR
+	printf("is available.\n");
+#else//GASHA_HAS_RANGE_BASED_FOR
+	printf("is NOT available.\n");
+#endif//GASHA_HAS_RANGE_BASED_FOR
+
 	//【C++11仕様】強い型付けを持った列挙型（enumの型指定）
 	printf("- enum class ... ");
 #ifdef GASHA_HAS_ENUM_CLASS
