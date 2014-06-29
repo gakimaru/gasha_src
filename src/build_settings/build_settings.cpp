@@ -359,6 +359,14 @@ void checkBuildSettings()
 	printf("is NOT available.\n");
 #endif//GASHA_HAS_TEMPLATE_ALIASES
 
+	//【C++11仕様】継承コンストラクタ
+	printf("- inheriting constructors ... ");
+#ifdef GASHA_HAS_INHERITING_CONSTRUCTORS
+	printf("is available.\n");
+#else//GASHA_HAS_INHERITING_CONSTRUCTORS
+	printf("is NOT available.\n");
+#endif//GASHA_HAS_INHERITING_CONSTRUCTORS
+		
 	//【C++11仕様】右辺値参照とムーブセマンティクス
 	printf("- rvalue reference & std::move ... ");
 #ifdef GASHA_HAS_RVALUE_REFERENCE
