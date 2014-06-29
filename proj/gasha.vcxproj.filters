@@ -28,20 +28,8 @@
     <Filter Include="ヘッダー ファイル\gasha\build_settings\project">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm">
-      <UniqueIdentifier>{e3c2751d-4db2-472c-9a36-3e91d96ee897}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\gasha\thread">
       <UniqueIdentifier>{85811cce-b7d0-4830-b170-7587129eef6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort">
-      <UniqueIdentifier>{2e104f62-97f0-487a-8520-683babd3b76c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\search">
-      <UniqueIdentifier>{86bdf5a2-2b94-4a21-92bb-d43928ebb84d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\basic">
-      <UniqueIdentifier>{e74a01d8-8e83-4be2-97f9-4d96fe98d0af}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\thread">
       <UniqueIdentifier>{f72a6f4b-2d37-4352-9f70-c10515a2b335}</UniqueIdentifier>
@@ -90,27 +78,6 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\gasha\container">
       <UniqueIdentifier>{cfaac4e9-3321-435b-a1c3-5f2530c4643f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\insertion_sort">
-      <UniqueIdentifier>{5417a619-f4af-4f3a-8c9e-4e7bb493f531}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\distributoin_sort">
-      <UniqueIdentifier>{dce3043d-05eb-47de-b295-593e182ad6c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\exhange_sort">
-      <UniqueIdentifier>{cc497d17-c428-4b65-93cd-6f27d5343368}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\partition_exchange_sort">
-      <UniqueIdentifier>{d024b74c-ad23-4adc-98d7-818207763530}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\selection_sort">
-      <UniqueIdentifier>{17ad5932-6f05-4065-8780-88741acfb1b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\merge_sort">
-      <UniqueIdentifier>{0d49286c-4994-4a51-ae46-3651fba40fe7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\hybrid_sort">
-      <UniqueIdentifier>{288bacdb-5410-4557-98c4-5f57d094004d}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\gasha\thread\shared_data\stack">
       <UniqueIdentifier>{2863d9ca-cc6e-401f-b4e9-21d548da2d6c}</UniqueIdentifier>
@@ -165,6 +132,39 @@
     </Filter>
     <Filter Include="ソース ファイル\utility">
       <UniqueIdentifier>{10fad7b9-a4c1-474d-a884-0da6289a2bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm">
+      <UniqueIdentifier>{e3c2751d-4db2-472c-9a36-3e91d96ee897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort">
+      <UniqueIdentifier>{2e104f62-97f0-487a-8520-683babd3b76c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\insertion_sort">
+      <UniqueIdentifier>{5417a619-f4af-4f3a-8c9e-4e7bb493f531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\distributoin_sort">
+      <UniqueIdentifier>{dce3043d-05eb-47de-b295-593e182ad6c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\exhange_sort">
+      <UniqueIdentifier>{cc497d17-c428-4b65-93cd-6f27d5343368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\partition_exchange_sort">
+      <UniqueIdentifier>{d024b74c-ad23-4adc-98d7-818207763530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\selection_sort">
+      <UniqueIdentifier>{17ad5932-6f05-4065-8780-88741acfb1b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\merge_sort">
+      <UniqueIdentifier>{0d49286c-4994-4a51-ae46-3651fba40fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\sort\hybrid_sort">
+      <UniqueIdentifier>{288bacdb-5410-4557-98c4-5f57d094004d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\search">
+      <UniqueIdentifier>{86bdf5a2-2b94-4a21-92bb-d43928ebb84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\algorithm\basic">
+      <UniqueIdentifier>{e74a01d8-8e83-4be2-97f9-4d96fe98d0af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +383,12 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h">
       <Filter>ヘッダー ファイル\gasha\container\adapter\priority_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\adjust_build_settings.h">
+      <Filter>ヘッダー ファイル\gasha\build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\build_configuration.h">
+      <Filter>ヘッダー ファイル\gasha\build_settings\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

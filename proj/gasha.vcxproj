@@ -25,6 +25,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\binary_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\adjust_build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\build_configuration.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\compiler_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\language_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\platform_auto_settings.h" />
