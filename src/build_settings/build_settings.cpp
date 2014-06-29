@@ -28,12 +28,12 @@
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------
-//ビルド設定が実行環境に適合するかチェック
+//ビルド設定が実行環境に適合するか診断
 //※ダメな要素があった場合、即abort
-void checkBuildSettings()
+void diagnoseBuildSettings()
 {
 	printf("------------------------------------------------------------------------------\n");
-	printf("Checking build-settings suitable for runtime environment.\n");
+	printf("Diagnose build-settings suitable for runtime environment.\n");
 	printf("\n");
 	
 	bool is_error = false;
