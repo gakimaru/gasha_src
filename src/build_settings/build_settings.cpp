@@ -18,7 +18,6 @@
 
 #include <stdio.h>//sprintf()
 #include <string.h>//strncpy()
-#include <assert.h>//assert()
 
 //【VC++】strncpy, sprintf を使用すると、error C4996 が発生する
 //  error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -489,12 +488,12 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	size += sprintf(message + size, "Configuration name: %s\n", GASHA_BUILD_CONFIG_NAME);
 	size += sprintf(message + size, "\n");
 
-	//#define GASHA_BUILD_CONFIG_DEBUG//フルデバッグ設定
-	//#define GASHA_BUILD_CONFIG_DEBUG_MODERATE//プログラム開発向け設定
-	//#define GASHA_BUILD_CONFIG_DEBUG_OPT//コンテンツ制作・QA向け設定
-	//#define GASHA_BUILD_CONFIG_REGRESSION_TEST//自動回帰テスト向け設定
-	//#define GASHA_BUILD_CONFIG_LOCAL_RELEASE//製品テスト向け設定
-	//#define GASHA_BUILD_CONFIG_RELEASE//製品向け設定
+	//#define GASHA_BUILD_CONFIG_IS_DEBUG//フルデバッグ設定
+	//#define GASHA_BUILD_CONFIG_IS_DEBUG_MODERATE//プログラム開発向け設定
+	//#define GASHA_BUILD_CONFIG_IS_DEBUG_OPT//コンテンツ制作・QA向け設定
+	//#define GASHA_BUILD_CONFIG_IS_REGRESSION_TEST//自動回帰テスト向け設定
+	//#define GASHA_BUILD_CONFIG_IS_LOCAL_RELEASE//製品テスト向け設定
+	//#define GASHA_BUILD_CONFIG_IS_RELEASE//製品向け設定
 
 	size += sprintf(message + size, "- debug feature ... ");
 #ifdef GASHA_HAS_DEBUG_FEATURE//デバッグ機能有効化
@@ -508,11 +507,11 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	size += sprintf(message + size, "\n");
 
 	size += sprintf(message + size, "- assertion ... ");
-#ifdef GASHA_ASSERTION_ENABLED//アサーション有効化
+#ifdef GASHA_ASSERTION_IS_ENABLED//アサーション有効化
 	size += sprintf(message + size, "is enabled.");
-#else//GASHA_ASSERTION_ENABLED
+#else//GASHA_ASSERTION_IS_ENABLED
 	size += sprintf(message + size, "is DISABLED.");
-#endif//GASHA_ASSERTION_ENABLED
+#endif//GASHA_ASSERTION_IS_ENABLED
 	size += sprintf(message + size, "\n");
 
 	size += sprintf(message + size, "- optimized ... ");
