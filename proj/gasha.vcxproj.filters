@@ -390,6 +390,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\build_configuration.h">
       <Filter>ヘッダー ファイル\gasha\build_settings\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
+      <Filter>ヘッダー ファイル\gasha\build_settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\limits.h">
+      <Filter>ヘッダー ファイル\gasha\utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">

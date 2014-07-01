@@ -360,6 +360,14 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	size += sprintf(message + size, "is NOT available.\n");
 #endif//GASHA_HAS_TEMPLATE_ALIASES
 
+	//【C++11仕様】委譲コンストラクタ
+	size += sprintf(message + size, "- delegating constructors ... ");
+#ifdef GASHA_HAS_DELEGATING_CONSTRUCTORS
+	size += sprintf(message + size, "is available.\n");
+#else//GASHA_HAS_DELEGATING_CONSTRUCTORS
+	size += sprintf(message + size, "is NOT available.\n");
+#endif//GASHA_HAS_DELEGATING_CONSTRUCTORS
+
 	//【C++11仕様】継承コンストラクタ
 	size += sprintf(message + size, "- inheriting constructors ... ");
 #ifdef GASHA_HAS_INHERITING_CONSTRUCTORS
@@ -367,7 +375,23 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 #else//GASHA_HAS_INHERITING_CONSTRUCTORS
 	size += sprintf(message + size, "is NOT available.\n");
 #endif//GASHA_HAS_INHERITING_CONSTRUCTORS
-		
+
+	//【C++11仕様】一様初期化
+	size += sprintf(message + size, "- uniform initializer ... ");
+#ifdef GASHA_HAS_UNIFORM_INITIALIZATION
+	size += sprintf(message + size, "is available.\n");
+#else//GASHA_HAS_UNIFORM_INITIALIZATION
+	size += sprintf(message + size, "is NOT available.\n");
+#endif//GASHA_HAS_UNIFORM_INITIALIZATION
+
+	//【C++11仕様】初期化リスト
+	size += sprintf(message + size, "- initializer list ... ");
+#ifdef GASHA_HAS_INITIALIZER_LIST
+	size += sprintf(message + size, "is available.\n");
+#else//GASHA_HAS_INITIALIZER_LIST
+	size += sprintf(message + size, "is NOT available.\n");
+#endif//GASHA_HAS_INITIALIZER_LIST
+
 	//【C++11仕様】右辺値参照とムーブセマンティクス
 	size += sprintf(message + size, "- rvalue reference & std::move ... ");
 #ifdef GASHA_HAS_RVALUE_REFERENCE

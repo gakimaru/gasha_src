@@ -1,6 +1,6 @@
 ﻿//#pragma once
-#ifndef __STANDARD_H_
-#define __STANDARD_H_
+#ifndef GASHA_INCLUDED_STANDARD_H
+#define GASHA_INCLUDED_STANDARD_H
 
 //--------------------------------------------------------------------------------
 // standard.h
@@ -14,6 +14,6 @@
 
 #include <gasha/build_settings/build_settings.h>
 
-#endif//__STANDARD_H_
+#endif//GASHA_INCLUDED_STANDARD_H
 
 // End of file
