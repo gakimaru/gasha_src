@@ -178,6 +178,12 @@
     <Filter Include="ビルド設定\ヘッダーファイル\gasha\build_settings\for_individual_projects">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\math\fast_math">
+      <UniqueIdentifier>{cac36130-2881-4b0e-a3a4-fd0f1af73b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\gasha\math\basic_math">
+      <UniqueIdentifier>{6c67284d-4f3e-41af-a1b6-db476b5ebb63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -215,9 +221,6 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h">
       <Filter>ヘッダー ファイル\gasha\utility</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
-      <Filter>ヘッダー ファイル\gasha\math</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h">
       <Filter>ヘッダー ファイル\gasha\thread\lock</Filter>
@@ -405,6 +408,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
       <Filter>ヘッダー ファイル\gasha\utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\fast_math.h">
+      <Filter>ヘッダー ファイル\gasha\math\fast_math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
+      <Filter>ヘッダー ファイル\gasha\math\basic_math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -480,6 +489,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\priority_queue.inl">
       <Filter>ヘッダー ファイル\gasha\container\adapter\priority_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\fast_math.inl">
+      <Filter>ヘッダー ファイル\gasha\math\fast_math</Filter>
     </None>
   </ItemGroup>
 </Project>

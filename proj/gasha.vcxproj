@@ -37,6 +37,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\fast_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.h" />
@@ -119,6 +120,7 @@
   <ItemGroup>
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
+    <None Include="..\..\gasha\include\gasha\fast_math.inl" />
     <None Include="..\..\gasha\include\gasha\hash_table.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />

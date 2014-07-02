@@ -159,11 +159,11 @@ crc32_t calcCRC32_loop(const char* data, const std::size_t len)
 	return ~crc;
 }
 
-#ifdef GASHA_CRC32_USE_STATIC_TABLE
 //--------------------
 //【ランタイム関数版：事前計算済み多項式テーブル版】文字列のCRC32計算
 crc32_t calcCRC32_table(const char* str)
 {
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
 	crc32_t crc = ~0u;
 	const char* p = str;
 	while (*p)
@@ -171,11 +171,15 @@ crc32_t calcCRC32_table(const char* str)
 		crc = s_polyTable[(crc ^ *(p++)) & 0xffu] ^ (crc >> 8);
 	}
 	return ~crc;
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(str);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
 }
 //--------------------
 //【ランタイム関数版：事前計算済み多項式テーブル版】指定長データのCRC32計算
 crc32_t calcCRC32_table(const char* data, const std::size_t len)
 {
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
 	crc32_t crc = ~0u;
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
@@ -183,14 +187,16 @@ crc32_t calcCRC32_table(const char* data, const std::size_t len)
 		crc = s_polyTable[(crc ^ *(p++)) & 0xffu] ^ (crc >> 8);
 	}
 	return ~crc;
-}
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(data, len);
 #endif//GASHA_CRC32_USE_STATIC_TABLE
+}
 
-#ifdef GASHA_USE_SSE4_2
 //--------------------
 //【ランタイム関数版：SSE命令版】文字列のCRC32計算
 crc32_t calcCRC32_sse(const char* str)
 {
+#ifdef GASHA_USE_SSE4_2
 	crc32_t crc = ~0u;
 	const char* p = str;
 	while (*p)
@@ -198,11 +204,19 @@ crc32_t calcCRC32_sse(const char* str)
 		crc = _mm_crc32_u8(crc, *(p++));
 	}
 	return ~crc;
+#else//GASHA_USE_SSE4_2
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_table(str);
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(str);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
+#endif//GASHA_USE_SSE4_2
 }
 //--------------------
 //【ランタイム関数版：SSE命令版】指定長データのCRC32計算
 crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 {
+#ifdef GASHA_USE_SSE4_2
 	crc32_t crc = ~0u;
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
@@ -210,8 +224,14 @@ crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 		crc = _mm_crc32_u8(crc, *(p++));
 	}
 	return ~crc;
-}
+#else//GASHA_USE_SSE4_2
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_table(data, len);
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(data, len);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
 #endif//GASHA_USE_SSE4_2
+}
 
 //--------------------
 //【プログラム作成補助処理】事前計算済み多項式テーブルの作成と表示
