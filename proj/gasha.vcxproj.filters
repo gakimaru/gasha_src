@@ -473,5 +473,8 @@
     <None Include="..\..\gasha\include\gasha\fast_math.inl">
       <Filter>gasha\math\fast_math</Filter>
     </None>
+    <None Include="..\..\gasha\include\gasha\basic_math.inl">
+      <Filter>gasha\math\basic_math</Filter>
+    </None>
   </ItemGroup>
 </Project>

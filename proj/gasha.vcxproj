@@ -118,6 +118,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\gasha\include\gasha\basic_math.inl" />
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
     <None Include="..\..\gasha\include\gasha\fast_math.inl" />
