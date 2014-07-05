@@ -38,6 +38,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_math.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\fast_string.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h" />
     <ClInclude Include="standard.h" />
@@ -99,7 +101,8 @@
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
-    <ClCompile Include="..\src\math\crc\crc32.cpp" />
+    <ClCompile Include="..\src\math\crc32.cpp" />
+    <ClCompile Include="..\src\string\fast_string.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\shared\shared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\shared\simple_shared_spin_lock.cpp" />
@@ -120,8 +123,10 @@
   <ItemGroup>
     <None Include="..\..\gasha\include\gasha\basic_math.inl" />
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
+    <None Include="..\..\gasha\include\gasha\crc32.inl" />
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
     <None Include="..\..\gasha\include\gasha\fast_math.inl" />
+    <None Include="..\..\gasha\include\gasha\fast_string.inl" />
     <None Include="..\..\gasha\include\gasha\hash_table.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
@@ -134,6 +139,7 @@
     <None Include="..\..\gasha\include\gasha\shared_queue.inl" />
     <None Include="..\..\gasha\include\gasha\shared_stack.inl" />
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
+    <None Include="..\..\gasha\include\gasha\utility.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F178704C-7D9B-4C88-BFB8-2D4452B7E159}</ProjectGuid>

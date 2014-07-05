@@ -10,7 +10,7 @@
 
 #include <gasha/simple_shared_spin_lock.h>//単純共有スピンロック
 
-//【VC++】例外を無効化した状態で <thread> をインクルードすると、warning C4530 が発生する
+//【VC++】例外を無効化した状態で <thread> <chrono> をインクルードすると、warning C4530 が発生する
 //  warning C4530: C++ 例外処理を使っていますが、アンワインド セマンティクスは有効にはなりません。/EHsc を指定してください。
 #pragma warning(disable: 4530)//C4530を抑える
 

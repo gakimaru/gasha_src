@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // basic_math.cpp
-// 基本算術用
+// 基本算術
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,7 +8,8 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/basic_math.h>//基本算術
+#include <gasha/basic_math.h>//基本算術【宣言部】
+#include <gasha/basic_math.inl>//基本算術【インライン関数／テンプレート関数定義部】
 
 #ifdef ENABLE_BUILTIN_POPCNT
 #ifdef GASHA_IS_VC

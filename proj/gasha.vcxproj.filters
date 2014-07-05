@@ -155,14 +155,17 @@
     <Filter Include="gasha_src\math">
       <UniqueIdentifier>{cbf73fd1-1c06-4768-8283-4bb661b30847}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\math\crc">
-      <UniqueIdentifier>{e1ad7375-cef2-41af-9c6b-254349cef507}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_src\utility">
       <UniqueIdentifier>{10fad7b9-a4c1-474d-a884-0da6289a2bae}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha_src\build_settings">
       <UniqueIdentifier>{372ca7f5-11c8-4909-b63c-7785737b8df3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\string">
+      <UniqueIdentifier>{3104bc62-f956-4fab-a928-3a1254f5c2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string">
+      <UniqueIdentifier>{000a6968-b107-4ec7-b6ca-d327fb807774}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -394,16 +397,16 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h">
       <Filter>gasha_build_settings</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\fast_string.h">
+      <Filter>gasha\string</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\utility.h">
+      <Filter>gasha\utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\math\crc\crc32.cpp">
-      <Filter>gasha_src\math\crc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\math\basic_math.cpp">
-      <Filter>gasha_src\math</Filter>
     </ClCompile>
     <ClCompile Include="..\src\build_settings\build_settings.cpp">
       <Filter>gasha_src\build_settings</Filter>
@@ -425,6 +428,15 @@
     </ClCompile>
     <ClCompile Include="..\src\utility\cpuid.cpp">
       <Filter>gasha_src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\basic_math.cpp">
+      <Filter>gasha_src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\crc32.cpp">
+      <Filter>gasha_src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\fast_string.cpp">
+      <Filter>gasha_src\string</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -475,6 +487,15 @@
     </None>
     <None Include="..\..\gasha\include\gasha\basic_math.inl">
       <Filter>gasha\math\basic_math</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\crc32.inl">
+      <Filter>gasha\math\crc</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\fast_string.inl">
+      <Filter>gasha\string</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\utility.inl">
+      <Filter>gasha\utility</Filter>
     </None>
   </ItemGroup>
 </Project>
