@@ -46,11 +46,12 @@ SRCS := \
 	$(SRC_BASE_DIR)/math/basic_math.cpp \
 	$(SRC_BASE_DIR)/string/fast_string.cpp \
 	$(SRC_BASE_DIR)/math/crc32.cpp \
+	$(SRC_BASE_DIR)/thread/lock/lock_common.cpp \
 	$(SRC_BASE_DIR)/thread/lock/spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/lock/lw_spin_lock.cpp \
-	$(SRC_BASE_DIR)/thread/lock/shared/shared_spin_lock.cpp \
-	$(SRC_BASE_DIR)/thread/lock/shared/simple_shared_spin_lock.cpp \
-	$(SRC_BASE_DIR)/thread/lock/shared/unshared_spin_lock.cpp \
+	$(SRC_BASE_DIR)/thread/lock/shared_spin_lock.cpp \
+	$(SRC_BASE_DIR)/thread/lock/simple_shared_spin_lock.cpp \
+	$(SRC_BASE_DIR)/thread/lock/unshared_spin_lock.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

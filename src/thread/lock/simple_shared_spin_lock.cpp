@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // simple_shared_spin_lock.cpp
-// 単純共有スピンロック
+// 単純共有スピンロック【関数定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,14 +8,16 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/simple_shared_spin_lock.h>//単純共有スピンロック
+#include <gasha/simple_shared_spin_lock.h>//単純共有スピンロック【宣言部】
+#include <gasha/simple_shared_spin_lock.inl>//単純共有スピンロック【インライン関数／テンプレート関数定義部】
 
-//【VC++】例外を無効化した状態で <thread> <chrono> をインクルードすると、warning C4530 が発生する
+#include <chrono>//C++11 std::chrono
+
+//【VC++】例外を無効化した状態で <thread> をインクルードすると、warning C4530 が発生する
 //  warning C4530: C++ 例外処理を使っていますが、アンワインド セマンティクスは有効にはなりません。/EHsc を指定してください。
 #pragma warning(disable: 4530)//C4530を抑える
 
 #include <thread>//C++11 std::this_thread
-#include <chrono>//C++11 std::chrono
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
