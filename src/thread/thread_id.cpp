@@ -38,7 +38,7 @@ void threadId::setThisName(const char* name) const
 
 //静的フィールドのインスタンス化
 thread_local bool threadId::m_thisIdIsInitialized = false;
-thread_local threadId::id_t threadId::m_thisId = threadId::INVALID_ID;
+thread_local threadId::id_type threadId::m_thisId = threadId::INITIAL_ID;
 thread_local const char* threadId::m_thisName = nullptr;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

@@ -35,6 +35,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_math.h" />
@@ -84,7 +85,10 @@
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\singleton.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.h" />
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
@@ -104,7 +108,6 @@
     <ClCompile Include="..\src\build_settings\build_settings.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
-    <ClCompile Include="..\src\singleton\singleton.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
@@ -115,6 +118,7 @@
     <ClCompile Include="..\src\thread\thread_id.cpp" />
     <ClCompile Include="..\src\utility\cpuid.cpp" />
     <ClCompile Include="..\src\utility\type_traits.cpp" />
+    <ClCompile Include="..\src\utility\utility.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>
@@ -135,6 +139,7 @@
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
+    <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
     <None Include="..\..\gasha\include\gasha\fast_math.inl" />
     <None Include="..\..\gasha\include\gasha\fast_string.inl" />
@@ -171,6 +176,7 @@
     <None Include="..\..\gasha\include\gasha\shell_sort.inl" />
     <None Include="..\..\gasha\include\gasha\simple_shared_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\singleton.inl" />
+    <None Include="..\..\gasha\include\gasha\singleton_debug.inl" />
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />

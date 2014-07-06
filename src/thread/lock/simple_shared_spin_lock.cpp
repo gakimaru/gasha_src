@@ -35,7 +35,7 @@ void simpleSharedSpinLock::lock(const int spin_count)
 		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを戻してリトライ
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
+			contextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
@@ -64,7 +64,7 @@ void simpleSharedSpinLock::lock_shared(const int spin_count)
 		m_lockCounter.fetch_add(1);//カウンタを戻してリトライ
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
+			contextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
@@ -77,6 +77,27 @@ bool simpleSharedSpinLock::try_lock_shared()
 	if (lock_counter >= 0)
 		return true;//ロック取得成功
 	m_lockCounter.fetch_add(1);//カウンタを戻す
+	return false;//ロック取得失敗
+}
+
+//アップグレード
+void simpleSharedSpinLock::upgrade(const int spin_count)
+{
+	const int lock_counter = m_lockCounter.fetch_sub(SHARED_LOCK_COUNTER_UNLOCKED - 1);//カウンタを更新
+	if (lock_counter == SHARED_LOCK_COUNTER_UNLOCKED - 1)
+		return;//ロック取得成功
+	m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED - 1);//カウンタを戻す
+	unlock_shared();
+	lock();
+}
+
+//アップグレードを試行
+bool simpleSharedSpinLock::try_upgrade()
+{
+	const int lock_counter = m_lockCounter.fetch_sub(SHARED_LOCK_COUNTER_UNLOCKED - 1);//カウンタを更新
+	if (lock_counter == SHARED_LOCK_COUNTER_UNLOCKED - 1)
+		return true;//ロック取得成功
+	m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED - 1);//カウンタを戻す
 	return false;//ロック取得失敗
 }
 

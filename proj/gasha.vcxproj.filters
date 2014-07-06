@@ -263,8 +263,11 @@
     <Filter Include="gasha\singleton">
       <UniqueIdentifier>{42737cf0-2906-4226-a46e-0a7f925d6ceb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\singleton">
-      <UniqueIdentifier>{609d9a27-8a95-403a-9b51-a756dd243728}</UniqueIdentifier>
+    <Filter Include="gasha\singleton\dummy_singleton_debug">
+      <UniqueIdentifier>{1a2296b4-a60f-419c-80d5-aefb48148368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\singleton\singleton_debug">
+      <UniqueIdentifier>{4a21deca-b054-4fa5-b0c6-f896c01020eb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +511,18 @@
     <ClInclude Include="..\..\gasha\include\gasha\singleton.h">
       <Filter>gasha\singleton</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.cpp.h">
+      <Filter>gasha\singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.h">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h">
+      <Filter>gasha\singleton\dummy_singleton_debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.cpp.h">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -549,10 +564,10 @@
     <ClCompile Include="..\src\thread\thread_id.cpp">
       <Filter>gasha_src\thread</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\singleton\singleton.cpp">
-      <Filter>gasha_src\singleton</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\utility\type_traits.cpp">
+      <Filter>gasha_src\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\utility.cpp">
       <Filter>gasha_src\utility</Filter>
     </ClCompile>
   </ItemGroup>
@@ -715,6 +730,12 @@
     </None>
     <None Include="..\..\gasha\include\gasha\singleton.inl">
       <Filter>gasha\singleton</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singleton_debug.inl">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl">
+      <Filter>gasha\singleton\dummy_singleton_debug</Filter>
     </None>
   </ItemGroup>
 </Project>

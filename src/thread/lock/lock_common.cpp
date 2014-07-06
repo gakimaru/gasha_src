@@ -22,10 +22,10 @@ const with_lock_t with_lock;
 const with_lock_shared_t with_lock_shared;
 
 //ロック／排他ロック試行 ※コンストラクタでロック／排他ロック取得を試行する
-const try_lock_t try_lock;
+const try_to_lock_t try_to_lock;
 
 //共有ロック試行 ※コンストラクタで共有ロック取得を試行する
-const try_lock_shared_t try_lock_shared;
+const try_to_lock_shared_t try_to_lock_shared;
 
 //ロック／排他取得済み状態管理の委譲 ※コンストラクタでロック／排他ロック取得済み状態にする（ロックを取得するわけではない）
 const adopt_lock_t adopt_lock;
@@ -35,6 +35,15 @@ const adopt_shared_lock_t adopt_shared_lock;
 
 //遅延ロック ※コンストラクタでロックを取得しない
 const defer_lock_t defer_lock;
+
+//----------------------------------------
+//コンテキストスイッチ
+
+const force_switch_t force_switch;
+
+const short_sleep_switch_t short_sleep_switch;
+
+const yield_switch_t yield_switch;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -42,6 +42,7 @@ OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
 # ソースファイル
 SRCS := \
 	$(SRC_BASE_DIR)/build_settings/build_settings.cpp \
+	$(SRC_BASE_DIR)/utility/utility.cpp \
 	$(SRC_BASE_DIR)/utility/type_traits.cpp \
 	$(SRC_BASE_DIR)/utility/cpuid.cpp \
 	$(SRC_BASE_DIR)/math/basic_math.cpp \
@@ -54,7 +55,6 @@ SRCS := \
 	$(SRC_BASE_DIR)/thread/lock/shared_spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/lock/simple_shared_spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/lock/unshared_spin_lock.cpp \
-	$(SRC_BASE_DIR)/singleton/singleton.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

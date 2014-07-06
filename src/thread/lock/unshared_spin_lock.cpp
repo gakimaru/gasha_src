@@ -33,7 +33,7 @@ void unsharedSpinLock::lock(const int spin_count)
 			return;
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(0));//コンテキストスイッチ（ゼロスリープ）
+			contextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
