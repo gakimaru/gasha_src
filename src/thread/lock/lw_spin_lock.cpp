@@ -8,7 +8,6 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/lw_spin_lock.h>//サイズ軽量スピンロック【宣言部】
 #include <gasha/lw_spin_lock.inl>//サイズ軽量スピンロック【インライン関数／テンプレート関数定義部】
 
 #include <chrono>//C++11 std::chrono

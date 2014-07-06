@@ -84,11 +84,13 @@
     <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.h" />
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
@@ -102,6 +104,7 @@
     <ClCompile Include="..\src\build_settings\build_settings.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
+    <ClCompile Include="..\src\singleton\singleton.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
@@ -109,7 +112,9 @@
     <ClCompile Include="..\src\thread\lock\simple_shared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp" />
+    <ClCompile Include="..\src\thread\thread_id.cpp" />
     <ClCompile Include="..\src\utility\cpuid.cpp" />
+    <ClCompile Include="..\src\utility\type_traits.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>
@@ -165,9 +170,11 @@
     <None Include="..\..\gasha\include\gasha\shear_sort.inl" />
     <None Include="..\..\gasha\include\gasha\shell_sort.inl" />
     <None Include="..\..\gasha\include\gasha\simple_shared_spin_lock.inl" />
+    <None Include="..\..\gasha\include\gasha\singleton.inl" />
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
+    <None Include="..\..\gasha\include\gasha\thread_id.inl" />
     <None Include="..\..\gasha\include\gasha\type_traits.inl" />
     <None Include="..\..\gasha\include\gasha\unique_lock.inl" />
     <None Include="..\..\gasha\include\gasha\unique_shared_lock.inl" />

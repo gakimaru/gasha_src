@@ -8,7 +8,6 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/fast_string.h>//高速文字列処理【宣言部】
 #include <gasha/fast_string.inl>//高速文字列処理【インライン関数／テンプレート関数定義部】
 
 #include <gasha/fast_math.h>//高速算術

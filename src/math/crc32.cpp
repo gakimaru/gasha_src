@@ -8,7 +8,6 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/crc32.h>//CRC32計算【宣言部】
 #include <gasha/crc32.inl>//CRC32計算【インライン関数定義部】
 
 #include <stdio.h>//printf()

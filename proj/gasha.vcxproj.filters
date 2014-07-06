@@ -257,6 +257,15 @@
     <Filter Include="gasha\thread\scoped_lock\unique_shared_lock">
       <UniqueIdentifier>{87b6b9b2-8a6b-413f-95b9-c9b40d0883da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\thread\thread_id">
+      <UniqueIdentifier>{6a1d6374-a9d6-4f0c-a3b9-db0cb56d22cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\singleton">
+      <UniqueIdentifier>{42737cf0-2906-4226-a46e-0a7f925d6ceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\singleton">
+      <UniqueIdentifier>{609d9a27-8a95-403a-9b51-a756dd243728}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -493,6 +502,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h">
       <Filter>gasha\thread\scoped_lock\unique_shared_lock</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\thread_id.h">
+      <Filter>gasha\thread\thread_id</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.h">
+      <Filter>gasha\singleton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -530,6 +545,15 @@
     </ClCompile>
     <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp">
       <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\thread_id.cpp">
+      <Filter>gasha_src\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\singleton\singleton.cpp">
+      <Filter>gasha_src\singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\type_traits.cpp">
+      <Filter>gasha_src\utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -685,6 +709,12 @@
     </None>
     <None Include="..\..\gasha\include\gasha\simple_shared_spin_lock.inl">
       <Filter>gasha\thread\lock\simple_shared_spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\thread_id.inl">
+      <Filter>gasha\thread\thread_id</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singleton.inl">
+      <Filter>gasha\singleton</Filter>
     </None>
   </ItemGroup>
 </Project>

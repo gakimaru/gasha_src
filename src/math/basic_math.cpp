@@ -8,7 +8,6 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/basic_math.h>//基本算術【宣言部】
 #include <gasha/basic_math.inl>//基本算術【インライン関数／テンプレート関数定義部】
 
 #ifdef ENABLE_BUILTIN_POPCNT

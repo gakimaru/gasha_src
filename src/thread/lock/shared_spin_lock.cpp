@@ -8,7 +8,6 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/shared_spin_lock.h>//共有スピンロック【宣言部】
 #include <gasha/shared_spin_lock.inl>//共有スピンロック【インライン関数／テンプレート関数定義部】
 
 #include <chrono>//C++11 std::chrono

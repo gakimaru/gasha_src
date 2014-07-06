@@ -10,18 +10,18 @@
 
 #include <gasha/build_settings/build_settings.h>//ビルド設定
 
+#include <gasha/fast_string.h>//高速文字列：strncpy_fast()
+
 #include <gasha/cpuid.h>//CPU情報（x86系CPU用）
+
+#include <stdio.h>//sprintf
 
 #ifdef GASHA_USE_AVX
 #include <immintrin.h>//AVX
 #endif//GASHA_USE_AVX
 
-#include <stdio.h>//sprintf()
-#include <string.h>//strncpy()
-
-//【VC++】strncpy, sprintf を使用すると、error C4996 が発生する
-//  error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-//  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+//【VC++】sprintf を使用すると、error C4996 が発生する
+//  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_fast_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 #pragma warning(disable: 4996)//C4996を抑える
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
@@ -45,7 +45,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	char cpu_info_str[12] = { 0 };
 	int cpu_info[4] = { 0, 0, 0, 0 };
 	__cpuid(cpu_info, 0);//CPU情報取得：Type0
-	strncpy(cpu_info_str, reinterpret_cast<const char*>(&cpu_info[1]), sizeof(cpu_info_str) - 1);
+	strncpy_fast(cpu_info_str, reinterpret_cast<const char*>(&cpu_info[1]), sizeof(cpu_info_str) - 1);
 	size += sprintf(message + size, "cpu_string=\"%s\"\n", cpu_info_str);
 	__cpuid(cpu_info, 1);//CPU情報取得：Type1
 
@@ -54,7 +54,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE is supported.\n");
 #else//GASHA_USE_SSE
@@ -66,7 +66,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse2_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE2 is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE2 is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE2 is supported.\n");
 #else//GASHA_USE_SSE2
@@ -78,7 +78,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse3_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE3 is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE3 is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE3 is supported.\n");
 #else//GASHA_USE_SSE3
@@ -90,7 +90,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse4a_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE4a is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE4a is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE4a is NOT supported.\n");
 #else//GASHA_USE_SSE4A
@@ -102,7 +102,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse4_1_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE4.1 is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE4.1 is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE4.1 is NOT supported.\n");
 #else//GASHA_USE_SSE4_1
@@ -114,7 +114,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!sse4_2_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] SSE4.2 is NOT supported!\n");
+		size += sprintf(message + size, "[NG] SSE4.2 is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] SSE4.2 is supported.\n");
 #else//GASHA_USE_SSE4_2
@@ -126,7 +126,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!poopcnt_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] POPCNT is NOT supported!\n");
+		size += sprintf(message + size, "[NG] POPCNT is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] POPCNT is supported.\n");
 #else//GASHA_USE_POPCNT
@@ -138,7 +138,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if (!aes_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] AES is NOT supported!\n");
+		size += sprintf(message + size, "[NG] AES is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] AES is supported.\n");
 #else//GASHA_USE_AES
@@ -160,7 +160,7 @@ bool diagnoseBuildSettings(char* message, std::size_t& size)
 	if(!avx_is_supported)
 	{
 		has_error = true;
-		fprintf(stderr, "[NG] AVX is NOT supported!\n");
+		size += sprintf(message + size, "[NG] AVX is NOT supported!\n");
 	}
 	size += sprintf(message + size, "[OK] AVX is supported.\n");
 #else//GASHA_USE_AVX
