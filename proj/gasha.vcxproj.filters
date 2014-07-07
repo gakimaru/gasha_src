@@ -281,7 +281,7 @@
     <Filter Include="gasha_build_settings\common\platform">
       <UniqueIdentifier>{ed513861-8594-4e69-923a-9e65396c92d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_build_settings\project">
+    <Filter Include="gasha_build_settings\for_project">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -557,10 +557,10 @@
       <Filter>gasha_build_settings\common\platform</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h">
-      <Filter>gasha_build_settings\project</Filter>
+      <Filter>gasha_build_settings\for_project</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h">
-      <Filter>gasha_build_settings\project</Filter>
+      <Filter>gasha_build_settings\for_project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
