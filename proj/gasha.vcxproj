@@ -25,15 +25,21 @@
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\adjust_build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\adjust_build_settings.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\build_configuration.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\compiler_auto_settings.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\language_auto_settings.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\platform_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\compiler_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\language_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_endian.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_x86.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_cygwin.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_linux.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_win.h" />
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
@@ -94,6 +100,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
@@ -101,8 +108,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h" />
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h" />
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h" />
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h" />
     <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
@@ -136,8 +143,10 @@
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\binary_search.inl" />
     <None Include="..\..\gasha\include\gasha\bubble_sort.inl" />
+    <None Include="..\..\gasha\include\gasha\build_settings\build_settings.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
+    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />
@@ -180,6 +189,7 @@
     <None Include="..\..\gasha\include\gasha\singleton_debug.inl" />
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
+    <None Include="..\..\gasha\include\gasha\stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />
     <None Include="..\..\gasha\include\gasha\type_traits.inl" />

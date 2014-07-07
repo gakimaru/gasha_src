@@ -109,9 +109,6 @@
     <Filter Include="gasha_build_settings\common">
       <UniqueIdentifier>{5d7f0893-6438-428c-b061-ed91f9b9f8cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_build_settings\for_individual_projects">
-      <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_src">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -272,28 +269,28 @@
     <Filter Include="gasha\allocator\lf_pool_allocator">
       <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\allocator\stack_allocator">
+      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\allocator\dual_stack_allocator">
+      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\allocator\lf_stack_allocator">
+      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\common\platform">
+      <UniqueIdentifier>{ed513861-8594-4e69-923a-9e65396c92d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\project">
+      <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
       <Filter>プリコンパイル済みヘッダー</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\language_auto_settings.h">
-      <Filter>gasha_build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\platform_auto_settings.h">
-      <Filter>gasha_build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\compiler_auto_settings.h">
-      <Filter>gasha_build_settings\common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h">
       <Filter>gasha\math\crc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\last_settings.h">
-      <Filter>gasha_build_settings\for_individual_projects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project\first_settings.h">
-      <Filter>gasha_build_settings\for_individual_projects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
       <Filter>gasha\thread\lock</Filter>
@@ -382,12 +379,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h">
       <Filter>gasha\container\adapter\priority_queue</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\adjust_build_settings.h">
-      <Filter>gasha_build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\common\build_configuration.h">
-      <Filter>gasha_build_settings\common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
       <Filter>gasha\utility</Filter>
     </ClInclude>
@@ -396,9 +387,6 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
       <Filter>gasha\math\basic_math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h">
-      <Filter>gasha_build_settings</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h">
       <Filter>gasha\algorithm\basic\iterator</Filter>
@@ -528,6 +516,51 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
       <Filter>gasha\allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
+      <Filter>gasha\allocator\dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h">
+      <Filter>gasha\allocator\stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\compiler_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\language_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\adjust_build_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h">
+      <Filter>gasha_build_settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_cygwin.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_linux.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_win.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_endian.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_x86.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h">
+      <Filter>gasha_build_settings\project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h">
+      <Filter>gasha_build_settings\project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -742,6 +775,15 @@
     </None>
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl">
       <Filter>gasha\allocator\pool_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl">
+      <Filter>gasha\allocator\dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\stack_allocator.inl">
+      <Filter>gasha\allocator\stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\build_settings\build_settings.inl">
+      <Filter>gasha_build_settings</Filter>
     </None>
   </ItemGroup>
 </Project>
