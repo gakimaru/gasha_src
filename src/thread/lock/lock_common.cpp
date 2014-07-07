@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // lock_common.cpp
-// ロック共通設定【定義部】
+// ロック共通設定【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -39,10 +39,13 @@ const defer_lock_t defer_lock;
 //----------------------------------------
 //コンテキストスイッチ
 
+//確実なスイッチ
 const force_switch_t force_switch;
 
+//短いスリープでスイッチ
 const short_sleep_switch_t short_sleep_switch;
 
+//イールド
 const yield_switch_t yield_switch;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

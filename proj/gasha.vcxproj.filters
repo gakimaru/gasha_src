@@ -203,9 +203,6 @@
     <Filter Include="gasha\utility\limits">
       <UniqueIdentifier>{72f7b0a2-a227-4ca0-91f9-557701f507d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\thread\shared_data\shared_pool_allocator">
-      <UniqueIdentifier>{2bb60380-eec1-4af4-941b-05bb37c5dff1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\thread\shared_data\shared_queue">
       <UniqueIdentifier>{b24ddf39-6266-4795-a35c-1dc4132ed0bf}</UniqueIdentifier>
     </Filter>
@@ -214,9 +211,6 @@
     </Filter>
     <Filter Include="gasha\thread\shared_data\tagged_ptr">
       <UniqueIdentifier>{4470fd88-388c-4a29-8e53-838bd664e620}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\thread\shared_data\lf_pool_allocator">
-      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha\thread\shared_data\lf_queue">
       <UniqueIdentifier>{8fecc331-84bb-4990-abfa-12c8116fe164}</UniqueIdentifier>
@@ -269,6 +263,15 @@
     <Filter Include="gasha\singleton\singleton_debug">
       <UniqueIdentifier>{4a21deca-b054-4fa5-b0c6-f896c01020eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\allocator">
+      <UniqueIdentifier>{fe9a36e5-7b0f-430e-b76a-e8a64148ad8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\allocator\pool_allocator">
+      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\allocator\lf_pool_allocator">
+      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -308,16 +311,13 @@
       <Filter>gasha\container\external\dynamic_array</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h">
-      <Filter>gasha\thread\shared_data\lf_pool_allocator</Filter>
+      <Filter>gasha\allocator\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.h">
       <Filter>gasha\thread\shared_data\lf_stack</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.h">
-      <Filter>gasha\thread\shared_data\shared_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h">
       <Filter>gasha\thread\shared_data\shared_queue</Filter>
@@ -331,11 +331,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\shared_stack.cpp.h">
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.cpp.h">
-      <Filter>gasha\thread\shared_data\shared_pool_allocator</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h">
-      <Filter>gasha\thread\shared_data\lf_pool_allocator</Filter>
+      <Filter>gasha\allocator\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -523,6 +520,15 @@
     <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.cpp.h">
       <Filter>gasha\singleton\singleton_debug</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h">
+      <Filter>gasha\allocator\pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h">
+      <Filter>gasha\allocator\pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
+      <Filter>gasha\allocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -581,11 +587,8 @@
     <None Include="..\..\gasha\include\gasha\shared_stack.inl">
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\shared_pool_allocator.inl">
-      <Filter>gasha\thread\shared_data\shared_pool_allocator</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl">
-      <Filter>gasha\thread\shared_data\lf_pool_allocator</Filter>
+      <Filter>gasha\allocator\lf_pool_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\lf_queue.inl">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -736,6 +739,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl">
       <Filter>gasha\singleton\dummy_singleton_debug</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\pool_allocator.inl">
+      <Filter>gasha\allocator\pool_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>

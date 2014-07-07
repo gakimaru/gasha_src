@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // basic_math.cpp
-// 基本算術【関数定義部】
+// 基本算術【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru

@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // shared_spin_lock.cpp
-// 共有スピンロック【関数定義部】
+// 共有スピンロック【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru

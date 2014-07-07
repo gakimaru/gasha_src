@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h" />
@@ -63,6 +64,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h" />
@@ -75,8 +78,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.cpp.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\shared_pool_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_queue.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h" />
@@ -160,6 +161,7 @@
     <None Include="..\..\gasha\include\gasha\lock_guard.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
+    <None Include="..\..\gasha\include\gasha\pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\priority_queue.inl" />
     <None Include="..\..\gasha\include\gasha\quick_sort.inl" />
     <None Include="..\..\gasha\include\gasha\radix_sort.inl" />
@@ -168,7 +170,6 @@
     <None Include="..\..\gasha\include\gasha\selection_sort.inl" />
     <None Include="..\..\gasha\include\gasha\shaker_sort.inl" />
     <None Include="..\..\gasha\include\gasha\shared_lock_guard.inl" />
-    <None Include="..\..\gasha\include\gasha\shared_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\shared_queue.inl" />
     <None Include="..\..\gasha\include\gasha\shared_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\shared_stack.inl" />

@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // thread_id.cpp
-// スレッドID【関数定義部】
+// スレッドID【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru

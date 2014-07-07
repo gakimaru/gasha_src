@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // type_traits.cpp
-// 型特性ユーティリティ【関数定義部】
+// 型特性ユーティリティ【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
