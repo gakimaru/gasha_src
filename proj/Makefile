@@ -41,10 +41,10 @@ OUT_DIR := $(OUT_BASE_DIR)/sub/gasha_src
 
 # ソースファイル
 SRCS := \
-	$(SRC_BASE_DIR)/build_settings/build_settings.cpp \
-	$(SRC_BASE_DIR)/utility/utility.cpp \
-	$(SRC_BASE_DIR)/utility/type_traits.cpp \
+	$(SRC_BASE_DIR)/build_settings/build_settings_diag.cpp \
 	$(SRC_BASE_DIR)/utility/cpuid.cpp \
+	$(SRC_BASE_DIR)/utility/type_traits.cpp \
+	$(SRC_BASE_DIR)/utility/chrono.cpp \
 	$(SRC_BASE_DIR)/math/basic_math.cpp \
 	$(SRC_BASE_DIR)/math/crc32.cpp \
 	$(SRC_BASE_DIR)/string/fast_string.cpp \

@@ -28,6 +28,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\adjust_build_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\compiler_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\language_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_cygwin.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_linux.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_win.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\chrono.h" />
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
@@ -69,6 +71,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\memory.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h" />
@@ -113,7 +116,7 @@
     <ClInclude Include="standard.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\build_settings\build_settings.cpp" />
+    <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
@@ -124,9 +127,9 @@
     <ClCompile Include="..\src\thread\lock\spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\thread_id.cpp" />
+    <ClCompile Include="..\src\utility\chrono.cpp" />
     <ClCompile Include="..\src\utility\cpuid.cpp" />
     <ClCompile Include="..\src\utility\type_traits.cpp" />
-    <ClCompile Include="..\src\utility\utility.cpp" />
     <ClCompile Include="standard.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">standard.h</PrecompiledHeaderFile>
@@ -143,7 +146,8 @@
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\binary_search.inl" />
     <None Include="..\..\gasha\include\gasha\bubble_sort.inl" />
-    <None Include="..\..\gasha\include\gasha\build_settings\build_settings.inl" />
+    <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl" />
+    <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
@@ -169,6 +173,7 @@
     <None Include="..\..\gasha\include\gasha\linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\lock_guard.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
+    <None Include="..\..\gasha\include\gasha\memory.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\priority_queue.inl" />

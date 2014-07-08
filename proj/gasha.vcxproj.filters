@@ -260,29 +260,38 @@
     <Filter Include="gasha\singleton\singleton_debug">
       <UniqueIdentifier>{4a21deca-b054-4fa5-b0c6-f896c01020eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\allocator">
-      <UniqueIdentifier>{fe9a36e5-7b0f-430e-b76a-e8a64148ad8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\allocator\pool_allocator">
-      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\allocator\lf_pool_allocator">
-      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\allocator\stack_allocator">
-      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\allocator\dual_stack_allocator">
-      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\allocator\lf_stack_allocator">
-      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_build_settings\common\platform">
       <UniqueIdentifier>{ed513861-8594-4e69-923a-9e65396c92d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha_build_settings\for_project">
       <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\diag">
+      <UniqueIdentifier>{04d405b1-c740-4dc7-81f3-319e33086ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\chrono">
+      <UniqueIdentifier>{845c1b9c-95b1-43bf-b829-68bc3854cbd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory">
+      <UniqueIdentifier>{fe9a36e5-7b0f-430e-b76a-e8a64148ad8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\pool_allocator">
+      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\lf_pool_allocator">
+      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\stack_allocator">
+      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\dual_stack_allocator">
+      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\lf_stack_allocator">
+      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\memory">
+      <UniqueIdentifier>{040b889b-2fbb-4a96-bb46-0f472bbb68ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -308,7 +317,7 @@
       <Filter>gasha\container\external\dynamic_array</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h">
-      <Filter>gasha\allocator\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -329,7 +338,7 @@
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h">
-      <Filter>gasha\allocator\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -509,19 +518,19 @@
       <Filter>gasha\singleton\singleton_debug</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h">
-      <Filter>gasha\allocator\pool_allocator</Filter>
+      <Filter>gasha\memory\pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h">
-      <Filter>gasha\allocator\pool_allocator</Filter>
+      <Filter>gasha\memory\pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
-      <Filter>gasha\allocator</Filter>
+      <Filter>gasha\memory</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
-      <Filter>gasha\allocator\dual_stack_allocator</Filter>
+      <Filter>gasha\memory\dual_stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h">
-      <Filter>gasha\allocator\stack_allocator</Filter>
+      <Filter>gasha\memory\stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h">
       <Filter>gasha_build_settings\common</Filter>
@@ -562,13 +571,19 @@
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h">
       <Filter>gasha_build_settings\for_project</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.h">
+      <Filter>gasha_build_settings\diag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\chrono.h">
+      <Filter>gasha\utility\chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\memory.h">
+      <Filter>gasha\memory\memory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\build_settings\build_settings.cpp">
-      <Filter>gasha_src\build_settings</Filter>
     </ClCompile>
     <ClCompile Include="..\src\utility\cpuid.cpp">
       <Filter>gasha_src\utility</Filter>
@@ -606,7 +621,10 @@
     <ClCompile Include="..\src\utility\type_traits.cpp">
       <Filter>gasha_src\utility</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\utility\utility.cpp">
+    <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
+      <Filter>gasha_src\build_settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\chrono.cpp">
       <Filter>gasha_src\utility</Filter>
     </ClCompile>
   </ItemGroup>
@@ -621,7 +639,7 @@
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl">
-      <Filter>gasha\allocator\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\lf_pool_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\lf_queue.inl">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -774,16 +792,22 @@
       <Filter>gasha\singleton\dummy_singleton_debug</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl">
-      <Filter>gasha\allocator\pool_allocator</Filter>
+      <Filter>gasha\memory\pool_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl">
-      <Filter>gasha\allocator\dual_stack_allocator</Filter>
+      <Filter>gasha\memory\dual_stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl">
-      <Filter>gasha\allocator\stack_allocator</Filter>
+      <Filter>gasha\memory\stack_allocator</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\build_settings\build_settings.inl">
-      <Filter>gasha_build_settings</Filter>
+    <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl">
+      <Filter>gasha_build_settings\diag</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\chrono.inl">
+      <Filter>gasha\utility\chrono</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\memory.inl">
+      <Filter>gasha\memory\memory</Filter>
     </None>
   </ItemGroup>
 </Project>
