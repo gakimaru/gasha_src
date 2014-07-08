@@ -103,6 +103,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />

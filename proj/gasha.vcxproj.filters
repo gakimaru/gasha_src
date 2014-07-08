@@ -275,26 +275,26 @@
     <Filter Include="gasha\memory">
       <UniqueIdentifier>{fe9a36e5-7b0f-430e-b76a-e8a64148ad8f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\pool_allocator">
-      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\lf_pool_allocator">
-      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\stack_allocator">
-      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\dual_stack_allocator">
-      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\lf_stack_allocator">
-      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\memory\memory">
       <UniqueIdentifier>{040b889b-2fbb-4a96-bb46-0f472bbb68ce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\common">
-      <UniqueIdentifier>{b212f287-9460-4816-bd33-d5b0f45766e1}</UniqueIdentifier>
+    <Filter Include="gasha\memory\allocator">
+      <UniqueIdentifier>{5bbc8bc8-43ff-49fc-a5d3-8ce19a8e78b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\dual_stack_allocator">
+      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_pool_allocator">
+      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_stack_allocator">
+      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\pool_allocator">
+      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\stack_allocator">
+      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -320,7 +320,7 @@
       <Filter>gasha\container\external\dynamic_array</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h">
-      <Filter>gasha\memory\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -341,7 +341,7 @@
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h">
-      <Filter>gasha\memory\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -521,16 +521,16 @@
       <Filter>gasha\singleton\singleton_debug</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h">
-      <Filter>gasha\memory\pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h">
-      <Filter>gasha\memory\pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
-      <Filter>gasha\memory\dual_stack_allocator</Filter>
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h">
-      <Filter>gasha\memory\stack_allocator</Filter>
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h">
       <Filter>gasha_build_settings\common</Filter>
@@ -584,7 +584,10 @@
       <Filter>gasha_build_settings\for_project</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
-      <Filter>gasha\memory\common</Filter>
+      <Filter>gasha\memory\allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -645,7 +648,7 @@
       <Filter>gasha\thread\shared_data\shared_stack</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl">
-      <Filter>gasha\memory\lf_pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\lf_queue.inl">
       <Filter>gasha\thread\shared_data\lf_queue</Filter>
@@ -798,13 +801,13 @@
       <Filter>gasha\singleton\dummy_singleton_debug</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl">
-      <Filter>gasha\memory\pool_allocator</Filter>
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl">
-      <Filter>gasha\memory\dual_stack_allocator</Filter>
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl">
-      <Filter>gasha\memory\stack_allocator</Filter>
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl">
       <Filter>gasha_build_settings\diag</Filter>
