@@ -111,6 +111,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h" />
     <ClInclude Include="standard.h" />

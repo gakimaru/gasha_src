@@ -293,6 +293,9 @@
     <Filter Include="gasha\memory\memory">
       <UniqueIdentifier>{040b889b-2fbb-4a96-bb46-0f472bbb68ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\memory\common">
+      <UniqueIdentifier>{b212f287-9460-4816-bd33-d5b0f45766e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -523,9 +526,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h">
       <Filter>gasha\memory\pool_allocator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
-      <Filter>gasha\memory</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
       <Filter>gasha\memory\dual_stack_allocator</Filter>
     </ClInclude>
@@ -579,6 +579,12 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\memory.h">
       <Filter>gasha\memory\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h">
+      <Filter>gasha_build_settings\for_project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
+      <Filter>gasha\memory\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
