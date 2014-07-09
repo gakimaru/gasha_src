@@ -41,7 +41,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
@@ -58,6 +57,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\is_ordered.h" />
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_mono_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h" />
@@ -74,6 +74,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\memory.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h" />
@@ -123,6 +125,7 @@
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
+    <ClCompile Include="..\src\memory\allocator\lf_mono_allocator.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
@@ -154,7 +157,6 @@
     <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
-    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />
@@ -169,6 +171,7 @@
     <None Include="..\..\gasha\include\gasha\intro_sort.inl" />
     <None Include="..\..\gasha\include\gasha\is_ordered.inl" />
     <None Include="..\..\gasha\include\gasha\iterator.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_mono_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
     <None Include="..\..\gasha\include\gasha\lf_stack.inl" />
@@ -179,6 +182,7 @@
     <None Include="..\..\gasha\include\gasha\lock_guard.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\memory.inl" />
+    <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\priority_queue.inl" />
