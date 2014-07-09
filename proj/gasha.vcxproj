@@ -59,6 +59,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\is_ordered.h" />
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_mono_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h" />
@@ -174,6 +176,7 @@
     <None Include="..\..\gasha\include\gasha\intro_sort.inl" />
     <None Include="..\..\gasha\include\gasha\is_ordered.inl" />
     <None Include="..\..\gasha\include\gasha\iterator.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_mono_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
