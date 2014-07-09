@@ -3,12 +3,6 @@
 // lf_mono_allocator.cpp
 // ロックフリー単一アロケータ【関数定義部】
 //
-// ※クラスのインスタンス化が必要な場所でインクルード。
-// ※基本的に、ヘッダーファイル内でのインクルード禁止。
-// 　（コンパイル・リンク時間への影響を気にしないならOK）
-// ※明示的なインスタンス化を避けたい場合は、ヘッダーファイルと共にインクルード。
-// 　（この場合、実際に使用するメンバー関数しかインスタンス化されないので、対象クラスに不要なインターフェースを実装しなくても良い）
-//
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
 //   Released under the MIT license.
@@ -19,12 +13,7 @@
 
 #include <gasha/type_traits.inl>//型特性ユーティリティ：toStr()
 
-#include <utility>//C++11 std::move
-
 #include <assert.h>//assert()
-
-//【VC++】ワーニング設定を退避
-#pragma warning(push)
 
 //【VC++】例外を無効化した状態で <new> をインクルードすると、warning C4530 が発生する
 //  warning C4530: C++ 例外処理を使っていますが、アンワインド セマンティクスは有効にはなりません。/EHsc を指定してください。

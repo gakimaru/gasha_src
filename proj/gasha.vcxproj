@@ -41,6 +41,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
@@ -157,6 +159,7 @@
     <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
+    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />

@@ -622,6 +622,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\lf_mono_allocator.h">
       <Filter>gasha\memory\allocator\lf_mono_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -859,6 +865,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\lf_mono_allocator.inl">
       <Filter>gasha\memory\allocator\lf_mono_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>
