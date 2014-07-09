@@ -64,6 +64,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_stack.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\limits.h" />
     <ClInclude Include="..\..\gasha\include\gasha\linear_search.h" />
     <ClInclude Include="..\..\gasha\include\gasha\linked_list.cpp.h" />
@@ -170,6 +172,7 @@
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_queue.inl" />
     <None Include="..\..\gasha\include\gasha\lf_stack.inl" />
+    <None Include="..\..\gasha\include\gasha\lf_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\limits.inl" />
     <None Include="..\..\gasha\include\gasha\linear_search.inl" />
     <None Include="..\..\gasha\include\gasha\linked_list.inl" />

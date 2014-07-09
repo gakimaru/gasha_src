@@ -589,6 +589,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h">
       <Filter>gasha\memory\allocator\stack_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.h">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -817,6 +823,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\memory.inl">
       <Filter>gasha\memory\memory</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>
