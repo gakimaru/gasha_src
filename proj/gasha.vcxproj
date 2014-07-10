@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\builtin_functions.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\compiler_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\language_auto_settings.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings.h" />
@@ -51,8 +52,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_string.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.cpp.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.h" />
@@ -83,7 +82,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\memory.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\new.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h" />
@@ -118,6 +119,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
@@ -164,6 +167,7 @@
     <None Include="..\..\gasha\include\gasha\binary_search.inl" />
     <None Include="..\..\gasha\include\gasha\bubble_sort.inl" />
     <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl" />
+    <None Include="..\..\gasha\include\gasha\build_settings\builtin_functions.inl" />
     <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
@@ -174,7 +178,6 @@
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
     <None Include="..\..\gasha\include\gasha\fast_math.inl" />
     <None Include="..\..\gasha\include\gasha\fast_string.inl" />
-    <None Include="..\..\gasha\include\gasha\global_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\gnome_sort.inl" />
     <None Include="..\..\gasha\include\gasha\hash_table.inl" />
     <None Include="..\..\gasha\include\gasha\heap_sort.inl" />
@@ -196,7 +199,9 @@
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\memory.inl" />
     <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\new.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
+    <None Include="..\..\gasha\include\gasha\poly_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\priority_queue.inl" />
     <None Include="..\..\gasha\include\gasha\quick_sort.inl" />
@@ -219,6 +224,7 @@
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\std_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />
     <None Include="..\..\gasha\include\gasha\type_traits.inl" />

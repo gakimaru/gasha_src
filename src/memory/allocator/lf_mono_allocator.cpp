@@ -15,11 +15,8 @@
 
 #include <assert.h>//assert()
 
-//【VC++】例外を無効化した状態で <new> をインクルードすると、warning C4530 が発生する
-//  warning C4530: C++ 例外処理を使っていますが、アンワインド セマンティクスは有効にはなりません。/EHsc を指定してください。
-#pragma warning(disable: 4530)//C4530を抑える
-
-#include <new>//配置new,配置delete用
+//【VC++】ワーニング設定を退避
+#pragma warning(push)
 
 //【VC++】sprintf を使用すると、error C4996 が発生する
 //  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_fast_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -80,6 +77,9 @@ bool lfMonoAllocator::_free(void* p)
 	m_size.store(0);
 	return true;
 }
+
+//【VC++】ワーニング設定を復元
+#pragma warning(pop)
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

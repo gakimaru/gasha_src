@@ -317,17 +317,23 @@
     <Filter Include="gasha_src\memory\allocator">
       <UniqueIdentifier>{201cc0e5-29d9-4aa1-95d8-4c2d6b2810cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\scope_allocation">
+    <Filter Include="gasha\memory\allocator\std_allocator">
+      <UniqueIdentifier>{b115f701-ccba-48ef-b9e1-aa79f37419f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\common\builtin_functions">
+      <UniqueIdentifier>{66d13877-a04e-466c-a86b-21e431a7fda1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\new">
+      <UniqueIdentifier>{d23daedc-73a7-42af-bb33-c71d335f0b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\scoped_allocator">
       <UniqueIdentifier>{2302c61a-1e71-4e3c-94a4-e462ad895b75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\scope_allocation\scoped_stack_allocator">
+    <Filter Include="gasha\memory\scoped_allocator\scoped_stack_allocator">
       <UniqueIdentifier>{85219c4b-172f-4947-9aea-1d871d203215}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\scope_allocation\scoped_dual_stack_allocator">
+    <Filter Include="gasha\memory\scoped_allocator\scoped_dual_stack_allocator">
       <UniqueIdentifier>{e12d8b10-caa7-4e3a-ad5f-940543fb2372}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\allocator\global_allocator">
-      <UniqueIdentifier>{94767a01-39f1-498e-8786-271f6f40041d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -647,19 +653,28 @@
       <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\scoped_stack_allocator.h">
-      <Filter>gasha\memory\scope_allocation\scoped_stack_allocator</Filter>
+      <Filter>gasha\memory\scoped_allocator\scoped_stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h">
-      <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.h">
-      <Filter>gasha\memory\allocator\global_allocator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.cpp.h">
-      <Filter>gasha\memory\allocator\global_allocator</Filter>
+      <Filter>gasha\memory\scoped_allocator\scoped_dual_stack_allocator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h">
       <Filter>gasha\memory\allocator_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\builtin_functions.h">
+      <Filter>gasha_build_settings\common\builtin_functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\new.h">
+      <Filter>gasha\memory\new</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h">
+      <Filter>gasha\memory\poly_allocator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -906,16 +921,25 @@
       <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\scoped_stack_allocator.inl">
-      <Filter>gasha\memory\scope_allocation\scoped_stack_allocator</Filter>
+      <Filter>gasha\memory\scoped_allocator\scoped_stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl">
-      <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
-    </None>
-    <None Include="..\..\gasha\include\gasha\global_allocator.inl">
-      <Filter>gasha\memory\allocator\global_allocator</Filter>
+      <Filter>gasha\memory\scoped_allocator\scoped_dual_stack_allocator</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\allocator_adapter.inl">
       <Filter>gasha\memory\allocator_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_allocator.inl">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\build_settings\builtin_functions.inl">
+      <Filter>gasha_build_settings\common\builtin_functions</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\new.inl">
+      <Filter>gasha\memory\new</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\poly_allocator.inl">
+      <Filter>gasha\memory\poly_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>

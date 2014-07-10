@@ -125,7 +125,7 @@ namespace _private
 	//文字の大小判定
 	//戻り値: 0 ... 一致、1以上 ... val1の方が大きい、-1以下 ... val2の方が大きい
 	//       ※VC++の場合は、0, 1, -1 のいずれかの値を返す
-	static inline int sse_chr_compare(const int val1, const int val2)
+	inline static int sse_chr_compare(const int val1, const int val2)
 	{
 	#ifdef GASHA_IS_VC
 		const int val = val1 - val2;
