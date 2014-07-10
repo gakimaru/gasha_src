@@ -49,6 +49,8 @@ SRCS := \
 	$(SRC_BASE_DIR)/math/crc32.cpp \
 	$(SRC_BASE_DIR)/string/fast_string.cpp \
 	$(SRC_BASE_DIR)/memory/allocator/lf_mono_allocator.cpp \
+	$(SRC_BASE_DIR)/memory/allocator/poly_allocator.cpp \
+	$(SRC_BASE_DIR)/memory/new.cpp \
 	$(SRC_BASE_DIR)/thread/thread_id.cpp \
 	$(SRC_BASE_DIR)/thread/lock/lock_common.cpp \
 	$(SRC_BASE_DIR)/thread/lock/spin_lock.cpp \

@@ -676,6 +676,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h">
       <Filter>gasha\memory\poly_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -725,6 +728,12 @@
     </ClCompile>
     <ClCompile Include="..\src\memory\allocator\lf_mono_allocator.cpp">
       <Filter>gasha_src\memory\allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\allocator\poly_allocator.cpp">
+      <Filter>gasha_src\memory\allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\new.cpp">
+      <Filter>gasha_src\memory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -940,6 +949,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\poly_allocator.inl">
       <Filter>gasha\memory\poly_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_common.inl">
+      <Filter>gasha\memory\allocator</Filter>
     </None>
   </ItemGroup>
 </Project>
