@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h" />
     <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h" />
@@ -157,6 +158,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\gasha\include\gasha\allocator_adapter.inl" />
     <None Include="..\..\gasha\include\gasha\basic_math.inl" />
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\binary_search.inl" />

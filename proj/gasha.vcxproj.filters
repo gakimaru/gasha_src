@@ -658,6 +658,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\global_allocator.cpp.h">
       <Filter>gasha\memory\allocator\global_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -910,6 +913,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\global_allocator.inl">
       <Filter>gasha\memory\allocator\global_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_adapter.inl">
+      <Filter>gasha\memory\allocator_adapter</Filter>
     </None>
   </ItemGroup>
 </Project>
