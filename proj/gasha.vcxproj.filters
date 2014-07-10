@@ -326,6 +326,9 @@
     <Filter Include="gasha\memory\scope_allocation\scoped_dual_stack_allocator">
       <UniqueIdentifier>{e12d8b10-caa7-4e3a-ad5f-940543fb2372}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\memory\allocator\global_allocator">
+      <UniqueIdentifier>{94767a01-39f1-498e-8786-271f6f40041d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -649,6 +652,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h">
       <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.h">
+      <Filter>gasha\memory\allocator\global_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\global_allocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -898,6 +907,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl">
       <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\global_allocator.inl">
+      <Filter>gasha\memory\allocator\global_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>

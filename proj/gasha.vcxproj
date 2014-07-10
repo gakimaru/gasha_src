@@ -50,6 +50,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\fast_string.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\global_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\hash_table.h" />
@@ -170,6 +172,7 @@
     <None Include="..\..\gasha\include\gasha\dynamic_array.inl" />
     <None Include="..\..\gasha\include\gasha\fast_math.inl" />
     <None Include="..\..\gasha\include\gasha\fast_string.inl" />
+    <None Include="..\..\gasha\include\gasha\global_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\gnome_sort.inl" />
     <None Include="..\..\gasha\include\gasha\hash_table.inl" />
     <None Include="..\..\gasha\include\gasha\heap_sort.inl" />
