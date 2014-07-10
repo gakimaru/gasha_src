@@ -317,6 +317,15 @@
     <Filter Include="gasha_src\memory\allocator">
       <UniqueIdentifier>{201cc0e5-29d9-4aa1-95d8-4c2d6b2810cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\memory\scope_allocation">
+      <UniqueIdentifier>{2302c61a-1e71-4e3c-94a4-e462ad895b75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\scope_allocation\scoped_stack_allocator">
+      <UniqueIdentifier>{85219c4b-172f-4947-9aea-1d871d203215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\scope_allocation\scoped_dual_stack_allocator">
+      <UniqueIdentifier>{e12d8b10-caa7-4e3a-ad5f-940543fb2372}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -634,6 +643,12 @@
     <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.cpp.h">
       <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_stack_allocator.h">
+      <Filter>gasha\memory\scope_allocation\scoped_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h">
+      <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -877,6 +892,12 @@
     </None>
     <None Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.inl">
       <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\scoped_stack_allocator.inl">
+      <Filter>gasha\memory\scope_allocation\scoped_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl">
+      <Filter>gasha\memory\scope_allocation\scoped_dual_stack_allocator</Filter>
     </None>
   </ItemGroup>
 </Project>

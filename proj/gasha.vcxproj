@@ -91,6 +91,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\rb_tree.h" />
     <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\search_basic.h" />
     <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h" />
@@ -196,6 +198,8 @@
     <None Include="..\..\gasha\include\gasha\radix_sort.inl" />
     <None Include="..\..\gasha\include\gasha\rb_tree.inl" />
     <None Include="..\..\gasha\include\gasha\ring_buffer.inl" />
+    <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\scoped_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\selection_sort.inl" />
     <None Include="..\..\gasha\include\gasha\shaker_sort.inl" />
     <None Include="..\..\gasha\include\gasha\shared_lock_guard.inl" />

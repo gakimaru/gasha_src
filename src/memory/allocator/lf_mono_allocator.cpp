@@ -68,7 +68,7 @@ std::size_t lfMonoAllocator::debugInfo(char* message)
 {
 	std::size_t size = 0;
 	size += sprintf(message + size, "----- Debug Info for lfMonoAllocator -----\n");
-	size += sprintf(message + size, "buffRef=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
+	size += sprintf(message + size, "buff=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
 	size += sprintf(message + size, "----------\n");
 	return size;
 }
