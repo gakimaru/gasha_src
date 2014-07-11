@@ -54,6 +54,26 @@ void* operator new[](const std::size_t size) GASHA_STDNEW_THROW
 }
 
 //--------------------
+//new
+void* operator new(const std::size_t size, const std::nothrow_t&) GASHA_STDNEW_NOTHROW
+{
+	GASHA_ polyAllocator allocator;
+	void* p = allocator->alloc(size, allocator.align());
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNew);
+	return p;
+}
+
+//--------------------
+//配列new
+void* operator new[](const std::size_t size, const std::nothrow_t&) GASHA_STDNEW_NOTHROW
+{
+	GASHA_ polyAllocator allocator;
+	void* p = allocator->alloc(size, allocator.align());
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNewArrays);
+	return p;
+}
+
+//--------------------
 //delete
 void operator delete(void* p) GASHA_STDDELETE_THROW
 {
