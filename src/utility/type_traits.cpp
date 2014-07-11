@@ -12,7 +12,7 @@
 
 #include <stdio.h>//sprintf()
 
-//【VC++】strncpy, sprintf を使用すると、error C4996 が発生する
+//【VC++】sprintf を使用すると、error C4996 が発生する
 //  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 #pragma warning(disable: 4996)//C4996を抑える
 

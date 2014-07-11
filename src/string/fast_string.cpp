@@ -29,7 +29,7 @@ namespace _private
 	const char* strstrbm1(const char* str, const char pattern, std::function<bool(const char*, const char*)> found_it)
 	{
 		//検索開始
-		const std::size_t str_len = strlen(str);
+		const std::size_t str_len = GASHA_ strlen(str);
 		const char* str_end_p = str + str_len;
 		const char* str_p = str;
 		while (str_p < str_end_p)
@@ -657,7 +657,7 @@ namespace _private
 		{
 			if (*str == '\0')
 				return nullptr;
-			return strchr(str, *pattern);
+			return strchr_sse(str, *pattern);
 		}
 		if (*(pattern + 2) == '\0')//パターンが2文字の時
 		{
