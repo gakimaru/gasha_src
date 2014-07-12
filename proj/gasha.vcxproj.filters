@@ -305,12 +305,6 @@
     <Filter Include="gasha\memory\allocator\lf_dual_stack_allocator">
       <UniqueIdentifier>{2cd52f8b-6224-4d61-b20e-8bdeb57d8939}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\memory\allocator_adapter">
-      <UniqueIdentifier>{b02fdb44-d5e6-47c8-8210-771690b85efe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\memory\poly_allocator">
-      <UniqueIdentifier>{d87fc588-ff37-4ed9-8f1b-a69d4b384212}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_src\memory">
       <UniqueIdentifier>{76455b23-ab8c-4879-923b-f599bf00100f}</UniqueIdentifier>
     </Filter>
@@ -334,6 +328,15 @@
     </Filter>
     <Filter Include="gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator">
       <UniqueIdentifier>{e12d8b10-caa7-4e3a-ad5f-940543fb2372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter">
+      <UniqueIdentifier>{b02fdb44-d5e6-47c8-8210-771690b85efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\poly_allocator">
+      <UniqueIdentifier>{d87fc588-ff37-4ed9-8f1b-a69d4b384212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\new">
+      <UniqueIdentifier>{016ece4b-4ea9-4bfb-82ee-c4ea2e794ecb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -733,7 +736,7 @@
       <Filter>gasha_src\memory\allocator</Filter>
     </ClCompile>
     <ClCompile Include="..\src\memory\new.cpp">
-      <Filter>gasha_src\memory</Filter>
+      <Filter>gasha_src\memory\new</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
