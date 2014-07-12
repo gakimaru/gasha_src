@@ -41,7 +41,7 @@ console::console(const console::WIN_t&, FILE* handle) :
 		memset(&m_screenBuffer, 0, sizeof(m_screenBuffer));
 }
 #else//GASHA_USE_WINDOWS_CONSOLE
-	console::console(TTY_T, stdout)//委譲コンストラクタ
+	console::console(console_TTY, stdout)//委譲コンストラクタ
 {}
 #endif//GASHA_USE_WINDOWS_CONSOLE
 
