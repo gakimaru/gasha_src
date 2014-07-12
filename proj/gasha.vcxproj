@@ -39,8 +39,11 @@
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_cygwin.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_linux.h" />
     <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_win.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\call_point.h" />
     <ClInclude Include="..\..\gasha\include\gasha\chrono.h" />
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\console_color.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
@@ -79,6 +82,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\linked_list.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\log_level.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\log_message.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\memory.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h" />
@@ -90,6 +95,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\profiler.h" />
     <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\radix_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\rb_tree.cpp.h" />
@@ -136,11 +142,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
+    <ClCompile Include="..\src\debug\console.cpp" />
+    <ClCompile Include="..\src\debug\console_color.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
-    <ClCompile Include="..\src\memory\allocator\lf_mono_allocator.cpp" />
-    <ClCompile Include="..\src\memory\allocator\poly_allocator.cpp" />
+    <ClCompile Include="..\src\memory\lf_mono_allocator.cpp" />
     <ClCompile Include="..\src\memory\new.cpp" />
+    <ClCompile Include="..\src\memory\poly_allocator.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
@@ -172,8 +180,11 @@
     <None Include="..\..\gasha\include\gasha\bubble_sort.inl" />
     <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl" />
     <None Include="..\..\gasha\include\gasha\build_settings\builtin_functions.inl" />
+    <None Include="..\..\gasha\include\gasha\call_point.inl" />
     <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
+    <None Include="..\..\gasha\include\gasha\console.inl" />
+    <None Include="..\..\gasha\include\gasha\console_color.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
@@ -200,6 +211,8 @@
     <None Include="..\..\gasha\include\gasha\linear_search.inl" />
     <None Include="..\..\gasha\include\gasha\linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\lock_guard.inl" />
+    <None Include="..\..\gasha\include\gasha\log_level.inl" />
+    <None Include="..\..\gasha\include\gasha\log_message.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\memory.inl" />
     <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />
@@ -208,6 +221,7 @@
     <None Include="..\..\gasha\include\gasha\poly_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\pool_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\priority_queue.inl" />
+    <None Include="..\..\gasha\include\gasha\profiler.inl" />
     <None Include="..\..\gasha\include\gasha\quick_sort.inl" />
     <None Include="..\..\gasha\include\gasha\radix_sort.inl" />
     <None Include="..\..\gasha\include\gasha\rb_tree.inl" />

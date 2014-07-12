@@ -338,6 +338,33 @@
     <Filter Include="gasha_src\memory\new">
       <UniqueIdentifier>{016ece4b-4ea9-4bfb-82ee-c4ea2e794ecb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug">
+      <UniqueIdentifier>{7a9c12d1-a7f9-4036-adba-a3df71d89d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\profiler">
+      <UniqueIdentifier>{64e74c97-71ed-46e3-8c91-d54c18782f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console_color">
+      <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_level">
+      <UniqueIdentifier>{0a72aa9b-6640-4536-80e5-9fed6e97e556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_message">
+      <UniqueIdentifier>{80c1638f-d2d6-4371-b36d-beba8fc4b1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\call_point">
+      <UniqueIdentifier>{495ee568-21a3-499e-be02-3b3dcdc18fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console">
+      <UniqueIdentifier>{a63e93d7-8668-4474-8ebf-6199e7f44020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug">
+      <UniqueIdentifier>{c5f368b3-53f1-44d0-becc-f4c9e901e6ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\console">
+      <UniqueIdentifier>{c2c778d8-1509-477e-93bd-a6c3ee9beaca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -682,6 +709,24 @@
     <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h">
       <Filter>gasha\memory\allocator_adapter</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\profiler.h">
+      <Filter>gasha\debug\profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_color.h">
+      <Filter>gasha\debug\console_color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_level.h">
+      <Filter>gasha\debug\log_level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_message.h">
+      <Filter>gasha\debug\log_message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\call_point.h">
+      <Filter>gasha\debug\call_point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console.h">
+      <Filter>gasha\debug\console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -729,14 +774,20 @@
     <ClCompile Include="..\src\utility\chrono.cpp">
       <Filter>gasha_src\utility</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\memory\allocator\lf_mono_allocator.cpp">
-      <Filter>gasha_src\memory\allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\memory\allocator\poly_allocator.cpp">
-      <Filter>gasha_src\memory\allocator</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\memory\new.cpp">
       <Filter>gasha_src\memory\new</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\poly_allocator.cpp">
+      <Filter>gasha_src\memory\allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\lf_mono_allocator.cpp">
+      <Filter>gasha_src\memory\allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console_color.cpp">
+      <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -955,6 +1006,24 @@
     </None>
     <None Include="..\..\gasha\include\gasha\allocator_common.inl">
       <Filter>gasha\memory\allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\profiler.inl">
+      <Filter>gasha\debug\profiler</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_color.inl">
+      <Filter>gasha\debug\console_color</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_level.inl">
+      <Filter>gasha\debug\log_level</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_message.inl">
+      <Filter>gasha\debug\log_message</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\call_point.inl">
+      <Filter>gasha\debug\call_point</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console.inl">
+      <Filter>gasha\debug\console</Filter>
     </None>
   </ItemGroup>
 </Project>

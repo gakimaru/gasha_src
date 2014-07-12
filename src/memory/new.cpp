@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // new.cpp
-// 多態アロケータ対応標準new/delete【宣言部】
+// 多態アロケータ対応標準new/delete【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru

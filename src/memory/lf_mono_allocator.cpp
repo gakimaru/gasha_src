@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // lf_mono_allocator.cpp
-// ロックフリー単一アロケータ【関数定義部】
+// ロックフリー単一アロケータ【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
