@@ -344,9 +344,6 @@
     <Filter Include="gasha\debug\profiler">
       <UniqueIdentifier>{64e74c97-71ed-46e3-8c91-d54c18782f01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\console_color">
-      <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug\log_level">
       <UniqueIdentifier>{0a72aa9b-6640-4536-80e5-9fed6e97e556}</UniqueIdentifier>
     </Filter>
@@ -365,6 +362,39 @@
     <Filter Include="gasha_src\debug\console">
       <UniqueIdentifier>{c2c778d8-1509-477e-93bd-a6c3ee9beaca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\log_category">
+      <UniqueIdentifier>{95c3c41b-5bc2-400a-b0ce-44b659d411e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_tty">
+      <UniqueIdentifier>{2f1f4cb1-aa51-4cc9-b1c2-b22513f50f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_vs">
+      <UniqueIdentifier>{416775dd-55d1-42b3-8a66-ebb3b2f6dbde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_win">
+      <UniqueIdentifier>{fe9b0237-729f-4528-a35e-4683ae0f278a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_color">
+      <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_std">
+      <UniqueIdentifier>{246bc402-2a50-4635-a182-ab0cd9028865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\i_console">
+      <UniqueIdentifier>{863de5f2-2955-4ab9-abcc-37af622d0305}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter\allocator_adapter">
+      <UniqueIdentifier>{9a7cafa6-7dc7-4cfe-98ea-16c00ba63e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter\i_allocator_adapter">
+      <UniqueIdentifier>{79af01b8-fb37-4712-a762-e19821172e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_common">
+      <UniqueIdentifier>{583ff885-d65d-4f69-abfc-02e4e479ace3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock_common">
+      <UniqueIdentifier>{4a9ab4f9-925f-46a0-8d2c-f735891bae13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -372,9 +402,6 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h">
       <Filter>gasha\math\crc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
-      <Filter>gasha\thread\lock</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h">
       <Filter>gasha\algorithm\sort</Filter>
@@ -649,9 +676,6 @@
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h">
       <Filter>gasha_build_settings\for_project</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
-      <Filter>gasha\memory\allocator</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h">
       <Filter>gasha\memory\allocator\stack_allocator</Filter>
     </ClInclude>
@@ -688,9 +712,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h">
       <Filter>gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h">
-      <Filter>gasha\memory\allocator_adapter</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h">
       <Filter>gasha\memory\allocator\std_allocator</Filter>
     </ClInclude>
@@ -706,14 +727,11 @@
     <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h">
       <Filter>gasha\memory\poly_allocator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h">
-      <Filter>gasha\memory\allocator_adapter</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\profiler.h">
       <Filter>gasha\debug\profiler</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\console_color.h">
-      <Filter>gasha\debug\console_color</Filter>
+      <Filter>gasha\debug\console\console_color</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_level.h">
       <Filter>gasha\debug\log_level</Filter>
@@ -724,8 +742,35 @@
     <ClInclude Include="..\..\gasha\include\gasha\call_point.h">
       <Filter>gasha\debug\call_point</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\console.h">
-      <Filter>gasha\debug\console</Filter>
+    <ClInclude Include="..\..\gasha\include\gasha\log_category.h">
+      <Filter>gasha\debug\log_category</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_tty.h">
+      <Filter>gasha\debug\console\console_tty</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_vs.h">
+      <Filter>gasha\debug\console\console_vs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_win.h">
+      <Filter>gasha\debug\console\console_win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_std.h">
+      <Filter>gasha\debug\console\console_std</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_console.h">
+      <Filter>gasha\debug\console\i_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter\allocator_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter\i_allocator_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
+      <Filter>gasha\memory\allocator_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
+      <Filter>gasha\thread\lock_common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -783,10 +828,16 @@
     <ClCompile Include="..\src\memory\lf_mono_allocator.cpp">
       <Filter>gasha_src\memory\allocator</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console.cpp">
+    <ClCompile Include="..\src\debug\console_tty.cpp">
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console_color.cpp">
+    <ClCompile Include="..\src\debug\console_win.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console_vs.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console_std.cpp">
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
   </ItemGroup>
@@ -989,9 +1040,6 @@
     <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl">
       <Filter>gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\allocator_adapter.inl">
-      <Filter>gasha\memory\allocator_adapter</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\std_allocator.inl">
       <Filter>gasha\memory\allocator\std_allocator</Filter>
     </None>
@@ -1004,14 +1052,11 @@
     <None Include="..\..\gasha\include\gasha\poly_allocator.inl">
       <Filter>gasha\memory\poly_allocator</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\allocator_common.inl">
-      <Filter>gasha\memory\allocator</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\profiler.inl">
       <Filter>gasha\debug\profiler</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\console_color.inl">
-      <Filter>gasha\debug\console_color</Filter>
+      <Filter>gasha\debug\console\console_color</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_level.inl">
       <Filter>gasha\debug\log_level</Filter>
@@ -1022,8 +1067,35 @@
     <None Include="..\..\gasha\include\gasha\call_point.inl">
       <Filter>gasha\debug\call_point</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\console.inl">
-      <Filter>gasha\debug\console</Filter>
+    <None Include="..\..\gasha\include\gasha\log_category.inl">
+      <Filter>gasha\debug\log_category</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_tty.inl">
+      <Filter>gasha\debug\console\console_tty</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_vs.inl">
+      <Filter>gasha\debug\console\console_vs</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_win.inl">
+      <Filter>gasha\debug\console\console_win</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_console.inl">
+      <Filter>gasha\debug\console\i_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_adapter.inl">
+      <Filter>gasha\memory\allocator_adapter\allocator_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_allocator_adapter.inl">
+      <Filter>gasha\memory\allocator_adapter\i_allocator_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_common.inl">
+      <Filter>gasha\memory\allocator_common</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lock_common.inl">
+      <Filter>gasha\thread\lock_common</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_std.inl">
+      <Filter>gasha\debug\console\console_std</Filter>
     </None>
   </ItemGroup>
 </Project>

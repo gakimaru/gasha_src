@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/lock_common.h>//ロック共通設定【宣言部】
+#include <gasha/lock_common.inl>//ロック共通設定【インライン関数／テンプレート関数定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 

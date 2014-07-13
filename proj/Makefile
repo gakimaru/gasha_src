@@ -58,8 +58,10 @@ SRCS := \
 	$(SRC_BASE_DIR)/memory/lf_mono_allocator.cpp \
 	$(SRC_BASE_DIR)/memory/poly_allocator.cpp \
 	$(SRC_BASE_DIR)/memory/new.cpp \
-	$(SRC_BASE_DIR)/debug/console.cpp \
-	$(SRC_BASE_DIR)/debug/console_color.cpp \
+	$(SRC_BASE_DIR)/debug/console_tty.cpp \
+	$(SRC_BASE_DIR)/debug/console_win.cpp \
+	$(SRC_BASE_DIR)/debug/console_vs.cpp \
+	$(SRC_BASE_DIR)/debug/console_std.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)
