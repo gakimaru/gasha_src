@@ -10,7 +10,7 @@
 
 #include <gasha/console_color.inl>//コンソールカラー【インライン関数／テンプレート関数定義部】
 
-#include <stdio.h>//sprintf()
+#include <cstdio>//sprintf()
 
 //【VC++】ワーニング設定を退避
 #pragma warning(push)
@@ -58,13 +58,13 @@ const char* consoleColor::toStr(const consoleColor::color_t color) const
 }
 const char* consoleColor::toStr(char* str) const
 {
-	int pos = sprintf(str, "%s+%s", toStr(m_fore), toStr(m_back));
+	int pos = std::sprintf(str, "%s+%s", toStr(m_fore), toStr(m_back));
 	if (m_attr & BOLD)
-		pos += sprintf(str + pos, "+BOLD");
+		pos += std::sprintf(str + pos, "+BOLD");
 	if (m_attr & UNDERLINE)
-		pos += sprintf(str + pos, "+UNDERLINE");
+		pos += std::sprintf(str + pos, "+UNDERLINE");
 	if (m_attr & REVERSE)
-		pos += sprintf(str + pos, "+REVERSE");
+		pos += std::sprintf(str + pos, "+REVERSE");
 	return str;
 }
 

@@ -10,7 +10,7 @@
 
 #include <gasha/crc32.inl>//CRC32計算【インライン関数定義部】
 
-#include <stdio.h>//printf()
+#include <cstdio>//printf()
 
 #ifdef GASHA_USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2

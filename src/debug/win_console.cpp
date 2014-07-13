@@ -10,7 +10,8 @@
 
 #include <gasha/win_console.inl>// Windowsコマンドプロントプト【インライン関数／テンプレート関数定義部】
 
-#include <stdio.h>//fprintf(), fflush()
+#include <cstring>//memset()
+#include <cstdio>//fprintf(), fflush()
 
 #ifdef GASHA_USE_WINDOWS_CONSOLE
 #include <Windows.h>//SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()
@@ -117,7 +118,7 @@ winConsole::winConsole(FILE* handle, const char* name) :
 	if (m_hWin != INVALID_HANDLE_VALUE)
 		GetConsoleScreenBufferInfo(m_hWin, &m_screenBuffer);
 	else
-		memset(&m_screenBuffer, 0, sizeof(m_screenBuffer));
+		std::memset(&m_screenBuffer, 0, sizeof(m_screenBuffer));
 }
 
 //デストラクタ

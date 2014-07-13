@@ -10,7 +10,7 @@
 
 #include <gasha/tty_console.inl>//TTY端末【インライン関数／テンプレート関数定義部】
 
-#include <stdio.h>//fprintf(), fflush()
+#include <cstdio>//fprintf(), fflush()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 

@@ -10,7 +10,7 @@
 
 #include <gasha/type_traits.inl>//型特性ユーティリティ【インライン関数／テンプレート関数定義部】
 
-#include <stdio.h>//sprintf()
+#include <cstdio>//sprintf()
 
 //【VC++】sprintf を使用すると、error C4996 が発生する
 //  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -27,13 +27,13 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 template<>
 const char* toNumStr<char>(char* buff, const char value)
 {
-	sprintf(buff, "%d", static_cast<int>(value));
+	std::sprintf(buff, "%d", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<char>(char* buff, const char value)
 {
-	sprintf(buff, "0x%02x", static_cast<unsigned int>(value) & 0xff);
+	std::sprintf(buff, "0x%02x", static_cast<unsigned int>(value)& 0xff);
 	return buff;
 }
 template<>
@@ -47,13 +47,13 @@ const char* toByteStr<char>(char* buff, const char value)
 template<>
 const char* toNumStr<unsigned char>(char* buff, const unsigned char value)
 {
-	sprintf(buff, "%u", static_cast<unsigned int>(value));
+	std::sprintf(buff, "%u", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned char>(char* buff, const unsigned char value)
 {
-	sprintf(buff, "0x%02x", static_cast<unsigned int>(value));
+	std::sprintf(buff, "0x%02x", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
@@ -67,13 +67,13 @@ const char* toByteStr<unsigned char>(char* buff, const unsigned char value)
 template<>
 const char* toNumStr<short>(char* buff, const short value)
 {
-	sprintf(buff, "%d", static_cast<int>(value));
+	std::sprintf(buff, "%d", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<short>(char* buff, const short value)
 {
-	sprintf(buff, "0x%04x", static_cast<unsigned int>(value)& 0xffff);
+	std::sprintf(buff, "0x%04x", static_cast<unsigned int>(value)& 0xffff);
 	return buff;
 }
 template<>
@@ -90,13 +90,13 @@ const char* toByteStr<short>(char* buff, const short value)
 template<>
 const char* toNumStr<unsigned short>(char* buff, const unsigned short value)
 {
-	sprintf(buff, "%u", static_cast<int>(value));
+	std::sprintf(buff, "%u", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned short>(char* buff, const unsigned short value)
 {
-	sprintf(buff, "0x%04x", static_cast<unsigned int>(value));
+	std::sprintf(buff, "0x%04x", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
@@ -113,13 +113,13 @@ const char* toByteStr<unsigned short>(char* buff, const unsigned short value)
 template<>
 const char* toNumStr<int>(char* buff, const int value)
 {
-	sprintf(buff, "%d", value);
+	std::sprintf(buff, "%d", value);
 	return buff;
 }
 template<>
 const char* toHexStr<int>(char* buff, const int value)
 {
-	sprintf(buff, "0x%08x", value);
+	std::sprintf(buff, "0x%08x", value);
 	return buff;
 }
 template<>
@@ -136,13 +136,13 @@ const char* toByteStr<int>(char* buff, const int value)
 template<>
 const char* toNumStr<unsigned int>(char* buff, const unsigned int value)
 {
-	sprintf(buff, "%u", value);
+	std::sprintf(buff, "%u", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned int>(char* buff, const unsigned int value)
 {
-	sprintf(buff, "0x%08x", value);
+	std::sprintf(buff, "0x%08x", value);
 	return buff;
 }
 template<>
@@ -159,13 +159,13 @@ const char* toByteStr<unsigned int>(char* buff, const unsigned int value)
 template<>
 const char* toNumStr<long>(char* buff, const long value)
 {
-	sprintf(buff, "%ld", value);
+	std::sprintf(buff, "%ld", value);
 	return buff;
 }
 template<>
 const char* toHexStr<long>(char* buff, const long value)
 {
-	sprintf(buff, "0x%08lx", value);
+	std::sprintf(buff, "0x%08lx", value);
 	return buff;
 }
 template<>
@@ -182,13 +182,13 @@ const char* toByteStr<long>(char* buff, const long value)
 template<>
 const char* toNumStr<unsigned long>(char* buff, const unsigned long value)
 {
-	sprintf(buff, "%lu", value);
+	std::sprintf(buff, "%lu", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned long>(char* buff, const unsigned long value)
 {
-	sprintf(buff, "0x%08lx", value);
+	std::sprintf(buff, "0x%08lx", value);
 	return buff;
 }
 template<>
@@ -205,13 +205,13 @@ const char* toByteStr<unsigned long>(char* buff, const unsigned long value)
 template<>
 const char* toNumStr<long long>(char* buff, const long long value)
 {
-	sprintf(buff, "%lld", value);
+	std::sprintf(buff, "%lld", value);
 	return buff;
 }
 template<>
 const char* toHexStr<long long>(char* buff, const long long value)
 {
-	sprintf(buff, "0x%016llx", value);
+	std::sprintf(buff, "0x%016llx", value);
 	return buff;
 }
 template<>
@@ -228,13 +228,13 @@ const char* toByteStr<long long>(char* buff, const long long value)
 template<>
 const char* toNumStr<unsigned long long>(char* buff, const unsigned long long value)
 {
-	sprintf(buff, "%llu", value);
+	std::sprintf(buff, "%llu", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned long long>(char* buff, const unsigned long long value)
 {
-	sprintf(buff, "0x%016llx", value);
+	std::sprintf(buff, "0x%016llx", value);
 	return buff;
 }
 template<>
@@ -251,14 +251,14 @@ const char* toByteStr<unsigned long long>(char* buff, const unsigned long long v
 template<>
 const char* toNumStr<float>(char* buff, const float value)
 {
-	sprintf(buff, "%f", value);
+	std::sprintf(buff, "%f", value);
 	return buff;
 }
 template<>
 const char* toHexStr<float>(char* buff, const float value)
 {
 	unionTypes uni_value(value);
-	sprintf(buff, "0x%08x", uni_value.m_uint[0]);
+	std::sprintf(buff, "0x%08x", uni_value.m_uint[0]);
 	return buff;
 }
 template<>
@@ -275,14 +275,14 @@ const char* toByteStr<float>(char* buff, const float value)
 template<>
 const char* toNumStr<double>(char* buff, const double value)
 {
-	sprintf(buff, "%lf", value);
+	std::sprintf(buff, "%lf", value);
 	return buff;
 }
 template<>
 const char* toHexStr<double>(char* buff, const double value)
 {
 	unionTypes uni_value(value);
-	sprintf(buff, "0x%016llx", uni_value.m_ullong[0]);
+	std::sprintf(buff, "0x%016llx", uni_value.m_ullong[0]);
 	return buff;
 }
 template<>

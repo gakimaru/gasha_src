@@ -13,7 +13,7 @@
 #include <gasha/fast_math.h>//高速算術
 
 #include <cstdint>//intptr_t, std::uint32_t
-#include <memory.h>//memcpy()
+#include <cstring>//memcpy(), memset()
 
 //【VC++】str*** を使用すると、error C4996 が発生する
 //  error C4996: 'str***': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -1272,7 +1272,7 @@ namespace _private
 	#elif GASHA_SSE_MEMCPY_TYPE == 3//↓かなり遅い
 		_mm_maskmoveu_si128(src, sse_memcpy_flags[len], reinterpret_cast<const char*>(dst));
 	#else//GASHA_SSE_MEMCPY_TYPE == 0//↓割と速い
-		memcpy(reinterpret_cast<const char*>(dst), reinterpret_cast<const char*>(&src), len);
+		std::memcpy(reinterpret_cast<const char*>(dst), reinterpret_cast<const char*>(&src), len);
 	#endif
 	}
 	inline static void sse_memcpy_u(char* dst, const __m128i src, const std::size_t len)
@@ -1284,7 +1284,7 @@ namespace _private
 	#elif GASHA_SSE_MEMCPY_TYPE == 4//↓かなり遅い
 		_mm_maskmoveu_si128(src, sse_memcpy_flags[len], dst);
 	#else//GASHA_SSE_MEMCPY_TYPE == 0//↓割と速い
-		memcpy(dst, reinterpret_cast<const char*>(&src), len);
+		std::memcpy(dst, reinterpret_cast<const char*>(&src), len);
 	#endif
 	}
 	//SSE版strcpy:16バイトアランイメント＋16バイトアランイメント時
@@ -1400,12 +1400,12 @@ namespace _private
 	inline static void sse_memncpy_a(__m128i* dst, const __m128i src, const std::size_t len, const std::size_t max_len)
 	{
 		sse_memcpy_a(dst, src, len);
-		memset(reinterpret_cast<char*>(dst)+len, '\0', max_len - len);
+		std::memset(reinterpret_cast<char*>(dst)+len, '\0', max_len - len);
 	}
 	inline static void sse_memncpy_u(char* dst, const __m128i src, const std::size_t len, const std::size_t max_len)
 	{
 		sse_memcpy_u(dst, src, len);
-		memset(dst + len, '\0', max_len - len);
+		std::memset(dst + len, '\0', max_len - len);
 	}
 #else//GASHA_SSE_STRNCPY_PADDING_ZERO
 	inline static void sse_memncpy_a(__m128i* dst, const __m128i src, const std::size_t len)

@@ -10,8 +10,6 @@
 
 #include <gasha/cpuid.h>//CPU情報（x86系CPU用）
 
-#include <memory.h>//memcpy()
-
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 #ifdef GASHA_IS_X86

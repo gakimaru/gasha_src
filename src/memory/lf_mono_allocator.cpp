@@ -12,7 +12,7 @@
 
 #include <gasha/type_traits.inl>//型特性ユーティリティ：toStr()
 
-#include <assert.h>//assert()
+#include <cassert>//assert()
 
 //【VC++】ワーニング設定を退避
 #pragma warning(push)
@@ -63,9 +63,9 @@ void* lfMonoAllocator::alloc(const std::size_t size, const std::size_t align)
 std::size_t lfMonoAllocator::debugInfo(char* message)
 {
 	std::size_t size = 0;
-	size += sprintf(message + size, "----- Debug Info for lfMonoAllocator -----\n");
-	size += sprintf(message + size, "buff=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
-	size += sprintf(message + size, "------------------------------------------\n");
+	size += std::sprintf(message + size, "----- Debug Info for lfMonoAllocator -----\n");
+	size += std::sprintf(message + size, "buff=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
+	size += std::sprintf(message + size, "------------------------------------------\n");
 	return size;
 }
 
