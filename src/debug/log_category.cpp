@@ -18,204 +18,234 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
-//----------------------------------------
-//既定のログカテゴリ定義
-#define DECLARE_LOG_CATEGORY(value, for_log, for_notice, fore_color, back_color, fore_color_for_notice, back_color_for_notice) struct category_##value : public regLogCategory<value, for_log, for_notice>{ category_##value () : regLogCategory<value, for_log, for_notice>(#value, GASHA_ consoleColor(GASHA_ consoleColor::fore_color, GASHA_ consoleColor::back_color), GASHA_ consoleColor(GASHA_ consoleColor::fore_color_for_notice, GASHA_ consoleColor::back_color_for_notice)){} }
-DECLARE_LOG_CATEGORY(asNormal, true, false, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
-DECLARE_LOG_CATEGORY(asVerbose, true, false, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
-DECLARE_LOG_CATEGORY(asDetail, true, false, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
-DECLARE_LOG_CATEGORY(asImportant, true, true, iBLUE, STANDARD, iBLUE, iWHITE);//重要メッセージ
-DECLARE_LOG_CATEGORY(asWarning, true, true, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
-DECLARE_LOG_CATEGORY(asCritical, true, true, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
-DECLARE_LOG_CATEGORY(asAbsolute, true, false, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログカテゴリに関係なく出力したいメッセージ）
-
-//----------------------------------------
-//特殊ログカテゴリ定義
-#define DECLARE_SPECIAL_LOG_CATEGORY(value) struct category_##value : public _private::regSpecialLogCategory<value>{ category_##value () : regSpecialLogCategory<value>(#value){} }
-DECLARE_SPECIAL_LOG_CATEGORY(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
-DECLARE_SPECIAL_LOG_CATEGORY(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
-
-//----------------------------------------
-//ログカテゴリクラス
-
-//登録済みか？
-bool logCategory::isRegistered() const
-{
-	container con;
-	logCategory* obj = con.at(m_value);
-	if (!obj)
-		return false;
-	return obj->m_name == m_name;
-}
-
 //--------------------
 //イテレータ
 
 //インクリメント
-void logCategory::iterator::inc() const
+void logCategoryContainer::iterator::inc() const
 {
-	if (m_value == INVALID)
+	if (m_value == logCategory::INVALID)
 		return;
-	else if (m_value == END)
+	else if (m_value == logCategory::END)
 	{
-		m_value = INVALID;
-		m_ref = nullptr;
+		m_value = logCategory::INVALID;
+		m_logCategory = nullptr;
 		m_isEnd = false;
 		return;
 	}
-	while (m_value != END)
+	while (m_value != logCategory::END)
 	{
 		++m_value;
-		m_ref = container::_at(m_value);
-		if (m_ref)
+		m_logCategory = logCategoryContainer::getInfo(m_value);
+		if (m_logCategory)
 			return;
 	}
-	m_ref = nullptr;
+	m_logCategory = nullptr;
 	m_isEnd = true;
 }
 
 //デクリメント
-void logCategory::iterator::dec() const
+void logCategoryContainer::iterator::dec() const
 {
 	m_isEnd = false;
-	if (m_value == INVALID)
+	if (m_value == logCategory::INVALID)
 		return;
-	else if (m_value == BEGIN)
+	else if (m_value == logCategory::BEGIN)
 	{
-		m_value = INVALID;
-		m_ref = nullptr;
+		m_value = logCategory::INVALID;
+		m_logCategory = nullptr;
 		return;
 	}
-	while (m_value != BEGIN)
+	while (m_value != logCategory::BEGIN)
 	{
 		--m_value;
-		m_ref = container::_at(m_value);
-		if (m_ref)
+		m_logCategory = logCategoryContainer::getInfo(m_value);
+		if (m_logCategory)
 			return;
 	}
-	m_ref = container::_at(m_value);
-	if (!m_ref)
-		m_value = INVALID;
+	m_logCategory = logCategoryContainer::getInfo(m_value);
+	if (!m_logCategory)
+		m_value = logCategory::INVALID;
 	return;
+}
+
+//コンストラクタ
+logCategoryContainer::iterator::iterator(const logCategory::category_type value) :
+m_value(value),
+m_logCategory(logCategoryContainer::getInfo(m_value)),
+m_isEnd(value == logCategory::END)
+{
+	if (!m_logCategory && !m_isEnd)
+	{
+		++m_value;
+		while (m_value < logCategory::END)
+		{
+			m_logCategory = logCategoryContainer::getInfo(m_value);
+			if (m_logCategory)
+				return;
+			++m_value;
+		}
+		m_value = logCategory::END;
+		m_isEnd = true;
+	}
 }
 
 //--------------------
 //リバースイテレータ
 
 //インクリメント
-void logCategory::reverse_iterator::inc() const
+void logCategoryContainer::reverse_iterator::inc() const
 {
-	if (m_value == INVALID)
+	if (m_value == logCategory::INVALID)
 		return;
-	else if (m_value == BEGIN)
+	else if (m_value == logCategory::BEGIN)
 	{
-		m_value = INVALID;
-		m_ref = nullptr;
+		m_value = logCategory::INVALID;
+		m_logCategory = nullptr;
 		m_isEnd = false;
 		return;
 	}
-	while (m_value != BEGIN)
+	while (m_value != logCategory::BEGIN)
 	{
 		--m_value;
-		m_ref = container::_at(m_value - 1);
-		if (m_ref)
+		m_logCategory = logCategoryContainer::getInfo(m_value - 1);
+		if (m_logCategory)
 			return;
 	}
-	m_ref = nullptr;
+	m_logCategory = nullptr;
 	m_isEnd = true;
 }
 
 //デクリメント
-void logCategory::reverse_iterator::dec() const
+void logCategoryContainer::reverse_iterator::dec() const
 {
 	m_isEnd = false;
-	if (m_value == INVALID)
+	if (m_value == logCategory::INVALID)
 		return;
-	else if (m_value == END)
+	else if (m_value == logCategory::END)
 	{
-		m_value = INVALID;
-		m_ref = nullptr;
+		m_value = logCategory::INVALID;
+		m_logCategory = nullptr;
 		return;
 	}
-	while (m_value != END)
+	while (m_value != logCategory::END)
 	{
 		++m_value;
-		m_ref = container::_at(m_value - 1);
-		if (m_ref)
+		m_logCategory = logCategoryContainer::getInfo(m_value - 1);
+		if (m_logCategory)
 			return;
 	}
-	m_ref = container::_at(m_value - 1);
-	if (!m_ref)
-		m_value = INVALID;
+	m_logCategory = logCategoryContainer::getInfo(m_value - 1);
+	if (!m_logCategory)
+		m_value = logCategory::INVALID;
 	return;
+}
+
+//コンストラクタ
+logCategoryContainer::reverse_iterator::reverse_iterator(const logCategory::category_type value) :
+m_value(value),
+m_logCategory(logCategoryContainer::getInfo(m_value - 1)),
+m_isEnd(value == logCategory::BEGIN)
+{
+	if (!m_logCategory && !m_isEnd)
+	{
+		--m_value;
+		while (m_value > logCategory::BEGIN)
+		{
+			m_logCategory = logCategoryContainer::getInfo(m_value - 1);
+			if (m_logCategory)
+				return;
+			--m_value;
+		}
+		m_value = logCategory::BEGIN;
+		m_isEnd = true;
+	}
 }
 
 //--------------------
 //コンテナ（イテレータ用）
 
 //要素を更新
-bool logCategory::container::update(const logCategory::category_type value, const logCategory& obj)
+bool logCategoryContainer::regist(const logCategory::info& info)
 {
-	if (value >= MIN && value <= MAX && !container::m_isAlreadyPool[value])
-	{
-		container::m_poolPtr[value] = obj;
-		container::m_isAlreadyPool[value] = true;
-		return true;
-	}
-	return false;
+	if (info.m_value < logCategory::MIN || info.m_value > logCategory::MAX || m_isAlreadyPool[info.m_value])
+		return false;
+	m_pool[info.m_value] = info;
+	m_isAlreadyPool[info.m_value] = true;
+	return true;
 }
 
 //全てのログカテゴリのコンソールを変更
-void logCategory::container::setAllConsole(IConsole* console)
+void logCategoryContainer::setAllConsole(IConsole* console)
 {
-	for (category_type value = NORMAL_MIN; value <= NORMAL_MAX; ++value)
+	for (logCategory::category_type value = logCategory::NORMAL_MIN; value <= logCategory::NORMAL_MAX; ++value)
 	{
-		logCategory* category = at(value);
-		if (category)
-			category->console() = console;
+		if (m_isAlreadyPool[value])
+		{
+			logCategory::info& info = m_pool[value];
+			info.m_console = console;
+		}
 	}
 }
 
 //全てのログカテゴリの画面通知用コンソールを変更
-void logCategory::container::setAllConsoleForNotice(IConsole* console)
+void logCategoryContainer::setAllConsoleForNotice(IConsole* console)
 {
-	for (category_type value = NORMAL_MIN; value <= NORMAL_MAX; ++value)
+	for (logCategory::category_type value = logCategory::NORMAL_MIN; value <= logCategory::NORMAL_MAX; ++value)
 	{
-		logCategory* category = at(value);
-		if (category)
-			category->consoleForNotice() = console;
+		if (m_isAlreadyPool[value])
+		{
+			logCategory::info& info = m_pool[value];
+			info.m_consoleForNotice = console;
+		}
 	}
 }
 
 //コンテナ初期化（一回限り）
-void logCategory::container::initializeOnce()
+void logCategoryContainer::initializeOnce()
 {
 	//静的変数を初期化
 	m_isAlreadyPool.reset();
-	m_poolPtr = reinterpret_cast<logCategory*>(m_pool);
 	//要素を初期化
 	for (logCategory::category_type value = 0; value < logCategory::NUM; ++value)
 	{
-		logCategory(value, "(undefined)", nullptr, nullptr, GASHA_ consoleColor(), GASHA_ consoleColor());
-		m_isAlreadyPool[value] = false;
+		logCategory::info& info = m_pool[value];
+		info.m_value = value;
+		info.m_name = "(undefined)";
+		info.m_console = nullptr;
+		info.m_consoleForNotice = nullptr;
 	}
-	//既定のログカテゴリを設定（コンストラクタで要素を登録）
-	category_asNormal();//通常メッセージ
-	category_asVerbose();//冗長メッセージ
-	category_asDetail();//詳細メッセージ
-	category_asImportant();//重要メッセージ
-	category_asWarning();//警告メッセージ
-	category_asCritical();//重大メッセージ
-	category_asAbsolute();//絶対メッセージ（ログカテゴリに関係なく出力したいメッセージ）
-	category_asSilent();//静寂（絶対メッセ―ジ以外出力しない）
-	category_asSilentAbsolutely();//絶対静寂（全てのメッセージを出力しない）
+	
+	typedef consoleColor c;//コンソールカラー
+
+	//既定のログカテゴリを登録（関数オブジェクトで登録）
+	#define REG_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
+		regLogCategory<VALUE>()( \
+			#VALUE, \
+			CONSOLE, \
+			CONSOLE_N \
+		)
+	#define REG_SPECIAL_LOG_CATEGORY(VALUE) \
+		_private::regSpecialLogCategory<VALUE>()( \
+			#VALUE \
+		)
+	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
+	REG_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
+	REG_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係
+	REG_LOG_CATEGORY(for3D, nullptr, nullptr);//3Dグラフィックス関係
+	REG_LOG_CATEGORY(for2D, nullptr, nullptr);//2Dグラフィックス関係
+	REG_LOG_CATEGORY(forSound, nullptr, nullptr);//サウンド関係
+	//ログレベル／画面通知レベル変更用
+	REG_SPECIAL_LOG_CATEGORY(forEvery);//全部まとめて変更
+	//特殊なカテゴリ（プリント時専用）
+	REG_SPECIAL_LOG_CATEGORY(forCallPoint);//直近のコールポイントのカテゴリに合わせる（なければforAny扱い）
+	REG_SPECIAL_LOG_CATEGORY(forCriticalCallPoint);//直近の重大コールポイントのカテゴリに合わせる（なければforAny扱い）
 }
 
 //コンテナの静的変数をインスタンス化
-std::once_flag logCategory::container::m_initialized;
-logCategory* logCategory::container::m_poolPtr = nullptr;
-logCategory::byte logCategory::container::m_pool[sizeof(logCategory)* logCategory::POOL_NUM];
-std::bitset<logCategory::POOL_NUM> logCategory::container::m_isAlreadyPool;
+std::once_flag logCategoryContainer::m_initialized;
+logCategory::info logCategoryContainer::m_pool[logCategory::POOL_NUM];
+std::bitset<logCategory::POOL_NUM> logCategoryContainer::m_isAlreadyPool;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 

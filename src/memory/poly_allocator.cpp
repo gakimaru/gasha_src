@@ -21,7 +21,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMethod_t method)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
-	if (m_adapter && m_observer && static_cast<bool>(m_observer->m_atDelete))
+	if (m_adapter && m_observer && m_observer->m_atDelete)
 		m_observer->m_atNew(*m_adapter, p, size, m_align, method, m_debugInfo);
 #endif//GASHA_HAS_DEBUG_FEATURE
 }
@@ -29,7 +29,7 @@ void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMet
 void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_t method)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
-	if (m_adapter && m_observer && static_cast<bool>(m_observer->m_atDelete))
+	if (m_adapter && m_observer && m_observer->m_atDelete)
 		m_observer->m_atDelete(*m_adapter, p, method, m_debugInfo);
 #endif//GASHA_HAS_DEBUG_FEATURE
 }
@@ -37,7 +37,7 @@ void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_t method
 void polyAllocator::callbackAtChangeAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& next_adapter)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
-	if (m_adapter && m_observer && static_cast<bool>(m_observer->m_atChangeAllocator))
+	if (m_adapter && m_observer && m_observer->m_atChangeAllocator)
 		m_observer->m_atChangeAllocator(adapter, next_adapter);
 #endif//GASHA_HAS_DEBUG_FEATURE
 }
@@ -45,7 +45,7 @@ void polyAllocator::callbackAtChangeAllocator(const GASHA_ IAllocatorAdapter& ad
 void polyAllocator::callbackAtReturnAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& prev_adapter)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
-	if (m_observer && static_cast<bool>(m_observer->m_atReturnAllocator))
+	if (m_observer && m_observer->m_atReturnAllocator)
 		m_observer->m_atReturnAllocator(adapter, prev_adapter);
 #endif//GASHA_HAS_DEBUG_FEATURE
 }

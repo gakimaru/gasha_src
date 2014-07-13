@@ -108,6 +108,27 @@ void logLevelContainer::iterator::dec() const
 	return;
 }
 
+//コンストラクタ
+logLevelContainer::iterator::iterator(const logLevel::level_type value) :
+m_value(value),
+m_logLevel(logLevelContainer::getInfo(m_value)),
+m_isEnd(value == logLevel::END)
+{
+	if (!m_logLevel && !m_isEnd)
+	{
+		++m_value;
+		while (m_value < logLevel::END)
+		{
+			m_logLevel = logLevelContainer::getInfo(m_value);
+			if (m_logLevel)
+				return;
+			++m_value;
+		}
+		m_value = logLevel::END;
+		m_isEnd = true;
+	}
+}
+
 //--------------------
 //リバースイテレータ
 
@@ -157,6 +178,27 @@ void logLevelContainer::reverse_iterator::dec() const
 	if (!m_logLevel)
 		m_value = logLevel::INVALID;
 	return;
+}
+
+//コンストラクタ
+logLevelContainer::reverse_iterator::reverse_iterator(const logLevel::level_type value) :
+m_value(value),
+m_logLevel(logLevelContainer::getInfo(m_value - 1)),
+m_isEnd(value == logLevel::BEGIN)
+{
+	if (!m_logLevel && !m_isEnd)
+	{
+		--m_value;
+		while (m_value > logLevel::BEGIN)
+		{
+			m_logLevel = logLevelContainer::getInfo(m_value - 1);
+			if (m_logLevel)
+				return;
+			--m_value;
+		}
+		m_value = logLevel::BEGIN;
+		m_isEnd = true;
+	}
 }
 
 //--------------------
@@ -219,7 +261,7 @@ void logLevelContainer::initializeOnce()
 	IConsole& console_n = GASHA_ stdConsoleForNotice::instance();//画面通知用標準コンソール
 	typedef consoleColor c;//コンソールカラー
 
-	//既定のログレベルを設定（コンストラクタで要素を登録）
+	//既定のログレベルを登録（関数オブジェクトで登録）
 	#define REG_LOG_LEVEL(VALUE, CONSOLE, CONSOLE_N, FORE, BACK, FORE_N, BACK_N) \
 		regLogLevel<VALUE>()( \
 			#VALUE, \
@@ -227,11 +269,11 @@ void logLevelContainer::initializeOnce()
 			CONSOLE_N, \
 			consoleColor(consoleColor::FORE, consoleColor::BACK), \
 			consoleColor(consoleColor::FORE_N, consoleColor::BACK_N) \
-		);
+		)
 	#define REG_SPECIAL_LOG_LEVEL(VALUE) \
 		_private::regSpecialLogLevel<VALUE>()( \
 			#VALUE \
-		);
+		)
 	REG_LOG_LEVEL(asNormal, &console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
 	REG_LOG_LEVEL(asVerbose, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
 	REG_LOG_LEVEL(asDetail, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
