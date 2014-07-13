@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------------
-// console_win.cpp
+// win_console.cpp
 //  Windowsコマンドプロントプト【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/console_win.inl>// Windowsコマンドプロントプト【インライン関数／テンプレート関数定義部】
+#include <gasha/win_console.inl>// Windowsコマンドプロントプト【インライン関数／テンプレート関数定義部】
 
 #include <stdio.h>//fprintf(), fflush()
 
@@ -31,25 +31,25 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //Windowsコマンドプロントプトクラス
 
 //出力開始
-void consoleWin::beginOutput()
+void winConsole::beginOutput()
 {
 	//何もしない
 }
 
 //出力終了
-void consoleWin::endOutput()
+void winConsole::endOutput()
 {
 	fflush(m_handle);
 }
 
 //出力
-void consoleWin::output(const char* str)
+void winConsole::output(const char* str)
 {
 	::fprintf(m_handle, str);
 }
 
 //カラー変更
-void consoleWin::changeColor(const GASHA_ consoleColor& color)
+void winConsole::changeColor(GASHA_ consoleColor&& color)
 {
 #ifdef GASHA_USE_WINDOWS_CONSOLE_COLOR
 	const GASHA_ consoleColor::color_t fore = color.fore();
@@ -66,7 +66,7 @@ void consoleWin::changeColor(const GASHA_ consoleColor& color)
 	const WORD default_color = m_screenBuffer.wAttributes;
 	
 	//カラー値を変更（0ビット目と2ビット目を入れ替える）
-	auto changeColor = [](const GASHA_ consoleColor::color_t color) -> WORD
+	auto changeColor = [](GASHA_ consoleColor::color_t color) -> WORD
 	{
 		WORD _color = static_cast<WORD>(color);
 		return (_color & 0xa) | ((_color & 0x1) != 0x0 ? 0x4 : 0x0) | ((_color & 0x4) != 0x0 ? 0x1 : 0x0);
@@ -90,7 +90,7 @@ void consoleWin::changeColor(const GASHA_ consoleColor& color)
 }
 
 //カラーリセット
-void consoleWin::resetColor()
+void winConsole::resetColor()
 {
 #ifdef GASHA_USE_WINDOWS_CONSOLE_COLOR
 	//デフォルトカラー取得
@@ -102,7 +102,8 @@ void consoleWin::resetColor()
 }
 
 //コンストラクタ
-consoleWin::consoleWin(FILE* handle) :
+winConsole::winConsole(FILE* handle, const char* name) :
+	m_name(name),
 	m_handle(handle),
 	m_hWin(INVALID_HANDLE_VALUE)
 {
@@ -120,7 +121,7 @@ consoleWin::consoleWin(FILE* handle) :
 }
 
 //デストラクタ
-consoleWin::~consoleWin()
+winConsole::~winConsole()
 {}
 
 #endif//GASHA_USE_WINDOWS_CONSOLE

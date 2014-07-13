@@ -365,20 +365,8 @@
     <Filter Include="gasha\debug\log_category">
       <UniqueIdentifier>{95c3c41b-5bc2-400a-b0ce-44b659d411e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\console\console_tty">
-      <UniqueIdentifier>{2f1f4cb1-aa51-4cc9-b1c2-b22513f50f44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\console\console_vs">
-      <UniqueIdentifier>{416775dd-55d1-42b3-8a66-ebb3b2f6dbde}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\console\console_win">
-      <UniqueIdentifier>{fe9b0237-729f-4528-a35e-4683ae0f278a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug\console\console_color">
       <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\console\console_std">
-      <UniqueIdentifier>{246bc402-2a50-4635-a182-ab0cd9028865}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha\debug\console\i_console">
       <UniqueIdentifier>{863de5f2-2955-4ab9-abcc-37af622d0305}</UniqueIdentifier>
@@ -394,6 +382,51 @@
     </Filter>
     <Filter Include="gasha\thread\lock_common">
       <UniqueIdentifier>{4a9ab4f9-925f-46a0-8d2c-f735891bae13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\std_console">
+      <UniqueIdentifier>{d0ed178f-fd12-4eca-82c1-f6e66f716c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\win_console">
+      <UniqueIdentifier>{07b326b1-e977-4601-b215-db369977f754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\vs_console">
+      <UniqueIdentifier>{f43c38ca-247e-4529-966f-f0acd6360ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\tty_console">
+      <UniqueIdentifier>{b4997064-1916-40c7-b4e4-71aabd0e18dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log_level">
+      <UniqueIdentifier>{2974abad-2c13-489f-b123-1167b47a04db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\build_settings\diag">
+      <UniqueIdentifier>{333fc01e-632b-4dda-9d9c-f7e3d697e616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\poly_allocator">
+      <UniqueIdentifier>{7c4235e2-15eb-4499-9b15-23e68bbef094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\thread\thread_id">
+      <UniqueIdentifier>{a6b420ad-ef7a-42b7-b478-e5df3620de21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\math\basic_math">
+      <UniqueIdentifier>{2af9c8b6-9654-488a-b408-724584aebcf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\math\crc">
+      <UniqueIdentifier>{6074f907-8869-42ff-9c8a-cd7df65a582b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string\fast_string">
+      <UniqueIdentifier>{93f6e517-0256-4ebf-841e-5b3c9b570119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\chrono">
+      <UniqueIdentifier>{cae669d7-e1e1-4f79-a652-ec2ee774d438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\cpuid">
+      <UniqueIdentifier>{79c05ac6-5916-48ff-8224-b023563b5775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\cpuid">
+      <UniqueIdentifier>{2aa31e73-9ff4-48de-8553-70a082201a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\type_traits">
+      <UniqueIdentifier>{58d4bbf1-42cd-4a47-9a5f-25f74464864a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -486,9 +519,6 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h">
       <Filter>gasha\container\adapter\priority_queue</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
-      <Filter>gasha\utility</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\fast_math.h">
       <Filter>gasha\math\fast_math</Filter>
@@ -745,18 +775,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_category.h">
       <Filter>gasha\debug\log_category</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\console_tty.h">
-      <Filter>gasha\debug\console\console_tty</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\console_vs.h">
-      <Filter>gasha\debug\console\console_vs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\console_win.h">
-      <Filter>gasha\debug\console\console_win</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\console_std.h">
-      <Filter>gasha\debug\console\console_std</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\i_console.h">
       <Filter>gasha\debug\console\i_console</Filter>
     </ClInclude>
@@ -772,22 +790,25 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
       <Filter>gasha\thread\lock_common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_console.h">
+      <Filter>gasha\debug\console\std_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\tty_console.h">
+      <Filter>gasha\debug\console\tty_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\vs_console.h">
+      <Filter>gasha\debug\console\vs_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\win_console.h">
+      <Filter>gasha\debug\console\win_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
+      <Filter>gasha\utility\cpuid</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utility\cpuid.cpp">
-      <Filter>gasha_src\utility</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\math\basic_math.cpp">
-      <Filter>gasha_src\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\math\crc32.cpp">
-      <Filter>gasha_src\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\string\fast_string.cpp">
-      <Filter>gasha_src\string</Filter>
     </ClCompile>
     <ClCompile Include="..\src\thread\lock\lock_common.cpp">
       <Filter>gasha_src\thread\lock</Filter>
@@ -807,38 +828,56 @@
     <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp">
       <Filter>gasha_src\thread\lock</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\thread\thread_id.cpp">
-      <Filter>gasha_src\thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utility\type_traits.cpp">
-      <Filter>gasha_src\utility</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
-      <Filter>gasha_src\build_settings</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utility\chrono.cpp">
-      <Filter>gasha_src\utility</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\memory\new.cpp">
       <Filter>gasha_src\memory\new</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\memory\poly_allocator.cpp">
-      <Filter>gasha_src\memory\allocator</Filter>
     </ClCompile>
     <ClCompile Include="..\src\memory\lf_mono_allocator.cpp">
       <Filter>gasha_src\memory\allocator</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console_tty.cpp">
+    <ClCompile Include="..\src\debug\vs_console.cpp">
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console_win.cpp">
+    <ClCompile Include="..\src\debug\win_console.cpp">
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console_vs.cpp">
+    <ClCompile Include="..\src\debug\std_console.cpp">
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\console_std.cpp">
+    <ClCompile Include="..\src\debug\tty_console.cpp">
       <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console_color.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_level.cpp">
+      <Filter>gasha_src\debug\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
+      <Filter>gasha_src\build_settings\diag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\poly_allocator.cpp">
+      <Filter>gasha_src\memory\poly_allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\thread_id.cpp">
+      <Filter>gasha_src\thread\thread_id</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\basic_math.cpp">
+      <Filter>gasha_src\math\basic_math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\crc32.cpp">
+      <Filter>gasha_src\math\crc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\fast_string.cpp">
+      <Filter>gasha_src\string\fast_string</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\chrono.cpp">
+      <Filter>gasha_src\utility\chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\cpuid.cpp">
+      <Filter>gasha_src\utility\cpuid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\type_traits.cpp">
+      <Filter>gasha_src\utility\type_traits</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1070,15 +1109,6 @@
     <None Include="..\..\gasha\include\gasha\log_category.inl">
       <Filter>gasha\debug\log_category</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\console_tty.inl">
-      <Filter>gasha\debug\console\console_tty</Filter>
-    </None>
-    <None Include="..\..\gasha\include\gasha\console_vs.inl">
-      <Filter>gasha\debug\console\console_vs</Filter>
-    </None>
-    <None Include="..\..\gasha\include\gasha\console_win.inl">
-      <Filter>gasha\debug\console\console_win</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\i_console.inl">
       <Filter>gasha\debug\console\i_console</Filter>
     </None>
@@ -1094,8 +1124,17 @@
     <None Include="..\..\gasha\include\gasha\lock_common.inl">
       <Filter>gasha\thread\lock_common</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\console_std.inl">
-      <Filter>gasha\debug\console\console_std</Filter>
+    <None Include="..\..\gasha\include\gasha\std_console.inl">
+      <Filter>gasha\debug\console\std_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\tty_console.inl">
+      <Filter>gasha\debug\console\tty_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\vs_console.inl">
+      <Filter>gasha\debug\console\vs_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\win_console.inl">
+      <Filter>gasha\debug\console\win_console</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -43,10 +43,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\chrono.h" />
     <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\console_color.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\console_std.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\console_tty.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\console_vs.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\console_win.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
@@ -133,13 +129,17 @@
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\std_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\tty_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\vs_console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\win_console.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h" />
@@ -147,10 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
-    <ClCompile Include="..\src\debug\console_std.cpp" />
-    <ClCompile Include="..\src\debug\console_tty.cpp" />
-    <ClCompile Include="..\src\debug\console_vs.cpp" />
-    <ClCompile Include="..\src\debug\console_win.cpp" />
+    <ClCompile Include="..\src\debug\console_color.cpp" />
+    <ClCompile Include="..\src\debug\log_level.cpp" />
+    <ClCompile Include="..\src\debug\std_console.cpp" />
+    <ClCompile Include="..\src\debug\tty_console.cpp" />
+    <ClCompile Include="..\src\debug\vs_console.cpp" />
+    <ClCompile Include="..\src\debug\win_console.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
     <ClCompile Include="..\src\memory\lf_mono_allocator.cpp" />
@@ -191,10 +193,6 @@
     <None Include="..\..\gasha\include\gasha\chrono.inl" />
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\console_color.inl" />
-    <None Include="..\..\gasha\include\gasha\console_std.inl" />
-    <None Include="..\..\gasha\include\gasha\console_tty.inl" />
-    <None Include="..\..\gasha\include\gasha\console_vs.inl" />
-    <None Include="..\..\gasha\include\gasha\console_win.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
@@ -257,13 +255,17 @@
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\std_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\std_console.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />
+    <None Include="..\..\gasha\include\gasha\tty_console.inl" />
     <None Include="..\..\gasha\include\gasha\type_traits.inl" />
     <None Include="..\..\gasha\include\gasha\unique_lock.inl" />
     <None Include="..\..\gasha\include\gasha\unique_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\unshared_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\utility.inl" />
+    <None Include="..\..\gasha\include\gasha\vs_console.inl" />
+    <None Include="..\..\gasha\include\gasha\win_console.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F178704C-7D9B-4C88-BFB8-2D4452B7E159}</ProjectGuid>

@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------------
-// console_tty.cpp
+// tty_console.cpp
 // TTY端末【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/console_tty.inl>//TTY端末【インライン関数／テンプレート関数定義部】
+#include <gasha/tty_console.inl>//TTY端末【インライン関数／テンプレート関数定義部】
 
 #include <stdio.h>//fprintf(), fflush()
 
@@ -24,25 +24,25 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //TTY端末クラス
 
 //出力開始
-void consoleTTY::beginOutput()
+void ttyConsole::beginOutput()
 {
 	//何もしない
 }
 
 //出力終了
-void consoleTTY::endOutput()
+void ttyConsole::endOutput()
 {
 	fflush(m_handle);
 }
 
 //出力
-void consoleTTY::output(const char* str)
+void ttyConsole::output(const char* str)
 {
 	::fprintf(m_handle, str);
 }
 
 //TTY用のカラー変更
-void consoleTTY::changeColor(const GASHA_ consoleColor& color)
+void ttyConsole::changeColor(GASHA_ consoleColor&& color)
 {
 #ifdef GASHA_USE_ESCAPE_SEQUENCE
 	const GASHA_ consoleColor::color_t fore = color.fore();
@@ -106,7 +106,7 @@ void consoleTTY::changeColor(const GASHA_ consoleColor& color)
 }
 
 //カラーリセット
-void consoleTTY::resetColor()
+void ttyConsole::resetColor()
 {
 #ifdef GASHA_USE_ESCAPE_SEQUENCE
 	//リセット
@@ -115,7 +115,7 @@ void consoleTTY::resetColor()
 }
 
 //デストラクタ
-consoleTTY::~consoleTTY()
+ttyConsole::~ttyConsole()
 {}
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化

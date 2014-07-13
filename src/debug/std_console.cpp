@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------------
-// console_std.cpp
+// std_console.cpp
 // 標準コンソール【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/console_std.inl>//標準コンソール【インライン関数／テンプレート関数定義部】
+#include <gasha/std_console.inl>//標準コンソール【インライン関数／テンプレート関数定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -19,9 +19,12 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
-//標準コンソールのインスタンス
-consoleStd g_consoleStd;//標準コンソール
-consoleStdForNotice g_consoleStdForNotice;//画面通知用標準コンソール
+//標準コンソール
+stdConsole stdConsole::s_instance;
+
+//----------------------------------------
+//画面通知用標準コンソール
+stdConsoleForNotice stdConsoleForNotice::s_instance;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
