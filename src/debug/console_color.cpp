@@ -68,6 +68,10 @@ const char* consoleColor::toStr(char* str) const
 	return str;
 }
 
+//----------------------------------------
+//コンソールカラーリセット用構造体の実体定義
+const stdConsoleColor_t stdConsoleColor;
+
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

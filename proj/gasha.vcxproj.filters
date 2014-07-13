@@ -428,6 +428,9 @@
     <Filter Include="gasha_src\utility\type_traits">
       <UniqueIdentifier>{58d4bbf1-42cd-4a47-9a5f-25f74464864a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha_src\debug\log_category">
+      <UniqueIdentifier>{520d5550-ab43-4cc7-a01d-4bbdb5a9fffe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -878,6 +881,9 @@
     </ClCompile>
     <ClCompile Include="..\src\utility\type_traits.cpp">
       <Filter>gasha_src\utility\type_traits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_category.cpp">
+      <Filter>gasha_src\debug\log_category</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

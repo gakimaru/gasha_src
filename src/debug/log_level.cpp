@@ -18,69 +18,93 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
-//----------------------------------------
-//既定のログレベル定義
-DECLARE_LOG_LEVEL(asNormal, true, true, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
-DECLARE_LOG_LEVEL(asVerbose, true, false, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
-DECLARE_LOG_LEVEL(asDetail, true, false, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
-DECLARE_LOG_LEVEL(asImportant, true, true, iBLUE, STANDARD, iBLUE, iWHITE);//重要メッセージ
-DECLARE_LOG_LEVEL(asWarning, true, true, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
-DECLARE_LOG_LEVEL(asCritical, true, true, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
-DECLARE_LOG_LEVEL(asAbsolute, true, false, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
-DECLARE_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
-DECLARE_SPECIAL_LOG_LEVEL(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
+//--------------------
+//ログレベル
 
-//----------------------------------------
-//ログレベルクラス
+//前のレベルを取得
+logLevel logLevel::prev() const
+{
+	level_type prev_value = END;
+	if (m_info)
+	{
+		const level_type value = m_info->m_value;
+		if (value >= NORMAL_MIN && value <= NORMAL_MAX)
+		{
+			prev_value = fromOutputLevel(toOutputLevel(value) - 1);
+			if (prev_value < NORMAL_MIN || prev_value > NORMAL_MAX)
+				prev_value = END;
+		}
+	}
+	logLevelContainer con;
+	return con.at(prev_value);
+}
+
+//次のレベルを取得
+logLevel logLevel::next() const
+{
+	level_type next_value = END;
+	if (m_info)
+	{
+		const level_type value = m_info->m_value;
+		if (value >= NORMAL_MIN && value <= NORMAL_MAX)
+		{
+			next_value = fromOutputLevel(toOutputLevel(value) + 1);
+			if (next_value < NORMAL_MIN || next_value > NORMAL_MAX)
+				next_value = END;
+		}
+	}
+	logLevelContainer con;
+	return con.at(next_value);
+}
 
 //--------------------
 //イテレータ
 
 //インクリメント
-void logLevel::iterator::inc() const
+void logLevelContainer::iterator::inc() const
 {
-	if (m_value == container::invalidValue())
+	if (m_value == logLevel::INVALID)
 		return;
-	else if (m_value == container::endValue())
+	else if (m_value == logLevel::END)
 	{
-		m_value = container::invalidValue();
-		m_ref = nullptr;
+		m_value = logLevel::INVALID;
+		m_logLevel = nullptr;
 		m_isEnd = false;
 		return;
 	}
-	while (m_value != container::endValue())
+	while (m_value != logLevel::END)
 	{
 		++m_value;
-		m_ref = container::_at(m_value);
-		if (m_ref)
+		m_logLevel = logLevelContainer::getInfo(m_value);
+		if (m_logLevel)
 			return;
 	}
-	m_ref = nullptr;
+	m_logLevel = nullptr;
 	m_isEnd = true;
 }
 
 //デクリメント
-void logLevel::iterator::dec() const
+void logLevelContainer::iterator::dec() const
 {
 	m_isEnd = false;
-	if (m_value == container::invalidValue())
+	if (m_value == logLevel::INVALID)
 		return;
-	else if (m_value == container::beginValue())
+	else if (m_value == logLevel::BEGIN)
 	{
-		m_value = container::invalidValue();
-		m_ref = nullptr;
+		m_value = logLevel::INVALID;
+		m_logLevel = nullptr;
 		return;
 	}
-	while (m_value != container::beginValue())
+	while (m_value != logLevel::BEGIN)
 	{
 		--m_value;
-		m_ref = container::_at(m_value);
-		if (m_ref)
+		m_logLevel = logLevelContainer::getInfo(m_value);
+		if (m_logLevel)
 			return;
 	}
-	m_ref = container::_at(m_value);
-	if (!m_ref)
-		m_value = container::invalidValue();
+	m_logLevel = logLevelContainer::getInfo(m_value);
+	if (!m_logLevel)
+		m_value = logLevel::INVALID;
 	return;
 }
 
@@ -88,50 +112,50 @@ void logLevel::iterator::dec() const
 //リバースイテレータ
 
 //インクリメント
-void logLevel::reverse_iterator::inc() const
+void logLevelContainer::reverse_iterator::inc() const
 {
-	if (m_value == container::invalidValue())
+	if (m_value == logLevel::INVALID)
 		return;
-	else if (m_value == container::beginValue())
+	else if (m_value == logLevel::BEGIN)
 	{
-		m_value = container::invalidValue();
-		m_ref = nullptr;
+		m_value = logLevel::INVALID;
+		m_logLevel = nullptr;
 		m_isEnd = false;
 		return;
 	}
-	while (m_value != container::beginValue())
+	while (m_value != logLevel::BEGIN)
 	{
 		--m_value;
-		m_ref = container::_at(m_value - 1);
-		if (m_ref)
+		m_logLevel = logLevelContainer::getInfo(m_value - 1);
+		if (m_logLevel)
 			return;
 	}
-	m_ref = nullptr;
+	m_logLevel = nullptr;
 	m_isEnd = true;
 }
 
 //デクリメント
-void logLevel::reverse_iterator::dec() const
+void logLevelContainer::reverse_iterator::dec() const
 {
 	m_isEnd = false;
-	if (m_value == container::invalidValue())
+	if (m_value == logLevel::INVALID)
 		return;
-	else if (m_value == container::endValue())
+	else if (m_value == logLevel::END)
 	{
-		m_value = container::invalidValue();
-		m_ref = nullptr;
+		m_value = logLevel::INVALID;
+		m_logLevel = nullptr;
 		return;
 	}
-	while (m_value != container::endValue())
+	while (m_value != logLevel::END)
 	{
 		++m_value;
-		m_ref = container::_at(m_value - 1);
-		if (m_ref)
+		m_logLevel = logLevelContainer::getInfo(m_value - 1);
+		if (m_logLevel)
 			return;
 	}
-	m_ref = container::_at(m_value - 1);
-	if (!m_ref)
-		m_value = container::invalidValue();
+	m_logLevel = logLevelContainer::getInfo(m_value - 1);
+	if (!m_logLevel)
+		m_value = logLevel::INVALID;
 	return;
 }
 
@@ -139,73 +163,90 @@ void logLevel::reverse_iterator::dec() const
 //コンテナ（イテレータ用）
 
 //要素を更新
-bool logLevel::container::update(const logLevel::level_type value, const logLevel& obj)
+bool logLevelContainer::regist(const logLevel::info& info)
 {
-	if (value >= MIN && value <= MAX && !container::m_isAlreadyPool[value])
-	{
-		container::m_poolPtr[value] = obj;
-		container::m_isAlreadyPool[value] = true;
-		return true;
-	}
-	return false;
+	if (info.m_value < logLevel::MIN || info.m_value > logLevel::MAX || m_isAlreadyPool[info.m_value])
+		return false;
+	m_pool[info.m_value] = info;
+	m_isAlreadyPool[info.m_value] = true;
+	return true;
 }
 
 //全てのログレベルのコンソールを変更
-void logLevel::container::setAllConsole(IConsole* console)
+void logLevelContainer::setAllConsole(IConsole* console)
 {
-	for (level_type value = 0; value < NUM; ++value)
+	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
-		logLevel& level = m_poolPtr[value];
-		level.console() = console;
+		if (m_isAlreadyPool[value])
+		{
+			logLevel::info& info = m_pool[value];
+			info.m_console = console;
+		}
 	}
 }
 
 //全てのログレベルの画面通知用コンソールを変更
-void logLevel::container::setAllConsoleForNotice(IConsole* console)
+void logLevelContainer::setAllConsoleForNotice(IConsole* console)
 {
-	for (level_type value = 0; value < NUM; ++value)
+	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
-		logLevel& level = m_poolPtr[value];
-		level.consoleForNotice() = console;
+		if (m_isAlreadyPool[value])
+		{
+			logLevel::info& info = m_pool[value];
+			info.m_consoleForNotice = console;
+		}
 	}
 }
 
-//レベルコンテナ初期化（一回限り）
-void logLevel::container::initializeOnce()
+//コンテナ初期化（一回限り）
+void logLevelContainer::initializeOnce()
 {
-	//初期化済みチェック
-	if (m_isInitialized)
-		return;
 	//静的変数を初期化
-	m_isInitialized = true;
 	m_isAlreadyPool.reset();
-	m_poolPtr = reinterpret_cast<logLevel*>(m_pool);
 	//要素を初期化
 	for (logLevel::level_type value = 0; value < logLevel::NUM; ++value)
 	{
-		logLevel(value, "(undefined)", false, false, false, &GASHA_ stdConsole::instance(), &GASHA_ stdConsole::instance(), GASHA_ consoleColor(), GASHA_ consoleColor());
-		m_isAlreadyPool[value] = false;
+		logLevel::info& info = m_pool[value];
+		info.m_value = value;
+		info.m_name = "(undefined)";
+		info.m_console = nullptr;
+		info.m_consoleForNotice = nullptr;
+		info.m_color.reset();
+		info.m_colorForNotice.reset();
 	}
+	
+	IConsole& console = GASHA_ stdConsole::instance();//標準コンソール
+	IConsole& console_n = GASHA_ stdConsoleForNotice::instance();//画面通知用標準コンソール
+	typedef consoleColor c;//コンソールカラー
+
 	//既定のログレベルを設定（コンストラクタで要素を登録）
-	level_asNormal();//通常メッセージ
-	level_asVerbose();//冗長メッセージ
-	level_asDetail();//詳細メッセージ
-	level_asImportant();//重要メッセージ
-	level_asWarning();//警告メッセージ
-	level_asCritical();//重大メッセージ
-	level_asAbsolute();//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
-	level_asSilent();//静寂（絶対メッセ―ジ以外出力しない）
-	level_asSilentAbsolutely();//絶対静寂（全てのメッセージを出力しない）
+	#define REG_LOG_LEVEL(VALUE, CONSOLE, CONSOLE_N, FORE, BACK, FORE_N, BACK_N) \
+		regLogLevel<VALUE>()( \
+			#VALUE, \
+			CONSOLE, \
+			CONSOLE_N, \
+			consoleColor(consoleColor::FORE, consoleColor::BACK), \
+			consoleColor(consoleColor::FORE_N, consoleColor::BACK_N) \
+		);
+	#define REG_SPECIAL_LOG_LEVEL(VALUE) \
+		_private::regSpecialLogLevel<VALUE>()( \
+			#VALUE \
+		);
+	REG_LOG_LEVEL(asNormal, &console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
+	REG_LOG_LEVEL(asVerbose, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
+	REG_LOG_LEVEL(asDetail, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
+	REG_LOG_LEVEL(asImportant, &console, &console_n, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
+	REG_LOG_LEVEL(asWarning, &console, &console_n, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
+	REG_LOG_LEVEL(asCritical, &console, &console_n, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
+	REG_LOG_LEVEL(asAbsolute, &console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
+	REG_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
+	REG_SPECIAL_LOG_LEVEL(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
 }
 
-//レベルコンテナの静的変数をインスタンス化
-bool logLevel::container::m_isInitialized = false;
-logLevel* logLevel::container::m_poolPtr = nullptr;
-logLevel::byte logLevel::container::m_pool[sizeof(logLevel) * logLevel::POOL_NUM];
-std::bitset<logLevel::POOL_NUM> logLevel::container::m_isAlreadyPool;
-
-//コンテナのコンストラクタで起動時に初期化処理を実行するためのインスタンス
-static logLevel::container s_logLevelContainerInitializer;
+//コンテナの静的変数をインスタンス化
+std::once_flag logLevelContainer::m_initialized;
+logLevel::info logLevelContainer::m_pool[logLevel::POOL_NUM];
+std::bitset<logLevel::POOL_NUM> logLevelContainer::m_isAlreadyPool;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
