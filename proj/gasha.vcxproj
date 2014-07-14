@@ -87,6 +87,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_mask.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_message.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\memory.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="..\src\debug\log_category.cpp" />
     <ClCompile Include="..\src\debug\log_level.cpp" />
     <ClCompile Include="..\src\debug\log_mask.cpp" />
+    <ClCompile Include="..\src\debug\log_work_buff.cpp" />
     <ClCompile Include="..\src\debug\std_console.cpp" />
     <ClCompile Include="..\src\debug\tty_console.cpp" />
     <ClCompile Include="..\src\debug\vs_console.cpp" />
@@ -233,6 +235,7 @@
     <None Include="..\..\gasha\include\gasha\log_level.inl" />
     <None Include="..\..\gasha\include\gasha\log_mask.inl" />
     <None Include="..\..\gasha\include\gasha\log_message.inl" />
+    <None Include="..\..\gasha\include\gasha\log_work_buff.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\memory.inl" />
     <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />

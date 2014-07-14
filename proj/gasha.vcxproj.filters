@@ -446,6 +446,12 @@
     <Filter Include="gasha\debug\log_common">
       <UniqueIdentifier>{d4d32d51-a62d-4888-8ada-300f426c924a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\log_work_buff">
+      <UniqueIdentifier>{dbe61048-bd26-487c-add8-43034a1cd3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log_work_buff">
+      <UniqueIdentifier>{ff21d0ef-caba-4134-b885-30f76cbc8188}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -832,6 +838,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_common.h">
       <Filter>gasha\debug\log_common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h">
+      <Filter>gasha\debug\log_work_buff</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -914,6 +923,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_mask.cpp">
       <Filter>gasha_src\debug\log_mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_work_buff.cpp">
+      <Filter>gasha_src\debug\log_work_buff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1180,6 +1192,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\log_common.inl">
       <Filter>gasha\debug\log_common</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_work_buff.inl">
+      <Filter>gasha\debug\log_work_buff</Filter>
     </None>
   </ItemGroup>
 </Project>
