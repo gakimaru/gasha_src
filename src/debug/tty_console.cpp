@@ -114,6 +114,15 @@ void ttyConsole::resetColor()
 #endif//GASHA_USE_ESCAPE_SEQUENCE
 }
 
+//出力先が同じか判定
+bool ttyConsole::isSame(const IConsole* rhs) const
+{
+	const ttyConsole* _rhs = dynamic_cast<const ttyConsole*>(rhs);
+	if (!_rhs)
+		return false;
+	return (m_handle == _rhs->m_handle);
+}
+
 //デストラクタ
 ttyConsole::~ttyConsole()
 {}

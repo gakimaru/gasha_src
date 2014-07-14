@@ -66,14 +66,13 @@ void logCategoryContainer::iterator::dec() const
 	m_logCategory = logCategoryContainer::getInfo(m_value);
 	if (!m_logCategory)
 		m_value = logCategory::INVALID;
-	return;
 }
 
 //コンストラクタ
 logCategoryContainer::iterator::iterator(const logCategory::category_type value) :
-m_value(value),
-m_logCategory(logCategoryContainer::getInfo(m_value)),
-m_isEnd(value == logCategory::END)
+	m_value(value),
+	m_logCategory(logCategoryContainer::getInfo(m_value)),
+	m_isEnd(value == logCategory::END)
 {
 	if (!m_logCategory && !m_isEnd)
 	{
@@ -138,14 +137,13 @@ void logCategoryContainer::reverse_iterator::dec() const
 	m_logCategory = logCategoryContainer::getInfo(m_value - 1);
 	if (!m_logCategory)
 		m_value = logCategory::INVALID;
-	return;
 }
 
 //コンストラクタ
 logCategoryContainer::reverse_iterator::reverse_iterator(const logCategory::category_type value) :
-m_value(value),
-m_logCategory(logCategoryContainer::getInfo(m_value - 1)),
-m_isEnd(value == logCategory::BEGIN)
+	m_value(value),
+	m_logCategory(logCategoryContainer::getInfo(m_value - 1)),
+	m_isEnd(value == logCategory::BEGIN)
 {
 	if (!m_logCategory && !m_isEnd)
 	{
@@ -175,32 +173,6 @@ bool logCategoryContainer::regist(const logCategory::info& info)
 	return true;
 }
 
-//全てのログカテゴリのコンソールを変更
-void logCategoryContainer::setAllConsole(IConsole* console)
-{
-	for (logCategory::category_type value = logCategory::NORMAL_MIN; value <= logCategory::NORMAL_MAX; ++value)
-	{
-		if (m_isAlreadyPool[value])
-		{
-			logCategory::info& info = m_pool[value];
-			info.m_console = console;
-		}
-	}
-}
-
-//全てのログカテゴリの画面通知用コンソールを変更
-void logCategoryContainer::setAllConsoleForNotice(IConsole* console)
-{
-	for (logCategory::category_type value = logCategory::NORMAL_MIN; value <= logCategory::NORMAL_MAX; ++value)
-	{
-		if (m_isAlreadyPool[value])
-		{
-			logCategory::info& info = m_pool[value];
-			info.m_consoleForNotice = console;
-		}
-	}
-}
-
 //コンテナ初期化（一回限り）
 void logCategoryContainer::initializeOnce()
 {
@@ -212,8 +184,8 @@ void logCategoryContainer::initializeOnce()
 		logCategory::info& info = m_pool[value];
 		info.m_value = value;
 		info.m_name = "(undefined)";
-		info.m_console = nullptr;
-		info.m_consoleForNotice = nullptr;
+		for (int purpose = 0; purpose < LOG_PURPOSE_NUM; ++purpose)
+			info.m_console[purpose] = nullptr;
 	}
 	
 	typedef consoleColor c;//コンソールカラー
@@ -243,6 +215,7 @@ void logCategoryContainer::initializeOnce()
 }
 
 //コンテナの静的変数をインスタンス化
+const logCategoryContainer::explicitInitialize_t logCategoryContainer::explicitInitialize;
 std::once_flag logCategoryContainer::m_initialized;
 logCategory::info logCategoryContainer::m_pool[logCategory::POOL_NUM];
 std::bitset<logCategory::POOL_NUM> logCategoryContainer::m_isAlreadyPool;

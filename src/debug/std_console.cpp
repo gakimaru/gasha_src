@@ -19,12 +19,16 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
-//標準コンソール
-stdConsole stdConsole::s_instance;
+//標準出力コンソール
+stdOutConsole stdOutConsole::s_instance;
+
+//----------------------------------------
+//標準エラーコンソール
+stdErrConsole stdErrConsole::s_instance;
 
 //----------------------------------------
 //画面通知用標準コンソール
-stdConsoleForNotice stdConsoleForNotice::s_instance;
+stdConsoleOfNotice stdConsoleOfNotice::s_instance;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 

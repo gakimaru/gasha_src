@@ -102,6 +102,15 @@ void winConsole::resetColor()
 #endif//GASHA_USE_WINDOWS_CONSOLE_COLOR
 }
 
+//出力先が同じか判定
+bool winConsole::isSame(const IConsole* rhs) const
+{
+	const winConsole* _rhs = dynamic_cast<const winConsole*>(rhs);
+	if (!_rhs)
+		return false;
+	return (m_handle == _rhs->m_handle);
+}
+
 //コンストラクタ
 winConsole::winConsole(FILE* handle, const char* name) :
 	m_name(name),

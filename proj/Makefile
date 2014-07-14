@@ -66,6 +66,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/std_console.cpp \
 	$(SRC_BASE_DIR)/debug/log_level.cpp \
 	$(SRC_BASE_DIR)/debug/log_category.cpp \
+	$(SRC_BASE_DIR)/debug/log_mask.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

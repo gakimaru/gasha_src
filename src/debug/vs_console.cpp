@@ -57,6 +57,15 @@ void vsConsole::resetColor()
 	//何もしない
 }
 
+//出力先が同じか判定
+bool vsConsole::isSame(const IConsole* rhs) const
+{
+	const vsConsole* _rhs = dynamic_cast<const vsConsole*>(rhs);
+	if (!_rhs)
+		return false;
+	return true;
+}
+
 //デストラクタ
 vsConsole::~vsConsole()
 {}

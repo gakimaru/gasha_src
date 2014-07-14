@@ -105,7 +105,6 @@ void logLevelContainer::iterator::dec() const
 	m_logLevel = logLevelContainer::getInfo(m_value);
 	if (!m_logLevel)
 		m_value = logLevel::INVALID;
-	return;
 }
 
 //コンストラクタ
@@ -177,7 +176,6 @@ void logLevelContainer::reverse_iterator::dec() const
 	m_logLevel = logLevelContainer::getInfo(m_value - 1);
 	if (!m_logLevel)
 		m_value = logLevel::INVALID;
-	return;
 }
 
 //コンストラクタ
@@ -215,27 +213,29 @@ bool logLevelContainer::regist(const logLevel::info& info)
 }
 
 //全てのログレベルのコンソールを変更
-void logLevelContainer::setAllConsole(IConsole* console)
+void logLevelContainer::replaceAllConsole(const GASHA_ logPurpose purpose, IConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
 		if (m_isAlreadyPool[value])
 		{
 			logLevel::info& info = m_pool[value];
-			info.m_console = console;
+			info.m_console[purpose] = new_console;
 		}
 	}
 }
-
-//全てのログレベルの画面通知用コンソールを変更
-void logLevelContainer::setAllConsoleForNotice(IConsole* console)
+//※置き換え元のコンソールを指定する場合
+void logLevelContainer::replaceAllConsole(const GASHA_ logPurpose purpose, IConsole* src_console, IConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
 		if (m_isAlreadyPool[value])
 		{
 			logLevel::info& info = m_pool[value];
-			info.m_consoleForNotice = console;
+			IConsole*& curr_console = info.m_console[purpose];
+			if ((!curr_console && !src_console) ||
+				(curr_console && src_console && *curr_console == *src_console))
+				curr_console = new_console;
 		}
 	}
 }
@@ -251,14 +251,16 @@ void logLevelContainer::initializeOnce()
 		logLevel::info& info = m_pool[value];
 		info.m_value = value;
 		info.m_name = "(undefined)";
-		info.m_console = nullptr;
-		info.m_consoleForNotice = nullptr;
-		info.m_color.reset();
-		info.m_colorForNotice.reset();
+		for (int purpose = 0; purpose < GASHA_ LOG_PURPOSE_NUM; ++purpose)
+		{
+			info.m_console[purpose] = nullptr;
+			info.m_color[purpose].reset();
+		}
 	}
 	
-	IConsole& console = GASHA_ stdConsole::instance();//標準コンソール
-	IConsole& console_n = GASHA_ stdConsoleForNotice::instance();//画面通知用標準コンソール
+	IConsole& stdout_console = GASHA_ stdOutConsole::instance();//標準出力コンソール
+	IConsole& stderr_console = GASHA_ stdErrConsole::instance();//標準エラーコンソール
+	IConsole& notice_console = GASHA_ stdConsoleOfNotice::instance();//画面通知用標準コンソール
 	typedef consoleColor c;//コンソールカラー
 
 	//既定のログレベルを登録（関数オブジェクトで登録）
@@ -274,18 +276,19 @@ void logLevelContainer::initializeOnce()
 		_private::regSpecialLogLevel<VALUE>()( \
 			#VALUE \
 		)
-	REG_LOG_LEVEL(asNormal, &console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
-	REG_LOG_LEVEL(asVerbose, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
-	REG_LOG_LEVEL(asDetail, &console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
-	REG_LOG_LEVEL(asImportant, &console, &console_n, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
-	REG_LOG_LEVEL(asWarning, &console, &console_n, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
-	REG_LOG_LEVEL(asCritical, &console, &console_n, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
-	REG_LOG_LEVEL(asAbsolute, &console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
+	REG_LOG_LEVEL(asNormal, &stdout_console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
+	REG_LOG_LEVEL(asVerbose, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
+	REG_LOG_LEVEL(asDetail, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
+	REG_LOG_LEVEL(asImportant, &stdout_console, &notice_console, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
+	REG_LOG_LEVEL(asWarning, &stderr_console, &notice_console, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
+	REG_LOG_LEVEL(asCritical, &stderr_console, &notice_console, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
+	REG_LOG_LEVEL(asAbsolute, &stdout_console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
 	REG_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
 	REG_SPECIAL_LOG_LEVEL(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
 }
 
 //コンテナの静的変数をインスタンス化
+const logLevelContainer::explicitInitialize_t logLevelContainer::explicitInitialize;
 std::once_flag logLevelContainer::m_initialized;
 logLevel::info logLevelContainer::m_pool[logLevel::POOL_NUM];
 std::bitset<logLevel::POOL_NUM> logLevelContainer::m_isAlreadyPool;
