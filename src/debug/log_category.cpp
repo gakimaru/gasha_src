@@ -220,7 +220,7 @@ void logCategoryContainer::initializeOnce()
 
 	//既定のログカテゴリを登録（関数オブジェクトで登録）
 	#define REG_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
-		regLogCategory<VALUE>()( \
+		_private::regLogCategory<VALUE>()(\
 			#VALUE, \
 			CONSOLE, \
 			CONSOLE_N \

@@ -130,6 +130,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\string.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tty_console.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="..\src\memory\new.cpp" />
     <ClCompile Include="..\src\memory\poly_allocator.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
+    <ClCompile Include="..\src\string\string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\shared_spin_lock.cpp" />
@@ -257,6 +259,7 @@
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\std_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\std_console.inl" />
+    <None Include="..\..\gasha\include\gasha\string.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />
     <None Include="..\..\gasha\include\gasha\tty_console.inl" />

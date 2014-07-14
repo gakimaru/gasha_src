@@ -263,7 +263,7 @@ void logLevelContainer::initializeOnce()
 
 	//既定のログレベルを登録（関数オブジェクトで登録）
 	#define REG_LOG_LEVEL(VALUE, CONSOLE, CONSOLE_N, FORE, BACK, FORE_N, BACK_N) \
-		regLogLevel<VALUE>()( \
+	_private::regLogLevel<VALUE>()(\
 			#VALUE, \
 			CONSOLE, \
 			CONSOLE_N, \

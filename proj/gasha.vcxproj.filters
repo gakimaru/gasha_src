@@ -431,6 +431,12 @@
     <Filter Include="gasha_src\debug\log_category">
       <UniqueIdentifier>{520d5550-ab43-4cc7-a01d-4bbdb5a9fffe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\string\string">
+      <UniqueIdentifier>{07747f89-6362-46d6-956a-1618ac9b9376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string\string">
+      <UniqueIdentifier>{3084f468-7937-4cce-ad8b-522d52759610}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -808,6 +814,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
       <Filter>gasha\utility\cpuid</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\string.h">
+      <Filter>gasha\string\string</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -884,6 +893,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_category.cpp">
       <Filter>gasha_src\debug\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\string.cpp">
+      <Filter>gasha_src\string\string</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1141,6 +1153,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\win_console.inl">
       <Filter>gasha\debug\console\win_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\string.inl">
+      <Filter>gasha\string\string</Filter>
     </None>
   </ItemGroup>
 </Project>

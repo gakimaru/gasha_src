@@ -10,14 +10,7 @@
 
 #include <gasha/console_color.inl>//コンソールカラー【インライン関数／テンプレート関数定義部】
 
-#include <cstdio>//sprintf()
-
-//【VC++】ワーニング設定を退避
-#pragma warning(push)
-
-//【VC++】sprintf を使用すると、error C4996 が発生する
-//  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-#pragma warning(disable: 4996)//C4996を抑える
+#include <gasha/string.h>//文字列処理：spprintf()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -58,13 +51,13 @@ const char* consoleColor::toStr(const consoleColor::color_t color) const
 }
 const char* consoleColor::toStr(char* str) const
 {
-	int pos = std::sprintf(str, "%s+%s", toStr(m_fore), toStr(m_back));
+	int pos = GASHA_ spprintf(str, "%s+%s", toStr(m_fore), toStr(m_back));
 	if (m_attr & BOLD)
-		pos += std::sprintf(str + pos, "+BOLD");
+		pos += GASHA_ spprintf(str + pos, "+BOLD");
 	if (m_attr & UNDERLINE)
-		pos += std::sprintf(str + pos, "+UNDERLINE");
+		pos += GASHA_ spprintf(str + pos, "+UNDERLINE");
 	if (m_attr & REVERSE)
-		pos += std::sprintf(str + pos, "+REVERSE");
+		pos += GASHA_ spprintf(str + pos, "+REVERSE");
 	return str;
 }
 

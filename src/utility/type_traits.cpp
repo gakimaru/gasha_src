@@ -10,11 +10,7 @@
 
 #include <gasha/type_traits.inl>//型特性ユーティリティ【インライン関数／テンプレート関数定義部】
 
-#include <cstdio>//sprintf()
-
-//【VC++】sprintf を使用すると、error C4996 が発生する
-//  error C4996: 'sprintf': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-#pragma warning(disable: 4996)//C4996を抑える
+#include <gasha/string.h>//文字列処理：sprintf()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -27,13 +23,13 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 template<>
 const char* toNumStr<char>(char* buff, const char value)
 {
-	std::sprintf(buff, "%d", static_cast<int>(value));
+	GASHA_ spprintf(buff, "%d", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<char>(char* buff, const char value)
 {
-	std::sprintf(buff, "0x%02x", static_cast<unsigned int>(value)& 0xff);
+	GASHA_ spprintf(buff, "0x%02x", static_cast<unsigned int>(value)& 0xff);
 	return buff;
 }
 template<>
@@ -47,13 +43,13 @@ const char* toByteStr<char>(char* buff, const char value)
 template<>
 const char* toNumStr<unsigned char>(char* buff, const unsigned char value)
 {
-	std::sprintf(buff, "%u", static_cast<unsigned int>(value));
+	GASHA_ spprintf(buff, "%u", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned char>(char* buff, const unsigned char value)
 {
-	std::sprintf(buff, "0x%02x", static_cast<unsigned int>(value));
+	GASHA_ spprintf(buff, "0x%02x", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
@@ -67,13 +63,13 @@ const char* toByteStr<unsigned char>(char* buff, const unsigned char value)
 template<>
 const char* toNumStr<short>(char* buff, const short value)
 {
-	std::sprintf(buff, "%d", static_cast<int>(value));
+	GASHA_ spprintf(buff, "%d", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<short>(char* buff, const short value)
 {
-	std::sprintf(buff, "0x%04x", static_cast<unsigned int>(value)& 0xffff);
+	GASHA_ spprintf(buff, "0x%04x", static_cast<unsigned int>(value)& 0xffff);
 	return buff;
 }
 template<>
@@ -90,13 +86,13 @@ const char* toByteStr<short>(char* buff, const short value)
 template<>
 const char* toNumStr<unsigned short>(char* buff, const unsigned short value)
 {
-	std::sprintf(buff, "%u", static_cast<int>(value));
+	GASHA_ spprintf(buff, "%u", static_cast<int>(value));
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned short>(char* buff, const unsigned short value)
 {
-	std::sprintf(buff, "0x%04x", static_cast<unsigned int>(value));
+	GASHA_ spprintf(buff, "0x%04x", static_cast<unsigned int>(value));
 	return buff;
 }
 template<>
@@ -113,13 +109,13 @@ const char* toByteStr<unsigned short>(char* buff, const unsigned short value)
 template<>
 const char* toNumStr<int>(char* buff, const int value)
 {
-	std::sprintf(buff, "%d", value);
+	GASHA_ spprintf(buff, "%d", value);
 	return buff;
 }
 template<>
 const char* toHexStr<int>(char* buff, const int value)
 {
-	std::sprintf(buff, "0x%08x", value);
+	GASHA_ spprintf(buff, "0x%08x", value);
 	return buff;
 }
 template<>
@@ -136,13 +132,13 @@ const char* toByteStr<int>(char* buff, const int value)
 template<>
 const char* toNumStr<unsigned int>(char* buff, const unsigned int value)
 {
-	std::sprintf(buff, "%u", value);
+	GASHA_ spprintf(buff, "%u", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned int>(char* buff, const unsigned int value)
 {
-	std::sprintf(buff, "0x%08x", value);
+	GASHA_ spprintf(buff, "0x%08x", value);
 	return buff;
 }
 template<>
@@ -159,13 +155,13 @@ const char* toByteStr<unsigned int>(char* buff, const unsigned int value)
 template<>
 const char* toNumStr<long>(char* buff, const long value)
 {
-	std::sprintf(buff, "%ld", value);
+	GASHA_ spprintf(buff, "%ld", value);
 	return buff;
 }
 template<>
 const char* toHexStr<long>(char* buff, const long value)
 {
-	std::sprintf(buff, "0x%08lx", value);
+	GASHA_ spprintf(buff, "0x%08lx", value);
 	return buff;
 }
 template<>
@@ -182,13 +178,13 @@ const char* toByteStr<long>(char* buff, const long value)
 template<>
 const char* toNumStr<unsigned long>(char* buff, const unsigned long value)
 {
-	std::sprintf(buff, "%lu", value);
+	GASHA_ spprintf(buff, "%lu", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned long>(char* buff, const unsigned long value)
 {
-	std::sprintf(buff, "0x%08lx", value);
+	GASHA_ spprintf(buff, "0x%08lx", value);
 	return buff;
 }
 template<>
@@ -205,13 +201,13 @@ const char* toByteStr<unsigned long>(char* buff, const unsigned long value)
 template<>
 const char* toNumStr<long long>(char* buff, const long long value)
 {
-	std::sprintf(buff, "%lld", value);
+	GASHA_ spprintf(buff, "%lld", value);
 	return buff;
 }
 template<>
 const char* toHexStr<long long>(char* buff, const long long value)
 {
-	std::sprintf(buff, "0x%016llx", value);
+	GASHA_ spprintf(buff, "0x%016llx", value);
 	return buff;
 }
 template<>
@@ -228,13 +224,13 @@ const char* toByteStr<long long>(char* buff, const long long value)
 template<>
 const char* toNumStr<unsigned long long>(char* buff, const unsigned long long value)
 {
-	std::sprintf(buff, "%llu", value);
+	GASHA_ spprintf(buff, "%llu", value);
 	return buff;
 }
 template<>
 const char* toHexStr<unsigned long long>(char* buff, const unsigned long long value)
 {
-	std::sprintf(buff, "0x%016llx", value);
+	GASHA_ spprintf(buff, "0x%016llx", value);
 	return buff;
 }
 template<>
@@ -251,14 +247,14 @@ const char* toByteStr<unsigned long long>(char* buff, const unsigned long long v
 template<>
 const char* toNumStr<float>(char* buff, const float value)
 {
-	std::sprintf(buff, "%f", value);
+	GASHA_ spprintf(buff, "%f", value);
 	return buff;
 }
 template<>
 const char* toHexStr<float>(char* buff, const float value)
 {
 	unionTypes uni_value(value);
-	std::sprintf(buff, "0x%08x", uni_value.m_uint[0]);
+	GASHA_ spprintf(buff, "0x%08x", uni_value.m_uint[0]);
 	return buff;
 }
 template<>
@@ -275,14 +271,14 @@ const char* toByteStr<float>(char* buff, const float value)
 template<>
 const char* toNumStr<double>(char* buff, const double value)
 {
-	std::sprintf(buff, "%lf", value);
+	GASHA_ spprintf(buff, "%lf", value);
 	return buff;
 }
 template<>
 const char* toHexStr<double>(char* buff, const double value)
 {
 	unionTypes uni_value(value);
-	std::sprintf(buff, "0x%016llx", uni_value.m_ullong[0]);
+	GASHA_ spprintf(buff, "0x%016llx", uni_value.m_ullong[0]);
 	return buff;
 }
 template<>
