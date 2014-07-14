@@ -10,6 +10,8 @@
 
 #include <gasha/log_work_buff.inl>//ログワークバッファ【インライン関数／テンプレート関数定義部】
 
+#include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義定義部】
+
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
@@ -37,6 +39,25 @@ char* logWorkBuff::alloc()
 	return nullptr;
 }
 
+//strcpy
+std::size_t logWorkBuff::strcpy(char* message, std::size_t& pos, const char* src)
+{
+	std::size_t remain = MAX_MESSAGE_SIZE - pos;
+	const std::size_t src_size = GASHA_ strlen_fast(src);
+	std::size_t ret = 0;
+	std::size_t copy_size;
+	if (src_size < remain)
+	{
+		copy_size = src_size;
+		ret = src_size;
+	}
+	else
+		copy_size = remain - 1;
+	std::memcpy(message + pos, src, copy_size);
+	message[copy_size] = '\0';
+	return ret;
+}
+
 //初期化メソッド（一回限り）
 void logWorkBuff::initializeOnce()
 {
@@ -48,7 +69,7 @@ void logWorkBuff::initializeOnce()
 const logWorkBuff::explicitInitialize_t logWorkBuff::explicitInitialize;//明示的な初期化指定用
 std::once_flag logWorkBuff::m_initialized;//初期化済み
 std::atomic<bool> logWorkBuff::m_abort(false);//中断
-GASHA_ lfPoolAllocator_withBuff<GASHA_LOG_WORK_BUFF_BLOCK_SIZE, GASHA_LOG_WORK_BUFF_POOL_SIZE> logWorkBuff::m_workBuff;//ワークバッファ
+GASHA_ lfPoolAllocator_withBuff<logWorkBuff::MAX_MESSAGE_SIZE, logWorkBuff::MESSAGE_POOL_SIZE> logWorkBuff::m_workBuff;//ワークバッファ
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 

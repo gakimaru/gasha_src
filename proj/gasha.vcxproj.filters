@@ -452,6 +452,12 @@
     <Filter Include="gasha_src\debug\log_work_buff">
       <UniqueIdentifier>{ff21d0ef-caba-4134-b885-30f76cbc8188}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\log_queue">
+      <UniqueIdentifier>{eaac2d1a-e413-4b65-b1d5-ec1c8287f6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log_queue">
+      <UniqueIdentifier>{bb948b12-4744-49cf-bcd8-5468a389ee81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -841,6 +847,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h">
       <Filter>gasha\debug\log_work_buff</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_queue.h">
+      <Filter>gasha\debug\log_queue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -926,6 +935,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_work_buff.cpp">
       <Filter>gasha_src\debug\log_work_buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_queue.cpp">
+      <Filter>gasha_src\debug\log_queue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1195,6 +1207,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\log_work_buff.inl">
       <Filter>gasha\debug\log_work_buff</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_queue.inl">
+      <Filter>gasha\debug\log_queue</Filter>
     </None>
   </ItemGroup>
 </Project>
