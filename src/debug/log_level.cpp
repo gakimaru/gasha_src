@@ -24,37 +24,45 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //前のレベルを取得
 logLevel logLevel::prev() const
 {
-	level_type prev_value = END;
+	logLevelContainer con;
 	if (m_info)
 	{
 		const level_type value = m_info->m_value;
 		if (value >= NORMAL_MIN && value <= NORMAL_MAX)
 		{
-			prev_value = fromOutputLevel(toOutputLevel(value) - 1);
-			if (prev_value < NORMAL_MIN || prev_value > NORMAL_MAX)
-				prev_value = END;
+			level_type next_value = fromOutputLevel(toOutputLevel(value) - 1);
+			while (next_value >= NORMAL_MIN && next_value <= NORMAL_MAX)
+			{
+				logLevel::info* info = con.getInfo(next_value);
+				if (info)
+					return info;
+				--next_value;
+			}
 		}
 	}
-	logLevelContainer con;
-	return con.at(prev_value);
+	return con.at(END);
 }
 
 //次のレベルを取得
 logLevel logLevel::next() const
 {
-	level_type next_value = END;
+	logLevelContainer con;
 	if (m_info)
 	{
 		const level_type value = m_info->m_value;
 		if (value >= NORMAL_MIN && value <= NORMAL_MAX)
 		{
-			next_value = fromOutputLevel(toOutputLevel(value) + 1);
-			if (next_value < NORMAL_MIN || next_value > NORMAL_MAX)
-				next_value = END;
+			level_type next_value = fromOutputLevel(toOutputLevel(value) + 1);
+			while (next_value >= NORMAL_MIN && next_value <= NORMAL_MAX)
+			{
+				logLevel::info* info = con.getInfo(next_value);
+				if (info)
+					return info;
+				++next_value;
+			}
 		}
 	}
-	logLevelContainer con;
-	return con.at(next_value);
+	return con.at(END);
 }
 
 //--------------------
