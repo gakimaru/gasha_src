@@ -30,6 +30,10 @@ stdErrConsole stdErrConsole::s_instance;
 //画面通知用標準コンソール
 stdConsoleOfNotice stdConsoleOfNotice::s_instance;
 
+//----------------------------------------
+//標準ダミーコンソール
+stdDummyConsole stdDummyConsole::s_instance;
+
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

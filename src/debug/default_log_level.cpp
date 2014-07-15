@@ -10,6 +10,8 @@
 
 #include <gasha/default_log_level.inl>//既定のログレベル【インライン関数／テンプレート関数定義部】
 
+#include <gasha/std_console.h>//標準コンソール
+
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------

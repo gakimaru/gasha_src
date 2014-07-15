@@ -63,6 +63,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/tty_console.cpp \
 	$(SRC_BASE_DIR)/debug/win_console.cpp \
 	$(SRC_BASE_DIR)/debug/vs_console.cpp \
+	$(SRC_BASE_DIR)/debug/dummy_console.cpp \
 	$(SRC_BASE_DIR)/debug/std_console.cpp \
 	$(SRC_BASE_DIR)/debug/log_level.cpp \
 	$(SRC_BASE_DIR)/debug/log_category.cpp \

@@ -488,6 +488,9 @@
     <Filter Include="gasha\debug\log\log_print\std_log_print">
       <UniqueIdentifier>{c553f5ed-d2a1-4563-9715-2b3938e75a1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\console\dummy_console">
+      <UniqueIdentifier>{d41a4bae-07a4-48a0-8a0a-46b3bf032956}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -898,6 +901,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h">
       <Filter>gasha\debug\log\log_print\std_log_print</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h">
+      <Filter>gasha\debug\console\dummy_console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -995,6 +1001,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_queue_monitor.cpp">
       <Filter>gasha_src\debug\log\log_queue_monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\dummy_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1285,6 +1294,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\std_log_print.inl">
       <Filter>gasha\debug\log\log_print\std_log_print</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_console.inl">
+      <Filter>gasha\debug\console\dummy_console</Filter>
     </None>
   </ItemGroup>
 </Project>

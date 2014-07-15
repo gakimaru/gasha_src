@@ -32,13 +32,13 @@ void ttyConsole::beginOutput()
 //出力終了
 void ttyConsole::endOutput()
 {
-	fflush(m_handle);
+	std::fflush(m_handle);
 }
 
 //出力
 void ttyConsole::output(const char* str)
 {
-	::fprintf(m_handle, str);
+	std::fprintf(m_handle, str);
 }
 
 //TTY用のカラー変更

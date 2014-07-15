@@ -49,6 +49,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="..\src\debug\console_color.cpp" />
     <ClCompile Include="..\src\debug\default_log_category.cpp" />
     <ClCompile Include="..\src\debug\default_log_level.cpp" />
+    <ClCompile Include="..\src\debug\dummy_console.cpp" />
     <ClCompile Include="..\src\debug\log_category.cpp" />
     <ClCompile Include="..\src\debug\log_level.cpp" />
     <ClCompile Include="..\src\debug\log_mask.cpp" />
@@ -216,6 +218,7 @@
     <None Include="..\..\gasha\include\gasha\default_log_category.inl" />
     <None Include="..\..\gasha\include\gasha\default_log_level.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\dummy_console.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />

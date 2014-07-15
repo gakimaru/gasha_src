@@ -40,13 +40,13 @@ void winConsole::beginOutput()
 //出力終了
 void winConsole::endOutput()
 {
-	fflush(m_handle);
+	std::fflush(m_handle);
 }
 
 //出力
 void winConsole::output(const char* str)
 {
-	::fprintf(m_handle, str);
+	std::fprintf(m_handle, str);
 }
 
 //カラー変更

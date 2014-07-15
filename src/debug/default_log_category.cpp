@@ -10,6 +10,8 @@
 
 #include <gasha/default_log_category.inl>//既定のログカテゴリ【インライン関数／テンプレート関数定義部】
 
+#include <gasha/std_console.h>//標準コンソール
+
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
@@ -40,9 +42,14 @@ void registDefaultLogCategory()
 				#VALUE \
 			); \
 		}
-	
+
+	//コンソール
+	IConsole& dummy_console = GASHA_ stdDummyConsole::instance();//標準ダミーコンソール
+	IConsole& notice_console = GASHA_ stdConsoleOfNotice::instance();//画面通知用標準コンソール
+
 	//通常ログカテゴリ登録
 	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
+	REG_LOG_CATEGORY(forNotice, &dummy_console, &notice_console);//画面通知専用
 	REG_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
 	REG_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係
 	REG_LOG_CATEGORY(for3D, nullptr, nullptr);//3Dグラフィックス関係
