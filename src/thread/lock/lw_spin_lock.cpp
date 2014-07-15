@@ -32,9 +32,11 @@ void lwSpinLock::lock(const int spin_count)
 		bool prev = false;
 		if (!m_lock.compare_exchange_weak(prev, true))
 			return;
+
+		//ロックが取得できなければリトライ
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}

@@ -71,6 +71,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/log_mask.cpp \
 	$(SRC_BASE_DIR)/debug/log_work_buff.cpp \
 	$(SRC_BASE_DIR)/debug/log_queue.cpp \
+	$(SRC_BASE_DIR)/debug/log_queue_monitor.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

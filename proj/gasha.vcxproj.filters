@@ -464,6 +464,12 @@
     <Filter Include="gasha\debug\log_category\default_log_category">
       <UniqueIdentifier>{f55e3ece-2eb6-4551-becf-fa4d3cc26f81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha_src\debug\log_queue_monitor">
+      <UniqueIdentifier>{f927815a-fe40-46d6-ab03-3cd18cba20d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_queue_monitor">
+      <UniqueIdentifier>{bdbc54d5-fb19-4632-8c78-6eaaade22f77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -862,6 +868,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h">
       <Filter>gasha\debug\log_category\default_log_category</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_queue_monitor.h">
+      <Filter>gasha\debug\log_queue_monitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -956,6 +965,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\default_log_level.cpp">
       <Filter>gasha_src\debug\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_queue_monitor.cpp">
+      <Filter>gasha_src\debug\log_queue_monitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1234,6 +1246,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\default_log_category.inl">
       <Filter>gasha\debug\log_category\default_log_category</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_queue_monitor.inl">
+      <Filter>gasha\debug\log_queue_monitor</Filter>
     </None>
   </ItemGroup>
 </Project>

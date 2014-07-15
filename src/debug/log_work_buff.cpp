@@ -27,12 +27,22 @@ char* logWorkBuff::alloc()
 	int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 	while (!m_abort.load())
 	{
+		//一時停止中は何もせずループする
+		if (m_pause.load())
+		{
+			GASHA_ defaultContextSwitch();
+			continue;
+		}
+
+		//ワークバッファが取得
 		char* buff = reinterpret_cast<char*>(m_workBuff.alloc());
 		if (buff)
 			return buff;
+
+		//ワークバッファが取得できなければリトライ
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
@@ -69,6 +79,7 @@ void logWorkBuff::initializeOnce()
 const logWorkBuff::explicitInitialize_t logWorkBuff::explicitInitialize;//明示的な初期化指定用
 std::once_flag logWorkBuff::m_initialized;//初期化済み
 std::atomic<bool> logWorkBuff::m_abort(false);//中断
+std::atomic<bool> logWorkBuff::m_pause(false);//一時停止
 GASHA_ lfPoolAllocator_withBuff<logWorkBuff::MAX_MESSAGE_SIZE, logWorkBuff::MESSAGE_POOL_SIZE> logWorkBuff::m_workBuff;//ワークバッファ
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化

@@ -32,10 +32,11 @@ void simpleSharedSpinLock::lock(const int spin_count)
 		const int lock_counter = m_lockCounter.fetch_sub(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを更新
 		if (lock_counter == SHARED_LOCK_COUNTER_UNLOCKED)
 			return;//ロック取得成功
-		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを戻してリトライ
+		//ロックが取得できなければ、カウンタを戻してリトライ
+		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
@@ -61,10 +62,11 @@ void simpleSharedSpinLock::lock_shared(const int spin_count)
 		const int lock_counter = m_lockCounter.fetch_sub(1);//カウンタを更新
 		if (lock_counter > 0)
 			return;//ロック取得成功
-		m_lockCounter.fetch_add(1);//カウンタを戻してリトライ
+		//ロックが取得できなければ、カウンタを戻してリトライ
+		m_lockCounter.fetch_add(1);
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}

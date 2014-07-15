@@ -31,9 +31,11 @@ void unsharedSpinLock::lock(const int spin_count)
 	{
 		if (!m_lock.test_and_set())
 			return;
+
+		//ロックが取得できなければリトライ
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}

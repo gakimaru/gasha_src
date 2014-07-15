@@ -34,20 +34,22 @@ void sharedSpinLock::lock(const int spin_count)
 			return;//ロック取得成功
 		if (lock_counter > 0)	//他が排他ロックを取得していないので、現在の共有ロックが全て解放されるのを待つ
 		{						//※カウンタを更新したままなので、後続の共有ロック／排他ロックは取得できない。
-			while (m_lockCounter.load() != 0)//カウンタが0になるのを待つ
+			//カウンタが0になるのを待つ
+			while (m_lockCounter.load() != 0)
 			{
 				if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 				{
-					contextSwitch();
+					defaultContextSwitch();
 					spin_count_now = spin_count;
 				}
 			}
 			return;//ロック取得成功
 		}
-		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);//カウンタを戻してリトライ
+		//ロックが取得できなければ、カウンタを戻してリトライ
+		m_lockCounter.fetch_add(SHARED_LOCK_COUNTER_UNLOCKED);
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}
@@ -73,10 +75,11 @@ void sharedSpinLock::lock_shared(const int spin_count)
 		const int lock_counter = m_lockCounter.fetch_sub(1);//カウンタを更新
 		if (lock_counter > 0)
 			return;//ロック取得成功
-		m_lockCounter.fetch_add(1);//カウンタを戻してリトライ
+		//ロックが取得できなければ、カウンタを戻してリトライ
+		m_lockCounter.fetch_add(1);
 		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 		{
-			contextSwitch();
+			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
 	}

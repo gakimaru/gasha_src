@@ -21,7 +21,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 //キューイング
-bool logQueue::enqueue(const char* message, const level_type level, const category_type category, GASHA_ IConsole* (&consoles)[PURPOSE_NUM], const GASHA_ consoleColor* (&colors)[PURPOSE_NUM], const std::size_t message_size, const id_type id)
+bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_type level, const category_type category, GASHA_ IConsole* (&consoles)[PURPOSE_NUM], const GASHA_ consoleColor* (&colors)[PURPOSE_NUM], const std::size_t message_size, const id_type reserved_id)
 {
 	if (!message)//messege が nullptr ならキューイング成功扱い
 		return true;
@@ -34,12 +34,22 @@ bool logQueue::enqueue(const char* message, const level_type level, const catego
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
 		{
+			//一時停止中は何もせずループする
+			if (m_pause.load())
+			{
+				GASHA_ defaultContextSwitch();
+				continue;
+			}
+
+			//メッセージバッファの割り当て
 			queue_message = reinterpret_cast<char*>(m_messageBuff.alloc(_message_size));
 			if (queue_message || IS_NO_WAIT_MODE)
 				break;
+			
+			//メッセージバッファの割り当てができなければリトライ
 			if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 			{
-				contextSwitch();
+				defaultContextSwitch();
 				spin_count_now = spin_count;
 			}
 		}
@@ -51,17 +61,27 @@ bool logQueue::enqueue(const char* message, const level_type level, const catego
 	//メッセージのキューイング
 	node_type* node = nullptr;
 	{
-		const id_type queue_id = id > 0 ? id : m_id.fetch_add(1);
+		const id_type id = reserved_id > 0 ? reserved_id : reserve();
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
 		{
-			node = m_queue.push(queue_id, queue_message, level, category, consoles, colors);
+			//一時停止中は何もせずループする
+			if (m_pause.load())
+			{
+				GASHA_ defaultContextSwitch();
+				continue;
+			}
+
+			//キューイング
+			node = m_queue.push(id, queue_message, is_no_cr, level, category, consoles, colors);
 			if (node || IS_NO_WAIT_MODE)
 				break;
+
+			//キューイングできなければリトライ
 			if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
 			{
-				contextSwitch();
+				defaultContextSwitch();
 				spin_count_now = spin_count;
 			}
 		}
@@ -72,11 +92,21 @@ bool logQueue::enqueue(const char* message, const level_type level, const catego
 	return true;
 }
 
+//先頭キューのIDを確認
+logQueue::id_type logQueue::top()
+{
+	auto lock = m_queue.lockScoped();//ロック取得
+	const node_type* top_node = m_queue.top();
+	if (!top_node)
+		return 0;
+	return top_node->m_id;
+}
+
 //初期化メソッド（一回限り）
 void logQueue::initializeOnce()
 {
 	m_abort.store(false);//中断解除
-	m_id.store(1);//キューID発番用 ※1から始まる
+	m_id.store(INIT_ID);//キューID発番用 ※1から始まる
 	m_messageBuff.clear();//メッセージバッファ
 	m_queue.clear();//ログキュー
 }
@@ -85,7 +115,8 @@ void logQueue::initializeOnce()
 const logQueue::explicitInitialize_t logQueue::explicitInitialize;//明示的な初期化指定用
 std::once_flag logQueue::m_initialized;//初期化済み
 std::atomic<bool> logQueue::m_abort(false);//中断
-std::atomic<logQueue::id_type> logQueue::m_id(1);//キューID発番用
+std::atomic<bool> logQueue::m_pause(false);//一時停止
+std::atomic<logQueue::id_type> logQueue::m_id(logQueue::INIT_ID);//キューID発番用
 GASHA_ lfSmartStackAllocator_withBuff<logQueue::MESSAGE_BUFF_SIZE> logQueue::m_messageBuff;//メッセージバッファ
 GASHA_ binary_heap::container<logQueue::queueOpe, logQueue::QUEUE_SIZE> logQueue::m_queue;//ログキュー
 
