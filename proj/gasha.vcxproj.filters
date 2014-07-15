@@ -443,9 +443,6 @@
     <Filter Include="gasha_src\debug\log_mask">
       <UniqueIdentifier>{86967d5e-220d-4f36-980c-9d7094527fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log_common">
-      <UniqueIdentifier>{d4d32d51-a62d-4888-8ada-300f426c924a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug\log_work_buff">
       <UniqueIdentifier>{dbe61048-bd26-487c-add8-43034a1cd3a4}</UniqueIdentifier>
     </Filter>
@@ -457,6 +454,15 @@
     </Filter>
     <Filter Include="gasha_src\debug\log_queue">
       <UniqueIdentifier>{bb948b12-4744-49cf-bcd8-5468a389ee81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_purpose">
+      <UniqueIdentifier>{276b6e0c-bc46-4de6-9865-d99d15f67944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_level\default_log_level">
+      <UniqueIdentifier>{fc9af455-8803-42db-a914-f23369245774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log_category\default_log_category">
+      <UniqueIdentifier>{f55e3ece-2eb6-4551-becf-fa4d3cc26f81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -841,14 +847,20 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_mask.h">
       <Filter>gasha\debug\log_mask</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\log_common.h">
-      <Filter>gasha\debug\log_common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h">
       <Filter>gasha\debug\log_work_buff</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_queue.h">
       <Filter>gasha\debug\log_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_purpose.h">
+      <Filter>gasha\debug\log_purpose</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h">
+      <Filter>gasha\debug\log_level\default_log_level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h">
+      <Filter>gasha\debug\log_category\default_log_category</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -938,6 +950,12 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_queue.cpp">
       <Filter>gasha_src\debug\log_queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\default_log_category.cpp">
+      <Filter>gasha_src\debug\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\default_log_level.cpp">
+      <Filter>gasha_src\debug\log_level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1202,14 +1220,20 @@
     <None Include="..\..\gasha\include\gasha\log_mask.inl">
       <Filter>gasha\debug\log_mask</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\log_common.inl">
-      <Filter>gasha\debug\log_common</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\log_work_buff.inl">
       <Filter>gasha\debug\log_work_buff</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_queue.inl">
       <Filter>gasha\debug\log_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_purpose.inl">
+      <Filter>gasha\debug\log_purpose</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\default_log_level.inl">
+      <Filter>gasha\debug\log_level\default_log_level</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\default_log_category.inl">
+      <Filter>gasha\debug\log_category\default_log_category</Filter>
     </None>
   </ItemGroup>
 </Project>

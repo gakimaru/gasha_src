@@ -184,34 +184,12 @@ void logCategoryContainer::initializeOnce()
 		logCategory::info& info = m_pool[value];
 		info.m_value = value;
 		info.m_name = "(undefined)";
-		for (int purpose = 0; purpose < LOG_PURPOSE_NUM; ++purpose)
-			info.m_console[purpose] = nullptr;
+		for (logCategory::purpose_type purpose = 0; purpose < logCategory::PURPOSE_NUM; ++purpose)
+			info.m_consoles[purpose] = nullptr;
 	}
 	
-	typedef consoleColor c;//コンソールカラー
-
-	//既定のログカテゴリを登録（関数オブジェクトで登録）
-	#define REG_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
-		_private::regLogCategory<VALUE>()(\
-			#VALUE, \
-			CONSOLE, \
-			CONSOLE_N \
-		)
-	#define REG_SPECIAL_LOG_CATEGORY(VALUE) \
-		_private::regSpecialLogCategory<VALUE>()( \
-			#VALUE \
-		)
-	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
-	REG_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
-	REG_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係
-	REG_LOG_CATEGORY(for3D, nullptr, nullptr);//3Dグラフィックス関係
-	REG_LOG_CATEGORY(for2D, nullptr, nullptr);//2Dグラフィックス関係
-	REG_LOG_CATEGORY(forSound, nullptr, nullptr);//サウンド関係
-	//ログレベル／画面通知レベル変更用
-	REG_SPECIAL_LOG_CATEGORY(forEvery);//全部まとめて変更
-	//特殊なカテゴリ（プリント時専用）
-	REG_SPECIAL_LOG_CATEGORY(forCallPoint);//直近のコールポイントのカテゴリに合わせる（なければforAny扱い）
-	REG_SPECIAL_LOG_CATEGORY(forCriticalCallPoint);//直近の重大コールポイントのカテゴリに合わせる（なければforAny扱い）
+	//既定のログカテゴリを登録
+	GASHA_ registDefaultLogCategory();
 }
 
 //コンテナの静的変数をインスタンス化

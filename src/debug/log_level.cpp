@@ -213,26 +213,26 @@ bool logLevelContainer::regist(const logLevel::info& info)
 }
 
 //全てのログレベルのコンソールを変更
-void logLevelContainer::replaceAllConsole(const GASHA_ logPurpose purpose, IConsole* new_console)
+void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, IConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
 		if (m_isAlreadyPool[value])
 		{
 			logLevel::info& info = m_pool[value];
-			info.m_console[purpose] = new_console;
+			info.m_consoles[purpose] = new_console;
 		}
 	}
 }
 //※置き換え元のコンソールを指定する場合
-void logLevelContainer::replaceAllConsole(const GASHA_ logPurpose purpose, IConsole* src_console, IConsole* new_console)
+void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, IConsole* src_console, IConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
 		if (m_isAlreadyPool[value])
 		{
 			logLevel::info& info = m_pool[value];
-			IConsole*& curr_console = info.m_console[purpose];
+			IConsole*& curr_console = info.m_consoles[purpose];
 			if ((!curr_console && !src_console) ||
 				(curr_console && src_console && *curr_console == *src_console))
 				curr_console = new_console;
@@ -251,40 +251,15 @@ void logLevelContainer::initializeOnce()
 		logLevel::info& info = m_pool[value];
 		info.m_value = value;
 		info.m_name = "(undefined)";
-		for (int purpose = 0; purpose < GASHA_ LOG_PURPOSE_NUM; ++purpose)
+		for (logLevel::purpose_type purpose = 0; purpose < logLevel::PURPOSE_NUM; ++purpose)
 		{
-			info.m_console[purpose] = nullptr;
-			info.m_color[purpose].reset();
+			info.m_consoles[purpose] = nullptr;
+			info.m_colors[purpose].reset();
 		}
 	}
 	
-	IConsole& stdout_console = GASHA_ stdOutConsole::instance();//標準出力コンソール
-	IConsole& stderr_console = GASHA_ stdErrConsole::instance();//標準エラーコンソール
-	IConsole& notice_console = GASHA_ stdConsoleOfNotice::instance();//画面通知用標準コンソール
-	typedef consoleColor c;//コンソールカラー
-
-	//既定のログレベルを登録（関数オブジェクトで登録）
-	#define REG_LOG_LEVEL(VALUE, CONSOLE, CONSOLE_N, FORE, BACK, FORE_N, BACK_N) \
-	_private::regLogLevel<VALUE>()(\
-			#VALUE, \
-			CONSOLE, \
-			CONSOLE_N, \
-			consoleColor(consoleColor::FORE, consoleColor::BACK), \
-			consoleColor(consoleColor::FORE_N, consoleColor::BACK_N) \
-		)
-	#define REG_SPECIAL_LOG_LEVEL(VALUE) \
-		_private::regSpecialLogLevel<VALUE>()( \
-			#VALUE \
-		)
-	REG_LOG_LEVEL(asNormal, &stdout_console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
-	REG_LOG_LEVEL(asVerbose, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
-	REG_LOG_LEVEL(asDetail, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
-	REG_LOG_LEVEL(asImportant, &stdout_console, &notice_console, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
-	REG_LOG_LEVEL(asWarning, &stderr_console, &notice_console, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
-	REG_LOG_LEVEL(asCritical, &stderr_console, &notice_console, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
-	REG_LOG_LEVEL(asAbsolute, &stdout_console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
-	REG_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
-	REG_SPECIAL_LOG_LEVEL(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
+	//既定のログレベルを登録
+	GASHA_ registDefaultLogLevel();
 }
 
 //コンテナの静的変数をインスタンス化

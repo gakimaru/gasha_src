@@ -45,6 +45,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\console_color.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
@@ -83,10 +85,10 @@
     <ClInclude Include="..\..\gasha\include\gasha\lock_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_category.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\log_common.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_mask.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_message.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\log_purpose.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_queue.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h" />
@@ -153,6 +155,8 @@
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
     <ClCompile Include="..\src\debug\console_color.cpp" />
+    <ClCompile Include="..\src\debug\default_log_category.cpp" />
+    <ClCompile Include="..\src\debug\default_log_level.cpp" />
     <ClCompile Include="..\src\debug\log_category.cpp" />
     <ClCompile Include="..\src\debug\log_level.cpp" />
     <ClCompile Include="..\src\debug\log_mask.cpp" />
@@ -204,6 +208,8 @@
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\console_color.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
+    <None Include="..\..\gasha\include\gasha\default_log_category.inl" />
+    <None Include="..\..\gasha\include\gasha\default_log_level.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
@@ -233,10 +239,10 @@
     <None Include="..\..\gasha\include\gasha\lock_common.inl" />
     <None Include="..\..\gasha\include\gasha\lock_guard.inl" />
     <None Include="..\..\gasha\include\gasha\log_category.inl" />
-    <None Include="..\..\gasha\include\gasha\log_common.inl" />
     <None Include="..\..\gasha\include\gasha\log_level.inl" />
     <None Include="..\..\gasha\include\gasha\log_mask.inl" />
     <None Include="..\..\gasha\include\gasha\log_message.inl" />
+    <None Include="..\..\gasha\include\gasha\log_purpose.inl" />
     <None Include="..\..\gasha\include\gasha\log_queue.inl" />
     <None Include="..\..\gasha\include\gasha\log_work_buff.inl" />
     <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl" />

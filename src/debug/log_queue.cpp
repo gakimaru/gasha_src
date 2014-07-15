@@ -21,7 +21,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 //キューイング
-bool logQueue::enqueue(const logQueue::category_type category, const logQueue::level_type level, const char* message, const std::size_t message_size, const logQueue::id_type id)
+bool logQueue::enqueue(const char* message, const level_type level, const category_type category, GASHA_ IConsole* (&consoles)[PURPOSE_NUM], const GASHA_ consoleColor* (&colors)[PURPOSE_NUM], const std::size_t message_size, const id_type id)
 {
 	if (!message)//messege が nullptr ならキューイング成功扱い
 		return true;
@@ -56,7 +56,7 @@ bool logQueue::enqueue(const logQueue::category_type category, const logQueue::l
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
 		{
-			node = m_queue.push(queue_id, queue_message, category, level);
+			node = m_queue.push(queue_id, queue_message, level, category, consoles, colors);
 			if (node || IS_NO_WAIT_MODE)
 				break;
 			if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
