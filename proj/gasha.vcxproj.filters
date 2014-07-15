@@ -344,12 +344,6 @@
     <Filter Include="gasha\debug\profiler">
       <UniqueIdentifier>{64e74c97-71ed-46e3-8c91-d54c18782f01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log_level">
-      <UniqueIdentifier>{0a72aa9b-6640-4536-80e5-9fed6e97e556}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_message">
-      <UniqueIdentifier>{80c1638f-d2d6-4371-b36d-beba8fc4b1b0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug\call_point">
       <UniqueIdentifier>{495ee568-21a3-499e-be02-3b3dcdc18fa7}</UniqueIdentifier>
     </Filter>
@@ -361,9 +355,6 @@
     </Filter>
     <Filter Include="gasha_src\debug\console">
       <UniqueIdentifier>{c2c778d8-1509-477e-93bd-a6c3ee9beaca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_category">
-      <UniqueIdentifier>{95c3c41b-5bc2-400a-b0ce-44b659d411e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha\debug\console\console_color">
       <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
@@ -395,9 +386,6 @@
     <Filter Include="gasha\debug\console\tty_console">
       <UniqueIdentifier>{b4997064-1916-40c7-b4e4-71aabd0e18dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\debug\log_level">
-      <UniqueIdentifier>{2974abad-2c13-489f-b123-1167b47a04db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_src\build_settings\diag">
       <UniqueIdentifier>{333fc01e-632b-4dda-9d9c-f7e3d697e616}</UniqueIdentifier>
     </Filter>
@@ -428,47 +416,77 @@
     <Filter Include="gasha_src\utility\type_traits">
       <UniqueIdentifier>{58d4bbf1-42cd-4a47-9a5f-25f74464864a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\debug\log_category">
-      <UniqueIdentifier>{520d5550-ab43-4cc7-a01d-4bbdb5a9fffe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\string\string">
       <UniqueIdentifier>{07747f89-6362-46d6-956a-1618ac9b9376}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha_src\string\string">
       <UniqueIdentifier>{3084f468-7937-4cce-ad8b-522d52759610}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log_mask">
-      <UniqueIdentifier>{669386c7-cc2c-4c92-b3af-52838dc1c9b7}</UniqueIdentifier>
+    <Filter Include="gasha\debug\log">
+      <UniqueIdentifier>{25b85c8e-5737-4774-992c-282cbbe5d570}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\debug\log_mask">
-      <UniqueIdentifier>{86967d5e-220d-4f36-980c-9d7094527fa2}</UniqueIdentifier>
+    <Filter Include="gasha\debug\log\log_category">
+      <UniqueIdentifier>{95c3c41b-5bc2-400a-b0ce-44b659d411e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log_work_buff">
-      <UniqueIdentifier>{dbe61048-bd26-487c-add8-43034a1cd3a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha_src\debug\log_work_buff">
-      <UniqueIdentifier>{ff21d0ef-caba-4134-b885-30f76cbc8188}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_queue">
-      <UniqueIdentifier>{eaac2d1a-e413-4b65-b1d5-ec1c8287f6dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha_src\debug\log_queue">
-      <UniqueIdentifier>{bb948b12-4744-49cf-bcd8-5468a389ee81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_purpose">
-      <UniqueIdentifier>{276b6e0c-bc46-4de6-9865-d99d15f67944}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_level\default_log_level">
-      <UniqueIdentifier>{fc9af455-8803-42db-a914-f23369245774}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha\debug\log_category\default_log_category">
+    <Filter Include="gasha\debug\log\log_category\default_log_category">
       <UniqueIdentifier>{f55e3ece-2eb6-4551-becf-fa4d3cc26f81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\debug\log_queue_monitor">
+    <Filter Include="gasha\debug\log\log_level">
+      <UniqueIdentifier>{0a72aa9b-6640-4536-80e5-9fed6e97e556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_level\default_log_level">
+      <UniqueIdentifier>{fc9af455-8803-42db-a914-f23369245774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_mask">
+      <UniqueIdentifier>{669386c7-cc2c-4c92-b3af-52838dc1c9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_message">
+      <UniqueIdentifier>{80c1638f-d2d6-4371-b36d-beba8fc4b1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_purpose">
+      <UniqueIdentifier>{276b6e0c-bc46-4de6-9865-d99d15f67944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_queue">
+      <UniqueIdentifier>{eaac2d1a-e413-4b65-b1d5-ec1c8287f6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_queue_monitor">
+      <UniqueIdentifier>{bdbc54d5-fb19-4632-8c78-6eaaade22f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_work_buff">
+      <UniqueIdentifier>{dbe61048-bd26-487c-add8-43034a1cd3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_attr">
+      <UniqueIdentifier>{66d51979-4d3e-4b8a-b02c-a39c1ad973bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log">
+      <UniqueIdentifier>{dab56a6a-5670-493b-814f-b6b97a774246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_category">
+      <UniqueIdentifier>{520d5550-ab43-4cc7-a01d-4bbdb5a9fffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_level">
+      <UniqueIdentifier>{2974abad-2c13-489f-b123-1167b47a04db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_mask">
+      <UniqueIdentifier>{86967d5e-220d-4f36-980c-9d7094527fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_queue">
+      <UniqueIdentifier>{bb948b12-4744-49cf-bcd8-5468a389ee81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_queue_monitor">
       <UniqueIdentifier>{f927815a-fe40-46d6-ab03-3cd18cba20d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log_queue_monitor">
-      <UniqueIdentifier>{bdbc54d5-fb19-4632-8c78-6eaaade22f77}</UniqueIdentifier>
+    <Filter Include="gasha_src\debug\log\log_work_buff">
+      <UniqueIdentifier>{ff21d0ef-caba-4134-b885-30f76cbc8188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print">
+      <UniqueIdentifier>{331b98af-97b6-43e6-b7f9-2294f0e27bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print\log_print_info">
+      <UniqueIdentifier>{444ed392-5875-4d38-9ef7-1d2e28ef6709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print\std_log_print">
+      <UniqueIdentifier>{c553f5ed-d2a1-4563-9715-2b3938e75a1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -806,16 +824,16 @@
       <Filter>gasha\debug\console\console_color</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_level.h">
-      <Filter>gasha\debug\log_level</Filter>
+      <Filter>gasha\debug\log\log_level</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_message.h">
-      <Filter>gasha\debug\log_message</Filter>
+      <Filter>gasha\debug\log\log_message</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\call_point.h">
       <Filter>gasha\debug\call_point</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_category.h">
-      <Filter>gasha\debug\log_category</Filter>
+      <Filter>gasha\debug\log\log_category</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\i_console.h">
       <Filter>gasha\debug\console\i_console</Filter>
@@ -851,25 +869,34 @@
       <Filter>gasha\string\string</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_mask.h">
-      <Filter>gasha\debug\log_mask</Filter>
+      <Filter>gasha\debug\log\log_mask</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h">
-      <Filter>gasha\debug\log_work_buff</Filter>
+      <Filter>gasha\debug\log\log_work_buff</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_queue.h">
-      <Filter>gasha\debug\log_queue</Filter>
+      <Filter>gasha\debug\log\log_queue</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_purpose.h">
-      <Filter>gasha\debug\log_purpose</Filter>
+      <Filter>gasha\debug\log\log_purpose</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h">
-      <Filter>gasha\debug\log_level\default_log_level</Filter>
+      <Filter>gasha\debug\log\log_level\default_log_level</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h">
-      <Filter>gasha\debug\log_category\default_log_category</Filter>
+      <Filter>gasha\debug\log\log_category\default_log_category</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\log_queue_monitor.h">
-      <Filter>gasha\debug\log_queue_monitor</Filter>
+      <Filter>gasha\debug\log\log_queue_monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_attr.h">
+      <Filter>gasha\debug\log\log_attr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_print_info.h">
+      <Filter>gasha\debug\log\log_print\log_print_info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h">
+      <Filter>gasha\debug\log\log_print\std_log_print</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -916,7 +943,7 @@
       <Filter>gasha_src\debug\console</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_level.cpp">
-      <Filter>gasha_src\debug\log_level</Filter>
+      <Filter>gasha_src\debug\log\log_level</Filter>
     </ClCompile>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
       <Filter>gasha_src\build_settings\diag</Filter>
@@ -946,28 +973,28 @@
       <Filter>gasha_src\utility\type_traits</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_category.cpp">
-      <Filter>gasha_src\debug\log_category</Filter>
+      <Filter>gasha_src\debug\log\log_category</Filter>
     </ClCompile>
     <ClCompile Include="..\src\string\string.cpp">
       <Filter>gasha_src\string\string</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_mask.cpp">
-      <Filter>gasha_src\debug\log_mask</Filter>
+      <Filter>gasha_src\debug\log\log_mask</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_work_buff.cpp">
-      <Filter>gasha_src\debug\log_work_buff</Filter>
+      <Filter>gasha_src\debug\log\log_work_buff</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_queue.cpp">
-      <Filter>gasha_src\debug\log_queue</Filter>
+      <Filter>gasha_src\debug\log\log_queue</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\default_log_category.cpp">
-      <Filter>gasha_src\debug\log_category</Filter>
+      <Filter>gasha_src\debug\log\log_category</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\default_log_level.cpp">
-      <Filter>gasha_src\debug\log_level</Filter>
+      <Filter>gasha_src\debug\log\log_level</Filter>
     </ClCompile>
     <ClCompile Include="..\src\debug\log_queue_monitor.cpp">
-      <Filter>gasha_src\debug\log_queue_monitor</Filter>
+      <Filter>gasha_src\debug\log\log_queue_monitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1188,16 +1215,16 @@
       <Filter>gasha\debug\console\console_color</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_level.inl">
-      <Filter>gasha\debug\log_level</Filter>
+      <Filter>gasha\debug\log\log_level</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_message.inl">
-      <Filter>gasha\debug\log_message</Filter>
+      <Filter>gasha\debug\log\log_message</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\call_point.inl">
       <Filter>gasha\debug\call_point</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_category.inl">
-      <Filter>gasha\debug\log_category</Filter>
+      <Filter>gasha\debug\log\log_category</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\i_console.inl">
       <Filter>gasha\debug\console\i_console</Filter>
@@ -1230,25 +1257,34 @@
       <Filter>gasha\string\string</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_mask.inl">
-      <Filter>gasha\debug\log_mask</Filter>
+      <Filter>gasha\debug\log\log_mask</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_work_buff.inl">
-      <Filter>gasha\debug\log_work_buff</Filter>
+      <Filter>gasha\debug\log\log_work_buff</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_queue.inl">
-      <Filter>gasha\debug\log_queue</Filter>
+      <Filter>gasha\debug\log\log_queue</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_purpose.inl">
-      <Filter>gasha\debug\log_purpose</Filter>
+      <Filter>gasha\debug\log\log_purpose</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\default_log_level.inl">
-      <Filter>gasha\debug\log_level\default_log_level</Filter>
+      <Filter>gasha\debug\log\log_level\default_log_level</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\default_log_category.inl">
-      <Filter>gasha\debug\log_category\default_log_category</Filter>
+      <Filter>gasha\debug\log\log_category\default_log_category</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\log_queue_monitor.inl">
-      <Filter>gasha\debug\log_queue_monitor</Filter>
+      <Filter>gasha\debug\log\log_queue_monitor</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_attr.inl">
+      <Filter>gasha\debug\log\log_attr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_print_info.inl">
+      <Filter>gasha\debug\log\log_print\log_print_info</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_log_print.inl">
+      <Filter>gasha\debug\log\log_print\std_log_print</Filter>
     </None>
   </ItemGroup>
 </Project>

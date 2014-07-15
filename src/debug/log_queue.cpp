@@ -21,15 +21,16 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 //キューイング
-bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_type level, const category_type category, GASHA_ IConsole* (&consoles)[PURPOSE_NUM], const GASHA_ consoleColor* (&colors)[PURPOSE_NUM], const std::size_t message_size, const id_type reserved_id)
+bool logQueue::enqueue(const logPrintInfo& print_info)
 {
+	const char* message = print_info.m_message;
 	if (!message)//messege が nullptr ならキューイング成功扱い
 		return true;
 
 	//メッセージのバッファ割り当て
 	char* queue_message = nullptr;
+	const std::size_t queue_message_size = print_info.m_messageSize > 0 ? print_info.m_messageSize : strlen_fast(message) + 1;
 	{
-		const std::size_t _message_size = message_size > 0 ? message_size : strlen_fast(message) + 1;
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
@@ -42,7 +43,7 @@ bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_typ
 			}
 
 			//メッセージバッファの割り当て
-			queue_message = reinterpret_cast<char*>(m_messageBuff.alloc(_message_size));
+			queue_message = reinterpret_cast<char*>(m_messageBuff.alloc(queue_message_size));
 			if (queue_message || IS_NO_WAIT_MODE)
 				break;
 			
@@ -55,13 +56,13 @@ bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_typ
 		}
 		if (!queue_message)
 			return false;
-		std::memcpy(queue_message, message, _message_size);
+		std::memcpy(queue_message, message, queue_message_size);
 	}
 
 	//メッセージのキューイング
-	node_type* node = nullptr;
+	logPrintInfo* info = nullptr;
 	{
-		const id_type id = reserved_id > 0 ? reserved_id : reserve();
+		const id_type id = print_info.m_id > 0 ? print_info.m_id : reserve();
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
@@ -74,8 +75,12 @@ bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_typ
 			}
 
 			//キューイング
-			node = m_queue.push(id, queue_message, is_no_cr, level, category, consoles, colors);
-			if (node || IS_NO_WAIT_MODE)
+			logPrintInfo _print_info(print_info);
+			_print_info.m_id = id;
+			_print_info.m_message = queue_message;
+			_print_info.m_messageSize = queue_message_size;
+			info = m_queue.push(_print_info);
+			if (info || IS_NO_WAIT_MODE)
 				break;
 
 			//キューイングできなければリトライ
@@ -85,8 +90,12 @@ bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_typ
 				spin_count_now = spin_count;
 			}
 		}
-		if (!node)
+		//キューイングに失敗したらメッセージを解放して終了
+		if (!info)
+		{
+			m_messageBuff.free(queue_message);
 			return false;
+		}
 	}
 
 	return true;
@@ -96,10 +105,10 @@ bool logQueue::enqueue(const char* message, const bool is_no_cr, const level_typ
 logQueue::id_type logQueue::top()
 {
 	auto lock = m_queue.lockScoped();//ロック取得
-	const node_type* top_node = m_queue.top();
-	if (!top_node)
+	const logPrintInfo* top_info = m_queue.top();
+	if (!top_info)
 		return 0;
-	return top_node->m_id;
+	return top_info->m_id;
 }
 
 //初期化メソッド（一回限り）
