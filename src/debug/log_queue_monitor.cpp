@@ -39,6 +39,20 @@ bool logQueueMonitor::notify()
 	return true;
 }
 
+//ID欠番通知
+bool logQueueMonitor::skip(const logQueueMonitor::id_type skip_id)
+{
+	const id_type new_next_id = skip_id + 1;
+	id_type next_id = m_nextId.load();//現在の「次のID」を取得
+	while (next_id < new_next_id)
+	{
+		if (m_nextId.compare_exchange_weak(next_id, new_next_id))//他のスレッドによって処理が進行していなければ値を置き換える
+			return true;
+		next_id = m_nextId.load();//失敗したら再確認
+	}
+	return false;
+}
+
 //フラッシュ
 //※すべての出力が完了するのを待つ
 //※中断時は即終了する

@@ -163,6 +163,7 @@
     <ClCompile Include="..\src\debug\default_log_category.cpp" />
     <ClCompile Include="..\src\debug\default_log_level.cpp" />
     <ClCompile Include="..\src\debug\dummy_console.cpp" />
+    <ClCompile Include="..\src\debug\log_attr.cpp" />
     <ClCompile Include="..\src\debug\log_category.cpp" />
     <ClCompile Include="..\src\debug\log_level.cpp" />
     <ClCompile Include="..\src\debug\log_mask.cpp" />

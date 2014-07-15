@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // log_mask.cpp
-// ログマスク【関数／実体定義部】
+// ログレベルマスク【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,12 +8,12 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/log_mask.inl>//ログマスク【インライン関数／テンプレート関数定義部】
+#include <gasha/log_mask.inl>//ログレベルマスク【インライン関数／テンプレート関数定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
-//ログマスク
+//ログレベルマスク
 //--------------------------------------------------------------------------------
 
 #ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
@@ -125,7 +125,7 @@ logMask::reverse_iterator::reverse_iterator(const logMask* mask, const GASHA_ lo
 {}
 
 //--------------------
-//ログマスク
+//ログレベルマスク
 
 //指定のカテゴリのイテレータを取得
 const logMask::iterator logMask::find(const logMask::category_type category) const
@@ -152,7 +152,7 @@ void logMask::changeLevel(const logMask::purpose_type purpose, const logMask::le
 	}
 	if (category < CATEGORY_MIN || category > CATEGORY_MAX || level < LEVEL_MIN || level > LEVEL_MAX)
 		return;
-	level_type& category_level = m_refMask->m_level[purpose][category];
+	level_type& category_level = m_maskRef->m_level[purpose][category];
 	category_level = level;
 }
 
@@ -161,7 +161,7 @@ void logMask::changeEveryLevel(const logMask::purpose_type purpose, const logMas
 {
 	if (level < LEVEL_MIN || level > LEVEL_MAX)
 		return;
-	level_type* category_level = m_refMask->m_level[purpose];
+	level_type* category_level = m_maskRef->m_level[purpose];
 	for (category_type category = CATEGORY_MIN; category <= CATEGORY_MAX; ++category, ++category_level)
 		*category_level = level;
 }
@@ -171,7 +171,7 @@ void logMask::upLevel(const logMask::purpose_type purpose, const logMask::catego
 {
 	if (category < CATEGORY_MIN || category > CATEGORY_MAX)
 		return;
-	level_type& category_level = m_refMask->m_level[purpose][category];
+	level_type& category_level = m_maskRef->m_level[purpose][category];
 	GASHA_ logLevel level_obj(category_level);
 	GASHA_ logLevel next_level_obj = level_obj.next();
 	if (next_level_obj.isExist())
@@ -183,30 +183,31 @@ void logMask::downLevel(const logMask::purpose_type purpose, const logMask::cate
 {
 	if (category < CATEGORY_MIN || category > CATEGORY_MAX)
 		return;
-	level_type& category_level = m_refMask->m_level[purpose][category];
+	level_type& category_level = m_maskRef->m_level[purpose][category];
 	GASHA_ logLevel level_obj(category_level);
 	GASHA_ logLevel prev_level_obj = level_obj.prev();
 	if (prev_level_obj.isExist())
 		category_level = prev_level_obj;
 }
 
-//参照するログベルマスクを変更
-void logMask::changeMaskType(const logMask::ref_type type)
+//参照するログレベルマスクを変更
+void logMask::changeRef(const logMask::ref_type type)
 {
-	m_refType = type;//種別変更
-	
-	//TLSもしくはグローバルの場合、一旦変更前のTLSを復元する
-	if (m_prevTlsMask && (m_refType == isTls || m_refType == isGlobal))
+	//一旦変更前のTLSを復元する
+	if (m_refType == isLocal || m_prevTlsMask)
 	{
 		m_tlsMaskRef = m_prevTlsMask;
 		m_prevTlsMask = nullptr;
 	}
+	
+	//種別変更
+	m_refType = type;
 
 	//TLSの場合
 	if (m_refType == isTls)
 	{
 		if (m_tlsMaskRef)
-			m_refMask = m_tlsMaskRef;
+			m_maskRef = m_tlsMaskRef;
 		else
 			m_refType = isGlobal;//TLSがなければグローバルに変更
 	}
@@ -214,7 +215,12 @@ void logMask::changeMaskType(const logMask::ref_type type)
 	//グローバルの場合
 	if (m_refType == isGlobal)
 	{
-		m_refMask = &m_globalMask;
+		m_maskRef = &m_globalMask;
+		if (m_tlsMaskRef)
+		{
+			m_prevTlsMask = m_tlsMaskRef;
+			m_tlsMaskRef = &m_globalMask;
+		}
 	}
 
 	//ローカルの場合、TLSもしくはグローバルからローカルにコピーし、TLSを変更する
@@ -224,11 +230,12 @@ void logMask::changeMaskType(const logMask::ref_type type)
 		mask_type& src = m_prevTlsMask ? *m_prevTlsMask : m_globalMask;
 		m_localMask = src;
 		m_tlsMaskRef = &m_localMask;
+		m_maskRef = &m_localMask;
 	}
 }
 
 
-//グローバルログマスク初期化（一回限り）
+//グローバルログレベルマスク初期化（一回限り）
 void logMask::initializeOnce()
 {
 	//要素を初期化
@@ -247,21 +254,22 @@ void logMask::initializeOnce()
 logMask::logMask()
 {
 #ifdef GASHA_LOG_MASK_SECURE_INITIALIZE
-	std::call_once(m_initialized, initializeOnce);//グローバルログマスク初期化（一回限り）
+	std::call_once(m_initialized, initializeOnce);//グローバルログレベルマスク初期化（一回限り）
 #endif//GASHA_LOG_MASK_SECURE_INITIALIZE
-	if (m_tlsMaskRef)//TLSログマスクがある場合
+	if (m_tlsMaskRef)//TLSログレベルマスクがある場合
 	{
 		m_refType = isTls;
-		m_refMask = m_tlsMaskRef;
+		m_maskRef = m_tlsMaskRef;
 		m_prevTlsMask = nullptr;
 	}
 	else
 	{
 		m_refType = isGlobal;
-		m_refMask = &m_globalMask;
+		m_maskRef = &m_globalMask;
 		m_prevTlsMask = nullptr;
 	}
 }
+
 //コンテナの静的変数をインスタンス化
 const logMask::explicitInitialize_t logMask::explicitInitialize;
 std::once_flag logMask::m_initialized;

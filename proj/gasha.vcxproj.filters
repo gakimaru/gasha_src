@@ -491,6 +491,15 @@
     <Filter Include="gasha\debug\console\dummy_console">
       <UniqueIdentifier>{d41a4bae-07a4-48a0-8a0a-46b3bf032956}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\log\print">
+      <UniqueIdentifier>{7f936df4-18c5-43c7-a20f-2602fabba5e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log">
+      <UniqueIdentifier>{9c425b11-1c0e-431d-b9e9-0b95996d1f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_attr">
+      <UniqueIdentifier>{17ccda46-dfa5-40e1-98f3-444ac5c4075c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1004,6 +1013,9 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\dummy_console.cpp">
       <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log_attr.cpp">
+      <Filter>gasha_src\debug\log\log_attr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

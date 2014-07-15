@@ -62,7 +62,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 	//メッセージのキューイング
 	logPrintInfo* info = nullptr;
 	{
-		const id_type id = print_info.m_id > 0 ? print_info.m_id : reserve();
+		const id_type id = print_info.m_id > 0 ? print_info.m_id : reserve(1);
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())

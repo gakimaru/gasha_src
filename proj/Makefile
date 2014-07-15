@@ -70,6 +70,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/default_log_level.cpp \
 	$(SRC_BASE_DIR)/debug/default_log_category.cpp \
 	$(SRC_BASE_DIR)/debug/log_mask.cpp \
+	$(SRC_BASE_DIR)/debug/log_attr.cpp \
 	$(SRC_BASE_DIR)/debug/log_work_buff.cpp \
 	$(SRC_BASE_DIR)/debug/log_queue.cpp \
 	$(SRC_BASE_DIR)/debug/log_queue_monitor.cpp \
