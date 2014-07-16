@@ -112,7 +112,7 @@ bool winConsole::isSame(const IConsole* rhs) const
 }
 
 //コンストラクタ
-winConsole::winConsole(FILE* handle, const char* name) :
+winConsole::winConsole(std::FILE* handle, const char* name) :
 	m_name(name),
 	m_handle(handle),
 	m_hWin(INVALID_HANDLE_VALUE)

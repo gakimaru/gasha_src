@@ -31,11 +31,22 @@ stdErrConsole stdErrConsole::s_instance;
 stdConsoleOfNotice stdConsoleOfNotice::s_instance;
 
 //----------------------------------------
+//標準メモリコンソール
+stdMemConsole stdMemConsole::s_instance;
+
+//----------------------------------------
 //標準ダミーコンソール
 stdDummyConsole stdDummyConsole::s_instance;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
+
+//----------------------------------------
+//標準メモリコンソールの明示的なインスタンス化
+#include <gasha/mem_console.cpp.h>//メモリコンソール【関数／実体定義部】
+
+//明示的なインスタンス化
+GASHA_INSTANCING_memConsole(GASHA_STD_MEM_CONSOLE_BUFF_SIZE);
 
 // End of file

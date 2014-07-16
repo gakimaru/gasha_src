@@ -500,6 +500,15 @@
     <Filter Include="gasha_src\debug\log\log_attr">
       <UniqueIdentifier>{17ccda46-dfa5-40e1-98f3-444ac5c4075c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha_src\debug\log\log">
+      <UniqueIdentifier>{978d54f9-d0f5-4970-9034-7d47ac18676f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\print">
+      <UniqueIdentifier>{348271a4-4490-461f-9943-e03a010d9e1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\mem_console">
+      <UniqueIdentifier>{7d4e3264-1f44-4062-ba17-c1b2d308d906}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -913,6 +922,18 @@
     <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h">
       <Filter>gasha\debug\console\dummy_console</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log.h">
+      <Filter>gasha\debug\log\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\print.h">
+      <Filter>gasha\debug\log\print</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mem_console.h">
+      <Filter>gasha\debug\console\mem_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mem_console.cpp.h">
+      <Filter>gasha\debug\console\mem_console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -1016,6 +1037,12 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log_attr.cpp">
       <Filter>gasha_src\debug\log\log_attr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log.cpp">
+      <Filter>gasha_src\debug\log\log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\print.cpp">
+      <Filter>gasha_src\debug\log\print</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1309,6 +1336,15 @@
     </None>
     <None Include="..\..\gasha\include\gasha\dummy_console.inl">
       <Filter>gasha\debug\console\dummy_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log.inl">
+      <Filter>gasha\debug\log\log</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\print.inl">
+      <Filter>gasha\debug\log\print</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\mem_console.inl">
+      <Filter>gasha\debug\console\mem_console</Filter>
     </None>
   </ItemGroup>
 </Project>

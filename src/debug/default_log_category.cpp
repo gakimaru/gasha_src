@@ -49,6 +49,7 @@ void registDefaultLogCategory()
 
 	//通常ログカテゴリ登録
 	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
+	REG_LOG_CATEGORY(forDummy, &dummy_console, &dummy_console);//ダミー
 	REG_LOG_CATEGORY(forNotice, &dummy_console, &notice_console);//画面通知専用
 	REG_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
 	REG_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係

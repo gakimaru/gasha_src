@@ -78,7 +78,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 			logPrintInfo _print_info(print_info);
 			_print_info.m_id = id;
 			_print_info.m_message = queue_message;
-			_print_info.m_messageSize = queue_message_size;
+			_print_info.m_messageSize = static_cast<logPrintInfo::message_size_type>(queue_message_size);
 			info = m_queue.push(_print_info);
 			if (info || IS_NO_WAIT_MODE)
 				break;
