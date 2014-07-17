@@ -65,7 +65,6 @@ void logAttr::changeRef(const logAttr::ref_type type)
 	}
 }
 
-
 //グローバルログレベルマスク初期化（一回限り）
 void logAttr::initializeOnce()
 {
@@ -73,7 +72,10 @@ void logAttr::initializeOnce()
 }
 
 //デフォルトコンストラクタ
-logAttr::logAttr()
+logAttr::logAttr() :
+	m_refType(isGlobal),
+	m_attrRef(&m_globalAttr),
+	m_prevTlsAttr(nullptr)
 {
 #ifdef GASHA_LOG_ATTR_SECURE_INITIALIZE
 	std::call_once(m_initialized, initializeOnce);//グローバルログレベルマスク初期化（一回限り）
@@ -84,18 +86,12 @@ logAttr::logAttr()
 		m_attrRef = m_tlsAttrRef;
 		m_prevTlsAttr = nullptr;
 	}
-	else
-	{
-		m_refType = isGlobal;
-		m_attrRef = &m_globalAttr;
-		m_prevTlsAttr = nullptr;
-	}
 }
 
 //コンテナの静的変数をインスタンス化
 const logAttr::explicitInitialize_t logAttr::explicitInitialize;
 std::once_flag logAttr::m_initialized;
-logAttr::attr_type logAttr::m_globalAttr;
+logAttr::attr_type logAttr::m_globalAttr = logAttr::DEFAULT_ATTR;
 thread_local logAttr::attr_type* logAttr::m_tlsAttrRef = nullptr;
 
 #endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化

@@ -18,7 +18,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //多態アロケータクラス
 
 //コールバック
-void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMethod_t method)
+void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMethod_type method)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atDelete)
@@ -26,7 +26,7 @@ void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMet
 #endif//GASHA_HAS_DEBUG_FEATURE
 }
 //delete時のコールバック
-void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_t method)
+void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_type method)
 {
 #if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atDelete)

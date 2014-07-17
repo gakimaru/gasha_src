@@ -90,7 +90,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\log_category.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_mask.h" />
-    <ClInclude Include="..\..\gasha\include\gasha\log_message.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_print_info.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_purpose.h" />
     <ClInclude Include="..\..\gasha\include\gasha\log_queue.h" />
@@ -145,6 +144,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\strconv.h" />
     <ClInclude Include="..\..\gasha\include\gasha\string.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
@@ -175,7 +175,6 @@
     <ClCompile Include="..\src\debug\log_queue.cpp" />
     <ClCompile Include="..\src\debug\log_queue_monitor.cpp" />
     <ClCompile Include="..\src\debug\log_work_buff.cpp" />
-    <ClCompile Include="..\src\debug\print.cpp" />
     <ClCompile Include="..\src\debug\std_console.cpp" />
     <ClCompile Include="..\src\debug\tty_console.cpp" />
     <ClCompile Include="..\src\debug\vs_console.cpp" />
@@ -186,6 +185,7 @@
     <ClCompile Include="..\src\memory\new.cpp" />
     <ClCompile Include="..\src\memory\poly_allocator.cpp" />
     <ClCompile Include="..\src\string\fast_string.cpp" />
+    <ClCompile Include="..\src\string\strconv.cpp" />
     <ClCompile Include="..\src\string\string.cpp" />
     <ClCompile Include="..\src\thread\lock\lock_common.cpp" />
     <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp" />
@@ -258,7 +258,6 @@
     <None Include="..\..\gasha\include\gasha\log_category.inl" />
     <None Include="..\..\gasha\include\gasha\log_level.inl" />
     <None Include="..\..\gasha\include\gasha\log_mask.inl" />
-    <None Include="..\..\gasha\include\gasha\log_message.inl" />
     <None Include="..\..\gasha\include\gasha\log_print_info.inl" />
     <None Include="..\..\gasha\include\gasha\log_purpose.inl" />
     <None Include="..\..\gasha\include\gasha\log_queue.inl" />
@@ -298,6 +297,7 @@
     <None Include="..\..\gasha\include\gasha\std_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\std_console.inl" />
     <None Include="..\..\gasha\include\gasha\std_log_print.inl" />
+    <None Include="..\..\gasha\include\gasha\strconv.inl" />
     <None Include="..\..\gasha\include\gasha\string.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />

@@ -12,8 +12,8 @@
 
 #include <gasha/fast_math.h>//高速算術
 
-#include <cstdint>//intptr_t, std::uint32_t
-#include <cstring>//memcpy(), memset()
+#include <cstdint>//std::intptr_t, std::uint32_t
+#include <cstring>//std::memcpy(), std::memset()
 
 //【VC++】str*** を使用すると、error C4996 が発生する
 //  error C4996: 'str***': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

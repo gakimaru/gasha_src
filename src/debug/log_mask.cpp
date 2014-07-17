@@ -10,6 +10,8 @@
 
 #include <gasha/log_mask.inl>//ログレベルマスク【インライン関数／テンプレート関数定義部】
 
+#include <gasha/dummy_console.h>//ダミーコンソール
+
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
@@ -126,6 +128,40 @@ logMask::reverse_iterator::reverse_iterator(const logMask* mask, const GASHA_ lo
 
 //--------------------
 //ログレベルマスク
+
+//コンソールとコンソールカラーをまとめて取得
+const logMask::consolesCondition_type logMask::consolesInfo(consolesInfo_type& info, const level_type require_level, const category_type category) const
+{
+	info.m_level = require_level;
+	info.m_category = category;
+	info.m_cond = hasNotAvailableConsole;
+	for (purpose_type purpose = 0; purpose < PURPOSE_NUM; ++purpose)
+	{
+		info.m_consoles[purpose] = nullptr;
+		info.m_colors[purpose] = nullptr;
+		if (isEnableLevel(purpose, info.m_level, category))
+		{
+			GASHA_ IConsole* console_tmp = console(purpose, info.m_level, info.m_category);
+			if (console_tmp)
+			{
+				if (*console_tmp != GASHA_ dummyConsole())
+				{
+					//コンソールとカラーを取得
+					info.m_cond = hasAvailableConsoles;
+					info.m_consoles[purpose] = console_tmp;
+					info.m_colors[purpose] = &info.m_level.color(purpose);
+				}
+				else
+				{
+					//ダミーコンソールの場合
+					if (info.m_cond == hasNotAvailableConsole)
+						info.m_cond = everyConsoleIsDummy;
+				}
+			}
+		}
+	}
+	return info.m_cond;
+}
 
 //指定のカテゴリのイテレータを取得
 const logMask::iterator logMask::find(const logMask::category_type category) const
@@ -251,7 +287,10 @@ void logMask::initializeOnce()
 }
 
 //デフォルトコンストラクタ
-logMask::logMask()
+logMask::logMask() :
+	m_refType(isGlobal),
+	m_maskRef(&m_globalMask),
+	m_prevTlsMask(nullptr)
 {
 #ifdef GASHA_LOG_MASK_SECURE_INITIALIZE
 	std::call_once(m_initialized, initializeOnce);//グローバルログレベルマスク初期化（一回限り）
@@ -260,12 +299,6 @@ logMask::logMask()
 	{
 		m_refType = isTls;
 		m_maskRef = m_tlsMaskRef;
-		m_prevTlsMask = nullptr;
-	}
-	else
-	{
-		m_refType = isGlobal;
-		m_maskRef = &m_globalMask;
 		m_prevTlsMask = nullptr;
 	}
 }

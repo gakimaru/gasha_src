@@ -10,7 +10,7 @@
 
 #include <gasha/win_console.inl>// Windowsコマンドプロントプト【インライン関数／テンプレート関数定義部】
 
-#include <cstring>//memset()
+#include <cstring>//std::memset()
 #include <cstdio>//fprintf(), fflush()
 
 #ifdef GASHA_USE_WINDOWS_CONSOLE

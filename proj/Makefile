@@ -49,6 +49,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/math/crc32.cpp \
 	$(SRC_BASE_DIR)/string/string.cpp \
 	$(SRC_BASE_DIR)/string/fast_string.cpp \
+	$(SRC_BASE_DIR)/string/strconv.cpp \
 	$(SRC_BASE_DIR)/thread/thread_id.cpp \
 	$(SRC_BASE_DIR)/thread/lock/lock_common.cpp \
 	$(SRC_BASE_DIR)/thread/lock/spin_lock.cpp \
@@ -75,7 +76,6 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/log_queue.cpp \
 	$(SRC_BASE_DIR)/debug/log_queue_monitor.cpp \
 	$(SRC_BASE_DIR)/debug/log.cpp \
-	$(SRC_BASE_DIR)/debug/print.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

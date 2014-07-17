@@ -56,7 +56,7 @@ void registDefaultLogLevel()
 	REG_LOG_LEVEL(asNormal, &stdout_console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
 	REG_LOG_LEVEL(asVerbose, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//冗長メッセージ
 	REG_LOG_LEVEL(asDetail, &stdout_console, nullptr, iBLACK, STANDARD, iBLACK, iWHITE);//詳細メッセージ
-	REG_LOG_LEVEL(asImportant, &stdout_console, &notice_console, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
+	REG_LOG_LEVEL(asImportant, &stdout_console, nullptr, iBLUE, BLACK, iBLUE, iWHITE);//重要メッセージ
 	REG_LOG_LEVEL(asWarning, &stderr_console, &notice_console, iMAGENTA, STANDARD, BLACK, iMAGENTA);//警告メッセージ
 	REG_LOG_LEVEL(asCritical, &stderr_console, &notice_console, iRED, STANDARD, iYELLOW, iRED);//重大メッセージ
 	REG_LOG_LEVEL(asAbsolute, &stdout_console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）

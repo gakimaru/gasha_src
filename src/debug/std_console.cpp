@@ -42,11 +42,15 @@ stdDummyConsole stdDummyConsole::s_instance;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
+#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+
 //----------------------------------------
 //標準メモリコンソールの明示的なインスタンス化
 #include <gasha/mem_console.cpp.h>//メモリコンソール【関数／実体定義部】
 
 //明示的なインスタンス化
 GASHA_INSTANCING_memConsole(GASHA_STD_MEM_CONSOLE_BUFF_SIZE);
+
+#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
 
 // End of file

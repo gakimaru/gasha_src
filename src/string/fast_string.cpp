@@ -12,8 +12,8 @@
 
 #include <gasha/fast_math.h>//高速算術
 
-#include <cstdint>//intptr_t, std::uint32_t
-#include <cstring>//memcpy(), memset()
+#include <cstdint>//std::intptr_t, std::uint32_t
+#include <cstring>//std::memcpy(), std::memset()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -381,7 +381,7 @@ namespace _private
 		const __m128i pattern_top_c16 = _mm_set1_epi8(pattern_top_c);
 		static const int flags = _SIDD_SBYTE_OPS | _SIDD_CMP_EQUAL_EACH | _SIDD_POSITIVE_POLARITY | _SIDD_LEAST_SIGNIFICANT;
 		const char* p = str;
-		const std::size_t str_over = reinterpret_cast<intptr_t>(p)& 0xf;
+		const std::size_t str_over = reinterpret_cast<std::intptr_t>(p)& 0xf;
 		if (str_over != 0)
 		{
 			//非16バイトアランイメント時
@@ -575,7 +575,7 @@ namespace _private
 		const __m128i pattern_top_c16 = _mm_set1_epi8(pattern_top_c);
 		static const int flags = _SIDD_SBYTE_OPS | _SIDD_CMP_EQUAL_EACH | _SIDD_POSITIVE_POLARITY | _SIDD_LEAST_SIGNIFICANT;
 		const char* p = str;
-		const std::size_t str_over = reinterpret_cast<intptr_t>(p)& 0xf;
+		const std::size_t str_over = reinterpret_cast<std::intptr_t>(p)& 0xf;
 		if (str_over != 0)
 		{
 			//非16バイトアランイメント時
@@ -797,12 +797,12 @@ namespace _private
 namespace _private
 {
 	//SSE版strcpy用補助関数
-	#define GASHA_SSE_MEMCPY_TYPE 2// 0 ... memcpy() 使用
+	#define GASHA_SSE_MEMCPY_TYPE 2// 0 ... std::memcpy() 使用
 	                               // 1 ... コピーサイズとアラインメントごとの関数
 	                               // 2 ... コピーサイズごとの関数（アラインメント無視／16バイトの時だけアランイメントで振り分け）
 	                               // 3 ... _mm_maskmoveu_si128() 使用
 	//SSE版strcpy用補助関数:_m128iからメモリへのコピー用関数
-	//【OK】コピーサイズごとの関数を用意するやり方は、memcpy()を使うよりも速かった
+	//【OK】コピーサイズごとの関数を用意するやり方は、std::memcpy()を使うよりも速かった
 	static void sse_memcpy_00_a(char* dst, const __m128i src)
 	{
 		//なにもしない
@@ -1145,7 +1145,7 @@ namespace _private
 	};
 #elif GASHA_SSE_MEMCPY_TYPE == 3
 	//SSE版strcpy用補助関数:_m128iからメモリへのコピー用定数：_mm_maskmoveu_si128()用
-	//【NG】_mm_maskmoveu_si128()を使用したやり方は、memcpy()を使うよりも遅かった
+	//【NG】_mm_maskmoveu_si128()を使用したやり方は、std::memcpy()を使うよりも遅かった
 	static const __m128i sse_memcpy_flags[17] =
 	{
 		_mm_set_epi8(0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u),

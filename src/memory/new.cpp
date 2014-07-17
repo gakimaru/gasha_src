@@ -39,7 +39,7 @@ void* operator new(const std::size_t size) GASHA_STDNEW_THROW
 {
 	GASHA_ polyAllocator allocator;
 	void* p = allocator->alloc(size, allocator.align());
-	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNew);
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_type::methodOfNew);
 	return p;
 }
 
@@ -49,7 +49,7 @@ void* operator new[](const std::size_t size) GASHA_STDNEW_THROW
 {
 	GASHA_ polyAllocator allocator;
 	void* p = allocator->alloc(size, allocator.align());
-	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNewArrays);
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_type::methodOfNewArrays);
 	return p;
 }
 
@@ -59,7 +59,7 @@ void* operator new(const std::size_t size, const std::nothrow_t&) GASHA_STDNEW_N
 {
 	GASHA_ polyAllocator allocator;
 	void* p = allocator->alloc(size, allocator.align());
-	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNew);
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_type::methodOfNew);
 	return p;
 }
 
@@ -69,7 +69,7 @@ void* operator new[](const std::size_t size, const std::nothrow_t&) GASHA_STDNEW
 {
 	GASHA_ polyAllocator allocator;
 	void* p = allocator->alloc(size, allocator.align());
-	allocator.callbackAtNew(p, size, GASHA_ newMethod_t::methodOfNewArrays);
+	allocator.callbackAtNew(p, size, GASHA_ newMethod_type::methodOfNewArrays);
 	return p;
 }
 
@@ -78,7 +78,7 @@ void* operator new[](const std::size_t size, const std::nothrow_t&) GASHA_STDNEW
 void operator delete(void* p) GASHA_STDDELETE_THROW
 {
 	GASHA_ polyAllocator allocator;
-	allocator.callbackAtDelete(p, GASHA_ deleteMethod_t::methodOfDelete);
+	allocator.callbackAtDelete(p, GASHA_ deleteMethod_type::methodOfDelete);
 	allocator->free(p);
 }
 
@@ -87,7 +87,7 @@ void operator delete(void* p) GASHA_STDDELETE_THROW
 void operator delete[](void* p) GASHA_STDDELETE_THROW
 {
 	GASHA_ polyAllocator allocator;
-	allocator.callbackAtDelete(p, GASHA_ deleteMethod_t::methodOfDeleteArrays);
+	allocator.callbackAtDelete(p, GASHA_ deleteMethod_type::methodOfDeleteArrays);
 	allocator->free(p);
 }
 
