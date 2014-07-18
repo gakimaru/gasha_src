@@ -25,13 +25,13 @@ const diagForProject_t diagForProject;
 //ビルド設定が実行環境に適合するか診断
 //※特殊化
 template<>
-bool buildSettingsDiagnosticTest<diagForLibrary_t>(char* message, std::size_t& size, const diagForLibrary_t mode)
+bool buildSettingsDiagnosticTest<diagForLibrary_t>(char* message, const std::size_t max_size, std::size_t& size, const diagForLibrary_t mode)
 {
-	return buildSettingsDiagnosticTest<diagForLibrary_internal_t>(message, size, diagForLibrary_internal_t());
+	return buildSettingsDiagnosticTest<diagForLibrary_internal_t>(message, max_size, size, diagForLibrary_internal_t());
 }
 //※ライブラリビルド時の診断用関数を明示的にインスタンス化
 template
-bool buildSettingsDiagnosticTest<diagForLibrary_internal_t>(char* message, std::size_t& size, const diagForLibrary_internal_t mode);
+bool buildSettingsDiagnosticTest<diagForLibrary_internal_t>(char* message, const std::size_t max_size, std::size_t& size, const diagForLibrary_internal_t mode);
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

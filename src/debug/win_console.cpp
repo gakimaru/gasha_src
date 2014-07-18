@@ -52,7 +52,8 @@ void winConsole::put(const char* str)
 void winConsole::putCr()
 {
 	resetColor();
-	std::fprintf(m_handle, "\r\n");
+	//std::fprintf(m_handle, "\r\n");
+	std::fprintf(m_handle, "\n");
 }
 
 //カラー変更

@@ -48,7 +48,8 @@ void vsConsole::put(const char* str)
 //改行出力
 void vsConsole::putCr()
 {
-	OutputDebugStringA("\r\n");
+	//OutputDebugStringA("\r\n");
+	OutputDebugStringA("\n");
 }
 
 //カラー変更
