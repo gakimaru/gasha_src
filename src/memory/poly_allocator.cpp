@@ -20,34 +20,34 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //コールバック
 void polyAllocator::callbackAtNew(void *p, std::size_t size, const GASHA_ newMethod_type method)
 {
-#if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
+#if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atDelete)
 		m_observer->m_atNew(*m_adapter, p, size, m_align, method, m_debugInfo);
-#endif//GASHA_HAS_DEBUG_FEATURE
+#endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 //delete時のコールバック
 void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_type method)
 {
-#if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
+#if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atDelete)
 		m_observer->m_atDelete(*m_adapter, p, method, m_debugInfo);
-#endif//GASHA_HAS_DEBUG_FEATURE
+#endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 //アロケータアダプター変更時のコールバック
 void polyAllocator::callbackAtChangeAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& next_adapter)
 {
-#if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
+#if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atChangeAllocator)
 		m_observer->m_atChangeAllocator(adapter, next_adapter);
-#endif//GASHA_HAS_DEBUG_FEATURE
+#endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 //アロケータアダプター復帰時のコールバック
 void polyAllocator::callbackAtReturnAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& prev_adapter)
 {
-#if defined(GASHA_HAS_DEBUG_FEATURE) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
+#if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_observer && m_observer->m_atReturnAllocator)
 		m_observer->m_atReturnAllocator(adapter, prev_adapter);
-#endif//GASHA_HAS_DEBUG_FEATURE
+#endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 
 //標準アロケータアダプターの強制初期化
@@ -57,7 +57,12 @@ void polyAllocator::initlaizeStdAllocatorAdapter()
 	new(&m_stdAllocator)GASHA_ stdAllocator<>();
 	new(&m_stdAllocatorAdapter)GASHA_ allocatorAdapter<GASHA_ stdAllocator<>>(m_stdAllocator.adapter());
 	if (!m_adapter)
+	{
 		m_adapter = &m_stdAllocatorAdapter;
+	#ifdef GASHA_INCOMPLETE_TLS_INITIALIZER
+		m_align = DEFAULT_ALIGN;//現在のアラインメントサイズも初期化（TLSが正しく初期化できない環境用）
+	#endif//GASHA_INCOMPLETE_TLS_INITIALIZER
+	}
 #endif//GASHA_ENABLE_POLY_ALLOCATOR
 }
 

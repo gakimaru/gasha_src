@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
+    <ClCompile Include="..\src\debug\call_point.cpp" />
     <ClCompile Include="..\src\debug\console_color.cpp" />
     <ClCompile Include="..\src\debug\default_log_category.cpp" />
     <ClCompile Include="..\src\debug\default_log_level.cpp" />

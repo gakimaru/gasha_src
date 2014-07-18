@@ -11,11 +11,9 @@
 #include <gasha/win_console.inl>// Windowsコマンドプロントプト【インライン関数／テンプレート関数定義部】
 
 #include <cstring>//std::memset()
-#include <cstdio>//fprintf(), fflush()
+#include <cstdio>//std::fprintf(), std::fflush()
 
-#ifdef GASHA_USE_WINDOWS_CONSOLE
-#include <Windows.h>//SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()
-#endif//GASHA_USE_WINDOWS_CONSOLE
+//#include <Windows.h>//SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -23,7 +21,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //Windowsコマンドプロントプト
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 #ifdef GASHA_USE_WINDOWS_CONSOLE
 //Windowsコマンドプロンプトクラス有効時
@@ -32,27 +30,39 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //Windowsコマンドプロントプトクラス
 
 //出力開始
-void winConsole::beginOutput()
+void winConsole::begin()
 {
-	//何もしない
+	resetColor();
 }
 
 //出力終了
-void winConsole::endOutput()
+void winConsole::end()
 {
+	resetColor();
 	std::fflush(m_handle);
 }
 
 //出力
-void winConsole::output(const char* str)
+void winConsole::put(const char* str)
 {
 	std::fprintf(m_handle, str);
+}
+
+//改行出力
+void winConsole::putCr()
+{
+	resetColor();
+	std::fprintf(m_handle, "\r\n");
 }
 
 //カラー変更
 void winConsole::changeColor(GASHA_ consoleColor&& color)
 {
 #ifdef GASHA_USE_WINDOWS_CONSOLE_COLOR
+	if (m_currColor == color)
+		return;
+	m_currColor = color;
+
 	const GASHA_ consoleColor::color_t fore = color.fore();
 	const GASHA_ consoleColor::color_t back = color.back();
 	
@@ -94,6 +104,10 @@ void winConsole::changeColor(GASHA_ consoleColor&& color)
 void winConsole::resetColor()
 {
 #ifdef GASHA_USE_WINDOWS_CONSOLE_COLOR
+	if (m_currColor.isStandard())
+		return;
+	m_currColor.reset();
+
 	//デフォルトカラー取得
 	const WORD default_color = m_screenBuffer.wAttributes;
 	
@@ -115,7 +129,8 @@ bool winConsole::isSame(const IConsole* rhs) const
 winConsole::winConsole(std::FILE* handle, const char* name) :
 	m_name(name),
 	m_handle(handle),
-	m_hWin(INVALID_HANDLE_VALUE)
+	m_hWin(INVALID_HANDLE_VALUE),
+	m_currColor(consoleColor::stdColor)
 {
 	//Windowsハンドルを取得
 	if (m_handle == stdout)
@@ -132,11 +147,26 @@ winConsole::winConsole(std::FILE* handle, const char* name) :
 
 //デストラクタ
 winConsole::~winConsole()
+{
+	resetColor();
+}
+
+//----------------------------------------
+//カラーなしWindowsコマンドプロントプトクラス
+
+//カラー変更
+void monoWinConsole::changeColor(GASHA_ consoleColor&& color)
+{
+	//何もしない
+}
+
+//デストラクタ
+monoWinConsole::~monoWinConsole()
 {}
 
 #endif//GASHA_USE_WINDOWS_CONSOLE
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

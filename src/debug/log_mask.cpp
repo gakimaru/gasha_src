@@ -18,7 +18,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログレベルマスク
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //--------------------
 //イテレータ
@@ -303,13 +303,13 @@ logMask::logMask() :
 	}
 }
 
-//コンテナの静的変数をインスタンス化
-const logMask::explicitInitialize_t logMask::explicitInitialize;
+//静的変数をインスタンス化
+const logMask::explicitInit_type logMask::explicitInit;
 std::once_flag logMask::m_initialized;
 logMask::mask_type logMask::m_globalMask;
 thread_local logMask::mask_type* logMask::m_tlsMaskRef = nullptr;
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

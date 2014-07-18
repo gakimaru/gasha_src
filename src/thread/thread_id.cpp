@@ -26,7 +26,7 @@ void threadId::setThisId() const
 	{
 		m_thisIdIsInitialized = true;
 		m_thisId = std::hash<std::thread::id>()(std::this_thread::get_id());
-		m_thisName = nullptr;
+		m_thisName = "(no name)";
 	}
 }
 //現在のスレッドのスレッド名をセット
@@ -39,7 +39,7 @@ void threadId::setThisName(const char* name) const
 //静的フィールドのインスタンス化
 thread_local bool threadId::m_thisIdIsInitialized = false;
 thread_local threadId::id_type threadId::m_thisId = threadId::INITIAL_ID;
-thread_local const char* threadId::m_thisName = nullptr;
+thread_local const char* threadId::m_thisName = "(no name)";
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

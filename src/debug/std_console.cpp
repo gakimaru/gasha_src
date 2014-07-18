@@ -16,7 +16,32 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //標準コンソール
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//----------------------------------------
+//画面通知用標準コンソール
+
+#ifdef GASHA_USE_WINDOWS_CONSOLE
+
+//出力終了
+void stdConsoleOfNotice::end()
+{
+	putCr();
+	winConsole::end();
+}
+
+#else//GASHA_USE_WINDOWS_CONSOLE
+
+//出力終了
+void stdConsoleOfNotice::end()
+{
+	putCr();
+	ttyConsole::end();
+}
+
+#endif//GASHA_USE_WINDOWS_CONSOLE
+
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //標準出力コンソール
@@ -38,11 +63,9 @@ stdMemConsole stdMemConsole::s_instance;
 //標準ダミーコンソール
 stdDummyConsole stdDummyConsole::s_instance;
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
-
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //標準メモリコンソールの明示的なインスタンス化
@@ -51,6 +74,6 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 //明示的なインスタンス化
 GASHA_INSTANCING_memConsole(GASHA_STD_MEM_CONSOLE_BUFF_SIZE);
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 // End of file

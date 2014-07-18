@@ -16,7 +16,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログカテゴリ
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //--------------------
 //イテレータ
@@ -192,13 +192,13 @@ void logCategoryContainer::initializeOnce()
 	GASHA_ registDefaultLogCategory();
 }
 
-//コンテナの静的変数をインスタンス化
-const logCategoryContainer::explicitInitialize_t logCategoryContainer::explicitInitialize;
+//静的変数をインスタンス化
+const logCategoryContainer::explicitInit_type logCategoryContainer::explicitInit;
 std::once_flag logCategoryContainer::m_initialized;
 logCategory::info logCategoryContainer::m_pool[logCategory::POOL_NUM];
 std::bitset<logCategory::POOL_NUM> logCategoryContainer::m_isAlreadyPool;
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

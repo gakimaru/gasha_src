@@ -12,7 +12,7 @@
 
 #include <gasha/fast_math.h>//高速算術
 
-#include <cstdint>//std::intptr_t, std::uint32_t
+#include <cstdint>//std::intptr_t, C++11 std::uint32_t
 #include <cstring>//std::memcpy(), std::memset()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始

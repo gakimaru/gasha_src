@@ -16,7 +16,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログレベル
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //--------------------
 //ログレベル
@@ -270,13 +270,13 @@ void logLevelContainer::initializeOnce()
 	GASHA_ registDefaultLogLevel();
 }
 
-//コンテナの静的変数をインスタンス化
-const logLevelContainer::explicitInitialize_t logLevelContainer::explicitInitialize;
+//静的変数をインスタンス化
+const logLevelContainer::explicitInit_type logLevelContainer::explicitInit;
 std::once_flag logLevelContainer::m_initialized;
 logLevel::info logLevelContainer::m_pool[logLevel::POOL_NUM];
 std::bitset<logLevel::POOL_NUM> logLevelContainer::m_isAlreadyPool;
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

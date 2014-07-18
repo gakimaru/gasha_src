@@ -18,7 +18,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログキューモニター
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //キューイングを通知
 bool logQueueMonitor::notify()
@@ -96,7 +96,7 @@ void logQueueMonitor::initializeOnce()
 }
 
 //静的フィールド
-const logQueueMonitor::explicitInitialize_t logQueueMonitor::explicitInitialize;//明示的な初期化指定用
+const logQueueMonitor::explicitInit_type logQueueMonitor::explicitInit;//明示的な初期化指定用
 std::once_flag logQueueMonitor::m_initialized;//初期化済み
 std::atomic<bool> logQueueMonitor::m_abort(false);//中断
 std::atomic<std::int32_t> logQueueMonitor::m_request(0);//要求数
@@ -105,12 +105,12 @@ std::atomic<logQueueMonitor::id_type> logQueueMonitor::m_nextId(logQueueMonitor:
 std::mutex logQueueMonitor::m_mutex;//ミューテックス
 std::condition_variable logQueueMonitor::m_cond;//条件変数
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 // End of file

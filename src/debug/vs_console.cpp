@@ -20,7 +20,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //Visual Studio出力ウインドウ
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //Visual Studio出力ウインドウクラス
@@ -28,21 +28,27 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //Visual Studio出力ウインドウクラス有効時
 
 //出力開始
-void vsConsole::beginOutput()
+void vsConsole::begin()
 {
 	//何もしない
 }
 
 //出力終了
-void vsConsole::endOutput()
+void vsConsole::end()
 {
 	//何もしない
 }
 
 //出力
-void vsConsole::output(const char* str)
+void vsConsole::put(const char* str)
 {
 	OutputDebugStringA(str);
+}
+
+//改行出力
+void vsConsole::putCr()
+{
+	OutputDebugStringA("\r\n");
 }
 
 //カラー変更
@@ -72,7 +78,7 @@ vsConsole::~vsConsole()
 
 #endif//GASHA_USE_VS_CONSOLE
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

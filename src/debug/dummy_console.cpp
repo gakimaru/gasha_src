@@ -16,25 +16,31 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ダミーコンソール
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //ダミーコンソールクラス
 
 //出力開始
-void dummyConsole::beginOutput()
+void dummyConsole::begin()
 {
 	//何もしない
 }
 
 //出力終了
-void dummyConsole::endOutput()
+void dummyConsole::end()
 {
 	//何もしない
 }
 
 //出力
-void dummyConsole::output(const char* str)
+void dummyConsole::put(const char* str)
+{
+	//何もしない
+}
+
+//改行出力
+void dummyConsole::putCr()
 {
 	//何もしない
 }
@@ -64,7 +70,7 @@ bool dummyConsole::isSame(const IConsole* rhs) const
 dummyConsole::~dummyConsole()
 {}
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

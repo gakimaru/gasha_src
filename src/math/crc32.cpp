@@ -10,7 +10,7 @@
 
 #include <gasha/crc32.inl>//CRC32計算【インライン関数定義部】
 
-#include <cstdio>//printf()
+#include <cstdio>//std::printf()
 
 #ifdef GASHA_USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2
@@ -237,23 +237,23 @@ crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 //【プログラム作成補助処理】事前計算済み多項式テーブルの作成と表示
 void makeAndPrintPolyTable()
 {
-	printf("\tstatic const crc32_t s_polyTable[256] =\n");
-	printf("\t{\n");
+	std::printf("\tstatic const crc32_t s_polyTable[256] =\n");
+	std::printf("\t{\n");
 	for (int i = 0; i < 256; ++i)
 	{
 		if (i > 0)
 		{
-			printf(",");
+			std::printf(",");
 			if (i % 8 == 0)
-				printf("\n");
+				std::printf("\n");
 			else
-				printf(" ");
+				std::printf(" ");
 		}
 		if (i % 8 == 0)
-			printf("\t\t");
-		printf("0x%08xu", _private::calcPoly(i));
+			std::printf("\t\t");
+		std::printf("0x%08xu", _private::calcPoly(i));
 	}
-	printf("\n\t};\n");
+	std::printf("\n\t};\n");
 }
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

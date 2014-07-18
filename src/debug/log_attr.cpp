@@ -16,7 +16,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログ属性
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //--------------------
 //ログ属性
@@ -88,13 +88,13 @@ logAttr::logAttr() :
 	}
 }
 
-//コンテナの静的変数をインスタンス化
-const logAttr::explicitInitialize_t logAttr::explicitInitialize;
+//静的変数をインスタンス化
+const logAttr::explicitInit_type logAttr::explicitInit;
 std::once_flag logAttr::m_initialized;
-logAttr::attr_type logAttr::m_globalAttr = logAttr::DEFAULT_ATTR;
+logAttr::attr_type logAttr::m_globalAttr(logAttr::DEFAULT_ATTR);
 thread_local logAttr::attr_type* logAttr::m_tlsAttrRef = nullptr;
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

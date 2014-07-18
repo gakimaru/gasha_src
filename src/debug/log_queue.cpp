@@ -18,18 +18,18 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログキュー
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //キューイング
 bool logQueue::enqueue(const logPrintInfo& print_info)
 {
-	const char* message = print_info.m_message;
+	const char* message = print_info.message();
 	if (!message)//messege が nullptr ならキューイング成功扱い
 		return true;
 
 	//メッセージのバッファ割り当て
 	char* queue_message = nullptr;
-	const std::size_t queue_message_size = print_info.m_messageSize > 0 ? print_info.m_messageSize : strlen_fast(message) + 1;
+	const std::size_t queue_message_size = print_info.messageSize() > 0 ? print_info.messageSize() : strlen_fast(message) + 1;
 	{
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
@@ -62,7 +62,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 	//メッセージのキューイング
 	logPrintInfo* info = nullptr;
 	{
-		const id_type id = print_info.m_id > 0 ? print_info.m_id : reserve(1);
+		const id_type id = print_info.id() > 0 ? print_info.id() : reserve(1);
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
 		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
 		while (!m_abort.load())
@@ -76,9 +76,9 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 
 			//キューイング
 			logPrintInfo _print_info(print_info);
-			_print_info.m_id = id;
-			_print_info.m_message = queue_message;
-			_print_info.m_messageSize = static_cast<logPrintInfo::message_size_type>(queue_message_size);
+			_print_info.setId(id);
+			_print_info.setMessage(queue_message);
+			_print_info.setMessageSize(queue_message_size);
 			info = m_queue.push(_print_info);
 			if (info || IS_NO_WAIT_MODE)
 				break;
@@ -108,7 +108,7 @@ logQueue::id_type logQueue::top()
 	const logPrintInfo* top_info = m_queue.top();
 	if (!top_info)
 		return 0;
-	return top_info->m_id;
+	return top_info->id();
 }
 
 //初期化メソッド（一回限り）
@@ -121,7 +121,7 @@ void logQueue::initializeOnce()
 }
 
 //静的フィールド
-const logQueue::explicitInitialize_t logQueue::explicitInitialize;//明示的な初期化指定用
+const logQueue::explicitInit_type logQueue::explicitInit;//明示的な初期化指定用
 std::once_flag logQueue::m_initialized;//初期化済み
 std::atomic<bool> logQueue::m_abort(false);//中断
 std::atomic<bool> logQueue::m_pause(false);//一時停止
@@ -129,11 +129,11 @@ std::atomic<logQueue::id_type> logQueue::m_id(logQueue::INIT_ID);//キューID�
 GASHA_ lfSmartStackAllocator_withBuff<logQueue::MESSAGE_BUFF_SIZE> logQueue::m_messageBuff;//メッセージバッファ
 GASHA_ binary_heap::container<logQueue::queueOpe, logQueue::QUEUE_SIZE> logQueue::m_queue;//ログキュー
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //明示的なインスタンス化
 #include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義定義部】
@@ -142,6 +142,6 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 GASHA_INSTANCING_lfSmartStackAllocator();
 GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe, GASHA_ logQueue::QUEUE_SIZE);
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 // End of file

@@ -10,7 +10,7 @@
 
 #include <gasha/tty_console.inl>//TTY端末【インライン関数／テンプレート関数定義部】
 
-#include <cstdio>//fprintf(), fflush()
+#include <cstdio>//std::fprintf(), std::fflush()
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -18,33 +18,45 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //TTY端末
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //TTY端末クラス
 
 //出力開始
-void ttyConsole::beginOutput()
+void ttyConsole::begin()
 {
-	//何もしない
+	resetColor();
 }
 
 //出力終了
-void ttyConsole::endOutput()
+void ttyConsole::end()
 {
+	resetColor();
 	std::fflush(m_handle);
 }
 
 //出力
-void ttyConsole::output(const char* str)
+void ttyConsole::put(const char* str)
 {
 	std::fprintf(m_handle, str);
+}
+
+//改行出力
+void ttyConsole::putCr()
+{
+	resetColor();
+	std::fprintf(m_handle, "\n");
 }
 
 //TTY用のカラー変更
 void ttyConsole::changeColor(GASHA_ consoleColor&& color)
 {
 #ifdef GASHA_USE_ESCAPE_SEQUENCE
+	if (m_currColor == color)
+		return;
+	m_currColor = color;
+
 	const GASHA_ consoleColor::color_t fore = color.fore();
 	const GASHA_ consoleColor::color_t back = color.back();
 	const GASHA_ consoleColor::attr_t attr = color.attr();
@@ -101,7 +113,7 @@ void ttyConsole::changeColor(GASHA_ consoleColor&& color)
 	msg[pos] = 'm';
 	
 	//出力
-	output(msg);
+	put(msg);
 #endif//GASHA_USE_ESCAPE_SEQUENCE
 }
 
@@ -109,8 +121,12 @@ void ttyConsole::changeColor(GASHA_ consoleColor&& color)
 void ttyConsole::resetColor()
 {
 #ifdef GASHA_USE_ESCAPE_SEQUENCE
+	if (m_currColor.isStandard())
+		return;
+	m_currColor.reset();
+
 	//リセット
-	output("\x1b[0m");
+	put("\x1b[0m");
 #endif//GASHA_USE_ESCAPE_SEQUENCE
 }
 
@@ -125,9 +141,24 @@ bool ttyConsole::isSame(const IConsole* rhs) const
 
 //デストラクタ
 ttyConsole::~ttyConsole()
+{
+	resetColor();
+}
+
+//----------------------------------------
+//カラーなしTTY端末クラス
+
+//カラー変更
+void monoTtyConsole::changeColor(GASHA_ consoleColor&& color)
+{
+	//何もしない
+}
+
+//デストラクタ
+monoTtyConsole::~monoTtyConsole()
 {}
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

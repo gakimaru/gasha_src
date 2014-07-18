@@ -12,7 +12,7 @@
 
 #include <gasha/fast_math.h>//高速算術
 
-#include <cstdint>//std::intptr_t, std::uint32_t
+#include <cstdint>//std::intptr_t, C++11 std::uint32_t
 #include <cstring>//std::memcpy(), std::memset()
 
 //【VC++】str*** を使用すると、error C4996 が発生する

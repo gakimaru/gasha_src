@@ -18,7 +18,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //コンソールカラー
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------
 //コンソールカラークラス
@@ -61,11 +61,11 @@ const char* consoleColor::toStr(char* str) const
 	return str;
 }
 
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
 //----------------------------------------
 //コンソールカラーリセット用構造体の実体定義
-const stdConsoleColor_t stdConsoleColor;
-
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+const consoleColor::stdColor_type consoleColor::stdColor;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

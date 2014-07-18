@@ -509,6 +509,12 @@
     <Filter Include="gasha_src\string\strconv">
       <UniqueIdentifier>{fc9fc3d7-e0c7-431e-9a80-e505bfb38ca8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\assert">
+      <UniqueIdentifier>{7d92f377-f624-4051-9d04-d6317dcc928d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\call_point">
+      <UniqueIdentifier>{73baf677-e645-41ce-8875-b6e783d93b2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1043,6 +1049,9 @@
     </ClCompile>
     <ClCompile Include="..\src\string\strconv.cpp">
       <Filter>gasha_src\string\strconv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\call_point.cpp">
+      <Filter>gasha_src\debug\call_point</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

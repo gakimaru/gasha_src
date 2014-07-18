@@ -16,7 +16,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //ログ操作
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //--------------------
 //ログ操作
@@ -35,17 +35,17 @@ bool log::put(const bool is_reserved, const log::level_type level, const log::ca
 
 	//ログ出力情報作成
 	GASHA_ logPrintInfo print_info;
-	print_info.m_id = is_reserved ? m_reservedId : 0;
-	print_info.m_time = nowElapsedTime();
-	print_info.m_message = str;
-	print_info.m_messageSize = 0;
-	print_info.m_level = level;
-	print_info.m_category = category;
-	print_info.m_attr = *GASHA_ logAttr();
+	print_info.setId(is_reserved ? m_reservedId : 0);
+	print_info.setTime(nowElapsedTime());
+	print_info.setMessage(str);
+	print_info.setMessageSize(0);
+	print_info.setLevel(level);
+	print_info.setCategory(category);
+	print_info.setAttr(*GASHA_ logAttr());
 	for (purpose_type purpose = 0; purpose < PURPOSE_NUM; ++purpose)
 	{
-		print_info.m_consoles[purpose] = masked.m_consoles[purpose];
-		print_info.m_colors[purpose] = masked.m_colors[purpose];
+		print_info.setConsole(purpose, masked.m_consoles[purpose]);
+		print_info.setColor(purpose, masked.m_colors[purpose]);
 	}
 
 	//キューイング
@@ -76,13 +76,13 @@ bool log::put(const bool is_reserved, const log::level_type level, const log::ca
 //【使用注意】ログ関係の処理を一括して初期化する
 void log::initialize()
 {
-	logLevelContainer level_con(logLevelContainer::explicitInitialize);//ログレベルの明示的な初期化 ※既に初期化済みなら何もしない
-	logCategoryContainer cate_con(logCategoryContainer::explicitInitialize);//ログカテゴリの明示的な初期化 ※既に初期化済みなら何もしない
-	logMask mask(logMask::explicitInitialize);//ログレベルマスクの明示的な初期化 ※既に初期化済みなら何もしない
-	logAttr attr(logAttr::explicitInitialize);//ログ属性の明示的な初期化 ※既に初期化済みなら何もしない
-	logWorkBuff log_buff(logWorkBuff::explicitInitialize);//ログワークバッファの明示的な初期化 ※【注意】強制初期化
-	logQueue log_queue(logQueue::explicitInitialize);//ログキューの明示的な初期化 ※【注意】強制初期化
-	logQueueMonitor log_queue_monitor(logQueueMonitor::explicitInitialize);//ログキューモニターの明示的な初期化 ※【注意】強制初期化
+	logLevelContainer level_con(logLevelContainer::explicitInit);//ログレベルの明示的な初期化 ※既に初期化済みなら何もしない
+	logCategoryContainer cate_con(logCategoryContainer::explicitInit);//ログカテゴリの明示的な初期化 ※既に初期化済みなら何もしない
+	logMask mask(logMask::explicitInit);//ログレベルマスクの明示的な初期化 ※既に初期化済みなら何もしない
+	logAttr attr(logAttr::explicitInit);//ログ属性の明示的な初期化 ※既に初期化済みなら何もしない
+	logWorkBuff log_buff(logWorkBuff::explicitInit);//ログワークバッファの明示的な初期化 ※【注意】強制初期化
+	logQueue log_queue(logQueue::explicitInit);//ログキューの明示的な初期化 ※【注意】強制初期化
+	logQueueMonitor log_queue_monitor(logQueueMonitor::explicitInit);//ログキューモニターの明示的な初期化 ※【注意】強制初期化
 }
 
 //【使用注意】ログキューモニターに溜まっているキューを全て出力する
@@ -123,7 +123,7 @@ void log::resume()
 	log_buff.resume();
 }
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -18,7 +18,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //既定のログカテゴリ
 //--------------------------------------------------------------------------------
 
-#ifdef GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //既定のログカテゴリを登録
 void registDefaultLogCategory()
@@ -63,7 +63,7 @@ void registDefaultLogCategory()
 	REG_SPECIAL_LOG_CATEGORY(forCriticalCallPoint);//直近の重大コールポイントのカテゴリに合わせる（なければforAny扱い）
 }
 
-#endif//GASHA_HAS_DEBUG_LOG//デバッグログ無効時はまるごと無効化
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
