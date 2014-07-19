@@ -26,9 +26,9 @@ void registDefaultLogCategory()
 	//通常ログカテゴリ登録補助マクロ
 	#define REG_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
 		{ \
-			GASHA_ IConsole* console = CONSOLE; \
-			GASHA_ IConsole* console_n = CONSOLE_N; \
-			GASHA_ IConsole* consoles[logCategory::PURPOSE_NUM] = { console, console_n }; \
+			GASHA_ iConsole* console = CONSOLE; \
+			GASHA_ iConsole* console_n = CONSOLE_N; \
+			GASHA_ iConsole* consoles[logCategory::PURPOSE_NUM] = { console, console_n }; \
 			_private::regLogCategory<VALUE>()(\
 				#VALUE, \
 				consoles \
@@ -44,8 +44,8 @@ void registDefaultLogCategory()
 		}
 
 	//コンソール
-	IConsole& dummy_console = GASHA_ stdDummyConsole::instance();//標準ダミーコンソール
-	IConsole& notice_console = GASHA_ stdConsoleOfNotice::instance();//画面通知用標準コンソール
+	iConsole& dummy_console = GASHA_ stdDummyConsole::instance();//標準ダミーコンソール
+	iConsole& notice_console = GASHA_ stdNoticeConsole::instance();//画面通知用標準コンソール
 
 	//通常ログカテゴリ登録
 	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）

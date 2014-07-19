@@ -33,80 +33,80 @@ std::size_t timeToStr(char* buff, const time_type time, const timeStrFormat_type
 	const std::uint32_t sec = total_sec % 60;
 	const std::uint32_t minute = total_minute % 60;
 
-	std::size_t size = 0;
+	std::size_t len = 0;
 	switch (format_type)
 	{
 	case timeStr_S://"秒"（例："0"）
 		{
-			GASHA_ spprintf(buff, size, "%d", total_sec);
+			GASHA_ spprintf(buff, len, "%d", total_sec);
 		}
 		break;
 	case timeStr_S_MILLI://"秒.ミリ秒"（例："0.000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000.);
-			GASHA_ spprintf(buff, size, "%d.%03d", total_sec, dec_i);
+			GASHA_ spprintf(buff, len, "%d.%03d", total_sec, dec_i);
 		}
 		break;
 	case timeStr_S_MICRO://"秒.マイクロ秒"（例："0.000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000.);
-			GASHA_ spprintf(buff, size, "%d.%06d", total_sec, dec_i);
+			GASHA_ spprintf(buff, len, "%d.%06d", total_sec, dec_i);
 		}
 		break;
 	case timeStr_S_NANO://"秒.ナノ秒"（例："0.000000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000000.);
-			GASHA_ spprintf(buff, size, "%d.%09d", total_sec, dec_i);
+			GASHA_ spprintf(buff, len, "%d.%09d", total_sec, dec_i);
 		}
 		break;
 	case timeStr_MMSS://"分:秒"（例："00:00"）
 		{
-			GASHA_ spprintf(buff, size, "%02d:%02d", total_minute, sec);
+			GASHA_ spprintf(buff, len, "%02d:%02d", total_minute, sec);
 		}
 		break;
 	case timeStr_MMSS_MILLI://"分:秒.ミリ秒"（例："00:00.000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d.%03d", total_minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d.%03d", total_minute, sec, dec_i);
 		}
 		break;
 	case timeStr_MMSS_MICRO://"分:秒.マイクロ秒"（例："00:00.000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d.%06d", total_minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d.%06d", total_minute, sec, dec_i);
 		}
 		break;
 	case timeStr_MMSS_NANO://"分:秒.ナノ秒"（例："00:00.000000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d.%09d", total_minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d.%09d", total_minute, sec, dec_i);
 		}
 		break;
 	case timeStr_HHMMSS://"時:分:秒"（例："00:00:00"）
 		{
-			GASHA_ spprintf(buff, size, "%02d:%02d:%02d", total_hour, minute, sec);
+			GASHA_ spprintf(buff, len, "%02d:%02d:%02d", total_hour, minute, sec);
 		}
 		break;
 	case timeStr_HHMMSS_MILLI://"時:分:秒.ミリ秒"（例："00:00:00.000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d:%02d.%03d", total_hour, minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d:%02d.%03d", total_hour, minute, sec, dec_i);
 		}
 		break;
 	case timeStr_HHMMSS_MICRO://"時:分:秒.マイクロ秒"（例："00:00:00.000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d:%02d.%06d", total_hour, minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d:%02d.%06d", total_hour, minute, sec, dec_i);
 		}
 		break;
 	case timeStr_HHMMSS_NANO://"時:分:秒.ナノ秒"（例："00:00:00.000000000"）
 		{
 			const std::uint32_t dec_i = static_cast<std::uint32_t>(dec * 1000000000.);
-			GASHA_ spprintf(buff, size, "%02d:%02d:%02d.%09d", total_hour, minute, sec, dec_i);
+			GASHA_ spprintf(buff, len, "%02d:%02d:%02d.%09d", total_hour, minute, sec, dec_i);
 		}
 		break;
 	}
-	return size;
+	return len;
 }
 
 //----------------------------------------

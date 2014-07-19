@@ -56,11 +56,11 @@ void* lfMonoAllocator::alloc(const std::size_t size, const std::size_t align)
 //デバッグ情報作成
 std::size_t lfMonoAllocator::debugInfo(char* message, const std::size_t max_size) const
 {
-	std::size_t size = 0;
-	GASHA_ spprintf(message, max_size, size, "----- Debug-info for lfMonoAllocator -----\n");
-	GASHA_ spprintf(message, max_size, size, "buff=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
-	GASHA_ spprintf(message, max_size, size, "------------------------------------------\n");
-	return size;
+	std::size_t message_len = 0;
+	GASHA_ spprintf(message, max_size, message_len, "----- Debug-info for lfMonoAllocator -----\n");
+	GASHA_ spprintf(message, max_size, message_len, "buff=%p, maxSize=%d, size=%d, remain=%d, isAllocated=%s\n", m_buffRef, maxSize(), this->size(), remain(), toStr(isAllocated()));
+	GASHA_ spprintf(message, max_size, message_len, "------------------------------------------");//最終行改行なし
+	return message_len;
 }
 
 //メモリ解放（共通処理）

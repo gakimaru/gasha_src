@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h" />
     <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\assert.h" />
     <ClInclude Include="..\..\gasha\include\gasha\basic_math.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h" />
@@ -45,11 +46,13 @@
     <ClInclude Include="..\..\gasha\include\gasha\console_color.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h" />
     <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h" />
     <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_debug_pause.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h" />
@@ -68,6 +71,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\iterator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h" />
     <ClInclude Include="..\..\gasha\include\gasha\i_console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\i_debug_pause.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\lf_mono_allocator.h" />
@@ -140,9 +144,11 @@
     <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\stdin_debug_pause.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_console.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\std_debug_pause.h" />
     <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h" />
     <ClInclude Include="..\..\gasha\include\gasha\strconv.h" />
     <ClInclude Include="..\..\gasha\include\gasha\string.h" />
@@ -163,11 +169,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
+    <ClCompile Include="..\src\debug\assert.cpp" />
     <ClCompile Include="..\src\debug\call_point.cpp" />
     <ClCompile Include="..\src\debug\console_color.cpp" />
     <ClCompile Include="..\src\debug\default_log_category.cpp" />
     <ClCompile Include="..\src\debug\default_log_level.cpp" />
     <ClCompile Include="..\src\debug\dummy_console.cpp" />
+    <ClCompile Include="..\src\debug\dummy_debug_pause.cpp" />
     <ClCompile Include="..\src\debug\log.cpp" />
     <ClCompile Include="..\src\debug\log_attr.cpp" />
     <ClCompile Include="..\src\debug\log_category.cpp" />
@@ -176,7 +184,9 @@
     <ClCompile Include="..\src\debug\log_queue.cpp" />
     <ClCompile Include="..\src\debug\log_queue_monitor.cpp" />
     <ClCompile Include="..\src\debug\log_work_buff.cpp" />
+    <ClCompile Include="..\src\debug\stdin_debug_pause.cpp" />
     <ClCompile Include="..\src\debug\std_console.cpp" />
+    <ClCompile Include="..\src\debug\std_debug_pause.cpp" />
     <ClCompile Include="..\src\debug\tty_console.cpp" />
     <ClCompile Include="..\src\debug\vs_console.cpp" />
     <ClCompile Include="..\src\debug\win_console.cpp" />
@@ -212,6 +222,7 @@
   <ItemGroup>
     <None Include="..\..\gasha\include\gasha\allocator_adapter.inl" />
     <None Include="..\..\gasha\include\gasha\allocator_common.inl" />
+    <None Include="..\..\gasha\include\gasha\assert.inl" />
     <None Include="..\..\gasha\include\gasha\basic_math.inl" />
     <None Include="..\..\gasha\include\gasha\binary_heap.inl" />
     <None Include="..\..\gasha\include\gasha\binary_search.inl" />
@@ -223,10 +234,12 @@
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\console_color.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
+    <None Include="..\..\gasha\include\gasha\debugger_break.inl" />
     <None Include="..\..\gasha\include\gasha\default_log_category.inl" />
     <None Include="..\..\gasha\include\gasha\default_log_level.inl" />
     <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_console.inl" />
+    <None Include="..\..\gasha\include\gasha\dummy_debug_pause.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl" />
     <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl" />
@@ -243,6 +256,7 @@
     <None Include="..\..\gasha\include\gasha\iterator.inl" />
     <None Include="..\..\gasha\include\gasha\i_allocator_adapter.inl" />
     <None Include="..\..\gasha\include\gasha\i_console.inl" />
+    <None Include="..\..\gasha\include\gasha\i_debug_pause.inl" />
     <None Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_mono_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl" />
@@ -295,8 +309,10 @@
     <None Include="..\..\gasha\include\gasha\singly_linked_list.inl" />
     <None Include="..\..\gasha\include\gasha\spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\stack_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\stdin_debug_pause.inl" />
     <None Include="..\..\gasha\include\gasha\std_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\std_console.inl" />
+    <None Include="..\..\gasha\include\gasha\std_debug_pause.inl" />
     <None Include="..\..\gasha\include\gasha\std_log_print.inl" />
     <None Include="..\..\gasha\include\gasha\strconv.inl" />
     <None Include="..\..\gasha\include\gasha\string.inl" />

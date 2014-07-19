@@ -20,11 +20,11 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 #ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
-//キューイング
+//エンキュー
 bool logQueue::enqueue(const logPrintInfo& print_info)
 {
 	const char* message = print_info.message();
-	if (!message)//messege が nullptr ならキューイング成功扱い
+	if (!message)//messege が nullptr ならエンキュー成功扱い
 		return true;
 
 	//メッセージのバッファ割り当て
@@ -32,7 +32,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 	const std::size_t queue_message_size = print_info.messageSize() > 0 ? print_info.messageSize() : strlen_fast(message) + 1;
 	{
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
-		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
+		int spin_count_now = spin_count;
 		while (!m_abort.load())
 		{
 			//一時停止中は何もせずループする
@@ -59,12 +59,12 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 		std::memcpy(queue_message, message, queue_message_size);
 	}
 
-	//メッセージのキューイング
+	//メッセージのエンキュー
 	logPrintInfo* info = nullptr;
 	{
 		const id_type id = print_info.id() > 0 ? print_info.id() : reserve(1);
 		static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
-		int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
+		int spin_count_now = spin_count;
 		while (!m_abort.load())
 		{
 			//一時停止中は何もせずループする
@@ -74,7 +74,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 				continue;
 			}
 
-			//キューイング
+			//エンキュー
 			logPrintInfo _print_info(print_info);
 			_print_info.setId(id);
 			_print_info.setMessage(queue_message);
@@ -115,6 +115,7 @@ logQueue::id_type logQueue::top()
 void logQueue::initializeOnce()
 {
 	m_abort.store(false);//中断解除
+	m_pause.store(false);//一時停止解除
 	m_id.store(INIT_ID);//キューID発番用 ※1から始まる
 	m_messageBuff.clear();//メッセージバッファ
 	m_queue.clear();//ログキュー

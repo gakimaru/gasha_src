@@ -221,7 +221,7 @@ bool logLevelContainer::regist(const logLevel::info& info)
 }
 
 //全てのログレベルのコンソールを変更
-void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, IConsole* new_console)
+void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, iConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
@@ -233,14 +233,14 @@ void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose,
 	}
 }
 //※置き換え元のコンソールを指定する場合
-void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, IConsole* src_console, IConsole* new_console)
+void logLevelContainer::replaceEachConsole(const logLevel::purpose_type purpose, iConsole* src_console, iConsole* new_console)
 {
 	for (logLevel::level_type value = logLevel::NORMAL_MIN; value <= logLevel::NORMAL_MAX; ++value)
 	{
 		if (m_isAlreadyPool[value])
 		{
 			logLevel::info& info = m_pool[value];
-			IConsole*& curr_console = info.m_consoles[purpose];
+			iConsole*& curr_console = info.m_consoles[purpose];
 			if ((!curr_console && !src_console) ||
 				(curr_console && src_console && *curr_console == *src_console))
 				curr_console = new_console;

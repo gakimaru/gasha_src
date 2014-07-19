@@ -24,7 +24,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 char* logWorkBuff::alloc()
 {
 	static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
-	int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
+	int spin_count_now = spin_count;
 	while (!m_abort.load())
 	{
 		//一時停止中は何もせずループする
@@ -72,6 +72,7 @@ std::size_t logWorkBuff::strcpy(char* message, std::size_t& pos, const char* src
 void logWorkBuff::initializeOnce()
 {
 	m_abort.store(false);//中断解除
+	m_pause.store(false);//一時停止解除
 	m_workBuff.clear();//ワークバッファ強制クリア
 }
 

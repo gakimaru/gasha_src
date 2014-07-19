@@ -77,6 +77,10 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/log_queue_monitor.cpp \
 	$(SRC_BASE_DIR)/debug/log.cpp \
 	$(SRC_BASE_DIR)/debug/call_point.cpp \
+	$(SRC_BASE_DIR)/debug/assert.cpp \
+	$(SRC_BASE_DIR)/debug/stdin_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/dummy_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/std_debug_pause.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

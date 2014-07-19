@@ -21,58 +21,6 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //--------------------
 //ログ操作
 
-//ログ出力：書式なし出力
-bool log::put(const bool is_reserved, const log::level_type level, const log::category_type category, const char* str)
-{
-	//ログレベルマスク判定とコンソール取得
-	GASHA_ logMask mask;
-	GASHA_ logMask::consolesInfo_type masked;
-	mask.consolesInfo(masked, level, category);
-	if (masked.m_cond == logMask::hasNotAvailableConsole)//利用可能なコンソールがない
-		return false;
-	else if (masked.m_cond == logMask::everyConsoleIsDummy)//ダミーコンソールしかない
-		return true;//成功扱い
-
-	//ログ出力情報作成
-	GASHA_ logPrintInfo print_info;
-	print_info.setId(is_reserved ? m_reservedId : 0);
-	print_info.setTime(nowElapsedTime());
-	print_info.setMessage(str);
-	print_info.setMessageSize(0);
-	print_info.setLevel(level);
-	print_info.setCategory(category);
-	print_info.setAttr(*GASHA_ logAttr());
-	for (purpose_type purpose = 0; purpose < PURPOSE_NUM; ++purpose)
-	{
-		print_info.setConsole(purpose, masked.m_consoles[purpose]);
-		print_info.setColor(purpose, masked.m_colors[purpose]);
-	}
-
-	//キューイング
-	logQueue queue;
-	const bool result = queue.enqueue(print_info);//キューイング
-
-	//予約IDを更新
-	if (is_reserved && m_reservedNum > 0)
-	{
-		--m_reservedNum;
-		if (m_reservedNum == 0)
-			m_reservedId = 0;
-		else
-			++m_reservedId;
-	}
-
-	//ログキューモニターに通知
-	if (result)
-	{
-		logQueueMonitor mon;
-		mon.notify();
-	}
-
-	//終了
-	return result;
-}
-
 //【使用注意】ログ関係の処理を一括して初期化する
 void log::initialize()
 {

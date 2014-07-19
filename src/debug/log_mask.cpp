@@ -141,7 +141,7 @@ const logMask::consolesCondition_type logMask::consolesInfo(consolesInfo_type& i
 		info.m_colors[purpose] = nullptr;
 		if (isEnableLevel(purpose, info.m_level, category))
 		{
-			GASHA_ IConsole* console_tmp = console(purpose, info.m_level, info.m_category);
+			GASHA_ iConsole* console_tmp = console(purpose, info.m_level, info.m_category);
 			if (console_tmp)
 			{
 				if (*console_tmp != GASHA_ dummyConsole())

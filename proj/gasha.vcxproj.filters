@@ -335,9 +335,6 @@
     <Filter Include="gasha\memory\poly_allocator">
       <UniqueIdentifier>{d87fc588-ff37-4ed9-8f1b-a69d4b384212}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha_src\memory\new">
-      <UniqueIdentifier>{016ece4b-4ea9-4bfb-82ee-c4ea2e794ecb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug">
       <UniqueIdentifier>{7a9c12d1-a7f9-4036-adba-a3df71d89d78}</UniqueIdentifier>
     </Filter>
@@ -488,9 +485,6 @@
     <Filter Include="gasha\debug\console\dummy_console">
       <UniqueIdentifier>{d41a4bae-07a4-48a0-8a0a-46b3bf032956}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log\print">
-      <UniqueIdentifier>{7f936df4-18c5-43c7-a20f-2602fabba5e7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha\debug\log\log">
       <UniqueIdentifier>{9c425b11-1c0e-431d-b9e9-0b95996d1f23}</UniqueIdentifier>
     </Filter>
@@ -514,6 +508,36 @@
     </Filter>
     <Filter Include="gasha_src\debug\call_point">
       <UniqueIdentifier>{73baf677-e645-41ce-8875-b6e783d93b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\assert">
+      <UniqueIdentifier>{a0f97a3c-e805-485b-a6c3-376cc582db25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\print">
+      <UniqueIdentifier>{7f936df4-18c5-43c7-a20f-2602fabba5e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\new">
+      <UniqueIdentifier>{016ece4b-4ea9-4bfb-82ee-c4ea2e794ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\assert\debug_pause">
+      <UniqueIdentifier>{02b4aee0-22ae-4dda-8c00-9df182b4d922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause">
+      <UniqueIdentifier>{9852a84f-5af3-4bff-a326-dd4d5ebc338d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\std_debug_pause">
+      <UniqueIdentifier>{23696f08-f37e-4919-a66b-50c11030ae95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\i_debug_pause">
+      <UniqueIdentifier>{cc879153-8f3e-4002-ad0d-ace4e2279291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\stdin_debug_pause">
+      <UniqueIdentifier>{1fda85ed-ea1a-46b4-83f9-3006ab153dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\dummy_debug_pause">
+      <UniqueIdentifier>{3c8b0f7f-a35f-4249-b3ec-0dd737c71798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debugger_break">
+      <UniqueIdentifier>{30d6b19d-94f5-4f2d-9fea-5bd1d926c9e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -929,7 +953,7 @@
       <Filter>gasha\debug\log\log</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\print.h">
-      <Filter>gasha\debug\log\print</Filter>
+      <Filter>gasha\debug\print</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\mem_console.h">
       <Filter>gasha\debug\console\mem_console</Filter>
@@ -939,6 +963,24 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\strconv.h">
       <Filter>gasha\string\strconv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\assert.h">
+      <Filter>gasha\debug\assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h">
+      <Filter>gasha\debug\assert\debugger_break</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stdin_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1052,6 +1094,18 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\call_point.cpp">
       <Filter>gasha_src\debug\call_point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert.cpp">
+      <Filter>gasha_src\debug\assert</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\std_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\dummy_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\stdin_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1347,13 +1401,31 @@
       <Filter>gasha\debug\log\log</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\print.inl">
-      <Filter>gasha\debug\log\print</Filter>
+      <Filter>gasha\debug\print</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\mem_console.inl">
       <Filter>gasha\debug\console\mem_console</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\strconv.inl">
       <Filter>gasha\string\strconv</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\assert.inl">
+      <Filter>gasha\debug\assert</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\debugger_break.inl">
+      <Filter>gasha\debug\assert\debugger_break</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\stdin_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
     </None>
   </ItemGroup>
 </Project>

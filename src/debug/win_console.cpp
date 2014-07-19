@@ -118,7 +118,7 @@ void winConsole::resetColor()
 }
 
 //出力先が同じか判定
-bool winConsole::isSame(const IConsole* rhs) const
+bool winConsole::isSame(const iConsole* rhs) const
 {
 	const winConsole* _rhs = dynamic_cast<const winConsole*>(rhs);
 	if (!_rhs)

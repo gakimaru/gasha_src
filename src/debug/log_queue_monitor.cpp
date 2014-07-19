@@ -24,7 +24,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 bool logQueueMonitor::notify()
 {
 	//中断時は即終了
-	if (m_abort.load())
+	if (m_abort.load() || m_isEnd.load())
 		return false;
 
 	//要求数をカウントアップ
@@ -53,13 +53,43 @@ bool logQueueMonitor::skip(const logQueueMonitor::id_type skip_id)
 	return false;
 }
 
+//中断
+void logQueueMonitor::abort()
+{
+	//すでに中断時は即終了
+	if (m_abort.load() || m_isEnd.load())
+		return;
+
+	//中断
+	m_abort.store(true);
+
+	//通知
+	m_cond.notify_one();
+
+	//終了待ち
+	static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
+	int spin_count_now = spin_count;
+	while (!m_isEnd.load())
+	{
+		if (spin_count <= 1 || (spin_count > 1 && --spin_count_now == 0))//※DEFAULT_SPIN_COUNT が 0 でもコンテキストスイッチする
+		{
+			//再通知
+			m_cond.notify_one();
+			
+			//コンテキストスイッチ
+			defaultContextSwitch();
+			spin_count_now = spin_count;
+		}
+	}
+}
+
 //フラッシュ
 //※すべての出力が完了するのを待つ
 //※中断時は即終了する
 bool logQueueMonitor::flush()
 {
 	//中断時は即終了
-	if (m_abort.load())
+	if (m_abort.load() || m_isEnd.load())
 		return false;
 
 	//フラッシュ要求数をカウントアップ
@@ -73,11 +103,15 @@ bool logQueueMonitor::flush()
 
 	//終了待ち
 	static const int spin_count = GASHA_ DEFAULT_SPIN_COUNT;
-	int spin_count_now = GASHA_ DEFAULT_SPIN_COUNT;
-	while (!m_abort.load() && m_request.load() > 0)
+	int spin_count_now = spin_count;
+	while (!m_abort.load() && !m_isEnd.load() && (m_request.load() > 0 || m_flush.load() > 0))
 	{
-		if (spin_count == 1 || (spin_count > 1 && --spin_count_now == 0))
+		if (spin_count <= 1 || (spin_count > 1 && --spin_count_now == 0))//※DEFAULT_SPIN_COUNT が 0 でもコンテキストスイッチする
 		{
+			//再通知
+			m_cond.notify_one();
+			
+			//コンテキストスイッチ
 			defaultContextSwitch();
 			spin_count_now = spin_count;
 		}
@@ -90,6 +124,7 @@ bool logQueueMonitor::flush()
 void logQueueMonitor::initializeOnce()
 {
 	m_abort.store(false);//中断解除
+	m_isEnd.store(false);//終了状態断解除
 	m_request.store(0);//要求数
 	m_flush.store(0);//フラッシュ要求数
 	m_nextId.store(1);//次のID
@@ -99,6 +134,7 @@ void logQueueMonitor::initializeOnce()
 const logQueueMonitor::explicitInit_type logQueueMonitor::explicitInit;//明示的な初期化指定用
 std::once_flag logQueueMonitor::m_initialized;//初期化済み
 std::atomic<bool> logQueueMonitor::m_abort(false);//中断
+std::atomic<bool> logQueueMonitor::m_isEnd(false);//終了状態
 std::atomic<std::int32_t> logQueueMonitor::m_request(0);//要求数
 std::atomic<std::int32_t> logQueueMonitor::m_flush(0);//フラッシュ要求数
 std::atomic<logQueueMonitor::id_type> logQueueMonitor::m_nextId(logQueueMonitor::INIT_ID);//次のID

@@ -48,11 +48,11 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 {
 	if (!message)
 		return 0;
-	std::size_t size = 0;
+	std::size_t message_len = 0;
 	std::size_t ret = 0;
-	ret = GASHA_ spprintf(message, max_size, size, "----- Debug-info for callPoint -----\n");
+	ret = GASHA_ spprintf(message, max_size, message_len, "----- callPoint stack info -----\n");
 	GASHA_ threadId thread_id;
-	ret = GASHA_ spprintf(message, max_size, size, "Thread: \"%s\"(ID=%08x)\n", thread_id.thisName(), thread_id.thisId());
+	ret = GASHA_ spprintf(message, max_size, message_len, "Thread: \"%s\"(ID=%08x)\n", thread_id.thisName(), thread_id.thisId());
 	
 	//コールポイント数の集計と出力
 	const callPoint* cp = m_callStackTop;
@@ -62,9 +62,9 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 		cp = cp->m_prevCallStack;
 		++num_of_cp;
 	}
-	ret = GASHA_ spprintf(message, max_size, size, "Num of point: %d\n", num_of_cp);
+	ret = GASHA_ spprintf(message, max_size, message_len, "Num of point: %d\n", num_of_cp);
 	if (num_of_cp > 0)
-		ret = GASHA_ spprintf(message, max_size, size, "------------------------------------\n");
+		ret = GASHA_ spprintf(message, max_size, message_len, "------------------------------------\n");
 
 	//コールポイントスタックの出力
 	cp = m_callStackTop;
@@ -75,7 +75,7 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 		auto print_indent = [&]()
 		{
 			for (int indent = 0; indent < depth; ++indent)
-				ret = GASHA_ spprintf(message, max_size, size, "  ");
+				ret = GASHA_ spprintf(message, max_size, message_len, "  ");
 		};
 		
 		//コールポイント名取得
@@ -115,11 +115,11 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 
 		//文字列作成
 		print_indent();
-		ret = GASHA_ spprintf(message, max_size, size, "[%s]\"%s\"(addr=%p)%s%s\n", category_name, name, cp, type_str, auto_profiling_str);
+		ret = GASHA_ spprintf(message, max_size, message_len, "[%s]\"%s\"(addr=%p)%s%s\n", category_name, name, cp, type_str, auto_profiling_str);
 		print_indent();
-		ret = GASHA_ spprintf(message, max_size, size, "        src: %s\n", file_name);
+		ret = GASHA_ spprintf(message, max_size, message_len, "        src: %s\n", file_name);
 		print_indent();
-		ret = GASHA_ spprintf(message, max_size, size, "        func:%s\n", func_name);
+		ret = GASHA_ spprintf(message, max_size, message_len, "        func:%s\n", func_name);
 
 		//次のコールポイント
 		cp = cp->m_prevCallStack;
@@ -127,8 +127,8 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 	}
 	
 	//終了
-	ret = GASHA_ spprintf(message, max_size, size, "------------------------------------\n");
-	return ret == 0 ? 0 : size;
+	ret = GASHA_ spprintf(message, max_size, message_len, "------------------------------------");//最終行改行なし
+	return ret == 0 ? 0 : message_len;
 }
 
 //静的変数をインスタンス化

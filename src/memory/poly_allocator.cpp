@@ -34,7 +34,7 @@ void polyAllocator::callbackAtDelete(void *p, const GASHA_ deleteMethod_type met
 #endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 //アロケータアダプター変更時のコールバック
-void polyAllocator::callbackAtChangeAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& next_adapter)
+void polyAllocator::callbackAtChangeAllocator(const GASHA_ iAllocatorAdapter& adapter, const GASHA_ iAllocatorAdapter& next_adapter)
 {
 #if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_adapter && m_observer && m_observer->m_atChangeAllocator)
@@ -42,7 +42,7 @@ void polyAllocator::callbackAtChangeAllocator(const GASHA_ IAllocatorAdapter& ad
 #endif//GASHA_DEBUG_FEATURE_IS_ENABLED
 }
 //アロケータアダプター復帰時のコールバック
-void polyAllocator::callbackAtReturnAllocator(const GASHA_ IAllocatorAdapter& adapter, const GASHA_ IAllocatorAdapter& prev_adapter)
+void polyAllocator::callbackAtReturnAllocator(const GASHA_ iAllocatorAdapter& adapter, const GASHA_ iAllocatorAdapter& prev_adapter)
 {
 #if defined(GASHA_DEBUG_FEATURE_IS_ENABLED) && defined(GASHA_ENABLE_POLY_ALLOCATOR)
 	if (m_observer && m_observer->m_atReturnAllocator)
@@ -72,12 +72,12 @@ void polyAllocator::initlaizeStdAllocatorAdapter()
 #ifdef GASHA_ENABLE_POLY_ALLOCATOR
 GASHA_ stdAllocator<> polyAllocator::m_stdAllocator;//標準アロケータ
 GASHA_ allocatorAdapter<GASHA_ stdAllocator<>> polyAllocator::m_stdAllocatorAdapter(polyAllocator::m_stdAllocator.adapter());//標準アロケータアダプター
-thread_local GASHA_ IAllocatorAdapter* polyAllocator::m_adapter = nullptr;//現在のアロケータ
+thread_local GASHA_ iAllocatorAdapter* polyAllocator::m_adapter = nullptr;//現在のアロケータ
 thread_local const GASHA_ debugAllocationObserver* polyAllocator::m_observer = nullptr;//現在の観察者
 thread_local std::size_t polyAllocator::m_align = DEFAULT_ALIGN;//現在のアラインメントサイズ
 thread_local const GASHA_ debugAllocationInfo* polyAllocator::m_debugInfo = nullptr;//現在のデバッグ情報
 #else//GASHA_ENABLE_POLY_ALLOCATOR
-GASHA_ IAllocatorAdapter* m_dummyAdapter = nullptr;//アロケータアダプターダミー
+GASHA_ iAllocatorAdapter* m_dummyAdapter = nullptr;//アロケータアダプターダミー
 #endif//GASHA_ENABLE_POLY_ALLOCATOR
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

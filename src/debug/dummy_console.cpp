@@ -58,7 +58,7 @@ void dummyConsole::resetColor()
 }
 
 //出力先が同じか判定
-bool dummyConsole::isSame(const IConsole* rhs) const
+bool dummyConsole::isSame(const iConsole* rhs) const
 {
 	const dummyConsole* _rhs = dynamic_cast<const dummyConsole*>(rhs);
 	if (!_rhs)

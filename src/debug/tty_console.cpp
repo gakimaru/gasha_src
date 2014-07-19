@@ -113,7 +113,7 @@ void ttyConsole::changeColor(GASHA_ consoleColor&& color)
 	msg[pos] = 'm';
 	
 	//出力
-	put(msg);
+	std::fprintf(m_handle, msg);
 #endif//GASHA_USE_ESCAPE_SEQUENCE
 }
 
@@ -126,12 +126,12 @@ void ttyConsole::resetColor()
 	m_currColor.reset();
 
 	//リセット
-	put("\x1b[0m");
+	std::fprintf(m_handle, "\x1b[0m");
 #endif//GASHA_USE_ESCAPE_SEQUENCE
 }
 
 //出力先が同じか判定
-bool ttyConsole::isSame(const IConsole* rhs) const
+bool ttyConsole::isSame(const iConsole* rhs) const
 {
 	const ttyConsole* _rhs = dynamic_cast<const ttyConsole*>(rhs);
 	if (!_rhs)

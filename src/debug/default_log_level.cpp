@@ -26,11 +26,11 @@ void registDefaultLogLevel()
 	//通常ログレベル登録補助マクロ
 	#define REG_LOG_LEVEL(VALUE, CONSOLE, CONSOLE_N, FORE, BACK, FORE_N, BACK_N) \
 		{ \
-			GASHA_ IConsole* console = CONSOLE; \
-			GASHA_ IConsole* console_n = CONSOLE_N; \
+			GASHA_ iConsole* console = CONSOLE; \
+			GASHA_ iConsole* console_n = CONSOLE_N; \
 			GASHA_ consoleColor color(GASHA_ consoleColor::FORE, GASHA_ consoleColor::BACK); \
 			GASHA_ consoleColor color_n(GASHA_ consoleColor::FORE_N, GASHA_ consoleColor::BACK_N); \
-			GASHA_ IConsole* consoles[logLevel::PURPOSE_NUM] = { console, console_n }; \
+			GASHA_ iConsole* consoles[logLevel::PURPOSE_NUM] = { console, console_n }; \
 			GASHA_ consoleColor* colors[logLevel::PURPOSE_NUM] = { &color, &color_n }; \
 			_private::regLogLevel<VALUE>()(\
 				#VALUE, \
@@ -48,9 +48,9 @@ void registDefaultLogLevel()
 		}
 
 	//コンソール
-	IConsole& stdout_console = GASHA_ stdOutConsole::instance();//標準出力コンソール
-	IConsole& stderr_console = GASHA_ stdErrConsole::instance();//標準エラーコンソール
-	IConsole& notice_console = GASHA_ stdConsoleOfNotice::instance();//画面通知用標準コンソール
+	iConsole& stdout_console = GASHA_ stdOutConsole::instance();//標準出力コンソール
+	iConsole& stderr_console = GASHA_ stdErrConsole::instance();//標準エラーコンソール
+	iConsole& notice_console = GASHA_ stdNoticeConsole::instance();//画面通知用標準コンソール
 
 	//通常ログレベル登録
 	REG_LOG_LEVEL(asNormal, &stdout_console, nullptr, STANDARD, STANDARD, BLACK, iWHITE);//通常メッセージ
