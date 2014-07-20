@@ -46,6 +46,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\console_color.h" />
     <ClInclude Include="..\..\gasha\include\gasha\cpuid.h" />
     <ClInclude Include="..\..\gasha\include\gasha\crc32.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h" />
     <ClInclude Include="..\..\gasha\include\gasha\debug_log.h" />
     <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h" />
     <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h" />
@@ -235,6 +236,7 @@
     <None Include="..\..\gasha\include\gasha\comb_sort.inl" />
     <None Include="..\..\gasha\include\gasha\console_color.inl" />
     <None Include="..\..\gasha\include\gasha\crc32.inl" />
+    <None Include="..\..\gasha\include\gasha\debugger_break.inl" />
     <None Include="..\..\gasha\include\gasha\debug_log.inl" />
     <None Include="..\..\gasha\include\gasha\default_log_category.inl" />
     <None Include="..\..\gasha\include\gasha\default_log_level.inl" />

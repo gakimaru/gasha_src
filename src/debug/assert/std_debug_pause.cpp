@@ -10,7 +10,7 @@
 
 #include <gasha/std_debug_pause.inl>//標準デバッグポーズ【インライン関数／テンプレート関数定義部】
 
-#include <gasha/simple_assert.inl>//シンプルアサーション
+#include <gasha/debugger_break.h>//デバッガ用ブレークポイント割り込み
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -23,10 +23,10 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //----------------------------------------
 //標準デバッグポーズ
 
-//デバッガのブレークポイント発動
+//デバッガ用ブレークポイント割り込み
 void stdDebugPause::breakPoint()
 {
-	debuggerBreak();
+	GASHA_ debuggerBreak();
 }
 
 //ポーズ処理呼び出し

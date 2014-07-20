@@ -12,8 +12,7 @@
 
 #include <gasha/type_traits.h>//型特性ユーティリティ：toStr()
 #include <gasha/string.h>//文字列処理：spprintf()
-
-#include <cassert>//assert()
+#include <gasha/simple_assert.h>//シンプルアサーション
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -33,14 +32,11 @@ void* lfMonoAllocator::alloc(const std::size_t size, const std::size_t align)
 		char* new_ptr = adjustAlign(m_buffRef, _align);
 		const std::size_t padding_size = new_ptr - m_buffRef;
 		const size_type alloc_size = static_cast<size_type>(padding_size + _size);
+	#ifdef GASHA_LF_MONO_ALLOCATOR_ENABLE_ASSERTION
+		GASHA_SIMPLE_ASSERT(alloc_size <= m_maxSize, "lfMonoAllocator is not enough space.");
+	#endif//GASHA_LF_MONO_ALLOCATOR_ENABLE_ASSERTION
 		if (alloc_size > m_maxSize)
-		{
-		#ifdef GASHA_LF_MONO_ALLOCATOR_ENABLE_ASSERTION
-			static const bool NOT_ENOUGH_SPACE = false;
-			assert(NOT_ENOUGH_SPACE);
-		#endif//GASHA_LF_MONO_ALLOCATOR_ENABLE_ASSERTION
 			return nullptr;
-		}
 
 		//使用中のサイズを更新
 		size_type now_size = 0;

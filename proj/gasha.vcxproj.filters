@@ -545,6 +545,9 @@
     <Filter Include="gasha\debug\assert\simple_assert">
       <UniqueIdentifier>{9baf764a-084f-427f-a83d-b60e2407164e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\debug\debugger_break">
+      <UniqueIdentifier>{9794dedb-67fe-4777-8654-3c20aa8c3104}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -987,6 +990,9 @@
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\simple_assert.h">
       <Filter>gasha\debug\assert\simple_assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h">
+      <Filter>gasha\debug\debugger_break</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1435,6 +1441,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\simple_assert.inl">
       <Filter>gasha\debug\assert\simple_assert</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\debugger_break.inl">
+      <Filter>gasha\debug\debugger_break</Filter>
     </None>
   </ItemGroup>
 </Project>

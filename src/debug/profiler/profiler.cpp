@@ -117,7 +117,7 @@ profiler::profileInfo* profiler::threadInfo::regProfile(const GASHA_ crc32_t nam
 			return profile_info;
 		//プロファイル情報プールからプロファイル情報を生成
 		profile_info = profile_info_pool.newDefault(name_crc, name);
-		GASHA_SIMPLE_ASSERT(profile_info != nullptr, "m_profileInfoPool is not enough memory.");
+		GASHA_SIMPLE_ASSERT(profile_info != nullptr, "profile_info_pool is not enough memory.");
 		if (!profile_info)
 			return nullptr;
 		//プロファイル情報を登録
