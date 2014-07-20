@@ -193,12 +193,14 @@ void logCategoryContainer::initializeOnce()
 }
 
 //静的変数をインスタンス化
-const logCategoryContainer::explicitInit_type logCategoryContainer::explicitInit;
 std::once_flag logCategoryContainer::m_initialized;
 logCategory::info logCategoryContainer::m_pool[logCategory::POOL_NUM];
 std::bitset<logCategory::POOL_NUM> logCategoryContainer::m_isAlreadyPool;
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//静的変数をインスタンス化
+const logCategoryContainer::explicitInit_type logCategoryContainer::explicitInit;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -23,7 +23,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //----------------------------------------
 //経過時間を文字列化
-std::size_t timeToStr(char* buff, const time_type time, const timeStrFormat_type format_type)
+std::size_t timeToStr(char* buff, const sec_t time, const timeStrFormat_type format_type)
 {
 	const double _time = static_cast<double>(time);
 	const std::uint32_t total_sec = static_cast<std::uint32_t>(_time);

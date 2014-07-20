@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 
 #include <gasha/call_point.inl>//コールポイント【インライン関数／テンプレート関数定義部】
-
+#include <gasha/profiler.h>//プロファイラー
 #include <gasha/string.inl>//文字列処理：spprintf
 #include <gasha/thread_id.inl>//スレッドID
 
@@ -40,7 +40,8 @@ const criticalCallPoint* callPoint::findCritical() const
 //プロファイリングする
 void callPoint::profiling()
 {
-	//...
+	GASHA_ profiler profiler;
+	profiler.add(m_name, m_elapsedTime.now());
 }
 
 //デバッグ情報作成

@@ -89,12 +89,14 @@ logAttr::logAttr() :
 }
 
 //静的変数をインスタンス化
-const logAttr::explicitInit_type logAttr::explicitInit;
 std::once_flag logAttr::m_initialized;
 logAttr::attr_type logAttr::m_globalAttr(logAttr::DEFAULT_ATTR);
 thread_local logAttr::attr_type* logAttr::m_tlsAttrRef = nullptr;
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//静的変数をインスタンス化
+const logAttr::explicitInit_type logAttr::explicitInit;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

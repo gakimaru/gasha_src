@@ -485,14 +485,8 @@
     <Filter Include="gasha\debug\console\dummy_console">
       <UniqueIdentifier>{d41a4bae-07a4-48a0-8a0a-46b3bf032956}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\log\log">
-      <UniqueIdentifier>{9c425b11-1c0e-431d-b9e9-0b95996d1f23}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gasha_src\debug\log\log_attr">
       <UniqueIdentifier>{17ccda46-dfa5-40e1-98f3-444ac5c4075c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gasha_src\debug\log\log">
-      <UniqueIdentifier>{978d54f9-d0f5-4970-9034-7d47ac18676f}</UniqueIdentifier>
     </Filter>
     <Filter Include="gasha\debug\console\mem_console">
       <UniqueIdentifier>{7d4e3264-1f44-4062-ba17-c1b2d308d906}</UniqueIdentifier>
@@ -536,8 +530,20 @@
     <Filter Include="gasha\debug\assert\debug_pause\dummy_debug_pause">
       <UniqueIdentifier>{3c8b0f7f-a35f-4249-b3ec-0dd737c71798}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gasha\debug\assert\debugger_break">
-      <UniqueIdentifier>{30d6b19d-94f5-4f2d-9fea-5bd1d926c9e6}</UniqueIdentifier>
+    <Filter Include="gasha_src\debug\profiler">
+      <UniqueIdentifier>{f6528a02-c39b-421e-9de4-e34b9a3516c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\debug_log">
+      <UniqueIdentifier>{9c425b11-1c0e-431d-b9e9-0b95996d1f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\debug_log">
+      <UniqueIdentifier>{978d54f9-d0f5-4970-9034-7d47ac18676f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\assert">
+      <UniqueIdentifier>{7d956992-0c7a-4246-ac77-1f74f59fd9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\simple_assert">
+      <UniqueIdentifier>{9baf764a-084f-427f-a83d-b60e2407164e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -949,9 +955,6 @@
     <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h">
       <Filter>gasha\debug\console\dummy_console</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\log.h">
-      <Filter>gasha\debug\log\log</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\print.h">
       <Filter>gasha\debug\print</Filter>
     </ClInclude>
@@ -964,23 +967,26 @@
     <ClInclude Include="..\..\gasha\include\gasha\strconv.h">
       <Filter>gasha\string\strconv</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\assert.h">
-      <Filter>gasha\debug\assert</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\i_debug_pause.h">
       <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\std_debug_pause.h">
       <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h">
-      <Filter>gasha\debug\assert\debugger_break</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\dummy_debug_pause.h">
       <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\stdin_debug_pause.h">
       <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\debug_log.h">
+      <Filter>gasha\debug\log\debug_log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\assert.h">
+      <Filter>gasha\debug\assert\assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\simple_assert.h">
+      <Filter>gasha\debug\assert\simple_assert</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1011,24 +1017,6 @@
     <ClCompile Include="..\src\memory\lf_mono_allocator.cpp">
       <Filter>gasha_src\memory\allocator</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\vs_console.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\win_console.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\std_console.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\tty_console.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\console_color.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_level.cpp">
-      <Filter>gasha_src\debug\log\log_level</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
       <Filter>gasha_src\build_settings\diag</Filter>
     </ClCompile>
@@ -1056,56 +1044,77 @@
     <ClCompile Include="..\src\utility\type_traits.cpp">
       <Filter>gasha_src\utility\type_traits</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\log_category.cpp">
-      <Filter>gasha_src\debug\log\log_category</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\string\string.cpp">
       <Filter>gasha_src\string\string</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_mask.cpp">
-      <Filter>gasha_src\debug\log\log_mask</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_work_buff.cpp">
-      <Filter>gasha_src\debug\log\log_work_buff</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_queue.cpp">
-      <Filter>gasha_src\debug\log\log_queue</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\default_log_category.cpp">
-      <Filter>gasha_src\debug\log\log_category</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\default_log_level.cpp">
-      <Filter>gasha_src\debug\log\log_level</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_queue_monitor.cpp">
-      <Filter>gasha_src\debug\log\log_queue_monitor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\dummy_console.cpp">
-      <Filter>gasha_src\debug\console</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log_attr.cpp">
-      <Filter>gasha_src\debug\log\log_attr</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\log.cpp">
-      <Filter>gasha_src\debug\log\log</Filter>
     </ClCompile>
     <ClCompile Include="..\src\string\strconv.cpp">
       <Filter>gasha_src\string\strconv</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\call_point.cpp">
-      <Filter>gasha_src\debug\call_point</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\debug\assert.cpp">
+    <ClCompile Include="..\src\debug\assert\assert.cpp">
       <Filter>gasha_src\debug\assert</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\std_debug_pause.cpp">
+    <ClCompile Include="..\src\debug\call_point\call_point.cpp">
+      <Filter>gasha_src\debug\call_point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\tty_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\vs_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\win_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\console_color.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\dummy_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\std_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\profiler\profiler.cpp">
+      <Filter>gasha_src\debug\profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert\std_debug_pause.cpp">
       <Filter>gasha_src\debug\assert\debug_pause</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\dummy_debug_pause.cpp">
+    <ClCompile Include="..\src\debug\assert\stdin_debug_pause.cpp">
       <Filter>gasha_src\debug\assert\debug_pause</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\debug\stdin_debug_pause.cpp">
+    <ClCompile Include="..\src\debug\assert\dummy_debug_pause.cpp">
       <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\default_log_category.cpp">
+      <Filter>gasha_src\debug\log\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_category.cpp">
+      <Filter>gasha_src\debug\log\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\default_log_level.cpp">
+      <Filter>gasha_src\debug\log\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_level.cpp">
+      <Filter>gasha_src\debug\log\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_attr.cpp">
+      <Filter>gasha_src\debug\log\log_attr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_mask.cpp">
+      <Filter>gasha_src\debug\log\log_mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_queue.cpp">
+      <Filter>gasha_src\debug\log\log_queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_queue_monitor.cpp">
+      <Filter>gasha_src\debug\log\log_queue_monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_work_buff.cpp">
+      <Filter>gasha_src\debug\log\log_work_buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\debug_log.cpp">
+      <Filter>gasha_src\debug\log\debug_log</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1397,9 +1406,6 @@
     <None Include="..\..\gasha\include\gasha\dummy_console.inl">
       <Filter>gasha\debug\console\dummy_console</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\log.inl">
-      <Filter>gasha\debug\log\log</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\print.inl">
       <Filter>gasha\debug\print</Filter>
     </None>
@@ -1409,23 +1415,26 @@
     <None Include="..\..\gasha\include\gasha\strconv.inl">
       <Filter>gasha\string\strconv</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\assert.inl">
-      <Filter>gasha\debug\assert</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\i_debug_pause.inl">
       <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\std_debug_pause.inl">
       <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
     </None>
-    <None Include="..\..\gasha\include\gasha\debugger_break.inl">
-      <Filter>gasha\debug\assert\debugger_break</Filter>
-    </None>
     <None Include="..\..\gasha\include\gasha\dummy_debug_pause.inl">
       <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\stdin_debug_pause.inl">
       <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\debug_log.inl">
+      <Filter>gasha\debug\log\debug_log</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\assert.inl">
+      <Filter>gasha\debug\assert\assert</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\simple_assert.inl">
+      <Filter>gasha\debug\assert\simple_assert</Filter>
     </None>
   </ItemGroup>
 </Project>

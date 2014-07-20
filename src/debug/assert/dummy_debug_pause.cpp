@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
-// stdin_debug_pause.cpp
-// 標準入力デバッグポーズ【関数／実体定義部】
+// dummy_debug_pause.cpp
+// ダミーデバッグポーズ【関数／実体定義部】
 //
 // Gakimaru's researched and standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,42 +8,29 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/stdin_debug_pause.inl>//標準入力デバッグポーズ【インライン関数／テンプレート関数定義部】
-
-#include <gasha/debugger_break.inl>//デバッガブレークポイント
-
-#include <cstdio>//std::printf(), std::getchar()
+#include <gasha/dummy_debug_pause.inl>//ダミーデバッグポーズ【インライン関数／テンプレート関数定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
-//標準入力デバッグポーズ
+//ダミーデバッグポーズ
 //--------------------------------------------------------------------------------
 
 #ifdef GASHA_ASSERTION_IS_ENABLED//アサーション無効時はまるごと無効化
 
 //----------------------------------------
-//標準入力デバッグポーズ
+//ダミーデバッグポーズ
 
 //デバッガのブレークポイント発動
-void stdinDebugPause::breakPoint()
+void dummyDebugPause::breakPoint()
 {
-	//debuggerBreak();//デバッガブレークポイント無効化
+	//何もしない
 }
 
 //ポーズ処理呼び出し
-void stdinDebugPause::pause()
+void dummyDebugPause::pause()
 {
-#ifdef GASHA_STDIN_IS_AVAILABLE
-	std::printf("Hit enter key ...");
-	while (true)
-	{
-		int c = std::getchar();
-		if (c == '\r' || c == '\n')
-			break;
-	}
-	//std::printf("\n");
-#endif// GASHA_STDIN_IS_AVAILABLE
+	//何もしない
 }
 
 #endif//GASHA_ASSERTION_IS_ENABLED//アサーション無効時はまるごと無効化

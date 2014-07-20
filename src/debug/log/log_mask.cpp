@@ -304,12 +304,14 @@ logMask::logMask() :
 }
 
 //静的変数をインスタンス化
-const logMask::explicitInit_type logMask::explicitInit;
 std::once_flag logMask::m_initialized;
 logMask::mask_type logMask::m_globalMask;
 thread_local logMask::mask_type* logMask::m_tlsMaskRef = nullptr;
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//静的変数をインスタンス化
+const logMask::explicitInit_type logMask::explicitInit;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -60,27 +60,28 @@ SRCS := \
 	$(SRC_BASE_DIR)/memory/lf_mono_allocator.cpp \
 	$(SRC_BASE_DIR)/memory/poly_allocator.cpp \
 	$(SRC_BASE_DIR)/memory/new.cpp \
-	$(SRC_BASE_DIR)/debug/console_color.cpp \
-	$(SRC_BASE_DIR)/debug/tty_console.cpp \
-	$(SRC_BASE_DIR)/debug/win_console.cpp \
-	$(SRC_BASE_DIR)/debug/vs_console.cpp \
-	$(SRC_BASE_DIR)/debug/dummy_console.cpp \
-	$(SRC_BASE_DIR)/debug/std_console.cpp \
-	$(SRC_BASE_DIR)/debug/log_level.cpp \
-	$(SRC_BASE_DIR)/debug/log_category.cpp \
-	$(SRC_BASE_DIR)/debug/default_log_level.cpp \
-	$(SRC_BASE_DIR)/debug/default_log_category.cpp \
-	$(SRC_BASE_DIR)/debug/log_mask.cpp \
-	$(SRC_BASE_DIR)/debug/log_attr.cpp \
-	$(SRC_BASE_DIR)/debug/log_work_buff.cpp \
-	$(SRC_BASE_DIR)/debug/log_queue.cpp \
-	$(SRC_BASE_DIR)/debug/log_queue_monitor.cpp \
-	$(SRC_BASE_DIR)/debug/log.cpp \
-	$(SRC_BASE_DIR)/debug/call_point.cpp \
-	$(SRC_BASE_DIR)/debug/assert.cpp \
-	$(SRC_BASE_DIR)/debug/stdin_debug_pause.cpp \
-	$(SRC_BASE_DIR)/debug/dummy_debug_pause.cpp \
-	$(SRC_BASE_DIR)/debug/std_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/console/console_color.cpp \
+	$(SRC_BASE_DIR)/debug/console/tty_console.cpp \
+	$(SRC_BASE_DIR)/debug/console/win_console.cpp \
+	$(SRC_BASE_DIR)/debug/console/vs_console.cpp \
+	$(SRC_BASE_DIR)/debug/console/dummy_console.cpp \
+	$(SRC_BASE_DIR)/debug/console/std_console.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_level.cpp \
+	$(SRC_BASE_DIR)/debug/log/default_log_level.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_category.cpp \
+	$(SRC_BASE_DIR)/debug/log/default_log_category.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_mask.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_attr.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_work_buff.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_queue.cpp \
+	$(SRC_BASE_DIR)/debug/log/log_queue_monitor.cpp \
+	$(SRC_BASE_DIR)/debug/log/debug_log.cpp \
+	$(SRC_BASE_DIR)/debug/call_point/call_point.cpp \
+	$(SRC_BASE_DIR)/debug/assert/assert.cpp \
+	$(SRC_BASE_DIR)/debug/assert/stdin_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/assert/dummy_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/assert/std_debug_pause.cpp \
+	$(SRC_BASE_DIR)/debug/profiler/profiler.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)
