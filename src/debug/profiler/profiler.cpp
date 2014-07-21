@@ -65,8 +65,8 @@ bool profiler::summarizedTimeInfo::sumup(const profiler::timeInfo& time_info)
 	m_time.sumup(time_info);
 	++m_summarizedCount;
 	m_avgCount = static_cast<float>(m_time.m_count) / static_cast<float>(m_summarizedCount);
-	m_maxCount = GASHA_ maxIf(m_maxCount, m_time.m_count);
-	m_minCount = GASHA_ minIf(m_minCount, m_time.m_count);
+	m_maxCount = GASHA_ maxIf(m_maxCount, time_info.m_count);
+	m_minCount = GASHA_ minIf(m_minCount, time_info.m_count);
 	return true;
 }
 
@@ -86,6 +86,7 @@ bool profiler::profileInfo::sumup(const profileSumup_type type)
 	auto lock = m_lock.lockScoped();//排他ロック
 	m_totalTime.sumup(m_time);//全体集計を更新
 	m_periodicTimeWork.sumup(m_time);//期間集計（ワーク）を更新
+	m_time.clear();
 	if (type == withUpdatePeriod)//期間集計を反映
 	{
 		m_periodicTime = m_periodicTimeWork;
@@ -171,47 +172,51 @@ std::size_t profiler::threadInfo::getProfileInfo(profiler::profileInfo* array, c
 	std::function<bool(const profileInfo&, const profileInfo&)> less_pred = nullptr;
 	switch (order)
 	{
-	//現在（のフレーム）の処理時間でソート
-	case ascOfTime://処理時間昇順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_time < rhs.m_time.m_time; };
+	case unordered:
+		//ソートなし
 		break;
-	case descOfTime://処理時間降順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_time > rhs.m_time.m_time; };
-		break;
-	case ascOfAvgTime://平均処理時間昇順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_avgTime < rhs.m_time.m_avgTime; };
-		break;
-	case descOfAvgTime://平均処理時間降順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_avgTime > rhs.m_time.m_avgTime; };
-		break;
-	case ascOfMaxTime://最長処理時間昇順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_maxTime < rhs.m_time.m_maxTime; };
-		break;
-	case descOfMaxTime://最長処理時間降順 ※デフォルト
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_maxTime > rhs.m_time.m_maxTime; };
-		break;
-	case ascOfMinTime://最短処理時間昇順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_minTime < rhs.m_time.m_minTime; };
-		break;
-	case descOfMinTime://最短処理時間降順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_minTime > rhs.m_time.m_minTime; };
-		break;
-	case ascOfCount://計測回数昇順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_count < rhs.m_time.m_count; };
-		break;
-	case descOfCount://計測回数降順
-		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-			{ return lhs.m_time.m_count > rhs.m_time.m_count; };
-		break;
+		
+	////現在（のフレーム）の処理時間でソート
+	//case ascOfTime://処理時間昇順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_time < rhs.m_time.m_time; };
+	//	break;
+	//case descOfTime://処理時間降順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_time > rhs.m_time.m_time; };
+	//	break;
+	//case ascOfAvgTime://平均処理時間昇順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_avgTime < rhs.m_time.m_avgTime; };
+	//	break;
+	//case descOfAvgTime://平均処理時間降順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_avgTime > rhs.m_time.m_avgTime; };
+	//	break;
+	//case ascOfMaxTime://最長処理時間昇順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_maxTime < rhs.m_time.m_maxTime; };
+	//	break;
+	//case descOfMaxTime://最長処理時間降順 ※デフォルト
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_maxTime > rhs.m_time.m_maxTime; };
+	//	break;
+	//case ascOfMinTime://最短処理時間昇順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_minTime < rhs.m_time.m_minTime; };
+	//	break;
+	//case descOfMinTime://最短処理時間降順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_minTime > rhs.m_time.m_minTime; };
+	//	break;
+	//case ascOfCount://計測回数昇順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_count < rhs.m_time.m_count; };
+	//	break;
+	//case descOfCount://計測回数降順
+	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
+	//		{ return lhs.m_time.m_count > rhs.m_time.m_count; };
+	//	break;
 		
 	//全体集計処理時間でソート
 	case ascOfTotalTime://処理時間昇順

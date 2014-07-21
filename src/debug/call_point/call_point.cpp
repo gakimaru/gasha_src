@@ -44,6 +44,21 @@ void callPoint::profiling()
 	profiler.add(m_name, m_elapsedTime.now());
 }
 
+//適切なカテゴリを取得
+callPoint::category_type callPoint::properCategory(const callPoint::category_type category)
+{
+	const callPoint* recent_cp = nullptr;
+	if (category == GASHA_ forCallPoint)//直近のコールポイント
+		recent_cp = find();
+	else if (category == GASHA_ forCriticalCallPoint)//直近のクリティカルコールポイント
+		recent_cp = findCritical();
+	else
+		return category;//コールポイント指定以外はそのまま返す
+	if (!recent_cp)//直近のコールポイント／クリティカルコールポイントがなければ forAny 扱い
+		return GASHA_ forAny;
+	return  recent_cp->m_category;
+}
+
 //デバッグ情報作成
 std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) const
 {
@@ -76,7 +91,7 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 		auto print_indent = [&]()
 		{
 			for (int indent = 0; indent < depth; ++indent)
-				ret = GASHA_ spprintf(message, max_size, message_len, "  ");
+				ret = GASHA_ spprintf(message, max_size, message_len, " ");
 		};
 		
 		//コールポイント名取得
@@ -96,7 +111,7 @@ std::size_t callPoint::debugInfo(char* message, const std::size_t max_size) cons
 
 		//カテゴリ名取得
 		logCategory category(cp->category());
-		const char* category_name = category.name();
+		const char* category_name = category.isExist() ? category.name() : "";
 		if (!category_name)
 			category_name = "(unknown)";
 

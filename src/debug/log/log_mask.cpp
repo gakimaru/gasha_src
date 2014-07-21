@@ -270,9 +270,8 @@ void logMask::changeRef(const logMask::ref_type type)
 	}
 }
 
-
-//グローバルログレベルマスク初期化（一回限り）
-void logMask::initializeOnce()
+//ログレベルマスクをリセット
+void logMask::reset(mask_type* mask)
 {
 	//要素を初期化
 	for (int purpose = 0; purpose < logMask::PURPOSE_NUM; ++purpose)
@@ -280,10 +279,17 @@ void logMask::initializeOnce()
 		level_type default_log_mask = GASHA_ logLevel::fromOutputLevel(purpose == ofLog ? DEFAULT_LOG_MASK_OF_LOG : DEFAULT_LOG_MASK_OF_NOTICE);
 		for (category_type category = CATEGORY_MIN; category <= CATEGORY_MAX; ++category)
 		{
-			level_type& level_mask = m_globalMask.m_level[purpose][category];
+			level_type& level_mask = mask->m_level[purpose][category];
 			level_mask = default_log_mask;
 		}
 	}
+}
+
+//グローバルログレベルマスク初期化（一回限り）
+void logMask::initializeOnce()
+{
+	//要素を初期化
+	reset(&m_globalMask);
 }
 
 //デフォルトコンストラクタ

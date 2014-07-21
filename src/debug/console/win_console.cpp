@@ -96,6 +96,9 @@ void winConsole::changeColor(GASHA_ consoleColor&& color)
 	if (_back != GASHA_ consoleColor::STANDARD)
 		_color = ((_color & GASHA_ consoleColor::RGBI) | ((_back & GASHA_ consoleColor::RGBI) << BG_SHIFT));
 
+	//カラー変更前にフラッシュ
+	std::fflush(m_handle);
+
 	//反映
 	SetConsoleTextAttribute(m_hWin, _color);
 #endif//GASHA_USE_WINDOWS_CONSOLE_COLOR
@@ -111,7 +114,10 @@ void winConsole::resetColor()
 
 	//デフォルトカラー取得
 	const WORD default_color = m_screenBuffer.wAttributes;
-	
+
+	//カラー変更前にフラッシュ
+	std::fflush(m_handle);
+
 	//リセット
 	SetConsoleTextAttribute(m_hWin, default_color);
 #endif//GASHA_USE_WINDOWS_CONSOLE_COLOR

@@ -28,7 +28,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 //出力開始
 void stdNoticeConsole::begin()
 {
-	m_idAlreadyCr = false;
+	m_isAlreadyCr = false;
 	winConsole::begin();
 }
 
@@ -38,13 +38,13 @@ void stdNoticeConsole::end()
 	winConsole::resetColor();
 	winConsole::putCr();
 	winConsole::end();
-	m_idAlreadyCr = false;
+	m_isAlreadyCr = false;
 }
 
 //出力
 void stdNoticeConsole::put(const char* str)
 {
-	if (m_idAlreadyCr)
+	if (m_isAlreadyCr)
 		return;
 	const char* p = str;
 	while(true)
@@ -54,7 +54,7 @@ void stdNoticeConsole::put(const char* str)
 			break;
 		else if(c == '\r' || c == '\n')
 		{
-			m_idAlreadyCr = true;
+			m_isAlreadyCr = true;
 			break;
 		}
 		std::fputc(c, m_handle);
@@ -66,13 +66,13 @@ void stdNoticeConsole::put(const char* str)
 void stdNoticeConsole::putCr()
 {
 	winConsole::resetColor();
-	m_idAlreadyCr = true;
+	m_isAlreadyCr = true;
 }
 
 //カラー変更
 void stdNoticeConsole::changeColor(GASHA_ consoleColor&& color)
 {
-	if (m_idAlreadyCr)
+	if (m_isAlreadyCr)
 		return;
 	winConsole::changeColor(std::move(color));
 }
@@ -82,7 +82,7 @@ void stdNoticeConsole::changeColor(GASHA_ consoleColor&& color)
 //出力開始
 void stdNoticeConsole::begin()
 {
-	m_idAlreadyCr = false;
+	m_isAlreadyCr = false;
 	ttyConsole::begin();
 }
 
@@ -92,13 +92,13 @@ void stdNoticeConsole::end()
 	ttyConsole::resetColor();
 	ttyConsole::putCr();
 	ttyConsole::end();
-	m_idAlreadyCr = false;
+	m_isAlreadyCr = false;
 }
 
 //出力
 void stdNoticeConsole::put(const char* str)
 {
-	if(m_idAlreadyCr)
+	if(m_isAlreadyCr)
 		return;
 	const char* p = str;
 	while(true)
@@ -108,7 +108,7 @@ void stdNoticeConsole::put(const char* str)
 			break;
 		else if(c == '\r' || c == '\n')
 		{
-			m_idAlreadyCr = true;
+			m_isAlreadyCr = true;
 			break;
 		}
 		std::fputc(c, m_handle);
@@ -120,13 +120,13 @@ void stdNoticeConsole::put(const char* str)
 void stdNoticeConsole::putCr()
 {
 	ttyConsole::resetColor();
-	m_idAlreadyCr = true;
+	m_isAlreadyCr = true;
 }
 
 //カラー変更
 void stdNoticeConsole::changeColor(GASHA_ consoleColor&& color)
 {
-	if (m_idAlreadyCr)
+	if (m_isAlreadyCr)
 		return;
 	ttyConsole::changeColor(std::move(color));
 }
