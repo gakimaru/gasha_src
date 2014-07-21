@@ -39,7 +39,8 @@ bool profiler::timeInfo::add(const GASHA_ sec_t time)
 {
 	++m_count;
 	m_time += time;
-	m_avgTime = m_time / static_cast<GASHA_ sec_t>(m_count);
+	//m_avgTime = m_time / static_cast<GASHA_ sec_t>(m_count);//平均の算出は取得時に行う
+	m_avgTime = static_cast<GASHA_ sec_t>(0.f);
 	m_maxTime = GASHA_ maxIf(m_maxTime, time);
 	m_minTime = GASHA_ minIf(m_minTime, time);
 	return true;
@@ -50,7 +51,8 @@ bool profiler::timeInfo::sumup(const profiler::timeInfo& time_info)
 {
 	m_count += time_info.m_count;
 	m_time += time_info.m_time;
-	m_avgTime = m_time / static_cast<GASHA_ sec_t>(m_count);
+	//m_avgTime = m_time / static_cast<GASHA_ sec_t>(m_count);//平均の算出は取得時に行う
+	m_avgTime = static_cast<GASHA_ sec_t>(0.f);
 	m_maxTime = GASHA_ maxIf(m_maxTime, time_info.m_maxTime);
 	m_minTime = GASHA_ minIf(m_minTime, time_info.m_minTime);
 	return true;
@@ -64,7 +66,8 @@ bool profiler::summarizedTimeInfo::sumup(const profiler::timeInfo& time_info)
 {
 	m_time.sumup(time_info);
 	++m_summarizedCount;
-	m_avgCount = static_cast<float>(m_time.m_count) / static_cast<float>(m_summarizedCount);
+	//m_avgCount = static_cast<float>(m_time.m_count) / static_cast<float>(m_summarizedCount);//平均の算出は取得時に行う
+	m_avgCount = 0.f;
 	m_maxCount = GASHA_ maxIf(m_maxCount, time_info.m_count);
 	m_minCount = GASHA_ minIf(m_minCount, time_info.m_count);
 	return true;
@@ -168,6 +171,16 @@ std::size_t profiler::threadInfo::getProfileInfo(profiler::profileInfo* array, c
 		);
 	}
 
+	//平均値計算
+	{
+		profiler::profileInfo* info = array;
+		for (std::size_t i = 0; i < copy_size; ++i, ++info)
+		{
+			info->m_periodicTime.calcAvg();
+			info->m_totalTime.calcAvg();
+		}
+	}
+
 	//ソート
 	std::function<bool(const profileInfo&, const profileInfo&)> less_pred = nullptr;
 	switch (order)
@@ -175,49 +188,7 @@ std::size_t profiler::threadInfo::getProfileInfo(profiler::profileInfo* array, c
 	case unordered:
 		//ソートなし
 		break;
-		
-	////現在（のフレーム）の処理時間でソート
-	//case ascOfTime://処理時間昇順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_time < rhs.m_time.m_time; };
-	//	break;
-	//case descOfTime://処理時間降順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_time > rhs.m_time.m_time; };
-	//	break;
-	//case ascOfAvgTime://平均処理時間昇順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_avgTime < rhs.m_time.m_avgTime; };
-	//	break;
-	//case descOfAvgTime://平均処理時間降順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_avgTime > rhs.m_time.m_avgTime; };
-	//	break;
-	//case ascOfMaxTime://最長処理時間昇順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_maxTime < rhs.m_time.m_maxTime; };
-	//	break;
-	//case descOfMaxTime://最長処理時間降順 ※デフォルト
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_maxTime > rhs.m_time.m_maxTime; };
-	//	break;
-	//case ascOfMinTime://最短処理時間昇順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_minTime < rhs.m_time.m_minTime; };
-	//	break;
-	//case descOfMinTime://最短処理時間降順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_minTime > rhs.m_time.m_minTime; };
-	//	break;
-	//case ascOfCount://計測回数昇順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_count < rhs.m_time.m_count; };
-	//	break;
-	//case descOfCount://計測回数降順
-	//	less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
-	//		{ return lhs.m_time.m_count > rhs.m_time.m_count; };
-	//	break;
-		
+	
 	//全体集計処理時間でソート
 	case ascOfTotalTime://処理時間昇順
 		less_pred = [](const profileInfo& lhs, const profileInfo& rhs) -> bool
