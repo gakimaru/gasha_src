@@ -11,7 +11,7 @@
 #include <gasha/profiler.inl>//プロファイラー【インライン関数／テンプレート関数定義部】
 
 #include <gasha/fast_string.h>//高速文字列処理
-#include <gasha/crc32.h>//CRC32
+#include <gasha/crc32.h>//CRC32計算
 #include <gasha/iterator.h>//イテレータ操作
 #include <gasha/utility.h>//汎用ユーティリティ
 #include <gasha/simple_assert.h>//シンプルアサーション

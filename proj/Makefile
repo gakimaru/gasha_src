@@ -82,6 +82,19 @@ SRCS := \
 	$(SRC_BASE_DIR)/debug/assert/dummy_debug_pause.cpp \
 	$(SRC_BASE_DIR)/debug/assert/std_debug_pause.cpp \
 	$(SRC_BASE_DIR)/debug/profiler/profiler.cpp \
+	$(SRC_BASE_DIR)/serialization/type_ctrl.cpp \
+	$(SRC_BASE_DIR)/serialization/type_ctrl_base.cpp \
+	$(SRC_BASE_DIR)/serialization/item_info_base.cpp \
+	$(SRC_BASE_DIR)/archive/results.cpp \
+	$(SRC_BASE_DIR)/archive/archive_base.cpp \
+	$(SRC_BASE_DIR)/archive/archive_adapter_base.cpp \
+	$(SRC_BASE_DIR)/archive/output_archive_adapter.cpp \
+	$(SRC_BASE_DIR)/archive/input_archive_adapter.cpp \
+	$(SRC_BASE_DIR)/archive/binary_archive_format_base.cpp \
+	$(SRC_BASE_DIR)/archive/output_binary_archive_format.cpp \
+	$(SRC_BASE_DIR)/archive/input_binary_archive_format.cpp \
+	$(SRC_BASE_DIR)/archive/output_text_archive_format.cpp \
+	$(SRC_BASE_DIR)/archive/input_text_archive_format.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)

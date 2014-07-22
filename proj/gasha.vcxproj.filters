@@ -548,6 +548,138 @@
     <Filter Include="gasha\debug\debugger_break">
       <UniqueIdentifier>{9794dedb-67fe-4777-8654-3c20aa8c3104}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\serialization">
+      <UniqueIdentifier>{b66da2ac-cc44-4d5b-8bcd-160b48fa490b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\version">
+      <UniqueIdentifier>{13c5d3a5-396d-43d3-b7ee-a4c95f5fa672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\serialize">
+      <UniqueIdentifier>{078c8542-609f-4381-bf74-c709af9a1152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive">
+      <UniqueIdentifier>{d447fc6a-0f54-484d-8002-8d9e582f1c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive">
+      <UniqueIdentifier>{e5e8fda4-a482-4de5-beda-4b34f2f7759c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\version_def">
+      <UniqueIdentifier>{46b9a2a9-f6c0-412e-999c-05c14ec76d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic">
+      <UniqueIdentifier>{494ac7f6-cbec-4d20-8203-c51eea1d1bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\results">
+      <UniqueIdentifier>{0d477356-4077-4353-9276-0ed3b73ff03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\type_ctrl">
+      <UniqueIdentifier>{68950f78-b5c7-4a3c-b7ed-5d4497070c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\type_ctrl_base">
+      <UniqueIdentifier>{3ae92fc2-c559-4de9-837f-666665171622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\type_traits">
+      <UniqueIdentifier>{67a37c0a-e81a-4a0a-a6f2-167e936854d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archiv">
+      <UniqueIdentifier>{75a68b82-8470-4717-b20f-5831e99f8137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive">
+      <UniqueIdentifier>{d023c0e0-284f-4afb-a30d-60d1360a3faf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\item_attr">
+      <UniqueIdentifier>{df7a2770-ce56-47e5-bc44-6364ef94dd1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\item_info">
+      <UniqueIdentifier>{eb172935-76c4-4d52-a164-111e87a838c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\item_info_base">
+      <UniqueIdentifier>{71ce0bb8-4250-47f9-be27-f43b6d227c76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter">
+      <UniqueIdentifier>{c99d4ff0-a398-4eae-b8f4-26ffd7d51673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\archive_adapter_base">
+      <UniqueIdentifier>{fc5e1fbc-ae39-4e76-9b86-510ea9377a99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\input_archive_adapter">
+      <UniqueIdentifier>{ed0eb7ca-afde-44ed-a24b-3759838aaa67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\output_archive_adapter">
+      <UniqueIdentifier>{f6a1cb74-71c7-4b9f-a4d0-38093c38ce96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format">
+      <UniqueIdentifier>{304b0cab-e668-41ea-a404-3fff938513b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\binary_archive_format_base">
+      <UniqueIdentifier>{57d7e1e1-166e-47ee-9da4-ac5505710aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\input_binary_archive_format">
+      <UniqueIdentifier>{80a7a068-23a8-48f1-8e53-151fe22cc912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\output_binary_archive_format">
+      <UniqueIdentifier>{c2acd55e-04ac-4af0-acd9-1dd524351528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archiv\archive_format">
+      <UniqueIdentifier>{0acc4623-0a9e-4575-90d9-3010f5c20085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archiv\archive_format\input_text_archive_format">
+      <UniqueIdentifier>{9a7e8a79-7267-49b4-b6a9-4b6ea5137f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archiv\archive_format\output_text_archive_format">
+      <UniqueIdentifier>{a246cb92-4937-404e-ae0b-81adbf2e5196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archiv\archive_format\text_archive_format_base">
+      <UniqueIdentifier>{52d7c7d4-a2b5-4d41-9070-0905014b8973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format">
+      <UniqueIdentifier>{b0a86802-ea44-4811-aab5-e3962886323c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\archive_format_base">
+      <UniqueIdentifier>{e06fa9ad-2f93-40b4-8611-1e00714715d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\input_archive_format_prototype">
+      <UniqueIdentifier>{18878a94-d4b6-450e-bd20-a0fff3c260e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\output_archive_format_prototype">
+      <UniqueIdentifier>{7ba1b07c-49dd-411e-b7c2-78275e36dc56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive">
+      <UniqueIdentifier>{10f9abd6-c3a6-4c24-b2df-0a299709d68e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\archive_base">
+      <UniqueIdentifier>{e20de5a7-d60a-4835-9389-d8978c311f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\input_archive">
+      <UniqueIdentifier>{500e9521-f280-4380-8c86-3b939b2e2d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\output_archive">
+      <UniqueIdentifier>{49e1fff9-70c6-4830-80e1-df6dc4e2f230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\bosst C++ style">
+      <UniqueIdentifier>{288b62fd-1f77-4a50-9d9f-d37ab28fd727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\serialization">
+      <UniqueIdentifier>{a2c4c79e-bc86-476c-ab38-6e3cb4b4ba25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_info_base">
+      <UniqueIdentifier>{b2e603c3-1f27-4d1d-bf9b-28137c87f742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_info">
+      <UniqueIdentifier>{1f1d9de4-c1e4-4d1e-b62a-013a2c48861a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_attr">
+      <UniqueIdentifier>{405e33d9-0538-4d59-90e3-8f7abde108cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_ctrl_base">
+      <UniqueIdentifier>{7049a0f9-8194-4ac4-ab57-78dc7130aca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_ctrl">
+      <UniqueIdentifier>{fa298a59-2163-4735-9db0-ae74965b86bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_traits">
+      <UniqueIdentifier>{dae83d32-488d-425e-b0fc-f1ff09da8c3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -994,6 +1126,144 @@
     <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h">
       <Filter>gasha\debug\debugger_break</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\version.h">
+      <Filter>gasha\serialization\version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\version_def.h">
+      <Filter>gasha\serialization\version_def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\error.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\load.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\notice.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\save.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\serialize.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\collector.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\distributor.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\item_attr.h">
+      <Filter>gasha\archive\basic\item_attr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\type_ctrl.h">
+      <Filter>gasha\archive\basic\type_ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\type_ctrl_base.h">
+      <Filter>gasha\archive\basic\type_ctrl_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\type_traits.h">
+      <Filter>gasha\archive\basic\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\results.h">
+      <Filter>gasha\archive\basic\results</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\item_info.h">
+      <Filter>gasha\archive\basic\item_info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\item_info_base.h">
+      <Filter>gasha\archive\basic\item_info_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization.h">
+      <Filter>gasha\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_adapter_base.h">
+      <Filter>gasha\archive\basic\archive_adapter\archive_adapter_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_base.h">
+      <Filter>gasha\archive\basic\archive\archive_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_format_base.h">
+      <Filter>gasha\archive\basic\archive_format\archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_archive_format_base.h">
+      <Filter>gasha\archive\binary_archive\archive_format\binary_archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive.h">
+      <Filter>gasha\archive\basic\archive\input_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive_adapter.h">
+      <Filter>gasha\archive\basic\archive_adapter\input_archive_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive_format_prototype.h">
+      <Filter>gasha\archive\basic\archive_format\input_archive_format_prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_binary_archive_format.h">
+      <Filter>gasha\archive\binary_archive\archive_format\input_binary_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_text_archive_format.h">
+      <Filter>gasha\archive\text_archiv\archive_format\input_text_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive.h">
+      <Filter>gasha\archive\basic\archive\output_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive_adapter.h">
+      <Filter>gasha\archive\basic\archive_adapter\output_archive_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive_format_prototype.h">
+      <Filter>gasha\archive\basic\archive_format\output_archive_format_prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_binary_archive_format.h">
+      <Filter>gasha\archive\binary_archive\archive_format\output_binary_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_text_archive_format.h">
+      <Filter>gasha\archive\text_archiv\archive_format\output_text_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_archive_format_base.h">
+      <Filter>gasha\archive\text_archiv\archive_format\text_archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_binary_archive.h">
+      <Filter>gasha\archive\binary_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_binary_archive.h">
+      <Filter>gasha\archive\binary_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_text_archive.h">
+      <Filter>gasha\archive\text_archiv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_text_archive.h">
+      <Filter>gasha\archive\text_archiv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_oarchive.h">
+      <Filter>gasha\archive\bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_iarchive.h">
+      <Filter>gasha\archive\bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_oarchive.h">
+      <Filter>gasha\archive\bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_iarchive.h">
+      <Filter>gasha\archive\bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_attr.h">
+      <Filter>gasha\serialization\item_attr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info.h">
+      <Filter>gasha\serialization\item_info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info_base.h">
+      <Filter>gasha\serialization\item_info_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_traits.h">
+      <Filter>gasha\serialization\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_ctrl.h">
+      <Filter>gasha\serialization\type_ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.h">
+      <Filter>gasha\serialization\type_ctrl_base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -1121,6 +1391,45 @@
     </ClCompile>
     <ClCompile Include="..\src\debug\log\debug_log.cpp">
       <Filter>gasha_src\debug\log\debug_log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\results.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\archive_base.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\archive_adapter_base.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_archive_adapter.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_archive_adapter.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\binary_archive_format_base.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_binary_archive_format.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_binary_archive_format.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_text_archive_format.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_text_archive_format.cpp">
+      <Filter>gasha_src\archive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\type_ctrl_base.cpp">
+      <Filter>gasha_src\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\item_info_base.cpp">
+      <Filter>gasha_src\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\type_ctrl.cpp">
+      <Filter>gasha_src\serialization</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1444,6 +1753,90 @@
     </None>
     <None Include="..\..\gasha\include\gasha\debugger_break.inl">
       <Filter>gasha\debug\debugger_break</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\version.inl">
+      <Filter>gasha\serialization\version</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\version_def.inl">
+      <Filter>gasha\serialization\version_def</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\item_attr.inl">
+      <Filter>gasha\archive\basic\item_attr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\type_ctrl.inl">
+      <Filter>gasha\archive\basic\type_ctrl</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\type_ctrl_base.inl">
+      <Filter>gasha\archive\basic\type_ctrl_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\type_traits.inl">
+      <Filter>gasha\archive\basic\type_traits</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\results.inl">
+      <Filter>gasha\archive\basic\results</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\item_info.inl">
+      <Filter>gasha\archive\basic\item_info</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\item_info_base.inl">
+      <Filter>gasha\archive\basic\item_info_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_adapter_base.inl">
+      <Filter>gasha\archive\basic\archive_adapter\archive_adapter_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_base.inl">
+      <Filter>gasha\archive\basic\archive\archive_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_format_base.inl">
+      <Filter>gasha\archive\basic\archive_format\archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\binary_archive_format_base.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\binary_archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_archive.inl">
+      <Filter>gasha\archive\basic\archive\input_archive</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_archive_adapter.inl">
+      <Filter>gasha\archive\basic\archive_adapter\input_archive_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_binary_archive_format.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\input_binary_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_text_archive_format.inl">
+      <Filter>gasha\archive\text_archiv\archive_format\input_text_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_archive.inl">
+      <Filter>gasha\archive\basic\archive\output_archive</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_archive_adapter.inl">
+      <Filter>gasha\archive\basic\archive_adapter\output_archive_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_binary_archive_format.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\output_binary_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_text_archive_format.inl">
+      <Filter>gasha\archive\text_archiv\archive_format\output_text_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\text_archive_format_base.inl">
+      <Filter>gasha\archive\text_archiv\archive_format\text_archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_attr.inl">
+      <Filter>gasha\serialization\item_attr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_info.inl">
+      <Filter>gasha\serialization\item_info</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_info_base.inl">
+      <Filter>gasha\serialization\item_info_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_traits.inl">
+      <Filter>gasha\serialization\type_traits</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_ctrl.inl">
+      <Filter>gasha\serialization\type_ctrl</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.inl">
+      <Filter>gasha\serialization\type_ctrl_base</Filter>
     </None>
   </ItemGroup>
 </Project>
