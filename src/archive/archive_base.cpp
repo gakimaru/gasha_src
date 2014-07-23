@@ -35,7 +35,8 @@ namespace archive
 		GASHA_SIMPLE_ASSERT(node != nullptr, "m_workBuff is not enough memory.");//ワークバッファのメモリ不足チェック
 		if(!node)
 			return false;
-		m_itemInfoTree.insert(*node);
+		m_itemInfoTree.insert(*node);//データ項目情報を木に連結
+		m_result.updatePeakWorkSize(m_workBuff.size());//ワークバッファの最大使用量更新
 		return true;
 	}
 

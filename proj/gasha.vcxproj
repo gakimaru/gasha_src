@@ -158,6 +158,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\serialization\collector.h" />
     <ClInclude Include="..\..\gasha\include\gasha\serialization\distributor.h" />
     <ClInclude Include="..\..\gasha\include\gasha\serialization\error.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\friends.h" />
     <ClInclude Include="..\..\gasha\include\gasha\serialization\item_attr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info.h" />
     <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info_base.h" />

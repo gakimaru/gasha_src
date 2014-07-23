@@ -97,7 +97,7 @@ namespace archive
 			if (child_item.isArr())//配列か？
 				arc.write(result, &child_item.m_arrNum, sizeof(child_item.m_arrNum));//配列要素数書き込み
 			unsigned char* p = reinterpret_cast<unsigned char*>(const_cast<void*>(child_item.m_itemP));
-			const std::size_t elem_num = child_item.getElemNum();
+			const std::size_t elem_num = child_item.extent();
 			for (std::size_t index = 0; index < elem_num && !result.hasFatalError(); ++index)//配列要素数分データ書き込み
 			{
 				arc.write(result, p, child_item.m_itemSize);//データ書き込み

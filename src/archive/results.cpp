@@ -31,17 +31,18 @@ namespace archive
 		m_numLargerSizeItem += src.m_numLargerSizeItem;//サイズが拡大されたデータ項目の数
 		m_numSmallerArrItem += src.m_numSmallerArrItem;//配列要素数が縮小されたデータ項目の数
 		m_numLargerArrItem += src.m_numLargerArrItem;//配列要素数が拡大されたデータ項目の数
-		m_numIsOnlyOnSaveData += src.m_numIsOnlyOnSaveData;//セーブデータ上にのみ存在するデータ項目の数
-		m_numIsOnlyOnMem += src.m_numIsOnlyOnMem;//セーブデータ上にないデータ項目の数
-		m_numIsObjOnSaveDataOnly += src.m_numIsObjOnSaveDataOnly;//現在オブジェクト型ではないが、セーブデータ上ではそうだったデータ項目の数
-		m_numIsObjOnMemOnly += src.m_numIsObjOnMemOnly;//現在オブジェクト型だが、セーブデータ上ではそうではなかったデータ項目の数
-		m_numIsArrOnSaveDataOnly += src.m_numIsArrOnSaveDataOnly;//現在配列型ではないが、セーブデータ上ではそうだったデータ項目の数
-		m_numIsArrOnMemOnly += src.m_numIsArrOnMemOnly;//現在配列型だが、セーブデータ上ではそうではなかったデータ項目の数
-		m_numIsPtrOnSaveDataOnly += src.m_numIsPtrOnSaveDataOnly;//現在ポインタ型ではないが、セーブデータ上ではそうだったデータ項目の数
-		m_numIsPtrOnMemOnly += src.m_numIsPtrOnMemOnly;//現在ポインタ型だが、セーブデータ上ではそうではなかったデータ項目の数
-		m_numIsNulOnSaveDataOnly += src.m_numIsNulOnSaveDataOnly;//現在ヌルではないが、セーブデータ上ではそうだったデータ項目の数
-		m_numIsNulOnMemOnly += src.m_numIsNulOnMemOnly;//現在ヌルだが、セーブデータ上ではそうではなかったデータ項目の数
+		m_numOnlyOnSaveData += src.m_numOnlyOnSaveData;//セーブデータ上にのみ存在するデータ項目の数
+		m_numOnlyOnMem += src.m_numOnlyOnMem;//セーブデータ上にないデータ項目の数
+		m_numObjOnSaveDataOnly += src.m_numObjOnSaveDataOnly;//現在オブジェクト型ではないが、セーブデータ上ではそうだったデータ項目の数
+		m_numObjOnMemOnly += src.m_numObjOnMemOnly;//現在オブジェクト型だが、セーブデータ上ではそうではなかったデータ項目の数
+		m_numArrOnSaveDataOnly += src.m_numArrOnSaveDataOnly;//現在配列型ではないが、セーブデータ上ではそうだったデータ項目の数
+		m_numArrOnMemOnly += src.m_numArrOnMemOnly;//現在配列型だが、セーブデータ上ではそうではなかったデータ項目の数
+		m_numPtrOnSaveDataOnly += src.m_numPtrOnSaveDataOnly;//現在ポインタ型ではないが、セーブデータ上ではそうだったデータ項目の数
+		m_numPtrOnMemOnly += src.m_numPtrOnMemOnly;//現在ポインタ型だが、セーブデータ上ではそうではなかったデータ項目の数
+		m_numNulOnSaveDataOnly += src.m_numNulOnSaveDataOnly;//現在ヌルではないが、セーブデータ上ではそうだったデータ項目の数
+		m_numNulOnMemOnly += src.m_numNulOnMemOnly;//現在ヌルだが、セーブデータ上ではそうではなかったデータ項目の数
 		m_copiedSize += src.m_copiedSize;//コピー済みサイズ
+		updatePeakWorkSize(src.m_peakWorkSize);//最も多く消費したワークバッファサイズ
 	}
 	
 	//処理結果を計上
@@ -51,16 +52,16 @@ namespace archive
 		addNumLargerSizeItem(src.nowSizeIsLarge());//サイズが拡大されたデータ項目の数
 		addNumSmallerArrItem(src.nowArrIsSmall());//配列要素数が縮小されたデータ項目の数
 		addNumLargerArrItem(src.nowArrIsLarge());//配列要素数が拡大されたデータ項目の数
-		addNumIsOnlyOnSaveData(src.isOnlyOnSaveData());//セーブデータ上にのみ存在するデータ項目の数
-		addNumIsOnlyOnMem(src.isOnlyOnMem());//セーブデータ上にないデータ項目の数
-		addNumIsObjOnSaveDataOnly(src.nowIsNotObjButSaveDataIs());//現在オブジェクト型ではないが、セーブデータ上ではそうだったデータ項目の数
-		addNumIsObjOnMemOnly(src.nowIsObjButSaveDataIsNot());//現在オブジェクト型だが、セーブデータ上ではそうではなかったデータ項目の数
-		addNumIsArrOnSaveDataOnly(src.nowIsNotArrButSaveDataIs());//現在配列型ではないが、セーブデータ上ではそうだったデータ項目の数
-		addNumIsArrOnMemOnly(src.nowIsArrButSaveDataIsNot());//現在配列型だが、セーブデータ上ではそうではなかったデータ項目の数
-		addNumIsPtrOnSaveDataOnly(src.nowIsNotPtrButSaveDataIs());//現在ポインタ型ではないが、セーブデータ上ではそうだったデータ項目の数
-		addNumIsPtrOnMemOnly(src.nowIsPtrButSaveDataIsNot());//現在ポインタ型だが、セーブデータ上ではそうではなかったデータ項目の数
-		addNumIsNulOnSaveDataOnly(src.nowIsNotNulButSaveDataIs());//現在ヌルではないが、セーブデータ上ではそうだったデータ項目の数
-		addNumIsNulOnMemOnly(src.nowIsNulButSaveDataIsNot());//現在ヌルだが、セーブデータ上ではそうではなかったデータ項目の数
+		addNumOnlyOnSaveData(src.isOnlyOnSaveData());//セーブデータ上にのみ存在するデータ項目の数
+		addNumOnlyOnMem(src.isOnlyOnMem());//セーブデータ上にないデータ項目の数
+		addNumObjOnSaveDataOnly(src.nowIsNotObjButSaveDataIs());//現在オブジェクト型ではないが、セーブデータ上ではそうだったデータ項目の数
+		addNumObjOnMemOnly(src.nowIsObjButSaveDataIsNot());//現在オブジェクト型だが、セーブデータ上ではそうではなかったデータ項目の数
+		addNumArrOnSaveDataOnly(src.nowIsNotArrButSaveDataIs());//現在配列型ではないが、セーブデータ上ではそうだったデータ項目の数
+		addNumArrOnMemOnly(src.nowIsArrButSaveDataIsNot());//現在配列型だが、セーブデータ上ではそうではなかったデータ項目の数
+		addNumPtrOnSaveDataOnly(src.nowIsNotPtrButSaveDataIs());//現在ポインタ型ではないが、セーブデータ上ではそうだったデータ項目の数
+		addNumPtrOnMemOnly(src.nowIsPtrButSaveDataIsNot());//現在ポインタ型だが、セーブデータ上ではそうではなかったデータ項目の数
+		addNumNulOnSaveDataOnly(src.nowIsNotNulButSaveDataIs());//現在ヌルではないが、セーブデータ上ではそうだったデータ項目の数
+		addNumNulOnMemOnly(src.nowIsNulButSaveDataIsNot());//現在ヌルだが、セーブデータ上ではそうではなかったデータ項目の数
 	}
 
 }//namespace archive

@@ -1264,6 +1264,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.h">
       <Filter>gasha\serialization\type_ctrl_base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\friends.h">
+      <Filter>gasha\serialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">

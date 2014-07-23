@@ -57,7 +57,7 @@ namespace serialization
 		m_hasNowInfo = true;//現在の情報コピー済み
 		m_isOnlyOnSaveData = false;//セーブデータ上にのみ存在するデータ
 		m_isOnlyOnMem = false;//セーブデータ上にないデータ
-		src.resetIsOnlyOnMem();//コピー元の「セーブデータ上にないデータ」をリセット
+		src.resetOnlyOnMem();//コピー元の「セーブデータ上にないデータ」をリセット
 	}
 
 }//namespace serialization

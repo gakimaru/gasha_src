@@ -141,7 +141,7 @@ namespace archive
 			else
 			{
 				unsigned char* p = reinterpret_cast<unsigned char*>(const_cast<void*>(child_item.m_itemP));
-				const std::size_t elem_num = child_item.getElemNum();
+				const std::size_t elem_num = child_item.extent();
 				if (child_item.isArr())
 					arc.print(result, "[");
 				for (std::size_t index = 0; index < elem_num && !result.hasFatalError(); ++index)//配列要素数分データ書き込み

@@ -82,7 +82,7 @@ namespace archive
 		if (delegate_item)
 		{
 			input_item.copyFromOnMem(*delegate_item);//セーブデータの情報に現在の情報をコピー（統合）
-			input_item.setIsOnlyOnSaveData();//セーブデータ上のみのデータ扱いにする（集計のため）
+			input_item.setOnlyOnSaveData();//セーブデータ上のみのデータ扱いにする（集計のため）
 		}
 		else
 		{
@@ -96,7 +96,7 @@ namespace archive
 			else
 			{
 				//一致しない
-				input_item.setIsOnlyOnSaveData();//セーブデータにしか存在しないデータ項目
+				input_item.setOnlyOnSaveData();//セーブデータにしか存在しないデータ項目
 				result.setHasFatalError();//致命的エラー設定
 			}
 		}
@@ -200,7 +200,7 @@ namespace archive
 		if (child_item_now)//対応するデータ項目が見つかったか？
 			child_item.copyFromOnMem(*child_item_now);//現在の情報をセーブデータの情報にコピー（統合）
 		else
-			child_item.setIsOnlyOnSaveData();//対応するデータがない：セーブデータにしかデータが存在しない
+			child_item.setOnlyOnSaveData();//対応するデータがない：セーブデータにしかデータが存在しない
 		//対象データ項目はオブジェクト型か？
 		if (child_item.isObj())
 		{
@@ -222,14 +222,14 @@ namespace archive
 			if (child_item.isArr())//配列か？
 				arc.read(result, const_cast<std::size_t*>(&child_item.m_arrNum), sizeof(child_item.m_arrNum), &read_size);//配列要素数読み込み
 			unsigned char* p = reinterpret_cast<unsigned char*>(const_cast<void*>(child_item.m_itemP));
-			const std::size_t elem_num = child_item.getElemNum();
+			const std::size_t elem_num = child_item.extent();
 			for (std::size_t index = 0; index < elem_num && !result.hasFatalError(); ++index)//【セーブデータ上の】配列要素数分データ書き込み
 			{
 				const bool element_is_valid =//有効なデータか？
 					item_is_valid && //親のデータが有効か？
 					!child_item.isOnlyOnSaveData() && //セーブデータにしかないデータではないか？
 					!child_item.nowIsNul() && //現在の（コピー先の）データがヌルではないか？
-					index < child_item.getNowElemNum();//現在の（コピー先の）配列の範囲内か？
+					index < child_item.nowExtent();//現在の（コピー先の）配列の範囲内か？
 				void* p_tmp = element_is_valid ? p : nullptr;//有効なデータでなければnullptrを渡し、空読み込みする
 				arc.readWithFunc(result, child_item.m_nowTypeCtrl.m_fromMemFuncP, p_tmp, child_item.m_nowItemSize, child_item.m_itemSize, &read_size);//データ読み込み
 				if (p)
