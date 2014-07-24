@@ -68,7 +68,7 @@ namespace archive
 	}
 	
 	//要素ヘッダー読み込み
-	bool inputTextArchiveFormat::readElemHeader(GASHA_ archive::inputArchiveAdapter arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, short& items_num, std::size_t& elem_size)
+	bool inputTextArchiveFormat::readElemHeader(GASHA_ archive::inputArchiveAdapter arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, std::size_t& items_num, std::size_t& elem_size)
 	{
 		GASHA_ archive::results& result = arc.result();
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する

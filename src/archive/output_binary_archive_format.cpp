@@ -12,6 +12,8 @@
 
 #include <gasha/archive/results.h>//アーカイブ/処理結果
 
+#include <cstdint>//C++11 std::uint8_t, std::uint16_t, std::uint32_t
+
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
@@ -42,12 +44,15 @@ namespace archive
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
 			return false;
 		arc.write(result, BLOCK_BEGIN, BEGIN_MARK_SIZE);//ブロック始端書き込み
-		arc.write(result, &item.m_nameCrc, sizeof(item.m_nameCrc));//名前CRC書き込み
+		const std::uint32_t _name_crc = item.m_nameCrc;
+		arc.write(result, &_name_crc, sizeof(_name_crc));//名前CRC書き込み
 		item.m_attr.setHasVer();//バージョン情報ありにする
-		arc.write(result, &item.m_attr.m_value, sizeof(item.m_attr.m_value));//属性書き込み
-		arc.write(result, ver.refVersion(), ver.size());//バージョン書き込み
-		const std::size_t block_size = 0;
-		arc.write(result, &block_size, sizeof(block_size));//ブロックサイズ仮書き込み　※ブロック終了時に書き換える
+		const std::uint8_t _item_attr = item.m_attr.m_value;
+		arc.write(result, &_item_attr, sizeof(_item_attr));//属性書き込み
+		const std::uint32_t _version = ver.value();
+		arc.write(result, &_version, sizeof(_version));//バージョン書き込み
+		const std::uint32_t _block_size = 0;
+		arc.write(result, &_block_size, sizeof(_block_size));//ブロックサイズ仮書き込み　※ブロック終了時に書き換える
 		return !result.hasFatalError();
 	}
 	
@@ -60,9 +65,10 @@ namespace archive
 		if (item.isArr())
 		{
 			arc.write(result, ARRAY_BEGIN, BEGIN_MARK_SIZE);//配列ブロック始端書き込み
-			const std::size_t array_block_size = 0;
-			arc.write(result, &array_elem_num, sizeof(array_elem_num));//配列要素数仮書き込み
-			arc.write(result, &array_block_size, sizeof(array_block_size));//配ブロック列サイズ仮書き込み　※配列終了時に書き換える
+			const std::uint32_t _array_elem_num = static_cast<std::uint32_t>(array_elem_num);
+			arc.write(result, &_array_elem_num, sizeof(_array_elem_num));//配列要素数仮書き込み
+			const std::uint32_t _array_block_size = 0;
+			arc.write(result, &_array_block_size, sizeof(_array_block_size));//配ブロック列サイズ仮書き込み　※配列終了時に書き換える
 		}
 		return !result.hasFatalError();
 	}
@@ -74,10 +80,10 @@ namespace archive
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
 			return false;
 		arc.write(result, ELEM_BEGIN, BEGIN_MARK_SIZE);//要素始端書き込み
-		const short items_num = 0;
-		const std::size_t elem_size = 0;
-		arc.write(result, &items_num, sizeof(items_num));//データ項目数仮書き込み　※要素終了時に書き換える
-		arc.write(result, &elem_size, sizeof(elem_size));//要素サイズ仮書き込み　※要素終了時に書き換える
+		const std::uint16_t _items_num = 0;
+		arc.write(result, &_items_num, sizeof(_items_num));//データ項目数仮書き込み　※要素終了時に書き換える
+		const std::uint32_t _elem_size = 0;
+		arc.write(result, &_elem_size, sizeof(_elem_size));//要素サイズ仮書き込み　※要素終了時に書き換える
 		return !result.hasFatalError();
 	}
 	
@@ -88,17 +94,23 @@ namespace archive
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
 			return false;
 		arc.write(result, ITEM_BEGIN, BEGIN_MARK_SIZE);//データ項目始端書き込み
-		arc.write(result, &child_item.m_nameCrc, sizeof(child_item.m_nameCrc));//名前CRC書き込み
+		const std::uint32_t _name_crc = child_item.m_nameCrc;
+		arc.write(result, &_name_crc, sizeof(_name_crc));//名前CRC書き込み
 		child_item.m_attr.resetHasVer();//バージョン情報なしにする
-		arc.write(result, &child_item.m_attr.m_value, sizeof(child_item.m_attr.m_value));//属性書き込み
-		arc.write(result, &child_item.m_itemSize, sizeof(child_item.m_itemSize));//データサイズ書き込み
+		const std::uint8_t _item_attr = child_item.m_attr.m_value;
+		arc.write(result, &_item_attr, sizeof(_item_attr));//属性書き込み
+		const std::uint32_t _item_size = child_item.m_itemSize;
+		arc.write(result, &_item_size, sizeof(_item_size));//データサイズ書き込み
 		if (!child_item.isNul())//ヌル時はここまでの情報で終わり
 		{
 			if (child_item.isArr())//配列か？
-				arc.write(result, &child_item.m_arrNum, sizeof(child_item.m_arrNum));//配列要素数書き込み
+			{
+				const std::uint32_t _extent = child_item.m_arrNum;
+				arc.write(result, &_extent, sizeof(_extent));//配列要素数書き込み
+			}
 			unsigned char* p = reinterpret_cast<unsigned char*>(const_cast<void*>(child_item.m_itemP));
-			const std::size_t elem_num = child_item.extent();
-			for (std::size_t index = 0; index < elem_num && !result.hasFatalError(); ++index)//配列要素数分データ書き込み
+			const std::size_t extent = child_item.extent();
+			for (std::size_t index = 0; index < extent && !result.hasFatalError(); ++index)//配列要素数分データ書き込み
 			{
 				arc.write(result, p, child_item.m_itemSize);//データ書き込み
 				p += child_item.m_itemSize;
@@ -109,7 +121,7 @@ namespace archive
 	}
 	
 	//要素フッター書き込み
-	bool outputBinaryArchiveFormat::writeElemFooter(GASHA_ archive::outputArchiveAdapter parent_arc, GASHA_ archive::outputArchiveAdapter child_arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, short& items_num, std::size_t& elem_size)
+	bool outputBinaryArchiveFormat::writeElemFooter(GASHA_ archive::outputArchiveAdapter parent_arc, GASHA_ archive::outputArchiveAdapter child_arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, std::size_t& items_num, std::size_t& elem_size)
 	{
 		results& result = child_arc.result();
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
@@ -117,12 +129,14 @@ namespace archive
 			parent_arc.addResult(result);//親に処理結果を計上
 			return false;
 		}
-		items_num = static_cast<short>(child_arc.itemsNum());//データ項目数取得
+		items_num = child_arc.itemsNum();//データ項目数取得
 		elem_size = child_arc.size();//データサイズ取得
-		parent_arc.seek(result, -static_cast<int>(sizeof(elem_size)));//要素サイズ情報の分、バッファのカレントポインタを戻す
-		parent_arc.seek(result, -static_cast<int>(sizeof(items_num)));//データ項目数情報の分、バッファのカレントポインタを戻す
-		parent_arc.write(result, &items_num, sizeof(items_num));//要素サイズを更新（書き込み）
-		parent_arc.write(result, &elem_size, sizeof(elem_size));//要素サイズを更新（書き込み）
+		const std::uint16_t _items_num = static_cast<std::uint16_t>(items_num);
+		const std::uint32_t _elem_size = static_cast<std::uint32_t>(elem_size);
+		parent_arc.seek(result, -static_cast<int>(sizeof(_elem_size)));//要素サイズ情報の分、バッファのカレントポインタを戻す
+		parent_arc.seek(result, -static_cast<int>(sizeof(_items_num)));//データ項目数情報の分、バッファのカレントポインタを戻す
+		parent_arc.write(result, &_items_num, sizeof(_items_num));//要素サイズを更新（書き込み）
+		parent_arc.write(result, &_elem_size, sizeof(_elem_size));//要素サイズを更新（書き込み）
 		parent_arc.seek(result, static_cast<int>(elem_size));//要素サイズ分（要素の終わりまで）、バッファのカレントポインタを進める
 		parent_arc.write(result, ELEM_END, END_MARK_SIZE);//要素終端書き込み
 		parent_arc.addResult(result);//親に処理結果を計上
@@ -141,8 +155,9 @@ namespace archive
 		array_block_size = child_arc.size();//データサイズ取得
 		if (item.isArr())
 		{
-			parent_arc.seek(result, -static_cast<int>(sizeof(array_block_size)));//配列ブロックサイズ情報の分、バッファのカレントポインタを戻す
-			parent_arc.write(result, &array_block_size, sizeof(array_block_size));//配列ブロックサイズを更新（書き込み）
+			const std::uint32_t _array_block_size = static_cast<std::uint32_t>(array_block_size);
+			parent_arc.seek(result, -static_cast<int>(sizeof(_array_block_size)));//配列ブロックサイズ情報の分、バッファのカレントポインタを戻す
+			parent_arc.write(result, &_array_block_size, sizeof(_array_block_size));//配列ブロックサイズを更新（書き込み）
 		}
 		parent_arc.seek(result, static_cast<int>(array_block_size));//配列ブロックサイズ分（要素の終わりまで）、バッファのカレントポインタを進める
 		if (item.isArr())
@@ -163,8 +178,9 @@ namespace archive
 			return false;
 		}
 		block_size = child_arc.size();//データサイズ取得
-		parent_arc.seek(result, -static_cast<int>(sizeof(block_size)));//ブロックサイズ情報の分、バッファのカレントポインタを戻す
-		parent_arc.write(result, &block_size, sizeof(block_size));//ブロックサイズを更新（書き込み）
+		const std::uint32_t _block_size = static_cast<std::uint32_t>(block_size);
+		parent_arc.seek(result, -static_cast<int>(sizeof(_block_size)));//ブロックサイズ情報の分、バッファのカレントポインタを戻す
+		parent_arc.write(result, &_block_size, sizeof(_block_size));//ブロックサイズを更新（書き込み）
 		parent_arc.seek(result, static_cast<int>(block_size));//ブロックサイズ分（ブロックの終わりまで）、バッファのカレントポインタを進める
 		parent_arc.write(result, BLOCK_END, END_MARK_SIZE);//ブロック終端書き込み
 		parent_arc.addResult(result);//親に処理結果を計上

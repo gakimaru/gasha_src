@@ -21,9 +21,6 @@ namespace archive
 	//--------------------------------------------------------------------------------
 
 	//--------------------
-	//バイナリ形式アーカイブクラス（共通）
-	
-	//--------------------
 	//バイナリ形式アーカイブクラス（共通）：静的変数インスタンス化
 	const unsigned char binaryArchiveFormatBase::SIGNATURE[binaryArchiveFormatBase::SIGNATURE_SIZE] = { 0x00, 0xff, 's', 'e', 'r', 'i', 'a', 'l', ':', ':', 'C', 'B', 'i', 'n', 0xff, 0x00 };//シグネチャ
 	const unsigned char binaryArchiveFormatBase::TERMINATOR[binaryArchiveFormatBase::TERMINATOR_SIZE] = { 0xff, 0x00, 's', 'e', 'r', 'i', 'a', 'l', ':', ':', 'C', 'B', 'i', 'n', 0x00, 0xff };//ターミネータ
@@ -35,7 +32,6 @@ namespace archive
 	const unsigned char binaryArchiveFormatBase::ELEM_END[binaryArchiveFormatBase::END_MARK_SIZE] = { 0xff, 0xfe };//要素終端
 	const unsigned char binaryArchiveFormatBase::ITEM_BEGIN[binaryArchiveFormatBase::BEGIN_MARK_SIZE] = { 0xfd, 0xff };//データ項目始端
 	const unsigned char binaryArchiveFormatBase::ITEM_END[binaryArchiveFormatBase::END_MARK_SIZE] = { 0xff, 0xfd };//データ項目終端
-
 
 }//namespace archive
 

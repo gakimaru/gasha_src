@@ -220,6 +220,7 @@
     <ClCompile Include="..\src\archive\output_binary_archive_format.cpp" />
     <ClCompile Include="..\src\archive\output_text_archive_format.cpp" />
     <ClCompile Include="..\src\archive\results.cpp" />
+    <ClCompile Include="..\src\archive\text_archive_format_base.cpp" />
     <ClCompile Include="..\src\build_settings\build_settings_diag.cpp" />
     <ClCompile Include="..\src\debug\assert\assert.cpp" />
     <ClCompile Include="..\src\debug\assert\dummy_debug_pause.cpp" />

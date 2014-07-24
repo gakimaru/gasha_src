@@ -18,6 +18,7 @@
 #include <gasha/simple_assert.h>//シンプルアサーション
 
 #include <cstring>//std::memcmp()
+#include <cstdint>//C++11 std::uint8_t, std::uint16_t, std::uint32_t
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -69,14 +70,22 @@ namespace archive
 			return false;
 		}
 		input_item.clearForLoad();//読み込み情報を一旦クリア
-		arc.read(result, const_cast<GASHA_ crc32_t*>(&input_item.m_nameCrc), sizeof(input_item.m_nameCrc));//名前CRC読み込み
-		arc.read(result, const_cast<GASHA_ serialization::itemAttr::value_type*>(&input_item.m_attr.m_value), sizeof(input_item.m_attr.m_value));//属性読み込み
+		std::uint32_t _name_crc;
+		arc.read(result, &_name_crc, sizeof(_name_crc));//名前CRC読み込み
+		*const_cast<GASHA_ crc32_t*>(&input_item.m_nameCrc) = _name_crc;
+		std::uint8_t _item_attr;
+		arc.read(result, &_item_attr, sizeof(_item_attr));//属性読み込み
+		*const_cast<GASHA_ serialization::itemAttr::value_type*>(&input_item.m_attr.m_value) = _item_attr;
 		if (input_item.m_attr.hasVer())//バージョン情報があるか？
 		{
-			arc.read(result, const_cast<unsigned int*>(input_ver.refVersion()), input_ver.size());//バージョン読み込み
+			std::uint32_t _version;
+			arc.read(result, &_version, sizeof(_version));//バージョン読み込み
+			*const_cast<GASHA_ serialization::version_type*>(input_ver.refVersion()) = _version;
 			input_ver.calcFromVer();
 		}
-		arc.read(result, const_cast<std::size_t*>(&input_item.m_itemSize), sizeof(input_item.m_itemSize));//ブロックサイズ読み込み
+		std::uint32_t _item_size;
+		arc.read(result, &_item_size, sizeof(_item_size));//ブロックサイズ読み込み
+		*const_cast<std::uint32_t*>(&input_item.m_itemSize) = _item_size;
 		block_size = input_item.m_itemSize;//ブロックサイズ
 		//委譲アイテムの指定があれば、名前をチェックせずに入力データに情報をコピーする
 		if (delegate_item)
@@ -125,13 +134,17 @@ namespace archive
 				result.setHasFatalError();
 				return false;
 			}
-			arc.read(result, const_cast<std::size_t*>(&item.m_arrNum), sizeof(item.m_arrNum));//配列要素数読み込み
-			arc.read(result, const_cast<std::size_t*>(&array_block_size), sizeof(array_block_size));//配列ブロックサイズ読み込み
-			array_elem_num = item.m_arrNum;//配列要素数
+			std::uint32_t _array_elem_num;
+			arc.read(result, &_array_elem_num, sizeof(_array_elem_num));//配列要素数読み込み
+			*const_cast<std::uint32_t*>(&item.m_arrNum) = _array_elem_num;//配列要素数
+			array_elem_num = static_cast<std::size_t>(_array_elem_num);//配列要素数
+			std::uint32_t _array_block_size;
+			arc.read(result, &_array_block_size, sizeof(_array_block_size));//配列ブロックサイズ読み込み
+			array_block_size = _array_block_size;
 		}
 		else
 		{
-			*const_cast<std::size_t*>(&item.m_arrNum) = 0;//配列要素数
+			*const_cast<std::uint32_t*>(&item.m_arrNum) = 0;//配列要素数
 			array_elem_num = 0;//配列要素数
 			array_block_size = 0;//配列ブロックサイズ
 		}
@@ -141,7 +154,7 @@ namespace archive
 	}
 	
 	//要素ヘッダー読み込み
-	bool inputBinaryArchiveFormat::readElemHeader(GASHA_ archive::inputArchiveAdapter arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, short& items_num, std::size_t& elem_size)
+	bool inputBinaryArchiveFormat::readElemHeader(GASHA_ archive::inputArchiveAdapter arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, std::size_t& items_num, std::size_t& elem_size)
 	{
 		results& result = arc.result();
 		items_num = 0;
@@ -154,8 +167,12 @@ namespace archive
 			result.setHasFatalError();
 			return false;
 		}
-		arc.read(result, &items_num, sizeof(items_num));//データ項目数読み込み
-		arc.read(result, &elem_size, sizeof(elem_size));//要素サイズ読み込み
+		std::uint16_t _items_num;
+		arc.read(result, &_items_num, sizeof(_items_num));//データ項目数読み込み
+		items_num = static_cast<std::size_t>(_items_num);
+		std::uint32_t _elem_size;
+		arc.read(result, &_elem_size, sizeof(_elem_size));//要素サイズ読み込み
+		elem_size = static_cast<std::size_t>(_elem_size);
 		return !result.hasFatalError();
 	}
 	
@@ -185,8 +202,12 @@ namespace archive
 				return false;
 			}
 		}
-		arc.read(result, const_cast<GASHA_ crc32_t*>(&child_item.m_nameCrc), sizeof(child_item.m_nameCrc), &read_size);//名前CRC読み込み
-		arc.read(result, const_cast<GASHA_ serialization::itemAttr::value_type*>(&child_item.m_attr.m_value), sizeof(child_item.m_attr.m_value), &read_size);//属性読み込み
+		std::uint32_t _name_crc;
+		arc.read(result, &_name_crc, sizeof(_name_crc), &read_size);//名前CRC読み込み
+		*const_cast<GASHA_ crc32_t*>(&child_item.m_nameCrc) = _name_crc;
+		std::uint8_t _item_attr;
+		arc.read(result, &_item_attr, sizeof(_item_attr), &read_size);//属性読み込み
+		*const_cast<GASHA_ serialization::itemAttr::value_type*>(&child_item.m_attr.m_value) = _item_attr;
 		const GASHA_ serialization::itemInfoBase* child_item_now = nullptr;
 		if (delegate_child_item_now)//委譲データ項目があればそれを優先的に使用
 		{
@@ -216,14 +237,20 @@ namespace archive
 		}
 		//通常データの読み込み処理
 		GASHA_SIMPLE_ASSERT(!child_item.m_attr.hasVer(), "Vesion is exist in non-object item.(maybe broken data?)");//オブジェクトでもないのにバージョン情報があればNG
-		arc.read(result, const_cast<std::size_t*>(&child_item.m_itemSize), sizeof(child_item.m_itemSize), &read_size);//データサイズ読み込み
+		std::uint32_t _item_size;
+		arc.read(result, &_item_size, sizeof(_item_size), &read_size);//データサイズ読み込み
+		*const_cast<std::uint32_t*>(&child_item.m_itemSize) = _item_size;
 		if (!child_item.isNul())//【セーブデータ上の】データがヌルでなければ処理する
 		{
 			if (child_item.isArr())//配列か？
-				arc.read(result, const_cast<std::size_t*>(&child_item.m_arrNum), sizeof(child_item.m_arrNum), &read_size);//配列要素数読み込み
+			{
+				std::uint32_t _extent;
+				arc.read(result, &_extent, sizeof(_extent), &read_size);//配列要素数読み込み
+				*const_cast<std::uint32_t*>(&child_item.m_arrNum) = _extent;
+			}
 			unsigned char* p = reinterpret_cast<unsigned char*>(const_cast<void*>(child_item.m_itemP));
-			const std::size_t elem_num = child_item.extent();
-			for (std::size_t index = 0; index < elem_num && !result.hasFatalError(); ++index)//【セーブデータ上の】配列要素数分データ書き込み
+			const std::size_t extent = child_item.extent();
+			for (std::size_t index = 0; index < extent && !result.hasFatalError(); ++index)//【セーブデータ上の】配列要素数分データ読み込み
 			{
 				const bool element_is_valid =//有効なデータか？
 					item_is_valid && //親のデータが有効か？
@@ -323,19 +350,22 @@ namespace archive
 			result.setHasFatalError();
 			return false;
 		}
-		GASHA_ crc32_t name_crc = 0;
-		GASHA_ serialization::itemAttr attr(false, false, false, false, false);
-		arc.read(result, &name_crc, sizeof(name_crc));//名前CRC読み込み
-		arc.read(result, const_cast<GASHA_ serialization::itemAttr::value_type*>(&attr.m_value), sizeof(attr.m_value));//属性書き込み
+		uint32_t _name_crc;
+		arc.read(result, &_name_crc, sizeof(_name_crc));//名前CRC読み込み
+		uint8_t _item_attr;
+		arc.read(result, &_item_attr, sizeof(_item_attr));//属性読み込み
+		GASHA_ serialization::itemAttr attr;
+		*const_cast<GASHA_ serialization::itemAttr::value_type*>(&attr.m_value) = _item_attr;
 		if (attr.hasVer())//バージョン情報があるか？
 		{
-			GASHA_ serialization::version input_ver_dummy;
-			arc.read(result, const_cast<unsigned int*>(input_ver_dummy.refVersion()), input_ver_dummy.size());//バージョン読み込み
+			std::uint32_t _version;
+			arc.read(result, &_version, sizeof(_version));//バージョン読み込み
 		}
 		if (!attr.isNul())//ヌル時はここまでの情報で終わり
 		{
-			std::size_t item_size;
-			arc.read(result, &item_size, sizeof(item_size));//ブロックサイズ読み込み
+			std::uint32_t _item_size;
+			arc.read(result, &_item_size, sizeof(_item_size));//ブロックサイズ読み込み
+			std::size_t item_size = static_cast<std::size_t>(_item_size);
 			arc.seek(result, static_cast<int>(item_size));//ブロックサイズ分、バッファのカレントポインタを進める
 		}
 		//ブロックフッター読み込み
@@ -395,17 +425,23 @@ namespace archive
 			return !result.hasFatalError();
 		}
 		is_found_next_block = true;//見つかった
-		arc.read(result, const_cast<GASHA_ crc32_t*>(&require_item.m_nameCrc), sizeof(require_item.m_nameCrc), &read_size);//名前CRC書き込み
-		arc.read(result, const_cast<GASHA_ serialization::itemAttr::value_type*>(&require_item.m_attr.m_value), sizeof(require_item.m_attr.m_value), &read_size);//属性書き込み
+		std::uint32_t _name_crc;
+		arc.read(result, &_name_crc, sizeof(_name_crc), &read_size);//名前CRC読み込み
+		*const_cast<GASHA_ crc32_t*>(&require_item.m_nameCrc) = _name_crc;
+		std::uint8_t _item_attr;
+		arc.read(result, &_item_attr, sizeof(_item_attr), &read_size);//属性読み込み
+		*const_cast<GASHA_ serialization::itemAttr::value_type*>(&require_item.m_attr.m_value) = _item_attr;
 		if (require_item.m_attr.hasVer())//バージョン情報があるか？
 		{
-			GASHA_ serialization::version input_ver_dummy;
-			arc.read(result, const_cast<unsigned int*>(input_ver_dummy.refVersion()), input_ver_dummy.size(), &read_size);//バージョン読み込み
+			std::uint32_t _version;
+			arc.read(result, &_version, sizeof(_version), &read_size);//バージョン読み込み
 		}
 		require_block_size = read_size;//ブロックサイズ一旦計上
 		if (!require_item.isNul())//ヌル時はここまでの情報で終わり
 		{
-			arc.read(result, const_cast<std::size_t*>(&require_item.m_itemSize), sizeof(require_item.m_itemSize), &read_size);//ブロックサイズ読み込み
+			std::uint32_t _item_size;
+			arc.read(result, &_item_size, sizeof(_item_size), &read_size);//ブロックサイズ読み込み
+			*const_cast<std::uint32_t*>(&require_item.m_itemSize) = _item_size;
 			require_block_size += require_item.m_itemSize;//ブロックサイズ計上
 			if (require_item.isArr())//配列時は配列要素数も読み込み
 			{
@@ -413,9 +449,11 @@ namespace archive
 				arc.read(result, begin_mark, BEGIN_MARK_SIZE);//配列ブロック始端読み込み
 				if (std::memcmp(begin_mark, ARRAY_BEGIN, BEGIN_MARK_SIZE) == 0)//配列ブロック始端チェック
 				{
-					//std::size_t array_block_size = 0;
-					arc.read(result, const_cast<std::size_t*>(&require_item.m_arrNum), sizeof(require_item.m_arrNum));//配列要素数読み込み
-					//arc.read(result, const_cast<std::size_t*>(&array_block_size), sizeof(array_block_size));//配列ブロックサイズ読み込み
+					std::uint32_t _array_elem_num;
+					arc.read(result, &_array_elem_num, sizeof(_array_elem_num));//配列要素数読み込み
+					*const_cast<std::uint32_t*>(&require_item.m_arrNum) = _array_elem_num;
+					//std::uint32_t _array_block_size;
+					//arc.read(result, &_array_block_size, sizeof(_array_block_size));//配列ブロックサイズ読み込み
 				}
 			}
 		}

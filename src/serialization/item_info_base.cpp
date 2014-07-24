@@ -30,8 +30,8 @@ namespace serialization
 		*const_cast<crc32_t*>(&m_nameCrc) = 0;//データ項目名CRC
 		//m_itemP;//データの参照ポインタ
 		//m_itemType;//データの型情報
-		*const_cast<std::size_t*>(&m_itemSize) = 0;//データサイズ
-		*const_cast<std::size_t*>(&m_arrNum) = 0;//データの配列要素数
+		*const_cast<std::uint32_t*>(&m_itemSize) = 0;//データサイズ
+		*const_cast<std::uint32_t*>(&m_arrNum) = 0;//データの配列要素数
 		const_cast<GASHA_ serialization::itemAttr*>(&m_attr)->clear();//属性
 		m_nowItemSize = 0;//現在のデータサイズ
 		m_nowArrNum = 0;//現在のデータの配列要素数

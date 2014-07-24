@@ -162,7 +162,7 @@ namespace archive
 	}
 	
 	//要素フッター書き込み
-	bool outputTextArchiveFormat::writeElemFooter(GASHA_ archive::outputArchiveAdapter parent_arc, GASHA_ archive::outputArchiveAdapter child_arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, short& items_num, std::size_t& elem_size)
+	bool outputTextArchiveFormat::writeElemFooter(GASHA_ archive::outputArchiveAdapter parent_arc, GASHA_ archive::outputArchiveAdapter child_arc, const GASHA_ serialization::itemInfoBase& item, const std::size_t index, std::size_t& items_num, std::size_t& elem_size)
 	{
 		GASHA_ archive::results& result = child_arc.result();
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
