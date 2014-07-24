@@ -54,6 +54,7 @@ namespace serialization
 		m_nowArrNum = src.m_arrNum;//現在のデータの配列要素数
 		m_nowAttr = src.m_attr;//現在の属性
 		m_nowTypeCtrl = src.m_typeCtrl;//型操作
+		m_deserialier = src.m_deserialier;//個別デシリアライザー
 		m_hasNowInfo = true;//現在の情報コピー済み
 		m_isOnlyOnSaveData = false;//セーブデータ上にのみ存在するデータ
 		m_isOnlyOnMem = false;//セーブデータ上にないデータ

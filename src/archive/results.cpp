@@ -27,6 +27,7 @@ namespace archive
 	void results::addResult(const results& src)
 	{
 		setHasFatalError(src.m_hasFatalError);//致命的なエラーあり
+		m_numInvalidItem += src.m_numInvalidItem;//（名前が衝突するなどして）無効となったデータ項目の数
 		m_numSmallerSizeItem += src.m_numSmallerSizeItem;//サイズが縮小されたデータ項目の数
 		m_numLargerSizeItem += src.m_numLargerSizeItem;//サイズが拡大されたデータ項目の数
 		m_numSmallerArrItem += src.m_numSmallerArrItem;//配列要素数が縮小されたデータ項目の数

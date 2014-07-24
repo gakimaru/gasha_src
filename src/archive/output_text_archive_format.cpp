@@ -32,7 +32,7 @@ namespace archive
 		if (result.hasFatalError())//致命的なエラーが出ている時は即時終了する
 			return false;
 		m_process = PROCESS_TOP;
-		arc.print(result, "{\"serializer\": {");
+		arc.print(result, "{\"serialization\": {");
 		m_blockIndex = 0;
 		return !result.hasFatalError();
 	}
