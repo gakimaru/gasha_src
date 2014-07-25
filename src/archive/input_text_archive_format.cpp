@@ -4,7 +4,7 @@
 //
 // ※基本的に明示的なインクルードの必要はなし。（.h ファイルの末尾でインクルード）
 //
-// Gakimaru's researched and standard library for C++ - GASHA
+// Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
 //   Released under the MIT license.
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE

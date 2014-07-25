@@ -2,7 +2,7 @@
 // archive/results.cpp
 // アーカイブ/処理結果【関数／実体定義部】
 //
-// Gakimaru's researched and standard library for C++ - GASHA
+// Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
 //   Released under the MIT license.
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
