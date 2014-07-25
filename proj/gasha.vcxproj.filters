@@ -1,69 +1,1827 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="ソース ファイル\crc">
-      <UniqueIdentifier>{e1ad7375-cef2-41af-9c6b-254349cef507}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\crc">
-      <UniqueIdentifier>{d9273d8f-a983-4c8c-a208-aa2e19bbfb99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\build_settings">
-      <UniqueIdentifier>{7abcb39d-eb4c-4597-a9a8-8730145d8f27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\build_settings\common">
-      <UniqueIdentifier>{5d7f0893-6438-428c-b061-ed91f9b9f8cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\build_settings\project">
-      <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
-    </Filter>
     <Filter Include="プリコンパイル済みヘッダー">
       <UniqueIdentifier>{18517398-9e5d-4832-8dc8-dee19c7f7071}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha">
+      <UniqueIdentifier>{1218dd6f-a862-4065-a41f-dd6db3539aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread">
+      <UniqueIdentifier>{85811cce-b7d0-4830-b170-7587129eef6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock">
+      <UniqueIdentifier>{6f4349b3-b5dd-4779-a1a8-77ca036fc620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\scoped_lock">
+      <UniqueIdentifier>{9771ddd3-1ec1-4645-90fe-358d275b8e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data">
+      <UniqueIdentifier>{1ed1809c-9019-4eeb-96fa-7dc631da2cb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility">
+      <UniqueIdentifier>{e6ed858c-96e4-41b2-8aef-eeaaf1639ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\math">
+      <UniqueIdentifier>{1238a7f3-9fc4-438a-a1bc-b92e78f77d71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\math\crc">
+      <UniqueIdentifier>{d9273d8f-a983-4c8c-a208-aa2e19bbfb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\math\fast_math">
+      <UniqueIdentifier>{cac36130-2881-4b0e-a3a4-fd0f1af73b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\math\basic_math">
+      <UniqueIdentifier>{6c67284d-4f3e-41af-a1b6-db476b5ebb63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container">
+      <UniqueIdentifier>{cfaac4e9-3321-435b-a1c3-5f2530c4643f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external">
+      <UniqueIdentifier>{091503fd-a0c2-4142-97fa-bfd1c61f1d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external\dynamic_array">
+      <UniqueIdentifier>{cb4e2126-3a09-4333-b205-464b8495912b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external\linked_list">
+      <UniqueIdentifier>{03a40798-5287-4b9c-a03f-504de3c6ff50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external\rb_tree">
+      <UniqueIdentifier>{93a695ce-9f7b-4e23-8bdb-11db52d299be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external\singly_linked_list">
+      <UniqueIdentifier>{88c9b527-755d-469e-ac90-f315189e77fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\external\ring_buffer">
+      <UniqueIdentifier>{b0d77940-222f-4156-938d-af33a959fe99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\internal">
+      <UniqueIdentifier>{d4cff857-c74d-419a-b1a4-1dcda76227e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\internal\binary_heap">
+      <UniqueIdentifier>{9e15e71a-e911-4576-86d8-d9718130cc45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\internal\hash_table">
+      <UniqueIdentifier>{456f1dac-cc74-4806-90a7-7897cc61c732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\adapter">
+      <UniqueIdentifier>{4207ef47-879f-4715-a16a-1eb9bd793b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\container\adapter\priority_queue">
+      <UniqueIdentifier>{d789a57a-6e4c-43c1-8c1f-a1fe37346799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm">
+      <UniqueIdentifier>{e3c2751d-4db2-472c-9a36-3e91d96ee897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort">
+      <UniqueIdentifier>{2e104f62-97f0-487a-8520-683babd3b76c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\insertion_sort">
+      <UniqueIdentifier>{5417a619-f4af-4f3a-8c9e-4e7bb493f531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\distributoin_sort">
+      <UniqueIdentifier>{dce3043d-05eb-47de-b295-593e182ad6c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort">
+      <UniqueIdentifier>{cc497d17-c428-4b65-93cd-6f27d5343368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\partition_exchange_sort">
+      <UniqueIdentifier>{d024b74c-ad23-4adc-98d7-818207763530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\selection_sort">
+      <UniqueIdentifier>{17ad5932-6f05-4065-8780-88741acfb1b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\merge_sort">
+      <UniqueIdentifier>{0d49286c-4994-4a51-ae46-3651fba40fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\hybrid_sort">
+      <UniqueIdentifier>{288bacdb-5410-4557-98c4-5f57d094004d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\search">
+      <UniqueIdentifier>{86bdf5a2-2b94-4a21-92bb-d43928ebb84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\basic">
+      <UniqueIdentifier>{e74a01d8-8e83-4be2-97f9-4d96fe98d0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings">
+      <UniqueIdentifier>{4c14a742-c845-4e14-a5d7-5aaeb0aee5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\common">
+      <UniqueIdentifier>{5d7f0893-6438-428c-b061-ed91f9b9f8cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="gasha_src\thread">
+      <UniqueIdentifier>{f72a6f4b-2d37-4352-9f70-c10515a2b335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\thread\lock">
+      <UniqueIdentifier>{d4191e64-3478-4156-9966-7714e6bf16a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\math">
+      <UniqueIdentifier>{cbf73fd1-1c06-4768-8283-4bb661b30847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility">
+      <UniqueIdentifier>{10fad7b9-a4c1-474d-a884-0da6289a2bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\build_settings">
+      <UniqueIdentifier>{372ca7f5-11c8-4909-b63c-7785737b8df3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\string">
+      <UniqueIdentifier>{3104bc62-f956-4fab-a928-3a1254f5c2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string">
+      <UniqueIdentifier>{000a6968-b107-4ec7-b6ca-d327fb807774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\basic\iterator">
+      <UniqueIdentifier>{fcd7e8ac-1650-479d-a88f-dbf7dbd35346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\search\binary_search">
+      <UniqueIdentifier>{27d21504-978c-4449-839f-73b4acffbaf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\search\linear_search">
+      <UniqueIdentifier>{e1ef8775-dbdf-4dad-b325-02069a3d7d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\is_ordered">
+      <UniqueIdentifier>{63cb4973-3136-4add-b9be-e43ec1ecdabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\distributoin_sort\radix_sort">
+      <UniqueIdentifier>{e6904483-7372-45b9-806f-d7505ecf6eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\bubble_sort">
+      <UniqueIdentifier>{7430d842-7ee3-4867-9eaf-115b1d05aa15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\comb_sort">
+      <UniqueIdentifier>{c191bdcc-481b-48f7-ad28-8aab0d2c03fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\gnome_sort">
+      <UniqueIdentifier>{4ae50d91-4be4-4639-a069-3200dd394f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\odd_even_sort">
+      <UniqueIdentifier>{ae3aeb34-136c-401e-804f-94d5fdd6a554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\shaker_sort">
+      <UniqueIdentifier>{49bffa62-43e4-4d52-bc52-10ae8ebc34d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\exhange_sort\shear_sort">
+      <UniqueIdentifier>{f7e58919-2107-4a22-a334-e33cd1ca7e15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\hybrid_sort\intoro_sort">
+      <UniqueIdentifier>{006cb726-bda8-4ff9-8987-bebd15c54785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\insertion_sort\insertion_sort">
+      <UniqueIdentifier>{9a87a342-d69d-479c-8588-57f9f12f1806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\insertion_sort\shell_sort">
+      <UniqueIdentifier>{73a0df2a-8e34-45f5-a64e-2fe0a59f24cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\merge_sort\inplace_merge_sort">
+      <UniqueIdentifier>{1d3671fe-7f99-4e77-af68-5b21597971b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\partition_exchange_sort\quick_sort">
+      <UniqueIdentifier>{889b0aa0-6cfb-4d21-bdaf-0114da72c03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\selection_sort\heap_sort">
+      <UniqueIdentifier>{07af2407-6d30-47c1-a490-45d0bcc36aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\algorithm\sort\selection_sort\selection_sort">
+      <UniqueIdentifier>{854165e3-25cc-4ac4-a66d-b14545be0793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\string\fast_string">
+      <UniqueIdentifier>{b924d94b-2081-433b-88f3-91525b80b197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\utility">
+      <UniqueIdentifier>{1590f308-cf50-4573-9e0e-6a89f49bf478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\type_traits">
+      <UniqueIdentifier>{9a2fcc0a-acbf-4850-b207-3e0464d79cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\limits">
+      <UniqueIdentifier>{72f7b0a2-a227-4ca0-91f9-557701f507d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data\shared_queue">
+      <UniqueIdentifier>{b24ddf39-6266-4795-a35c-1dc4132ed0bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data\shared_stack">
+      <UniqueIdentifier>{2863d9ca-cc6e-401f-b4e9-21d548da2d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data\tagged_ptr">
+      <UniqueIdentifier>{4470fd88-388c-4a29-8e53-838bd664e620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data\lf_queue">
+      <UniqueIdentifier>{8fecc331-84bb-4990-abfa-12c8116fe164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\shared_data\lf_stack">
+      <UniqueIdentifier>{5c1f0a2e-3e57-4454-8e12-cf5415d86a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\dummy_lock">
+      <UniqueIdentifier>{b39d0f7b-4936-4c5a-bd03-95861a2b86d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\lw_spin_lock">
+      <UniqueIdentifier>{1435c063-ca2a-406c-b92a-783c916f180c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\spin_lock">
+      <UniqueIdentifier>{aa9ebc25-cd1a-4bcd-a613-5bcdf64e4fd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\dummy_shared_lock">
+      <UniqueIdentifier>{50ae85f1-5850-4bc7-8cd3-e4707e172353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\simple_shared_spin_lock">
+      <UniqueIdentifier>{32a8378d-0842-4eb7-b415-1abe701e8858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\shared_spin_lock">
+      <UniqueIdentifier>{0a0c4a29-faac-4ca1-8f40-111cabb9637b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock\unshared_spin_lock">
+      <UniqueIdentifier>{18a12024-b28a-4aa8-9e22-753bb6f88afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\scoped_lock\lock_guard">
+      <UniqueIdentifier>{a9b3ca15-b659-431a-9cc5-827bc2aa7ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\scoped_lock\unique_lock">
+      <UniqueIdentifier>{2f8f7b9c-1dab-4b26-bb36-226ad2feafd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\scoped_lock\shared_lock_guard">
+      <UniqueIdentifier>{62711035-2e89-4160-a4a6-1853dbe8e164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\scoped_lock\unique_shared_lock">
+      <UniqueIdentifier>{87b6b9b2-8a6b-413f-95b9-c9b40d0883da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\thread_id">
+      <UniqueIdentifier>{6a1d6374-a9d6-4f0c-a3b9-db0cb56d22cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\singleton">
+      <UniqueIdentifier>{42737cf0-2906-4226-a46e-0a7f925d6ceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\singleton\dummy_singleton_debug">
+      <UniqueIdentifier>{1a2296b4-a60f-419c-80d5-aefb48148368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\singleton\singleton_debug">
+      <UniqueIdentifier>{4a21deca-b054-4fa5-b0c6-f896c01020eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\common\platform">
+      <UniqueIdentifier>{ed513861-8594-4e69-923a-9e65396c92d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\for_project">
+      <UniqueIdentifier>{cb42f59e-399f-4b6e-95f8-1c39c606ed62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\diag">
+      <UniqueIdentifier>{04d405b1-c740-4dc7-81f3-319e33086ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\chrono">
+      <UniqueIdentifier>{845c1b9c-95b1-43bf-b829-68bc3854cbd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory">
+      <UniqueIdentifier>{fe9a36e5-7b0f-430e-b76a-e8a64148ad8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\memory">
+      <UniqueIdentifier>{040b889b-2fbb-4a96-bb46-0f472bbb68ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator">
+      <UniqueIdentifier>{5bbc8bc8-43ff-49fc-a5d3-8ce19a8e78b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\dual_stack_allocator">
+      <UniqueIdentifier>{fdbb90bd-b971-4308-adbe-8721b4cd9897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_pool_allocator">
+      <UniqueIdentifier>{3d748c5e-3822-4854-a7e8-ba49fa9ba8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_stack_allocator">
+      <UniqueIdentifier>{6b962f86-d8f9-4dc9-a034-b8712e1b0a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\pool_allocator">
+      <UniqueIdentifier>{4cdbdcd8-f88d-4773-a3c2-fe5eed2d8f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\stack_allocator">
+      <UniqueIdentifier>{17faad5b-249f-4a1d-9b48-c63dbea9616a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\mono_allocator">
+      <UniqueIdentifier>{5ab2017e-c7d8-4f54-9bfb-2c84b49d452f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_mono_allocator">
+      <UniqueIdentifier>{313552f9-8bec-4cff-b8a1-f5fb10599a30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\lf_dual_stack_allocator">
+      <UniqueIdentifier>{2cd52f8b-6224-4d61-b20e-8bdeb57d8939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory">
+      <UniqueIdentifier>{76455b23-ab8c-4879-923b-f599bf00100f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\allocator">
+      <UniqueIdentifier>{201cc0e5-29d9-4aa1-95d8-4c2d6b2810cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\std_allocator">
+      <UniqueIdentifier>{b115f701-ccba-48ef-b9e1-aa79f37419f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_build_settings\common\builtin_functions">
+      <UniqueIdentifier>{66d13877-a04e-466c-a86b-21e431a7fda1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\new">
+      <UniqueIdentifier>{d23daedc-73a7-42af-bb33-c71d335f0b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\scoped_allocator">
+      <UniqueIdentifier>{2302c61a-1e71-4e3c-94a4-e462ad895b75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\scoped_allocator\scoped_stack_allocator">
+      <UniqueIdentifier>{85219c4b-172f-4947-9aea-1d871d203215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator">
+      <UniqueIdentifier>{e12d8b10-caa7-4e3a-ad5f-940543fb2372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter">
+      <UniqueIdentifier>{b02fdb44-d5e6-47c8-8210-771690b85efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\poly_allocator">
+      <UniqueIdentifier>{d87fc588-ff37-4ed9-8f1b-a69d4b384212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug">
+      <UniqueIdentifier>{7a9c12d1-a7f9-4036-adba-a3df71d89d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\profiler">
+      <UniqueIdentifier>{64e74c97-71ed-46e3-8c91-d54c18782f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\call_point">
+      <UniqueIdentifier>{495ee568-21a3-499e-be02-3b3dcdc18fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console">
+      <UniqueIdentifier>{a63e93d7-8668-4474-8ebf-6199e7f44020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug">
+      <UniqueIdentifier>{c5f368b3-53f1-44d0-becc-f4c9e901e6ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\console">
+      <UniqueIdentifier>{c2c778d8-1509-477e-93bd-a6c3ee9beaca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\console_color">
+      <UniqueIdentifier>{6262d943-86a5-4961-b5b4-701fc2fe42e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\i_console">
+      <UniqueIdentifier>{863de5f2-2955-4ab9-abcc-37af622d0305}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter\allocator_adapter">
+      <UniqueIdentifier>{9a7cafa6-7dc7-4cfe-98ea-16c00ba63e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_adapter\i_allocator_adapter">
+      <UniqueIdentifier>{79af01b8-fb37-4712-a762-e19821172e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\memory\allocator_common">
+      <UniqueIdentifier>{583ff885-d65d-4f69-abfc-02e4e479ace3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\thread\lock_common">
+      <UniqueIdentifier>{4a9ab4f9-925f-46a0-8d2c-f735891bae13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\std_console">
+      <UniqueIdentifier>{d0ed178f-fd12-4eca-82c1-f6e66f716c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\win_console">
+      <UniqueIdentifier>{07b326b1-e977-4601-b215-db369977f754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\vs_console">
+      <UniqueIdentifier>{f43c38ca-247e-4529-966f-f0acd6360ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\tty_console">
+      <UniqueIdentifier>{b4997064-1916-40c7-b4e4-71aabd0e18dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\build_settings\diag">
+      <UniqueIdentifier>{333fc01e-632b-4dda-9d9c-f7e3d697e616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\poly_allocator">
+      <UniqueIdentifier>{7c4235e2-15eb-4499-9b15-23e68bbef094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\thread\thread_id">
+      <UniqueIdentifier>{a6b420ad-ef7a-42b7-b478-e5df3620de21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\math\basic_math">
+      <UniqueIdentifier>{2af9c8b6-9654-488a-b408-724584aebcf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\math\crc">
+      <UniqueIdentifier>{6074f907-8869-42ff-9c8a-cd7df65a582b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string\fast_string">
+      <UniqueIdentifier>{93f6e517-0256-4ebf-841e-5b3c9b570119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\chrono">
+      <UniqueIdentifier>{cae669d7-e1e1-4f79-a652-ec2ee774d438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\cpuid">
+      <UniqueIdentifier>{79c05ac6-5916-48ff-8224-b023563b5775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\utility\cpuid">
+      <UniqueIdentifier>{2aa31e73-9ff4-48de-8553-70a082201a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\utility\type_traits">
+      <UniqueIdentifier>{58d4bbf1-42cd-4a47-9a5f-25f74464864a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\string\string">
+      <UniqueIdentifier>{07747f89-6362-46d6-956a-1618ac9b9376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string\string">
+      <UniqueIdentifier>{3084f468-7937-4cce-ad8b-522d52759610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log">
+      <UniqueIdentifier>{25b85c8e-5737-4774-992c-282cbbe5d570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_category">
+      <UniqueIdentifier>{95c3c41b-5bc2-400a-b0ce-44b659d411e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_category\default_log_category">
+      <UniqueIdentifier>{f55e3ece-2eb6-4551-becf-fa4d3cc26f81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_level">
+      <UniqueIdentifier>{0a72aa9b-6640-4536-80e5-9fed6e97e556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_level\default_log_level">
+      <UniqueIdentifier>{fc9af455-8803-42db-a914-f23369245774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_mask">
+      <UniqueIdentifier>{669386c7-cc2c-4c92-b3af-52838dc1c9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_purpose">
+      <UniqueIdentifier>{276b6e0c-bc46-4de6-9865-d99d15f67944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_queue">
+      <UniqueIdentifier>{eaac2d1a-e413-4b65-b1d5-ec1c8287f6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_queue_monitor">
+      <UniqueIdentifier>{bdbc54d5-fb19-4632-8c78-6eaaade22f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_work_buff">
+      <UniqueIdentifier>{dbe61048-bd26-487c-add8-43034a1cd3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_attr">
+      <UniqueIdentifier>{66d51979-4d3e-4b8a-b02c-a39c1ad973bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log">
+      <UniqueIdentifier>{dab56a6a-5670-493b-814f-b6b97a774246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_category">
+      <UniqueIdentifier>{520d5550-ab43-4cc7-a01d-4bbdb5a9fffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_level">
+      <UniqueIdentifier>{2974abad-2c13-489f-b123-1167b47a04db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_mask">
+      <UniqueIdentifier>{86967d5e-220d-4f36-980c-9d7094527fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_queue">
+      <UniqueIdentifier>{bb948b12-4744-49cf-bcd8-5468a389ee81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_queue_monitor">
+      <UniqueIdentifier>{f927815a-fe40-46d6-ab03-3cd18cba20d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_work_buff">
+      <UniqueIdentifier>{ff21d0ef-caba-4134-b885-30f76cbc8188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print">
+      <UniqueIdentifier>{331b98af-97b6-43e6-b7f9-2294f0e27bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print\log_print_info">
+      <UniqueIdentifier>{444ed392-5875-4d38-9ef7-1d2e28ef6709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\log_print\std_log_print">
+      <UniqueIdentifier>{c553f5ed-d2a1-4563-9715-2b3938e75a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\dummy_console">
+      <UniqueIdentifier>{d41a4bae-07a4-48a0-8a0a-46b3bf032956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\log_attr">
+      <UniqueIdentifier>{17ccda46-dfa5-40e1-98f3-444ac5c4075c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\console\mem_console">
+      <UniqueIdentifier>{7d4e3264-1f44-4062-ba17-c1b2d308d906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\string\strconv">
+      <UniqueIdentifier>{24d58828-b1d3-4e2b-9c50-f35f9f6d75e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\string\strconv">
+      <UniqueIdentifier>{fc9fc3d7-e0c7-431e-9a80-e505bfb38ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert">
+      <UniqueIdentifier>{7d92f377-f624-4051-9d04-d6317dcc928d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\call_point">
+      <UniqueIdentifier>{73baf677-e645-41ce-8875-b6e783d93b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\assert">
+      <UniqueIdentifier>{a0f97a3c-e805-485b-a6c3-376cc582db25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\print">
+      <UniqueIdentifier>{7f936df4-18c5-43c7-a20f-2602fabba5e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\memory\new">
+      <UniqueIdentifier>{016ece4b-4ea9-4bfb-82ee-c4ea2e794ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\assert\debug_pause">
+      <UniqueIdentifier>{02b4aee0-22ae-4dda-8c00-9df182b4d922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause">
+      <UniqueIdentifier>{9852a84f-5af3-4bff-a326-dd4d5ebc338d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\std_debug_pause">
+      <UniqueIdentifier>{23696f08-f37e-4919-a66b-50c11030ae95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\i_debug_pause">
+      <UniqueIdentifier>{cc879153-8f3e-4002-ad0d-ace4e2279291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\stdin_debug_pause">
+      <UniqueIdentifier>{1fda85ed-ea1a-46b4-83f9-3006ab153dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\debug_pause\dummy_debug_pause">
+      <UniqueIdentifier>{3c8b0f7f-a35f-4249-b3ec-0dd737c71798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\profiler">
+      <UniqueIdentifier>{f6528a02-c39b-421e-9de4-e34b9a3516c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\log\debug_log">
+      <UniqueIdentifier>{9c425b11-1c0e-431d-b9e9-0b95996d1f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\debug\log\debug_log">
+      <UniqueIdentifier>{978d54f9-d0f5-4970-9034-7d47ac18676f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\assert">
+      <UniqueIdentifier>{7d956992-0c7a-4246-ac77-1f74f59fd9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\assert\simple_assert">
+      <UniqueIdentifier>{9baf764a-084f-427f-a83d-b60e2407164e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\debug\debugger_break">
+      <UniqueIdentifier>{9794dedb-67fe-4777-8654-3c20aa8c3104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization">
+      <UniqueIdentifier>{b66da2ac-cc44-4d5b-8bcd-160b48fa490b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\version">
+      <UniqueIdentifier>{13c5d3a5-396d-43d3-b7ee-a4c95f5fa672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\serialize">
+      <UniqueIdentifier>{078c8542-609f-4381-bf74-c709af9a1152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive">
+      <UniqueIdentifier>{d447fc6a-0f54-484d-8002-8d9e582f1c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive">
+      <UniqueIdentifier>{e5e8fda4-a482-4de5-beda-4b34f2f7759c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\version_def">
+      <UniqueIdentifier>{46b9a2a9-f6c0-412e-999c-05c14ec76d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic">
+      <UniqueIdentifier>{494ac7f6-cbec-4d20-8203-c51eea1d1bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\results">
+      <UniqueIdentifier>{0d477356-4077-4353-9276-0ed3b73ff03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive">
+      <UniqueIdentifier>{d023c0e0-284f-4afb-a30d-60d1360a3faf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter">
+      <UniqueIdentifier>{c99d4ff0-a398-4eae-b8f4-26ffd7d51673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\archive_adapter_base">
+      <UniqueIdentifier>{fc5e1fbc-ae39-4e76-9b86-510ea9377a99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\input_archive_adapter">
+      <UniqueIdentifier>{ed0eb7ca-afde-44ed-a24b-3759838aaa67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_adapter\output_archive_adapter">
+      <UniqueIdentifier>{f6a1cb74-71c7-4b9f-a4d0-38093c38ce96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format">
+      <UniqueIdentifier>{304b0cab-e668-41ea-a404-3fff938513b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\binary_archive_format_base">
+      <UniqueIdentifier>{57d7e1e1-166e-47ee-9da4-ac5505710aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\input_binary_archive_format">
+      <UniqueIdentifier>{80a7a068-23a8-48f1-8e53-151fe22cc912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\binary_archive\archive_format\output_binary_archive_format">
+      <UniqueIdentifier>{c2acd55e-04ac-4af0-acd9-1dd524351528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format">
+      <UniqueIdentifier>{b0a86802-ea44-4811-aab5-e3962886323c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\archive_format_base">
+      <UniqueIdentifier>{e06fa9ad-2f93-40b4-8611-1e00714715d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\input_archive_format_prototype">
+      <UniqueIdentifier>{18878a94-d4b6-450e-bd20-a0fff3c260e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive_format\output_archive_format_prototype">
+      <UniqueIdentifier>{7ba1b07c-49dd-411e-b7c2-78275e36dc56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive">
+      <UniqueIdentifier>{10f9abd6-c3a6-4c24-b2df-0a299709d68e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\archive_base">
+      <UniqueIdentifier>{e20de5a7-d60a-4835-9389-d8978c311f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\input_archive">
+      <UniqueIdentifier>{500e9521-f280-4380-8c86-3b939b2e2d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\basic\archive\output_archive">
+      <UniqueIdentifier>{49e1fff9-70c6-4830-80e1-df6dc4e2f230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\serialization">
+      <UniqueIdentifier>{a2c4c79e-bc86-476c-ab38-6e3cb4b4ba25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_info_base">
+      <UniqueIdentifier>{b2e603c3-1f27-4d1d-bf9b-28137c87f742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_info">
+      <UniqueIdentifier>{1f1d9de4-c1e4-4d1e-b62a-013a2c48861a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\item_attr">
+      <UniqueIdentifier>{405e33d9-0538-4d59-90e3-8f7abde108cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_ctrl_base">
+      <UniqueIdentifier>{7049a0f9-8194-4ac4-ab57-78dc7130aca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_ctrl">
+      <UniqueIdentifier>{fa298a59-2163-4735-9db0-ae74965b86bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\serialization\type_traits">
+      <UniqueIdentifier>{dae83d32-488d-425e-b0fc-f1ff09da8c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archive">
+      <UniqueIdentifier>{75a68b82-8470-4717-b20f-5831e99f8137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archive\archive_format">
+      <UniqueIdentifier>{0acc4623-0a9e-4575-90d9-3010f5c20085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archive\archive_format\input_text_archive_format">
+      <UniqueIdentifier>{9a7e8a79-7267-49b4-b6a9-4b6ea5137f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archive\archive_format\output_text_archive_format">
+      <UniqueIdentifier>{a246cb92-4937-404e-ae0b-81adbf2e5196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\text_archive\archive_format\text_archive_format_base">
+      <UniqueIdentifier>{52d7c7d4-a2b5-4d41-9070-0905014b8973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\basic">
+      <UniqueIdentifier>{0f6b251e-cbf7-4908-a951-6d662b343040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\binary_archive">
+      <UniqueIdentifier>{b3d09ab8-1e5a-4688-a66b-5349dc21e032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\text_archive">
+      <UniqueIdentifier>{f5d67305-3ea7-41cd-a4c7-58715baefd0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\basic\results">
+      <UniqueIdentifier>{140e1d41-778c-4035-a725-22bcc7e53bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\basic\archive_adapter">
+      <UniqueIdentifier>{a7851b1c-baf5-4917-a7ff-3acf62a6b705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\binary_archive\archive_format">
+      <UniqueIdentifier>{b89b0658-9f2f-4b5c-8c3c-b37dc3308abe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\archive\text_archive\archive_format">
+      <UniqueIdentifier>{34de934b-4933-4e39-abec-46988b42b06b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\serialization\item_info_base">
+      <UniqueIdentifier>{e9ce8903-6482-47f4-9692-fe0ad57907c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\serialization\item_ctrl_base">
+      <UniqueIdentifier>{a3bc72db-ee02-43e1-82ca-1c7ceaecbb77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\serialization\item_ctrl">
+      <UniqueIdentifier>{ef82e946-9e44-4928-9695-dd28082b48e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\archive\Bosst C++ style">
+      <UniqueIdentifier>{288b62fd-1f77-4a50-9d9f-d37ab28fd727}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\gasha\include\crc32.h">
-      <Filter>ヘッダー ファイル\crc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\language_auto_settings.h">
-      <Filter>ヘッダー ファイル\build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\platform_auto_settings.h">
-      <Filter>ヘッダー ファイル\build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\compiler_auto_settings.h">
-      <Filter>ヘッダー ファイル\build_settings\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha\include\build_settings.h">
-      <Filter>ヘッダー ファイル\build_settings</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\project_build_settings_first.h">
-      <Filter>ヘッダー ファイル\build_settings\project</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gasha_settings\include\project_build_settings.h">
-      <Filter>ヘッダー ファイル\build_settings\project</Filter>
-    </ClInclude>
     <ClInclude Include="standard.h">
       <Filter>プリコンパイル済みヘッダー</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\crc32.h">
+      <Filter>gasha\math\crc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\sort_basic.h">
+      <Filter>gasha\algorithm\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\search_basic.h">
+      <Filter>gasha\algorithm\search</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.h">
+      <Filter>gasha\container\external\dynamic_array</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dynamic_array.cpp.h">
+      <Filter>gasha\container\external\dynamic_array</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.h">
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_queue.h">
+      <Filter>gasha\thread\shared_data\lf_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack.h">
+      <Filter>gasha\thread\shared_data\lf_stack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_queue.h">
+      <Filter>gasha\thread\shared_data\shared_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_stack.h">
+      <Filter>gasha\thread\shared_data\shared_stack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_queue.cpp.h">
+      <Filter>gasha\thread\shared_data\shared_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_stack.cpp.h">
+      <Filter>gasha\thread\shared_data\shared_stack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_pool_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_queue.cpp.h">
+      <Filter>gasha\thread\shared_data\lf_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack.cpp.h">
+      <Filter>gasha\thread\shared_data\lf_stack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.cpp.h">
+      <Filter>gasha\container\external\ring_buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\ring_buffer.h">
+      <Filter>gasha\container\external\ring_buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.h">
+      <Filter>gasha\container\external\rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\rb_tree.cpp.h">
+      <Filter>gasha\container\external\rb_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.h">
+      <Filter>gasha\container\external\linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linked_list.cpp.h">
+      <Filter>gasha\container\external\linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.h">
+      <Filter>gasha\container\external\singly_linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singly_linked_list.cpp.h">
+      <Filter>gasha\container\external\singly_linked_list</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.h">
+      <Filter>gasha\container\internal\hash_table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\hash_table.cpp.h">
+      <Filter>gasha\container\internal\hash_table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.h">
+      <Filter>gasha\container\internal\binary_heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_heap.cpp.h">
+      <Filter>gasha\container\internal\binary_heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.cpp.h">
+      <Filter>gasha\container\adapter\priority_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\priority_queue.h">
+      <Filter>gasha\container\adapter\priority_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\fast_math.h">
+      <Filter>gasha\math\fast_math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\basic_math.h">
+      <Filter>gasha\math\basic_math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\iterator.h">
+      <Filter>gasha\algorithm\basic\iterator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\binary_search.h">
+      <Filter>gasha\algorithm\search\binary_search</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\linear_search.h">
+      <Filter>gasha\algorithm\search\linear_search</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\is_ordered.h">
+      <Filter>gasha\algorithm\sort\is_ordered</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\radix_sort.h">
+      <Filter>gasha\algorithm\sort\distributoin_sort\radix_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\bubble_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\bubble_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\comb_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\comb_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\gnome_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\gnome_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\odd_even_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shaker_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\shaker_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shear_sort.h">
+      <Filter>gasha\algorithm\sort\exhange_sort\shear_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\intro_sort.h">
+      <Filter>gasha\algorithm\sort\hybrid_sort\intoro_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\insertion_sort.h">
+      <Filter>gasha\algorithm\sort\insertion_sort\insertion_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shell_sort.h">
+      <Filter>gasha\algorithm\sort\insertion_sort\shell_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\inplace_merge_sort.h">
+      <Filter>gasha\algorithm\sort\merge_sort\inplace_merge_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\quick_sort.h">
+      <Filter>gasha\algorithm\sort\partition_exchange_sort\quick_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\heap_sort.h">
+      <Filter>gasha\algorithm\sort\selection_sort\heap_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\selection_sort.h">
+      <Filter>gasha\algorithm\sort\selection_sort\selection_sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\fast_string.h">
+      <Filter>gasha\string\fast_string</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\utility.h">
+      <Filter>gasha\utility\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\type_traits.h">
+      <Filter>gasha\utility\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\limits.h">
+      <Filter>gasha\utility\limits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h">
+      <Filter>gasha\thread\shared_data\tagged_ptr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_lock.h">
+      <Filter>gasha\thread\lock\dummy_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lw_spin_lock.h">
+      <Filter>gasha\thread\lock\lw_spin_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\spin_lock.h">
+      <Filter>gasha\thread\lock\spin_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_shared_lock.h">
+      <Filter>gasha\thread\lock\dummy_shared_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\simple_shared_spin_lock.h">
+      <Filter>gasha\thread\lock\simple_shared_spin_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_spin_lock.h">
+      <Filter>gasha\thread\lock\shared_spin_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h">
+      <Filter>gasha\thread\lock\unshared_spin_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_guard.h">
+      <Filter>gasha\thread\scoped_lock\lock_guard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h">
+      <Filter>gasha\thread\scoped_lock\unique_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\shared_lock_guard.h">
+      <Filter>gasha\thread\scoped_lock\shared_lock_guard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h">
+      <Filter>gasha\thread\scoped_lock\unique_shared_lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\thread_id.h">
+      <Filter>gasha\thread\thread_id</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.h">
+      <Filter>gasha\singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton.cpp.h">
+      <Filter>gasha\singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.h">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_singleton_debug.h">
+      <Filter>gasha\singleton\dummy_singleton_debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\singleton_debug.cpp.h">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.h">
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\pool_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.h">
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_configuration.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\compiler_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\language_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\adjust_build_settings.h">
+      <Filter>gasha_build_settings\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings.h">
+      <Filter>gasha_build_settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_cygwin.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_linux.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_os_win.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_endian.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\platform_auto_settings_cpu_x86.h">
+      <Filter>gasha_build_settings\common\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_first_settings.h">
+      <Filter>gasha_build_settings\for_project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_last_settings.h">
+      <Filter>gasha_build_settings\for_project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.h">
+      <Filter>gasha_build_settings\diag</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\chrono.h">
+      <Filter>gasha\utility\chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\memory.h">
+      <Filter>gasha\memory\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h">
+      <Filter>gasha_build_settings\for_project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.h">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.h">
+      <Filter>gasha\memory\allocator\mono_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\mono_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_mono_allocator.h">
+      <Filter>gasha\memory\allocator\lf_mono_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.h">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dual_stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.h">
+      <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_stack_allocator.h">
+      <Filter>gasha\memory\allocator\scoped_allocator\scoped_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.h">
+      <Filter>gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.h">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_allocator.cpp.h">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\build_settings\builtin_functions.h">
+      <Filter>gasha_build_settings\common\builtin_functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\new.h">
+      <Filter>gasha\memory\new</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h">
+      <Filter>gasha\memory\poly_allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\profiler.h">
+      <Filter>gasha\debug\profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\console_color.h">
+      <Filter>gasha\debug\console\console_color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_level.h">
+      <Filter>gasha\debug\log\log_level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\call_point.h">
+      <Filter>gasha\debug\call_point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_category.h">
+      <Filter>gasha\debug\log\log_category</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_console.h">
+      <Filter>gasha\debug\console\i_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter\allocator_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_allocator_adapter.h">
+      <Filter>gasha\memory\allocator_adapter\i_allocator_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\allocator_common.h">
+      <Filter>gasha\memory\allocator_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\lock_common.h">
+      <Filter>gasha\thread\lock_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_console.h">
+      <Filter>gasha\debug\console\std_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\tty_console.h">
+      <Filter>gasha\debug\console\tty_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\vs_console.h">
+      <Filter>gasha\debug\console\vs_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\win_console.h">
+      <Filter>gasha\debug\console\win_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\cpuid.h">
+      <Filter>gasha\utility\cpuid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\string.h">
+      <Filter>gasha\string\string</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_mask.h">
+      <Filter>gasha\debug\log\log_mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_work_buff.h">
+      <Filter>gasha\debug\log\log_work_buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_queue.h">
+      <Filter>gasha\debug\log\log_queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_purpose.h">
+      <Filter>gasha\debug\log\log_purpose</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_level.h">
+      <Filter>gasha\debug\log\log_level\default_log_level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\default_log_category.h">
+      <Filter>gasha\debug\log\log_category\default_log_category</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_queue_monitor.h">
+      <Filter>gasha\debug\log\log_queue_monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_attr.h">
+      <Filter>gasha\debug\log\log_attr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\log_print_info.h">
+      <Filter>gasha\debug\log\log_print\log_print_info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h">
+      <Filter>gasha\debug\log\log_print\std_log_print</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_console.h">
+      <Filter>gasha\debug\console\dummy_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\print.h">
+      <Filter>gasha\debug\print</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mem_console.h">
+      <Filter>gasha\debug\console\mem_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\mem_console.cpp.h">
+      <Filter>gasha\debug\console\mem_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\strconv.h">
+      <Filter>gasha\string\strconv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\i_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\std_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\dummy_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\stdin_debug_pause.h">
+      <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\debug_log.h">
+      <Filter>gasha\debug\log\debug_log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\assert.h">
+      <Filter>gasha\debug\assert\assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\simple_assert.h">
+      <Filter>gasha\debug\assert\simple_assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\debugger_break.h">
+      <Filter>gasha\debug\debugger_break</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\version.h">
+      <Filter>gasha\serialization\version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\version_def.h">
+      <Filter>gasha\serialization\version_def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\error.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\load.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\notice.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\save.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\serialize.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\collector.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\distributor.h">
+      <Filter>gasha\serialization\serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\results.h">
+      <Filter>gasha\archive\basic\results</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization.h">
+      <Filter>gasha\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_adapter_base.h">
+      <Filter>gasha\archive\basic\archive_adapter\archive_adapter_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_base.h">
+      <Filter>gasha\archive\basic\archive\archive_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\archive_format_base.h">
+      <Filter>gasha\archive\basic\archive_format\archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_archive_format_base.h">
+      <Filter>gasha\archive\binary_archive\archive_format\binary_archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive.h">
+      <Filter>gasha\archive\basic\archive\input_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive_adapter.h">
+      <Filter>gasha\archive\basic\archive_adapter\input_archive_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_archive_format_prototype.h">
+      <Filter>gasha\archive\basic\archive_format\input_archive_format_prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_binary_archive_format.h">
+      <Filter>gasha\archive\binary_archive\archive_format\input_binary_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_text_archive_format.h">
+      <Filter>gasha\archive\text_archive\archive_format\input_text_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive.h">
+      <Filter>gasha\archive\basic\archive\output_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive_adapter.h">
+      <Filter>gasha\archive\basic\archive_adapter\output_archive_adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_archive_format_prototype.h">
+      <Filter>gasha\archive\basic\archive_format\output_archive_format_prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_binary_archive_format.h">
+      <Filter>gasha\archive\binary_archive\archive_format\output_binary_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_text_archive_format.h">
+      <Filter>gasha\archive\text_archive\archive_format\output_text_archive_format</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_archive_format_base.h">
+      <Filter>gasha\archive\text_archive\archive_format\text_archive_format_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_binary_archive.h">
+      <Filter>gasha\archive\binary_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_binary_archive.h">
+      <Filter>gasha\archive\binary_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\input_text_archive.h">
+      <Filter>gasha\archive\text_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\output_text_archive.h">
+      <Filter>gasha\archive\text_archive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_oarchive.h">
+      <Filter>gasha\archive\Bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_iarchive.h">
+      <Filter>gasha\archive\Bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\text_oarchive.h">
+      <Filter>gasha\archive\Bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\archive\binary_iarchive.h">
+      <Filter>gasha\archive\Bosst C++ style</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_attr.h">
+      <Filter>gasha\serialization\item_attr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info.h">
+      <Filter>gasha\serialization\item_info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\item_info_base.h">
+      <Filter>gasha\serialization\item_info_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_traits.h">
+      <Filter>gasha\serialization\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_ctrl.h">
+      <Filter>gasha\serialization\type_ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.h">
+      <Filter>gasha\serialization\type_ctrl_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\serialization\friends.h">
+      <Filter>gasha\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\version.h">
+      <Filter>gasha</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\crc\crc32.cpp">
-      <Filter>ソース ファイル\crc</Filter>
-    </ClCompile>
     <ClCompile Include="standard.cpp">
       <Filter>プリコンパイル済みヘッダー</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\thread\lock\lock_common.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\lw_spin_lock.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\shared_spin_lock.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\simple_shared_spin_lock.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\spin_lock.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp">
+      <Filter>gasha_src\thread\lock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\new.cpp">
+      <Filter>gasha_src\memory\new</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\lf_mono_allocator.cpp">
+      <Filter>gasha_src\memory\allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\build_settings\build_settings_diag.cpp">
+      <Filter>gasha_src\build_settings\diag</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\poly_allocator.cpp">
+      <Filter>gasha_src\memory\poly_allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread\thread_id.cpp">
+      <Filter>gasha_src\thread\thread_id</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\basic_math.cpp">
+      <Filter>gasha_src\math\basic_math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\crc32.cpp">
+      <Filter>gasha_src\math\crc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\fast_string.cpp">
+      <Filter>gasha_src\string\fast_string</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\chrono.cpp">
+      <Filter>gasha_src\utility\chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\cpuid.cpp">
+      <Filter>gasha_src\utility\cpuid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utility\type_traits.cpp">
+      <Filter>gasha_src\utility\type_traits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\string.cpp">
+      <Filter>gasha_src\string\string</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\string\strconv.cpp">
+      <Filter>gasha_src\string\strconv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert\assert.cpp">
+      <Filter>gasha_src\debug\assert</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\call_point\call_point.cpp">
+      <Filter>gasha_src\debug\call_point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\tty_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\vs_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\win_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\console_color.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\dummy_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\console\std_console.cpp">
+      <Filter>gasha_src\debug\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\profiler\profiler.cpp">
+      <Filter>gasha_src\debug\profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert\std_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert\stdin_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\assert\dummy_debug_pause.cpp">
+      <Filter>gasha_src\debug\assert\debug_pause</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\default_log_category.cpp">
+      <Filter>gasha_src\debug\log\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_category.cpp">
+      <Filter>gasha_src\debug\log\log_category</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\default_log_level.cpp">
+      <Filter>gasha_src\debug\log\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_level.cpp">
+      <Filter>gasha_src\debug\log\log_level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_attr.cpp">
+      <Filter>gasha_src\debug\log\log_attr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_mask.cpp">
+      <Filter>gasha_src\debug\log\log_mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_queue.cpp">
+      <Filter>gasha_src\debug\log\log_queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_queue_monitor.cpp">
+      <Filter>gasha_src\debug\log\log_queue_monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\log_work_buff.cpp">
+      <Filter>gasha_src\debug\log\log_work_buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debug\log\debug_log.cpp">
+      <Filter>gasha_src\debug\log\debug_log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\archive_adapter_base.cpp">
+      <Filter>gasha_src\archive\basic\archive_adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\archive_base.cpp">
+      <Filter>gasha_src\archive\basic\archive_adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_archive_adapter.cpp">
+      <Filter>gasha_src\archive\basic\archive_adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_archive_adapter.cpp">
+      <Filter>gasha_src\archive\basic\archive_adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\results.cpp">
+      <Filter>gasha_src\archive\basic\results</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\binary_archive_format_base.cpp">
+      <Filter>gasha_src\archive\binary_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_binary_archive_format.cpp">
+      <Filter>gasha_src\archive\binary_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_binary_archive_format.cpp">
+      <Filter>gasha_src\archive\binary_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\input_text_archive_format.cpp">
+      <Filter>gasha_src\archive\text_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\output_text_archive_format.cpp">
+      <Filter>gasha_src\archive\text_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\archive\text_archive_format_base.cpp">
+      <Filter>gasha_src\archive\text_archive\archive_format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\item_info_base.cpp">
+      <Filter>gasha_src\serialization\item_info_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\type_ctrl.cpp">
+      <Filter>gasha_src\serialization\item_ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\serialization\type_ctrl_base.cpp">
+      <Filter>gasha_src\serialization\item_ctrl_base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\gasha\include\gasha\dynamic_array.inl">
+      <Filter>gasha\container\external\dynamic_array</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shared_queue.inl">
+      <Filter>gasha\thread\shared_data\shared_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shared_stack.inl">
+      <Filter>gasha\thread\shared_data\shared_stack</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_pool_allocator.inl">
+      <Filter>gasha\memory\allocator\lf_pool_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_queue.inl">
+      <Filter>gasha\thread\shared_data\lf_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_stack.inl">
+      <Filter>gasha\thread\shared_data\lf_stack</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\ring_buffer.inl">
+      <Filter>gasha\container\external\ring_buffer</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\rb_tree.inl">
+      <Filter>gasha\container\external\rb_tree</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\linked_list.inl">
+      <Filter>gasha\container\external\linked_list</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singly_linked_list.inl">
+      <Filter>gasha\container\external\singly_linked_list</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\hash_table.inl">
+      <Filter>gasha\container\internal\hash_table</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\binary_heap.inl">
+      <Filter>gasha\container\internal\binary_heap</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\priority_queue.inl">
+      <Filter>gasha\container\adapter\priority_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\fast_math.inl">
+      <Filter>gasha\math\fast_math</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\basic_math.inl">
+      <Filter>gasha\math\basic_math</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\crc32.inl">
+      <Filter>gasha\math\crc</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\iterator.inl">
+      <Filter>gasha\algorithm\basic\iterator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\binary_search.inl">
+      <Filter>gasha\algorithm\search\binary_search</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\linear_search.inl">
+      <Filter>gasha\algorithm\search\linear_search</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\radix_sort.inl">
+      <Filter>gasha\algorithm\sort\distributoin_sort\radix_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\bubble_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\bubble_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\comb_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\comb_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\gnome_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\gnome_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shear_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\shear_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shaker_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\shaker_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\odd_even_sort.inl">
+      <Filter>gasha\algorithm\sort\exhange_sort\odd_even_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\intro_sort.inl">
+      <Filter>gasha\algorithm\sort\hybrid_sort\intoro_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\insertion_sort.inl">
+      <Filter>gasha\algorithm\sort\insertion_sort\insertion_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shell_sort.inl">
+      <Filter>gasha\algorithm\sort\insertion_sort\shell_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\inplace_merge_sort.inl">
+      <Filter>gasha\algorithm\sort\merge_sort\inplace_merge_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\is_ordered.inl">
+      <Filter>gasha\algorithm\sort\is_ordered</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\quick_sort.inl">
+      <Filter>gasha\algorithm\sort\partition_exchange_sort\quick_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\heap_sort.inl">
+      <Filter>gasha\algorithm\sort\selection_sort\heap_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\selection_sort.inl">
+      <Filter>gasha\algorithm\sort\selection_sort\selection_sort</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\fast_string.inl">
+      <Filter>gasha\string\fast_string</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\utility.inl">
+      <Filter>gasha\utility\utility</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\limits.inl">
+      <Filter>gasha\utility\limits</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\type_traits.inl">
+      <Filter>gasha\utility\type_traits</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\tagged_ptr.inl">
+      <Filter>gasha\thread\shared_data\tagged_ptr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lock_guard.inl">
+      <Filter>gasha\thread\scoped_lock\lock_guard</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shared_lock_guard.inl">
+      <Filter>gasha\thread\scoped_lock\shared_lock_guard</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\unique_lock.inl">
+      <Filter>gasha\thread\scoped_lock\unique_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\unique_shared_lock.inl">
+      <Filter>gasha\thread\scoped_lock\unique_shared_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_lock.inl">
+      <Filter>gasha\thread\lock\dummy_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_shared_lock.inl">
+      <Filter>gasha\thread\lock\dummy_shared_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\spin_lock.inl">
+      <Filter>gasha\thread\lock\spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lw_spin_lock.inl">
+      <Filter>gasha\thread\lock\lw_spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\shared_spin_lock.inl">
+      <Filter>gasha\thread\lock\shared_spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\unshared_spin_lock.inl">
+      <Filter>gasha\thread\lock\unshared_spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\simple_shared_spin_lock.inl">
+      <Filter>gasha\thread\lock\simple_shared_spin_lock</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\thread_id.inl">
+      <Filter>gasha\thread\thread_id</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singleton.inl">
+      <Filter>gasha\singleton</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\singleton_debug.inl">
+      <Filter>gasha\singleton\singleton_debug</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_singleton_debug.inl">
+      <Filter>gasha\singleton\dummy_singleton_debug</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\pool_allocator.inl">
+      <Filter>gasha\memory\allocator\pool_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\stack_allocator.inl">
+      <Filter>gasha\memory\allocator\stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\build_settings\build_settings_diag.inl">
+      <Filter>gasha_build_settings\diag</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\chrono.inl">
+      <Filter>gasha\utility\chrono</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\memory.inl">
+      <Filter>gasha\memory\memory</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\lf_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\mono_allocator.inl">
+      <Filter>gasha\memory\allocator\mono_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_mono_allocator.inl">
+      <Filter>gasha\memory\allocator\lf_mono_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dual_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lf_dual_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\lf_dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\scoped_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\scoped_allocator\scoped_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\scoped_dual_stack_allocator.inl">
+      <Filter>gasha\memory\allocator\scoped_allocator\scoped_dual_stack_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_allocator.inl">
+      <Filter>gasha\memory\allocator\std_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\build_settings\builtin_functions.inl">
+      <Filter>gasha_build_settings\common\builtin_functions</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\new.inl">
+      <Filter>gasha\memory\new</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\poly_allocator.inl">
+      <Filter>gasha\memory\poly_allocator</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\profiler.inl">
+      <Filter>gasha\debug\profiler</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\console_color.inl">
+      <Filter>gasha\debug\console\console_color</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_level.inl">
+      <Filter>gasha\debug\log\log_level</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\call_point.inl">
+      <Filter>gasha\debug\call_point</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_category.inl">
+      <Filter>gasha\debug\log\log_category</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_console.inl">
+      <Filter>gasha\debug\console\i_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_adapter.inl">
+      <Filter>gasha\memory\allocator_adapter\allocator_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_allocator_adapter.inl">
+      <Filter>gasha\memory\allocator_adapter\i_allocator_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\allocator_common.inl">
+      <Filter>gasha\memory\allocator_common</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\lock_common.inl">
+      <Filter>gasha\thread\lock_common</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_console.inl">
+      <Filter>gasha\debug\console\std_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\tty_console.inl">
+      <Filter>gasha\debug\console\tty_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\vs_console.inl">
+      <Filter>gasha\debug\console\vs_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\win_console.inl">
+      <Filter>gasha\debug\console\win_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\string.inl">
+      <Filter>gasha\string\string</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_mask.inl">
+      <Filter>gasha\debug\log\log_mask</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_work_buff.inl">
+      <Filter>gasha\debug\log\log_work_buff</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_queue.inl">
+      <Filter>gasha\debug\log\log_queue</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_purpose.inl">
+      <Filter>gasha\debug\log\log_purpose</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\default_log_level.inl">
+      <Filter>gasha\debug\log\log_level\default_log_level</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\default_log_category.inl">
+      <Filter>gasha\debug\log\log_category\default_log_category</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_queue_monitor.inl">
+      <Filter>gasha\debug\log\log_queue_monitor</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_attr.inl">
+      <Filter>gasha\debug\log\log_attr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\log_print_info.inl">
+      <Filter>gasha\debug\log\log_print\log_print_info</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_log_print.inl">
+      <Filter>gasha\debug\log\log_print\std_log_print</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_console.inl">
+      <Filter>gasha\debug\console\dummy_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\print.inl">
+      <Filter>gasha\debug\print</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\mem_console.inl">
+      <Filter>gasha\debug\console\mem_console</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\strconv.inl">
+      <Filter>gasha\string\strconv</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\i_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\i_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\std_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\std_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\dummy_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\dummy_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\stdin_debug_pause.inl">
+      <Filter>gasha\debug\assert\debug_pause\stdin_debug_pause</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\debug_log.inl">
+      <Filter>gasha\debug\log\debug_log</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\assert.inl">
+      <Filter>gasha\debug\assert\assert</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\simple_assert.inl">
+      <Filter>gasha\debug\assert\simple_assert</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\debugger_break.inl">
+      <Filter>gasha\debug\debugger_break</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\version.inl">
+      <Filter>gasha\serialization\version</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\version_def.inl">
+      <Filter>gasha\serialization\version_def</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\results.inl">
+      <Filter>gasha\archive\basic\results</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_adapter_base.inl">
+      <Filter>gasha\archive\basic\archive_adapter\archive_adapter_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_base.inl">
+      <Filter>gasha\archive\basic\archive\archive_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\archive_format_base.inl">
+      <Filter>gasha\archive\basic\archive_format\archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\binary_archive_format_base.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\binary_archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_archive.inl">
+      <Filter>gasha\archive\basic\archive\input_archive</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_archive_adapter.inl">
+      <Filter>gasha\archive\basic\archive_adapter\input_archive_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_binary_archive_format.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\input_binary_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\input_text_archive_format.inl">
+      <Filter>gasha\archive\text_archive\archive_format\input_text_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_archive.inl">
+      <Filter>gasha\archive\basic\archive\output_archive</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_archive_adapter.inl">
+      <Filter>gasha\archive\basic\archive_adapter\output_archive_adapter</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_binary_archive_format.inl">
+      <Filter>gasha\archive\binary_archive\archive_format\output_binary_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\output_text_archive_format.inl">
+      <Filter>gasha\archive\text_archive\archive_format\output_text_archive_format</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\archive\text_archive_format_base.inl">
+      <Filter>gasha\archive\text_archive\archive_format\text_archive_format_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_attr.inl">
+      <Filter>gasha\serialization\item_attr</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_info.inl">
+      <Filter>gasha\serialization\item_info</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\item_info_base.inl">
+      <Filter>gasha\serialization\item_info_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_traits.inl">
+      <Filter>gasha\serialization\type_traits</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_ctrl.inl">
+      <Filter>gasha\serialization\type_ctrl</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.inl">
+      <Filter>gasha\serialization\type_ctrl_base</Filter>
+    </None>
   </ItemGroup>
 </Project>

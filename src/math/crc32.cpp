@@ -1,22 +1,22 @@
 ﻿//--------------------------------------------------------------------------------
 // crc32.cpp
-// CRC32計算
+// CRC32計算【関数／実体定義部】
 //
-// Gakimaru's researched and standard library for C++ - GASHA
+// Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
 //   Released under the MIT license.
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#define MAKE_CRC_INSTANCE//"constexpr.h"内に定義されている関数を実体化
+#include <gasha/crc32.inl>//CRC32計算【インライン関数定義部】
 
-#include "crc32.h"
+#include <cstdio>//std::printf()
 
-NAMESPACE_GASHA_BEGIN//ネームスペース：開始
-
-#ifdef USE_SSE4_2
+#ifdef GASHA_USE_SSE4_2
 #include <nmmintrin.h>//SSE4.2
-#endif//USE_SSE4_2
+#endif//GASHA_USE_SSE4_2
+
+GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------
 //【ランタイム関数版：ループ処理版】CRC32計算（共通処理部）
@@ -27,17 +27,17 @@ static crc32_t calcPoly(const crc32_t poly)
 	{
 		//生成多項式
 		//多項式計算
-		_poly = _poly & 1 ? __crc32::POLYNOMIAL ^ (_poly >> 1) : (_poly >> 1);
+		_poly = _poly & 1 ? _private::POLYNOMIAL ^ (_poly >> 1) : (_poly >> 1);
 	}
 	return _poly;
 }
 
-#ifdef CRC32_USE_STATIC_TABLE
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
 //--------------------
 //CRC32多項式計算済みテーブル
 static const crc32_t s_polyTable[256] =
 {
-#ifndef CRC32_IS_CRC32C
+#ifndef GASHA_CRC32_IS_CRC32C
 	//IEEE勧告の標準的なCRC32の多項式テーブル
 	0x00000000u, 0x77073096u, 0xee0e612cu, 0x990951bau, 0x076dc419u, 0x706af48fu, 0xe963a535u, 0x9e6495a3u,
 	0x0edb8832u, 0x79dcb8a4u, 0xe0d5e91eu, 0x97d2d988u, 0x09b64c2bu, 0x7eb17cbdu, 0xe7b82d07u, 0x90bf1d91u,
@@ -71,7 +71,7 @@ static const crc32_t s_polyTable[256] =
 	0xaed16a4au, 0xd9d65adcu, 0x40df0b66u, 0x37d83bf0u, 0xa9bcae53u, 0xdebb9ec5u, 0x47b2cf7fu, 0x30b5ffe9u,
 	0xbdbdf21cu, 0xcabac28au, 0x53b39330u, 0x24b4a3a6u, 0xbad03605u, 0xcdd70693u, 0x54de5729u, 0x23d967bfu,
 	0xb3667a2eu, 0xc4614ab8u, 0x5d681b02u, 0x2a6f2b94u, 0xb40bbe37u, 0xc30c8ea1u, 0x5a05df1bu, 0x2d02ef8du
-#else//CRC32_IS_CRC32C
+#else//GASHA_CRC32_IS_CRC32C
 	//CRC-32C(Castagnoli)の多項式テーブル
 	0x00000000u, 0xf26b8303u, 0xe13b70f7u, 0x1350f3f4u, 0xc79a971fu, 0x35f1141cu, 0x26a1e7e8u, 0xd4ca64ebu,
 	0x8ad958cfu, 0x78b2dbccu, 0x6be22838u, 0x9989ab3bu, 0x4d43cfd0u, 0xbf284cd3u, 0xac78bf27u, 0x5e133c24u,
@@ -105,9 +105,9 @@ static const crc32_t s_polyTable[256] =
 	0x69e9f0d5u, 0x9b8273d6u, 0x88d28022u, 0x7ab90321u, 0xae7367cau, 0x5c18e4c9u, 0x4f48173du, 0xbd23943eu,
 	0xf36e6f75u, 0x0105ec76u, 0x12551f82u, 0xe03e9c81u, 0x34f4f86au, 0xc69f7b69u, 0xd5cf889du, 0x27a40b9eu,
 	0x79b737bau, 0x8bdcb4b9u, 0x988c474du, 0x6ae7c44eu, 0xbe2da0a5u, 0x4c4623a6u, 0x5f16d052u, 0xad7d5351u
-#endif//CRC32_IS_CRC32C
+#endif//GASHA_CRC32_IS_CRC32C
 };
-#endif//CRC32_USE_STATIC_TABLE
+#endif//GASHA_CRC32_USE_STATIC_TABLE
 
 //--------------------
 //【ランタイム関数版：再帰処理版】文字列のCRC32計算
@@ -117,7 +117,7 @@ crc32_t calcCRC32_recursive(const char* str)
 	const char* p = str;
 	while (*p)
 	{
-		crc = __crc32::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
+		crc = _private::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
 	}
 	return ~crc;
 }
@@ -129,7 +129,7 @@ crc32_t calcCRC32_recursive(const char* data, const std::size_t len)
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
-		crc = __crc32::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
+		crc = _private::calcPoly(static_cast<crc32_t>((crc ^ *(p++)) & 0xffu)) ^ (crc >> 8);
 	}
 	return ~crc;
 }
@@ -159,11 +159,11 @@ crc32_t calcCRC32_loop(const char* data, const std::size_t len)
 	return ~crc;
 }
 
-#ifdef CRC32_USE_STATIC_TABLE
 //--------------------
 //【ランタイム関数版：事前計算済み多項式テーブル版】文字列のCRC32計算
 crc32_t calcCRC32_table(const char* str)
 {
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
 	crc32_t crc = ~0u;
 	const char* p = str;
 	while (*p)
@@ -171,11 +171,15 @@ crc32_t calcCRC32_table(const char* str)
 		crc = s_polyTable[(crc ^ *(p++)) & 0xffu] ^ (crc >> 8);
 	}
 	return ~crc;
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(str);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
 }
 //--------------------
 //【ランタイム関数版：事前計算済み多項式テーブル版】指定長データのCRC32計算
 crc32_t calcCRC32_table(const char* data, const std::size_t len)
 {
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
 	crc32_t crc = ~0u;
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
@@ -183,14 +187,16 @@ crc32_t calcCRC32_table(const char* data, const std::size_t len)
 		crc = s_polyTable[(crc ^ *(p++)) & 0xffu] ^ (crc >> 8);
 	}
 	return ~crc;
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(data, len);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
 }
-#endif//CRC32_USE_STATIC_TABLE
 
-#ifdef USE_SSE4_2
 //--------------------
 //【ランタイム関数版：SSE命令版】文字列のCRC32計算
 crc32_t calcCRC32_sse(const char* str)
 {
+#ifdef GASHA_USE_SSE4_2
 	crc32_t crc = ~0u;
 	const char* p = str;
 	while (*p)
@@ -198,11 +204,19 @@ crc32_t calcCRC32_sse(const char* str)
 		crc = _mm_crc32_u8(crc, *(p++));
 	}
 	return ~crc;
+#else//GASHA_USE_SSE4_2
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_table(str);
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(str);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
+#endif//GASHA_USE_SSE4_2
 }
 //--------------------
 //【ランタイム関数版：SSE命令版】指定長データのCRC32計算
 crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 {
+#ifdef GASHA_USE_SSE4_2
 	crc32_t crc = ~0u;
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
@@ -210,33 +224,38 @@ crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 		crc = _mm_crc32_u8(crc, *(p++));
 	}
 	return ~crc;
+#else//GASHA_USE_SSE4_2
+#ifdef GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_table(data, len);
+#else//GASHA_CRC32_USE_STATIC_TABLE
+	return calcCRC32_loop(data, len);
+#endif//GASHA_CRC32_USE_STATIC_TABLE
+#endif//GASHA_USE_SSE4_2
 }
-#endif//USE_SSE4_2
 
 //--------------------
 //【プログラム作成補助処理】事前計算済み多項式テーブルの作成と表示
-#include <stdio.h>
 void makeAndPrintPolyTable()
 {
-	printf("\tstatic const crc32_t s_polyTable[256] =\n");
-	printf("\t{\n");
+	std::printf("\tstatic const crc32_t s_polyTable[256] =\n");
+	std::printf("\t{\n");
 	for (int i = 0; i < 256; ++i)
 	{
 		if (i > 0)
 		{
-			printf(",");
+			std::printf(",");
 			if (i % 8 == 0)
-				printf("\n");
+				std::printf("\n");
 			else
-				printf(" ");
+				std::printf(" ");
 		}
 		if (i % 8 == 0)
-			printf("\t\t");
-		printf("0x%08xu", __crc32::calcPoly(i));
+			std::printf("\t\t");
+		std::printf("0x%08xu", _private::calcPoly(i));
 	}
-	printf("\n\t};\n");
+	std::printf("\n\t};\n");
 }
 
-NAMESPACE_GASHA_END//ネームスペース：終了
+GASHA_NAMESPACE_END;//ネームスペース：終了
 
 // End of file

@@ -4,7 +4,7 @@
 # mk.sh
 # 全プラットフォーム＆ビルド設定でライブラリをメイク
 #
-# Gakimaru's researched and standard library for C++ - GASHA
+# Gakimaru's standard library for C++ - GASHA
 #   Copyright (c) 2014 Itagaki Mamoru
 #   Released under the MIT license.
 #     https://github.com/gakimaru/gasha_src/blob/master/LICENSE
@@ -12,9 +12,11 @@
 
 # メイクファイル実行関数
 function run_makefile_core() {
-	echo '--------------------------------------------------------------------------------'
+	echo ''
 	pushd $1
+	echo '--------------------------------------------------------------------------------'
 	make $2
+	echo '--------------------------------------------------------------------------------'
 	popd
 }
 
@@ -26,6 +28,7 @@ function run_makefile() {
 	export BUILD_PLATFORM=$1
 	export BUILD_TYPE=$2
 	run_makefile_core . $3
+	echo '================================================================================'
 }
 
 # x86 & Relase

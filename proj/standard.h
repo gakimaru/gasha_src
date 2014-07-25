@@ -1,19 +1,19 @@
 ﻿//#pragma once
-#ifndef __STANDARD_H_
-#define __STANDARD_H_
+#ifndef GASHA_INCLUDED_STANDARD_H
+#define GASHA_INCLUDED_STANDARD_H
 
 //--------------------------------------------------------------------------------
 // standard.h
 // 標準インクルード（プリコンパイル済みヘッダー／強制インクルード用）
 //
-// Gakimaru's researched and standard library for C++ - GASHA
+// Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
-//   Released under the MIT license
+//   Released under the MIT license.
 //     https://github.com/gakimaru/gasha_src/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <build_settings.h>
+#include <gasha/build_settings/build_settings.h>
 
-#endif//__STANDARD_H_
+#endif//GASHA_INCLUDED_STANDARD_H
 
 // End of file
