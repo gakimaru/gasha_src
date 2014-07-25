@@ -109,6 +109,9 @@ PC_STD_HEADER := $(OUT_DIR)/$(STD_HEADER:%.h=%.h.gch)
 # ソース／ヘッダーファイルの依存ファイル
 DEPS := $(SRCS:%.cpp=$(OUT_DIR)/%.d) $(PC_STD_HEADER:$(OUT_DIR)/%.gch=%.d)
 
+# ライブラリビルド時専用のプリプロセッサ
+CXXFLAGS += -DGASHA_BUILD_FOR_LIB
+
 #-------------------------------------------------------------------------------
 # 共通部分をインクルード
 

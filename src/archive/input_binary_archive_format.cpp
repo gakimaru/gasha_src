@@ -258,7 +258,10 @@ namespace archive
 					!child_item.nowIsNul() && //現在の（コピー先の）データがヌルではないか？
 					index < child_item.nowExtent();//現在の（コピー先の）配列の範囲内か？
 				void* p_tmp = element_is_valid ? p : nullptr;//有効なデータでなければnullptrを渡し、空読み込みする
-				arc.readWithFunc(result, child_item.m_nowTypeCtrl.m_fromMemFuncP, p_tmp, child_item.m_nowItemSize, child_item.m_itemSize, &read_size);//データ読み込み
+				std::size_t dst_size = child_item.m_nowItemSize;
+				if (p_tmp && child_item.isPtr() && child_item.m_nowItemSize == GASHA_ serialization::itemInfoBase::VARIABLE_SIZE)//【注意】対象が（文字列型の）有効なポインタで、かつ、サイズが 0 なら、読み込みサイズ分のバッファが格納されているものする
+					dst_size = child_item.m_itemSize;
+				arc.readWithFunc(result, child_item.m_nowTypeCtrl.m_fromMemFuncP, p_tmp, dst_size, child_item.m_itemSize, &read_size);//データ読み込み
 				if (p)
 					p += child_item.m_nowItemSize;//次の要素
 			}

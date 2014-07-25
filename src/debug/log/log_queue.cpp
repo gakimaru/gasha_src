@@ -38,7 +38,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 			//一時停止中は何もせずループする
 			if (m_pause.load())
 			{
-				GASHA_ defaultContextSwitch();
+				GASHA_ contextSwitch(GASHA_ short_sleep_switch);
 				continue;
 			}
 

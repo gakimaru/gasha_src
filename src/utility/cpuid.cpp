@@ -12,6 +12,7 @@
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
+#ifdef GASHA_HAS_CAMOUFLAGE_CPUID
 #ifdef GASHA_IS_X86
 #ifdef GASHA_IS_GCC
 void __cpuid(int cpu_info[4], const int type)
@@ -43,6 +44,7 @@ std::uint64_t _xgetbv(const std::uint32_t xcr)
 #define _XCR_XFEATURE_ENABLED_MASK 0
 #endif//GASHA_IS_GCC
 #endif//GASHA_IS_X86
+#endif//GASHA_HAS_CAMOUFLAGE_CPUID
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -24,7 +24,7 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 void registDefaultLogCategory()
 {
 	//通常ログカテゴリ登録補助マクロ
-	#define REG_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
+	#define GASHA_REGIST_LOG_CATEGORY(VALUE, CONSOLE, CONSOLE_N) \
 		{ \
 			GASHA_ iConsole* console = CONSOLE; \
 			GASHA_ iConsole* console_n = CONSOLE_N; \
@@ -36,7 +36,7 @@ void registDefaultLogCategory()
 		}
 
 	//特殊ログカテゴリ登録補助マクロ
-	#define REG_SPECIAL_LOG_CATEGORY(VALUE) \
+	#define GASHA_REGIST_SPECIAL_LOG_CATEGORY(VALUE) \
 		{ \
 			_private::regSpecialLogCategory<VALUE>()( \
 				#VALUE \
@@ -48,19 +48,19 @@ void registDefaultLogCategory()
 	iConsole& notice_console = GASHA_ stdNoticeConsole::instance();//画面通知用標準コンソール
 
 	//通常ログカテゴリ登録
-	REG_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
-	REG_LOG_CATEGORY(forDummy, &dummy_console, &dummy_console);//ダミー
-	REG_LOG_CATEGORY(forNotice, &dummy_console, &notice_console);//画面通知専用
-	REG_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
-	REG_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係
-	REG_LOG_CATEGORY(for3D, nullptr, nullptr);//3Dグラフィックス関係
-	REG_LOG_CATEGORY(for2D, nullptr, nullptr);//2Dグラフィックス関係
-	REG_LOG_CATEGORY(forSound, nullptr, nullptr);//サウンド関係
+	GASHA_REGIST_LOG_CATEGORY(forAny, nullptr, nullptr);//なんでも（カテゴリなし）
+	GASHA_REGIST_LOG_CATEGORY(forDummy, &dummy_console, &dummy_console);//ダミー
+	GASHA_REGIST_LOG_CATEGORY(forNotice, &dummy_console, &notice_console);//画面通知専用
+	GASHA_REGIST_LOG_CATEGORY(forFileSystem, nullptr, nullptr);//ファイルシステム関係
+	GASHA_REGIST_LOG_CATEGORY(forResource, nullptr, nullptr);//リソース関係
+	GASHA_REGIST_LOG_CATEGORY(for3D, nullptr, nullptr);//3Dグラフィックス関係
+	GASHA_REGIST_LOG_CATEGORY(for2D, nullptr, nullptr);//2Dグラフィックス関係
+	GASHA_REGIST_LOG_CATEGORY(forSound, nullptr, nullptr);//サウンド関係
 	
 	//特殊ログカテゴリ登録
-	REG_SPECIAL_LOG_CATEGORY(forEvery);//全部まとめて変更
-	REG_SPECIAL_LOG_CATEGORY(forCallPoint);//直近のコールポイントのカテゴリに合わせる（なければforAny扱い）
-	REG_SPECIAL_LOG_CATEGORY(forCriticalCallPoint);//直近の重大コールポイントのカテゴリに合わせる（なければforAny扱い）
+	GASHA_REGIST_SPECIAL_LOG_CATEGORY(forEvery);//全部まとめて変更
+	GASHA_REGIST_SPECIAL_LOG_CATEGORY(forCallPoint);//直近のコールポイントのカテゴリに合わせる（なければforAny扱い）
+	GASHA_REGIST_SPECIAL_LOG_CATEGORY(forCriticalCallPoint);//直近の重大コールポイントのカテゴリに合わせる（なければforAny扱い）
 }
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化

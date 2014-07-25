@@ -10,18 +10,18 @@
 
 #include <gasha/basic_math.inl>//基本算術【インライン関数／テンプレート関数定義部】
 
-#ifdef ENABLE_BUILTIN_POPCNT
+#ifdef GASHA_ENABLE_BUILTIN_POPCNT
 #ifdef GASHA_IS_VC
 #include <intrin.h>//__popcnt()
 #endif//GASHA_IS_VC
 #ifdef GASHA_IS_GCC
 //#include "icint.h"//__builtin_popcount()//インクルード不要
 #endif//GASHA_IS_GCC
-#endif//ENABLE_BUILTIN_POPCNT
+#endif//GASHA_ENABLE_BUILTIN_POPCNT
 
-#ifdef ENABLE_SSE_POPCNT
+#ifdef GASHA_ENABLE_SSE_POPCNT
 #include <nmmintrin.h>//SSE4.2
-#endif//ENABLE_SSE_POPCNT
+#endif//GASHA_ENABLE_SSE_POPCNT
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -141,7 +141,7 @@ int countBits_custom(const unsigned int value)
 	return static_cast<int>(bits);
 #endif
 }
-#ifdef ENABLE_BUILTIN_POPCNT
+#ifdef GASHA_ENABLE_BUILTIN_POPCNT
 //※ビルトイン処理版
 int countBits_builtin(const unsigned int value)
 {
@@ -152,14 +152,14 @@ int countBits_builtin(const unsigned int value)
 	return __builtin_popcount(value);
 #endif//GASHA_IS_GCC
 }
-#endif//ENABLE_BUILTIN_POPCNT
-#ifdef ENABLE_SSE_POPCNT
+#endif//GASHA_ENABLE_BUILTIN_POPCNT
+#ifdef GASHA_ENABLE_SSE_POPCNT
 //※SSE命令版
 int countBits_sse(const unsigned int value)
 {
 	return  _mm_popcnt_u32(value);
 }
-#endif//ENABLE_SSE_POPCNT
+#endif//GASHA_ENABLE_SSE_POPCNT
 
 //----------------------------------------
 //【ランタイム版】MSB(Most Significant Bit)を算出
