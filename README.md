@@ -6,7 +6,7 @@ Released under the [MIT license][MIT].
 [MIT]: http://www.opensource.org/licenses/mit-license.php
 
 ###ライブラリソース用リポジトリ###
-**このリポジトリは、**GASHA** のソースファイル用です。**
+**このリポジトリは、「GASHA」 のソースファイル用です。**
 > ライブラリをビルドするためのソースファイル（`.cpp` ファイル）とプロジェクトファイル（`.vcxproj` / `.sln` ファイルおよび `Makefile`）を扱っています。  
 
 #「GASHA」とは？#
