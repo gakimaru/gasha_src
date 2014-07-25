@@ -202,6 +202,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\version.h" />
     <ClInclude Include="..\..\gasha\include\gasha\vs_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\win_console.h" />
     <ClInclude Include="..\..\gasha_settings\include\gasha\build_settings\project_default_includes.h" />

@@ -334,9 +334,13 @@ const profiler::strPoolInfo* profiler::regStrPool(const char* name, GASHA_ crc32
 	if (name_crc == 0)
 		name_crc = GASHA_ calcCRC32(name);
 	//文字列プール情報を取得
-	strPoolInfo* str_info = m_strPoolTable.at(name_crc);
-	if (str_info)
-		return str_info;
+	strPoolInfo* str_info = nullptr;
+	{
+		auto lock = m_strPoolTable.lockScoped();//共有ロック ※登録中の情報にアクセスする可能性がある
+		str_info = m_strPoolTable.at(name_crc);
+		if (str_info)
+			return str_info;
+	}
 	//文字列プールからメモリ確保
 	const std::size_t name_len = GASHA_ strlen_fast(name);
 	char* name_buff = m_strPoolBuff.newArray<char>(name_len + 1);
@@ -348,6 +352,7 @@ const profiler::strPoolInfo* profiler::regStrPool(const char* name, GASHA_ crc32
 	strPoolInfo* pooled_str_info = m_strPoolTable.emplace(name_crc, name_crc, name_buff);//内部で排他ロック
 	if (!pooled_str_info)//スレッド間で登録が競合した可能性があるので、文字列プール情報を再取得
 	{
+		//auto lock = m_strPoolTable.lockScoped();//共有ロック ※排他ロックで登録しているので、この時点で他方の処理が完了していないことはない（ロック不要）
 		pooled_str_info = m_strPoolTable.at(name_crc);
 		if (pooled_str_info)
 			return pooled_str_info;
@@ -363,13 +368,18 @@ profiler::threadInfo* profiler::regThread(const GASHA_ threadId& thread_id)
 	GASHA_ crc32_t thread_name_crc = thread_id.nameCrc();
 	const strPoolInfo* pooled_thread_name = regStrPool(thread_id.name(), thread_name_crc);
 	//スレッド情報を取得
-	threadInfo* thread_info = m_threadInfoTable.at(thread_name_crc);
-	if (thread_info)
-		return thread_info;
+	threadInfo* thread_info = nullptr;
+	{
+		auto lock = m_threadInfoTable.lockScoped();//共有ロック ※登録中の情報にアクセスする可能性がある
+		m_threadInfoTable.at(thread_name_crc);
+		if (thread_info)
+			return thread_info;
+	}
 	//スレッド情報を登録
 	thread_info = m_threadInfoTable.emplace(thread_name_crc, thread_name_crc, pooled_thread_name->m_str);//内部で排他ロック
 	if (!thread_info)//スレッド間で登録が競合した可能性があるので、スレッド情報を再取得
 	{
+		//auto lock = m_threadInfoTable.lockScoped();//共有ロック ※排他ロックで登録しているので、この時点で他方の処理が完了していないことはない（ロック不要）
 		thread_info = m_threadInfoTable.at(thread_name_crc);
 		if (thread_info)
 			return thread_info;
@@ -436,7 +446,7 @@ std::size_t profiler::getProfileInfo(const GASHA_ crc32_t thread_name_crc, profi
 {
 	threadInfo* thread_info = nullptr;
 	{
-		auto lock = m_threadInfoList.lockSharedScoped();//共有ロック
+		auto lock = m_threadInfoList.lockSharedScoped();//共有ロック ※登録中の情報にアクセスする可能性がある
 		thread_info = m_threadInfoTable.at(thread_name_crc);
 		if (!thread_info)
 			return 0;

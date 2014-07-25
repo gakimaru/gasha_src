@@ -30,7 +30,7 @@ char* logWorkBuff::alloc()
 		//一時停止中は何もせずループする
 		if (m_pause.load())
 		{
-			GASHA_ contextSwitch(GASHA_ short_sleep_switch);
+			GASHA_ contextSwitch(GASHA_ force_switch);
 			continue;
 		}
 
