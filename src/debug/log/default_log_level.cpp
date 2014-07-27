@@ -62,7 +62,7 @@ void registDefaultLogLevel()
 	GASHA_REGIST_LOG_LEVEL(asAbsolute, &stdout_console, nullptr, STANDARD, STANDARD, STANDARD, STANDARD);//絶対メッセージ（ログレベルに関係なく出力したいメッセージ）
 
 	//特殊ログレベル登録
-	GASHA_REGIST_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセ―ジ以外出力しない）
+	GASHA_REGIST_SPECIAL_LOG_LEVEL(asSilent);//静寂（絶対メッセージ以外出力しない）
 	GASHA_REGIST_SPECIAL_LOG_LEVEL(asSilentAbsolutely);//絶対静寂（全てのメッセージを出力しない）
 }
 
