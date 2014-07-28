@@ -276,7 +276,9 @@ void logMask::reset(mask_type* mask)
 	//要素を初期化
 	for (int purpose = 0; purpose < logMask::PURPOSE_NUM; ++purpose)
 	{
-		level_type default_log_mask = GASHA_ logLevel::fromOutputLevel(purpose == ofLog ? DEFAULT_LOG_MASK_OF_LOG : DEFAULT_LOG_MASK_OF_NOTICE);
+		const level_type default_log_mask_of_log = DEFAULT_LOG_MASK_OF_LOG;//【注】最適化オプションを付けていないと、三項演算子が実体のポインタを参照して直値展開されなくなり、結果リンクエラーになることがある（GCCで確認）
+		const level_type default_log_mask_of_notice = DEFAULT_LOG_MASK_OF_NOTICE;//（同上
+		level_type default_log_mask = GASHA_ logLevel::fromOutputLevel(purpose == ofLog ? default_log_mask_of_log : default_log_mask_of_notice);
 		for (category_type category = CATEGORY_MIN; category <= CATEGORY_MAX; ++category)
 		{
 			level_type& level_mask = mask->m_level[purpose][category];
