@@ -113,7 +113,7 @@ static const crc32_t s_polyTable[256] =
 //【ランタイム関数版：再帰処理版】文字列のCRC32計算
 crc32_t calcCRC32_recursive(const char* str)
 {
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = str;
 	while (*p)
 	{
@@ -125,7 +125,7 @@ crc32_t calcCRC32_recursive(const char* str)
 //【ランタイム関数版：再帰処理版】指定長データのCRC32計算
 crc32_t calcCRC32_recursive(const char* data, const std::size_t len)
 {
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
@@ -138,7 +138,7 @@ crc32_t calcCRC32_recursive(const char* data, const std::size_t len)
 //【ランタイム関数版：ループ処理版】文字列のCRC32計算
 crc32_t calcCRC32_loop(const char* str)
 {
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = str;
 	while (*p)
 	{
@@ -150,7 +150,7 @@ crc32_t calcCRC32_loop(const char* str)
 //【ランタイム関数版：ループ処理版】指定長データのCRC32計算
 crc32_t calcCRC32_loop(const char* data, const std::size_t len)
 {
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
@@ -164,7 +164,7 @@ crc32_t calcCRC32_loop(const char* data, const std::size_t len)
 crc32_t calcCRC32_table(const char* str)
 {
 #ifdef GASHA_CRC32_USE_STATIC_TABLE
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = str;
 	while (*p)
 	{
@@ -180,7 +180,7 @@ crc32_t calcCRC32_table(const char* str)
 crc32_t calcCRC32_table(const char* data, const std::size_t len)
 {
 #ifdef GASHA_CRC32_USE_STATIC_TABLE
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
@@ -197,7 +197,7 @@ crc32_t calcCRC32_table(const char* data, const std::size_t len)
 crc32_t calcCRC32_sse(const char* str)
 {
 #ifdef GASHA_USE_SSE4_2
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = str;
 	while (*p)
 	{
@@ -217,7 +217,7 @@ crc32_t calcCRC32_sse(const char* str)
 crc32_t calcCRC32_sse(const char* data, const std::size_t len)
 {
 #ifdef GASHA_USE_SSE4_2
-	crc32_t crc = ~0u;
+	crc32_t crc = ~static_cast<crc32_t>(0);
 	const char* p = data;
 	for (std::size_t pos = 0; pos < len; ++pos)
 	{
