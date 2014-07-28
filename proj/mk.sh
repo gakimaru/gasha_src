@@ -31,16 +31,25 @@ function run_makefile() {
 	echo '================================================================================'
 }
 
-# x86 & Relase
-run_makefile x86 Release $1
+# ビルドターゲット取得
+. ../../gasha/proj/.platform.sh
 
-# x86 & Debug
-run_makefile x86 Debug $1
+# x86
+if [ "$BUIILD_X86" = "ENABLED" ]; then
+	# x86 & Relase
+	run_makefile x86 Release $1
+	
+	# x86 & Debug
+	run_makefile x86 Debug $1
+fi
 
-# x64 & Relase
-#run_makefile x64 Release $1
-
-# x64 & Debug
-#run_makefile x64 Debug $1
+# x64
+if [ "$BUIILD_X64" = "ENABLED" ]; then
+	# x64 & Relase
+	run_makefile x64 Release $1
+	
+	# x64 & Debug
+	run_makefile x64 Debug $1
+fi
 
 # End of file
