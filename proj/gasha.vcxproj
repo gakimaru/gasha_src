@@ -247,6 +247,7 @@
     <ClCompile Include="..\src\debug\profiler\profiler.cpp" />
     <ClCompile Include="..\src\math\basic_math.cpp" />
     <ClCompile Include="..\src\math\crc32.cpp" />
+    <ClCompile Include="..\src\memory\i_allocator_adapter.cpp" />
     <ClCompile Include="..\src\memory\lf_mono_allocator.cpp" />
     <ClCompile Include="..\src\memory\new.cpp" />
     <ClCompile Include="..\src\memory\poly_allocator.cpp" />

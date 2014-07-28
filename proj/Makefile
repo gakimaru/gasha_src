@@ -58,6 +58,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/thread/lock/simple_shared_spin_lock.cpp \
 	$(SRC_BASE_DIR)/thread/lock/unshared_spin_lock.cpp \
 	$(SRC_BASE_DIR)/memory/lf_mono_allocator.cpp \
+	$(SRC_BASE_DIR)/memory/i_allocator_adapter.cpp \
 	$(SRC_BASE_DIR)/memory/poly_allocator.cpp \
 	$(SRC_BASE_DIR)/memory/new.cpp \
 	$(SRC_BASE_DIR)/debug/console/console_color.cpp \

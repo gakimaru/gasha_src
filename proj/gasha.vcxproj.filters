@@ -692,6 +692,9 @@
     <Filter Include="gasha\archive\Bosst C++ style">
       <UniqueIdentifier>{288b62fd-1f77-4a50-9d9f-d37ab28fd727}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha_src\memory\allocator_adapter">
+      <UniqueIdentifier>{75e5ab07-3ff8-4fa9-a03b-6b4f98d8896c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1433,6 +1436,9 @@
     </ClCompile>
     <ClCompile Include="..\src\serialization\type_ctrl_base.cpp">
       <Filter>gasha_src\serialization\item_ctrl_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\i_allocator_adapter.cpp">
+      <Filter>gasha_src\memory\allocator_adapter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
