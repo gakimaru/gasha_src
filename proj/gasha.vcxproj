@@ -129,6 +129,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\mem_console.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\mono_allocator.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\named_ref.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\named_ref.h" />
     <ClInclude Include="..\..\gasha\include\gasha\new.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h" />
@@ -355,6 +357,7 @@
     <None Include="..\..\gasha\include\gasha\memory.inl" />
     <None Include="..\..\gasha\include\gasha\mem_console.inl" />
     <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />
+    <None Include="..\..\gasha\include\gasha\named_ref.inl" />
     <None Include="..\..\gasha\include\gasha\new.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
     <None Include="..\..\gasha\include\gasha\poly_allocator.inl" />
