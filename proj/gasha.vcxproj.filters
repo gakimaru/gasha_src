@@ -695,6 +695,9 @@
     <Filter Include="gasha_src\memory\allocator_adapter">
       <UniqueIdentifier>{75e5ab07-3ff8-4fa9-a03b-6b4f98d8896c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\named_ref">
+      <UniqueIdentifier>{18fcd9dc-aa22-49a5-b66e-1f111f1cdf37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1267,6 +1270,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\version.h">
       <Filter>gasha</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_ref.h">
+      <Filter>gasha\named_ref</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -1828,6 +1834,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\serialization\type_ctrl_base.inl">
       <Filter>gasha\serialization\type_ctrl_base</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\named_ref.inl">
+      <Filter>gasha\named_ref</Filter>
     </None>
   </ItemGroup>
 </Project>
