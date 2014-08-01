@@ -1273,6 +1273,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\named_ref.h">
       <Filter>gasha\named_ref</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_ref.cpp.h">
+      <Filter>gasha\named_ref</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
