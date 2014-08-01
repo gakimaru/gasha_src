@@ -61,6 +61,13 @@ const char* consoleColor::toStr(char* str) const
 	return str;
 }
 
+#else//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void console_color_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //----------------------------------------

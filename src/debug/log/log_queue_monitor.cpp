@@ -141,6 +141,13 @@ std::atomic<logQueueMonitor::id_type> logQueueMonitor::m_nextId(logQueueMonitor:
 std::mutex logQueueMonitor::m_mutex;//ミューテックス
 std::condition_variable logQueueMonitor::m_cond;//条件変数
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_queue_monitor_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

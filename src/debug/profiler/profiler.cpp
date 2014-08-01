@@ -472,6 +472,13 @@ profiler::profileInfoPool_type profiler::m_profileInfoPool;//プロファイル�
 profiler::threadInfoTable_type profiler::m_threadInfoTable;//スレッド情報テーブル
 profiler::threadInfoLink_type profiler::m_threadInfoList;//スレッド情報連結リスト
 
+#else//GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void profiler_dummy(){}
+}//namespace _private
+
 #endif//GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
 
 //静的変数をインスタンス化
@@ -483,18 +490,36 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 
 //各テンプレートクラスの明示的なインスタンス化
 #include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義部】
+#include <gasha/stack_allocator.cpp.h>//スタックアロケータ【関数／実体定義部】
 #include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義部】
+#include <gasha/pool_allocator.cpp.h>//プールアロケータ【関数／実体定義部】
 #include <gasha/hash_table.cpp.h>//開番地法ハッシュテーブル【関数／実体定義部】
 #include <gasha/rb_tree.cpp.h>//赤黒木【関数／実体定義部】
 #include <gasha/singly_linked_list.cpp.h>//片方向連結リスト【関数／実体定義部】
 
-//GASHA_INSTANCING_lfStackAllocator();//文字列プールバッファ
-//GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
-GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe, GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル型
-GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
-//GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
-GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe, GASHA_ profiler::THREAD_INFO_TABLE_SIZE);//スレッド情報テーブル型
-GASHA_INSTANCING_slList(GASHA_ profiler::threadInfoListOpe);//スレッド情報連結リスト型
+#ifdef GASHA_PROFILER_WITHOUT_THREAD_SAFE
+
+	//非スレッドセーフ
+	GASHA_INSTANCING_stackAllocator();//文字列プールバッファ
+	GASHA_INSTANCING_poolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
+	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe, GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル型
+	GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
+	GASHA_INSTANCING_poolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
+	GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe, GASHA_ profiler::THREAD_INFO_TABLE_SIZE);//スレッド情報テーブル型
+	GASHA_INSTANCING_slList(GASHA_ profiler::threadInfoListOpe);//スレッド情報連結リスト型
+
+#else//GASHA_PROFILER_WITHOUT_THREAD_SAFE
+
+	//スレッドセーフ
+	GASHA_INSTANCING_lfStackAllocator();//文字列プールバッファ
+	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
+	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe, GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル型
+	GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
+	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
+	GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe, GASHA_ profiler::THREAD_INFO_TABLE_SIZE);//スレッド情報テーブル型
+	GASHA_INSTANCING_slList(GASHA_ profiler::threadInfoListOpe);//スレッド情報連結リスト型
+
+#endif//GASHA_PROFILER_WITHOUT_THREAD_SAFE
 
 #endif//GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
 

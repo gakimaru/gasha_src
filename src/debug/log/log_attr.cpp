@@ -93,6 +93,13 @@ std::once_flag logAttr::m_initialized;
 logAttr::attr_type logAttr::m_globalAttr(logAttr::DEFAULT_ATTR);
 thread_local logAttr::attr_type* logAttr::m_tlsAttrRef = nullptr;
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_attr_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //静的変数をインスタンス化

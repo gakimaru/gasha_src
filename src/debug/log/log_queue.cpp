@@ -130,6 +130,13 @@ std::atomic<logQueue::id_type> logQueue::m_id(logQueue::INIT_ID);//キューID�
 GASHA_ lfSmartStackAllocator_withBuff<logQueue::MESSAGE_BUFF_SIZE> logQueue::m_messageBuff;//メッセージバッファ
 GASHA_ binary_heap::container<logQueue::queueOpe, logQueue::QUEUE_SIZE> logQueue::m_queue;//ログキュー
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_queue_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
@@ -137,8 +144,8 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 #ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //明示的なインスタンス化
-#include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義定義部】
-#include <gasha/binary_heap.cpp.h>//二分ヒープ【関数／実体定義定義部】
+#include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義部】
+#include <gasha/binary_heap.cpp.h>//二分ヒープ【関数／実体定義部】
 
 GASHA_INSTANCING_lfSmartStackAllocator();
 GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe, GASHA_ logQueue::QUEUE_SIZE);

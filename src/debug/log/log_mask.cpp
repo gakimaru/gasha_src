@@ -316,6 +316,13 @@ std::once_flag logMask::m_initialized;
 logMask::mask_type logMask::m_globalMask;
 thread_local logMask::mask_type* logMask::m_tlsMaskRef = nullptr;
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_mask_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //静的変数をインスタンス化

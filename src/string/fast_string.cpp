@@ -1487,6 +1487,13 @@ namespace _private
 	};
 }//namespace _private
 
+#else//GASHA_USE_SSE4_2
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void fast_string_dummy()	{}
+}//namespace _private
+
 #endif//GASHA_USE_SSE4_2
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

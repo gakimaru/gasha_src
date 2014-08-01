@@ -197,6 +197,13 @@ std::once_flag logCategoryContainer::m_initialized;
 logCategory::info logCategoryContainer::m_pool[logCategory::POOL_NUM];
 std::bitset<logCategory::POOL_NUM> logCategoryContainer::m_isAlreadyPool;
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_category_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //静的変数をインスタンス化
