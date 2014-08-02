@@ -513,10 +513,10 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 	//スレッドセーフ
 	GASHA_INSTANCING_lfStackAllocator();//文字列プールバッファ
 	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
-	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe, GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル型
+	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe);//文字列プールテーブル型
 	GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
 	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
-	GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe, GASHA_ profiler::THREAD_INFO_TABLE_SIZE);//スレッド情報テーブル型
+	GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe);//スレッド情報テーブル型
 	GASHA_INSTANCING_slList(GASHA_ profiler::threadInfoListOpe);//スレッド情報連結リスト型
 
 #endif//GASHA_PROFILER_WITHOUT_THREAD_SAFE

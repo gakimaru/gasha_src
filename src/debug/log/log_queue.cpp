@@ -128,7 +128,7 @@ std::atomic<bool> logQueue::m_abort(false);//中断
 std::atomic<bool> logQueue::m_pause(false);//一時停止
 std::atomic<logQueue::id_type> logQueue::m_id(logQueue::INIT_ID);//キューID発番用
 GASHA_ lfSmartStackAllocator_withBuff<logQueue::MESSAGE_BUFF_SIZE> logQueue::m_messageBuff;//メッセージバッファ
-GASHA_ binary_heap::container<logQueue::queueOpe, logQueue::QUEUE_SIZE> logQueue::m_queue;//ログキュー
+GASHA_ binary_heap::container<logQueue::queueOpe> logQueue::m_queue;//ログキュー
 
 #else//GASHA_LOG_IS_ENABLED
 
@@ -148,7 +148,7 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 #include <gasha/binary_heap.cpp.h>//二分ヒープ【関数／実体定義部】
 
 GASHA_INSTANCING_lfSmartStackAllocator();
-GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe, GASHA_ logQueue::QUEUE_SIZE);
+GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe);
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
