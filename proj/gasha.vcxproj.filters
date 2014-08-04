@@ -701,6 +701,15 @@
     <Filter Include="gasha_src\utility\limits">
       <UniqueIdentifier>{da47aedd-f099-437d-8fe2-77e37883044c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\named_ref\named_ref">
+      <UniqueIdentifier>{7755b3e0-1cab-4ce7-9dba-409acf9bc937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\named_ref\named_func">
+      <UniqueIdentifier>{48c759b6-c708-4f5d-b70e-afce7e118c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha\named_ref\named_value">
+      <UniqueIdentifier>{8f56c589-b49d-4b6f-bce9-5f067fa8c04f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1273,11 +1282,17 @@
     <ClInclude Include="..\..\gasha\include\gasha\version.h">
       <Filter>gasha</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gasha\include\gasha\named_ref.h">
-      <Filter>gasha\named_ref</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gasha\include\gasha\named_ref.cpp.h">
-      <Filter>gasha\named_ref</Filter>
+      <Filter>gasha\named_ref\named_ref</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_ref.h">
+      <Filter>gasha\named_ref\named_ref</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_func.h">
+      <Filter>gasha\named_ref\named_func</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_func.cpp.h">
+      <Filter>gasha\named_ref\named_func</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1845,7 +1860,10 @@
       <Filter>gasha\serialization\type_ctrl_base</Filter>
     </None>
     <None Include="..\..\gasha\include\gasha\named_ref.inl">
-      <Filter>gasha\named_ref</Filter>
+      <Filter>gasha\named_ref\named_ref</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\named_func.inl">
+      <Filter>gasha\named_ref\named_func</Filter>
     </None>
   </ItemGroup>
 </Project>

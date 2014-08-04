@@ -30,7 +30,7 @@ char* logWorkBuff::alloc()
 		//一時停止中は何もせずループする
 		if (m_pause.load())
 		{
-			GASHA_ contextSwitch(GASHA_ force_switch);
+			GASHA_ contextSwitch(GASHA_ forceContextSwitch);
 			continue;
 		}
 
@@ -77,7 +77,7 @@ void logWorkBuff::initializeOnce()
 }
 
 //静的フィールド
-const logWorkBuff::explicitInit_type logWorkBuff::explicitInit;//明示的な初期化指定用
+const logWorkBuff::explicitInit_tag logWorkBuff::explicitInit;//明示的な初期化指定用
 std::once_flag logWorkBuff::m_initialized;//初期化済み
 std::atomic<bool> logWorkBuff::m_abort(false);//中断
 std::atomic<bool> logWorkBuff::m_pause(false);//一時停止

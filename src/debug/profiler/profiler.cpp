@@ -482,7 +482,7 @@ namespace _private{
 #endif//GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
 
 //静的変数をインスタンス化
-const profiler::explicitInit_type profiler::explicitInit;
+const profiler::explicitInit_tag profiler::explicitInit;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

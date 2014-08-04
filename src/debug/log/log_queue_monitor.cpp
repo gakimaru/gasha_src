@@ -131,7 +131,7 @@ void logQueueMonitor::initializeOnce()
 }
 
 //静的フィールド
-const logQueueMonitor::explicitInit_type logQueueMonitor::explicitInit;//明示的な初期化指定用
+const logQueueMonitor::explicitInit_tag logQueueMonitor::explicitInit;//明示的な初期化指定用
 std::once_flag logQueueMonitor::m_initialized;//初期化済み
 std::atomic<bool> logQueueMonitor::m_abort(false);//中断
 std::atomic<bool> logQueueMonitor::m_isEnd(false);//終了状態

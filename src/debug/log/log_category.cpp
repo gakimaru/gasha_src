@@ -207,7 +207,7 @@ namespace _private{
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //静的変数をインスタンス化
-const logCategoryContainer::explicitInit_type logCategoryContainer::explicitInit;
+const logCategoryContainer::explicitInit_tag logCategoryContainer::explicitInit;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

@@ -72,7 +72,7 @@ namespace _private{
 
 //----------------------------------------
 //コンソールカラーリセット用構造体の実体定義
-const consoleColor::stdColor_type consoleColor::stdColor;
+const consoleColor::stdColor_tag consoleColor::stdColor;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

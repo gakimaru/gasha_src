@@ -38,7 +38,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 			//一時停止中は何もせずループする
 			if (m_pause.load())
 			{
-				GASHA_ contextSwitch(GASHA_ force_switch);
+				GASHA_ contextSwitch(GASHA_ forceContextSwitch);
 				continue;
 			}
 
@@ -122,7 +122,7 @@ void logQueue::initializeOnce()
 }
 
 //静的フィールド
-const logQueue::explicitInit_type logQueue::explicitInit;//明示的な初期化指定用
+const logQueue::explicitInit_tag logQueue::explicitInit;//明示的な初期化指定用
 std::once_flag logQueue::m_initialized;//初期化済み
 std::atomic<bool> logQueue::m_abort(false);//中断
 std::atomic<bool> logQueue::m_pause(false);//一時停止
