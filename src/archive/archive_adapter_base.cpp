@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // archive/archive_adapter_adapter_base.cpp
-// アーカイブ/アーカイブアダプター基底クラス【関数／実体定義部】
+// アーカイブ/アーカイブアダプタ基底クラス【関数／実体定義部】
 //
 // Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/archive/archive_adapter_base.inl>//アーカイブ/アーカイブアダプター基底クラス【インライン関数／テンプレート関数定義部】
+#include <gasha/archive/archive_adapter_base.inl>//アーカイブ/アーカイブアダプタ基底クラス【インライン関数／テンプレート関数定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -17,11 +17,11 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 namespace archive
 {
 	//--------------------------------------------------------------------------------
-	//アーカイブ/アーカイブアダプター基底クラス
+	//アーカイブ/アーカイブアダプタ基底クラス
 	//--------------------------------------------------------------------------------
 
 	//--------------------
-	//アーカイブアダプター基底クラス
+	//アーカイブアダプタ基底クラス
 
 	//バッファのカレントポインタを移動
 	bool archiveAdapterBase::seek(const int seek_, int& real_seek)

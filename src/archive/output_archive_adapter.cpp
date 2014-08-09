@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // archive/output_archive_adapter.cpp
-// アーカイブ/アーカイブ書き込みアダプタークラス【関数／実体定義部】
+// アーカイブ/アーカイブ書き込みアダプタクラス【関数／実体定義部】
 //
 // Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/archive/output_archive_adapter.inl>//アーカイブ/アーカイブ書き込みアダプタークラス【インライン関数／テンプレート関数定義部】
+#include <gasha/archive/output_archive_adapter.inl>//アーカイブ/アーカイブ書き込みアダプタクラス【インライン関数／テンプレート関数定義部】
 
 #include <gasha/string.h>//文字列処理
 
@@ -21,11 +21,11 @@ GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 namespace archive
 {
 	//--------------------------------------------------------------------------------
-	//アーカイブ/アーカイブ書き込みアダプタークラス
+	//アーカイブ/アーカイブ書き込みアダプタクラス
 	//--------------------------------------------------------------------------------
 
 	//--------------------
-	//アーカイブ書き込みアダプタークラス
+	//アーカイブ書き込みアダプタクラス
 
 	//バッファへのデータ書き込み
 	bool outputArchiveAdapter::write(const void* data, const std::size_t size, std::size_t& written_size)
