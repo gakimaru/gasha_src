@@ -70,6 +70,13 @@ bool dummyConsole::isSame(const iConsole* rhs) const
 dummyConsole::~dummyConsole()
 {}
 
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void dummy_console_dummy(){}
+}//namespace _private
+
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 GASHA_NAMESPACE_END;//ネームスペース：終了

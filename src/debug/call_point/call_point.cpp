@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 
 #include <gasha/call_point.inl>//コールポイント【インライン関数／テンプレート関数定義部】
-#include <gasha/profiler.h>//プロファイラー
+#include <gasha/profiler.h>//プロファイラ
 #include <gasha/string.inl>//文字列処理：spprintf
 #include <gasha/thread_id.inl>//スレッドID
 

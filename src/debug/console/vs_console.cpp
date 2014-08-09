@@ -77,7 +77,21 @@ bool vsConsole::isSame(const iConsole* rhs) const
 vsConsole::~vsConsole()
 {}
 
+#else//GASHA_USE_VS_CONSOLE
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void vs_console_dummy(){}
+}//namespace _private
+
 #endif//GASHA_USE_VS_CONSOLE
+
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void vs_console_dummy(){}
+}//namespace _private
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 

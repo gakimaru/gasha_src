@@ -39,14 +39,17 @@ const defer_lock_t defer_lock;
 //----------------------------------------
 //コンテキストスイッチ
 
-//確実なスイッチ
-const force_switch_t force_switch;
+//ゼロスリープでスイッチ
+const zeroSleepContextSwitch_tag zeroSleepContextSwitch;
 
 //短いスリープでスイッチ
-const short_sleep_switch_t short_sleep_switch;
+const shortSleepContextSwitch_tag shortSleepContextSwitch;
+
+//確実なスイッチ
+const forceContextSwitch_tag forceContextSwitch;
 
 //イールド
-const yield_switch_t yield_switch;
+const yieldContextSwitch_tag yieldContextSwitch;
 
 GASHA_NAMESPACE_END;//ネームスペース：終了
 

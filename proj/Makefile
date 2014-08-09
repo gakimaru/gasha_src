@@ -44,6 +44,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/build_settings/build_settings_diag.cpp \
 	$(SRC_BASE_DIR)/utility/cpuid.cpp \
 	$(SRC_BASE_DIR)/utility/type_traits.cpp \
+	$(SRC_BASE_DIR)/utility/limits.cpp \
 	$(SRC_BASE_DIR)/utility/chrono.cpp \
 	$(SRC_BASE_DIR)/math/basic_math.cpp \
 	$(SRC_BASE_DIR)/math/crc32.cpp \

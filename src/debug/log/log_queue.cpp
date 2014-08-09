@@ -38,7 +38,7 @@ bool logQueue::enqueue(const logPrintInfo& print_info)
 			//一時停止中は何もせずループする
 			if (m_pause.load())
 			{
-				GASHA_ contextSwitch(GASHA_ force_switch);
+				GASHA_ contextSwitch(GASHA_ forceContextSwitch);
 				continue;
 			}
 
@@ -122,13 +122,20 @@ void logQueue::initializeOnce()
 }
 
 //静的フィールド
-const logQueue::explicitInit_type logQueue::explicitInit;//明示的な初期化指定用
+const logQueue::explicitInit_tag logQueue::explicitInit;//明示的な初期化指定用
 std::once_flag logQueue::m_initialized;//初期化済み
 std::atomic<bool> logQueue::m_abort(false);//中断
 std::atomic<bool> logQueue::m_pause(false);//一時停止
 std::atomic<logQueue::id_type> logQueue::m_id(logQueue::INIT_ID);//キューID発番用
 GASHA_ lfSmartStackAllocator_withBuff<logQueue::MESSAGE_BUFF_SIZE> logQueue::m_messageBuff;//メッセージバッファ
-GASHA_ binary_heap::container<logQueue::queueOpe, logQueue::QUEUE_SIZE> logQueue::m_queue;//ログキュー
+GASHA_ binary_heap::container<logQueue::queueOpe> logQueue::m_queue;//ログキュー
+
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_queue_dummy(){}
+}//namespace _private
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
@@ -137,11 +144,11 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 #ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
 //明示的なインスタンス化
-#include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義定義部】
-#include <gasha/binary_heap.cpp.h>//二分ヒープ【関数／実体定義定義部】
+#include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義部】
+#include <gasha/binary_heap.cpp.h>//二分ヒープ【関数／実体定義部】
 
 GASHA_INSTANCING_lfSmartStackAllocator();
-GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe, GASHA_ logQueue::QUEUE_SIZE);
+GASHA_INSTANCING_bHeap(GASHA_ logQueue::queueOpe);
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 

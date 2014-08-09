@@ -131,7 +131,7 @@ void logQueueMonitor::initializeOnce()
 }
 
 //静的フィールド
-const logQueueMonitor::explicitInit_type logQueueMonitor::explicitInit;//明示的な初期化指定用
+const logQueueMonitor::explicitInit_tag logQueueMonitor::explicitInit;//明示的な初期化指定用
 std::once_flag logQueueMonitor::m_initialized;//初期化済み
 std::atomic<bool> logQueueMonitor::m_abort(false);//中断
 std::atomic<bool> logQueueMonitor::m_isEnd(false);//終了状態
@@ -140,6 +140,13 @@ std::atomic<std::int32_t> logQueueMonitor::m_flush(0);//フラッシュ要求数
 std::atomic<logQueueMonitor::id_type> logQueueMonitor::m_nextId(logQueueMonitor::INIT_ID);//次のID
 std::mutex logQueueMonitor::m_mutex;//ミューテックス
 std::condition_variable logQueueMonitor::m_cond;//条件変数
+
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_queue_monitor_dummy(){}
+}//namespace _private
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 

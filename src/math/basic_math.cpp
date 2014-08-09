@@ -537,6 +537,14 @@ int calcLSB(const unsigned int value)
 #endif
 }
 
+//--------------------------------------------------------------------------------
+//基本演算
+//--------------------------------------------------------------------------------
+
+//演算方法指定用の定数
+const wraparound_tag wraparound;//ラップアラウンド演算指定用
+const saturation_tag saturation;//飽和演算指定用
+
 GASHA_NAMESPACE_END;//ネームスペース：終了
 
 // End of file

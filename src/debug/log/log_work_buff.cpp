@@ -10,7 +10,7 @@
 
 #include <gasha/log_work_buff.inl>//ログワークバッファ【インライン関数／テンプレート関数定義部】
 
-#include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義定義部】
+#include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義部】
 
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
@@ -30,7 +30,7 @@ char* logWorkBuff::alloc()
 		//一時停止中は何もせずループする
 		if (m_pause.load())
 		{
-			GASHA_ contextSwitch(GASHA_ force_switch);
+			GASHA_ contextSwitch(GASHA_ forceContextSwitch);
 			continue;
 		}
 
@@ -77,11 +77,27 @@ void logWorkBuff::initializeOnce()
 }
 
 //静的フィールド
-const logWorkBuff::explicitInit_type logWorkBuff::explicitInit;//明示的な初期化指定用
+const logWorkBuff::explicitInit_tag logWorkBuff::explicitInit;//明示的な初期化指定用
 std::once_flag logWorkBuff::m_initialized;//初期化済み
 std::atomic<bool> logWorkBuff::m_abort(false);//中断
 std::atomic<bool> logWorkBuff::m_pause(false);//一時停止
 GASHA_ lfPoolAllocator_withBuff<logWorkBuff::MAX_MESSAGE_SIZE, logWorkBuff::MESSAGE_POOL_SIZE> logWorkBuff::m_workBuff;//ワークバッファ
+
+#else//GASHA_LOG_IS_ENABLED
+
+//【VC++】LNK4221回避用のダミー関数
+namespace _private{
+	void log_work_buffer_dummy(){}
+}//namespace _private
+
+#endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+#ifdef GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
+
+//明示的なインスタンス化
+#include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義部】
+
+GASHA_INSTANCING_lfPoolAllocator(logWorkBuff::MESSAGE_POOL_SIZE);
 
 #endif//GASHA_LOG_IS_ENABLED//デバッグログ無効時はまるごと無効化
 
