@@ -1,6 +1,6 @@
 ﻿//--------------------------------------------------------------------------------
 // profiler.cpp
-// プロファイラー【関数／実体定義部】
+// プロファイラ【関数／実体定義部】
 //
 // Gakimaru's standard library for C++ - GASHA
 //   Copyright (c) 2014 Itagaki Mamoru
@@ -8,7 +8,7 @@
 //     https://github.com/gakimaru/gasha/blob/master/LICENSE
 //--------------------------------------------------------------------------------
 
-#include <gasha/profiler.inl>//プロファイラー【インライン関数／テンプレート関数定義部】
+#include <gasha/profiler.inl>//プロファイラ【インライン関数／テンプレート関数定義部】
 
 #include <gasha/fast_string.h>//高速文字列処理
 #include <gasha/crc32.h>//CRC32計算
@@ -25,7 +25,7 @@
 GASHA_NAMESPACE_BEGIN;//ネームスペース：開始
 
 //--------------------------------------------------------------------------------
-//プロファイラー
+//プロファイラ
 //--------------------------------------------------------------------------------
 
 #ifdef GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
@@ -130,10 +130,10 @@ profiler::profileInfo* profiler::threadInfo::regProfile(const GASHA_ crc32_t nam
 }
 
 //処理時間加算
-bool profiler::threadInfo::add(const strPoolInfo& pooled_name, const GASHA_ sec_t elapsed_time, profileInfoPool_type& profile_info_pool)
+bool profiler::threadInfo::add(const GASHA_ crc32_t name_crc, const char* name, const GASHA_ sec_t elapsed_time, profileInfoPool_type& profile_info_pool)
 {
 	//プロファイル情報を登録
-	profileInfo* profile_info = regProfile(pooled_name.m_strCrc, pooled_name.m_str, profile_info_pool);
+	profileInfo* profile_info = regProfile(name_crc, name, profile_info_pool);
 	if (!profile_info)
 		return false;
 	//処理時間を加算
@@ -326,39 +326,15 @@ std::size_t profiler::threadInfo::getProfileInfo(profiler::profileInfo* array, c
 }
 
 //----------------------------------------
-//プロファイラー
+//プロファイラ
 
 //文字列プール登録
-const profiler::strPoolInfo* profiler::regStrPool(const char* name, GASHA_ crc32_t& name_crc)
+const char* profiler::regStrPool(const char* name, GASHA_ crc32_t& name_crc)
 {
 	if (name_crc == 0)
 		name_crc = GASHA_ calcCRC32(name);
 	//文字列プール情報を取得
-	strPoolInfo* str_info = nullptr;
-	{
-		auto lock = m_strPoolTable.lockScoped();//共有ロック ※登録中の情報にアクセスする可能性がある
-		str_info = m_strPoolTable.at(name_crc);
-		if (str_info)
-			return str_info;
-	}
-	//文字列プールからメモリ確保
-	const std::size_t name_len = GASHA_ strlen_fast(name);
-	char* name_buff = m_strPoolBuff.newArray<char>(name_len + 1);
-	GASHA_SIMPLE_ASSERT(name_buff != nullptr, "m_strPoolBuff is not enough memory.");
-	if (!name_buff)
-		return nullptr;
-	//文字列プール情報を登録
-	GASHA_ strcpy_fast(name_buff, name);
-	strPoolInfo* pooled_str_info = m_strPoolTable.emplace(name_crc, name_crc, name_buff);//内部で排他ロック
-	if (!pooled_str_info)//スレッド間で登録が競合した可能性があるので、文字列プール情報を再取得
-	{
-		//auto lock = m_strPoolTable.lockScoped();//共有ロック ※排他ロックで登録しているので、この時点で他方の処理が完了していないことはない（ロック不要）
-		pooled_str_info = m_strPoolTable.at(name_crc);
-		if (pooled_str_info)
-			return pooled_str_info;
-	}
-	GASHA_SIMPLE_ASSERT(pooled_str_info != nullptr, "m_strPoolTable is not enough memory.");
-	return pooled_str_info;
+	return m_strPool.regist(strPool_type::unsafe, name_crc, name);//※高速登録（非安全保障）を使用
 }
 
 //スレッド情報登録
@@ -366,7 +342,7 @@ profiler::threadInfo* profiler::regThread(const GASHA_ threadId& thread_id)
 {
 	//スレッド名を文字列プールに登録
 	GASHA_ crc32_t thread_name_crc = thread_id.nameCrc();
-	const strPoolInfo* pooled_thread_name = regStrPool(thread_id.name(), thread_name_crc);
+	const char* thread_name = regStrPool(thread_id.name(), thread_name_crc);
 	//スレッド情報を取得
 	threadInfo* thread_info = nullptr;
 	{
@@ -376,7 +352,7 @@ profiler::threadInfo* profiler::regThread(const GASHA_ threadId& thread_id)
 			return thread_info;
 	}
 	//スレッド情報を登録
-	thread_info = m_threadInfoTable.emplace(thread_name_crc, thread_name_crc, pooled_thread_name->m_str);//内部で排他ロック
+	thread_info = m_threadInfoTable.emplace(thread_name_crc, thread_name_crc, thread_name);//内部で排他ロック
 	if (!thread_info)//スレッド間で登録が競合した可能性があるので、スレッド情報を再取得
 	{
 		//auto lock = m_threadInfoTable.lockScoped();//共有ロック ※排他ロックで登録しているので、この時点で他方の処理が完了していないことはない（ロック不要）
@@ -400,8 +376,8 @@ bool profiler::add(const char* name, const GASHA_ sec_t elapsed_time)
 {
 	//処理名を文字列プールに登録
 	GASHA_ crc32_t name_crc = 0;
-	const strPoolInfo* pooled_name = regStrPool(name, name_crc);
-	if (!pooled_name)
+	const char* process_name = regStrPool(name, name_crc);
+	if (!process_name)
 		return false;
 	//スレッド情報を登録
 	GASHA_ threadId thread_id;
@@ -409,7 +385,7 @@ bool profiler::add(const char* name, const GASHA_ sec_t elapsed_time)
 	if (!thread_info)
 		return false;
 	//処理時間を加算
-	return thread_info->add(*pooled_name, elapsed_time, m_profileInfoPool);
+	return thread_info->add(name_crc, process_name, elapsed_time, m_profileInfoPool);
 }
 
 //処理時間集計
@@ -454,11 +430,10 @@ std::size_t profiler::getProfileInfo(const GASHA_ crc32_t thread_name_crc, profi
 	return thread_info->getProfileInfo(array, max_size, order);
 }
 
-//グローバルログレベルマスク初期化（一回限り）
+//プロファイル情報初期化（一回限り）
 void profiler::initializeOnce()
 {
-	m_strPoolBuff.clear();//文字列プールバッファ
-	m_strPoolTable.clear();//文字列プールテーブル
+	m_strPool.clear();//文字列プール
 	m_profileInfoPool.clear();//プロファイル情報プール
 	m_threadInfoTable.clear();//スレッド情報テーブル
 	m_threadInfoList.clear();//スレッド情報連結リスト
@@ -466,8 +441,7 @@ void profiler::initializeOnce()
 
 //静的フィールドのインスタンス化
 std::once_flag profiler::m_initialized;
-profiler::strPoolBuff_type profiler::m_strPoolBuff;//文字列プールバッファ
-profiler::strPoolTable_type profiler::m_strPoolTable;//文字列プールテーブル
+profiler::strPool_type profiler::m_strPool;//文字列プール
 profiler::profileInfoPool_type profiler::m_profileInfoPool;//プロファイル情報プール
 profiler::threadInfoTable_type profiler::m_threadInfoTable;//スレッド情報テーブル
 profiler::threadInfoLink_type profiler::m_threadInfoList;//スレッド情報連結リスト
@@ -489,19 +463,17 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 #ifdef GASHA_PROFILE_IS_AVAILABLE//プロファイル機能無効時はまるごと無効化
 
 //各テンプレートクラスの明示的なインスタンス化
-#include <gasha/lf_stack_allocator.cpp.h>//ロックフリースタックアロケータ【関数／実体定義部】
-#include <gasha/stack_allocator.cpp.h>//スタックアロケータ【関数／実体定義部】
 #include <gasha/lf_pool_allocator.cpp.h>//ロックフリープールアロケータ【関数／実体定義部】
 #include <gasha/pool_allocator.cpp.h>//プールアロケータ【関数／実体定義部】
 #include <gasha/hash_table.cpp.h>//開番地法ハッシュテーブル【関数／実体定義部】
 #include <gasha/rb_tree.cpp.h>//赤黒木【関数／実体定義部】
 #include <gasha/singly_linked_list.cpp.h>//片方向連結リスト【関数／実体定義部】
+#include <gasha/str_pool.cpp.h>//文字列プール【関数／実体定義部】
 
 #ifdef GASHA_PROFILER_WITHOUT_THREAD_SAFE
 
 	//非スレッドセーフ
-	GASHA_INSTANCING_stackAllocator();//文字列プールバッファ
-	GASHA_INSTANCING_poolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
+	GASHA_INSTANCING_strPool(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プール
 	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe, GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル型
 	GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
 	GASHA_INSTANCING_poolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
@@ -511,9 +483,7 @@ GASHA_NAMESPACE_END;//ネームスペース：終了
 #else//GASHA_PROFILER_WITHOUT_THREAD_SAFE
 
 	//スレッドセーフ
-	GASHA_INSTANCING_lfStackAllocator();//文字列プールバッファ
-	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::STR_POOL_TABLE_SIZE);//文字列プールテーブル
-	GASHA_INSTANCING_hTable(GASHA_ profiler::strPoolOpe);//文字列プールテーブル型
+	GASHA_INSTANCING_strPool_withLock(GASHA_ profiler::STR_POOL_BUFF_SIZE, GASHA_ profiler::STR_POOL_TABLE_SIZE, typename GASHA_ profiler::lock_type);//文字列プール
 	GASHA_INSTANCING_rbTree(GASHA_ profiler::profileInfoOpe);//プロファイル情報木型
 	GASHA_INSTANCING_lfPoolAllocator(GASHA_ profiler::PROFILE_INFO_POOL_SIZE);//プロファイル情報プール型
 	GASHA_INSTANCING_hTable(GASHA_ profiler::threadInfoOpe);//スレッド情報テーブル型

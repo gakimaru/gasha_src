@@ -710,6 +710,9 @@
     <Filter Include="gasha\named_ref\named_value">
       <UniqueIdentifier>{8f56c589-b49d-4b6f-bce9-5f067fa8c04f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\string\str_pool">
+      <UniqueIdentifier>{63e60e24-730b-44ab-95c2-9cc7b11ffc68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1294,6 +1297,18 @@
     <ClInclude Include="..\..\gasha\include\gasha\named_func.cpp.h">
       <Filter>gasha\named_ref\named_func</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_value.h">
+      <Filter>gasha\named_ref\named_value</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\named_value.cpp.h">
+      <Filter>gasha\named_ref\named_value</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\str_pool.h">
+      <Filter>gasha\string\str_pool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\str_pool.cpp.h">
+      <Filter>gasha\string\str_pool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -1864,6 +1879,12 @@
     </None>
     <None Include="..\..\gasha\include\gasha\named_func.inl">
       <Filter>gasha\named_ref\named_func</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\named_value.inl">
+      <Filter>gasha\named_ref\named_value</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\str_pool.inl">
+      <Filter>gasha\string\str_pool</Filter>
     </None>
   </ItemGroup>
 </Project>

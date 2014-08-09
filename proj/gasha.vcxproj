@@ -133,6 +133,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\named_func.h" />
     <ClInclude Include="..\..\gasha\include\gasha\named_ref.cpp.h" />
     <ClInclude Include="..\..\gasha\include\gasha\named_ref.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\named_value.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\named_value.h" />
     <ClInclude Include="..\..\gasha\include\gasha\new.h" />
     <ClInclude Include="..\..\gasha\include\gasha\odd_even_sort.h" />
     <ClInclude Include="..\..\gasha\include\gasha\poly_allocator.h" />
@@ -198,6 +200,8 @@
     <ClInclude Include="..\..\gasha\include\gasha\std_log_print.h" />
     <ClInclude Include="..\..\gasha\include\gasha\strconv.h" />
     <ClInclude Include="..\..\gasha\include\gasha\string.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\str_pool.cpp.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\str_pool.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tagged_ptr.h" />
     <ClInclude Include="..\..\gasha\include\gasha\thread_id.h" />
     <ClInclude Include="..\..\gasha\include\gasha\tty_console.h" />
@@ -362,6 +366,7 @@
     <None Include="..\..\gasha\include\gasha\mono_allocator.inl" />
     <None Include="..\..\gasha\include\gasha\named_func.inl" />
     <None Include="..\..\gasha\include\gasha\named_ref.inl" />
+    <None Include="..\..\gasha\include\gasha\named_value.inl" />
     <None Include="..\..\gasha\include\gasha\new.inl" />
     <None Include="..\..\gasha\include\gasha\odd_even_sort.inl" />
     <None Include="..\..\gasha\include\gasha\poly_allocator.inl" />
@@ -405,6 +410,7 @@
     <None Include="..\..\gasha\include\gasha\std_log_print.inl" />
     <None Include="..\..\gasha\include\gasha\strconv.inl" />
     <None Include="..\..\gasha\include\gasha\string.inl" />
+    <None Include="..\..\gasha\include\gasha\str_pool.inl" />
     <None Include="..\..\gasha\include\gasha\tagged_ptr.inl" />
     <None Include="..\..\gasha\include\gasha\thread_id.inl" />
     <None Include="..\..\gasha\include\gasha\tty_console.inl" />
