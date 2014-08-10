@@ -713,6 +713,12 @@
     <Filter Include="gasha\string\str_pool">
       <UniqueIdentifier>{63e60e24-730b-44ab-95c2-9cc7b11ffc68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gasha\unit_test">
+      <UniqueIdentifier>{7cb00122-5640-45cf-a6e7-3b809ae217f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gasha_src\unit_test">
+      <UniqueIdentifier>{db190910-35d3-4af7-98ec-86dd6d2a6d05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="standard.h">
@@ -1309,6 +1315,9 @@
     <ClInclude Include="..\..\gasha\include\gasha\str_pool.cpp.h">
       <Filter>gasha\string\str_pool</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gasha\include\gasha\unit_test.h">
+      <Filter>gasha\unit_test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="standard.cpp">
@@ -1484,6 +1493,9 @@
     </ClCompile>
     <ClCompile Include="..\src\utility\limits.cpp">
       <Filter>gasha_src\utility\limits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\unit_test\unit_test.cpp">
+      <Filter>gasha_src\unit_test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1885,6 +1897,9 @@
     </None>
     <None Include="..\..\gasha\include\gasha\str_pool.inl">
       <Filter>gasha\string\str_pool</Filter>
+    </None>
+    <None Include="..\..\gasha\include\gasha\unit_test.inl">
+      <Filter>gasha\unit_test</Filter>
     </None>
   </ItemGroup>
 </Project>

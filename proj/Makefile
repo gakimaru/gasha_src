@@ -97,6 +97,7 @@ SRCS := \
 	$(SRC_BASE_DIR)/archive/input_binary_archive_format.cpp \
 	$(SRC_BASE_DIR)/archive/output_text_archive_format.cpp \
 	$(SRC_BASE_DIR)/archive/input_text_archive_format.cpp \
+	$(SRC_BASE_DIR)/unit_test/unit_test.cpp \
 
 # オブジェクトファイル
 OBJS := $(SRCS:%.cpp=$(OUT_DIR)/%.o)
