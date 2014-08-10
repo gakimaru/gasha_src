@@ -208,6 +208,7 @@
     <ClInclude Include="..\..\gasha\include\gasha\type_traits.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unique_shared_lock.h" />
+    <ClInclude Include="..\..\gasha\include\gasha\unit_test.h" />
     <ClInclude Include="..\..\gasha\include\gasha\unshared_spin_lock.h" />
     <ClInclude Include="..\..\gasha\include\gasha\utility.h" />
     <ClInclude Include="..\..\gasha\include\gasha\version.h" />
@@ -272,6 +273,7 @@
     <ClCompile Include="..\src\thread\lock\spin_lock.cpp" />
     <ClCompile Include="..\src\thread\lock\unshared_spin_lock.cpp" />
     <ClCompile Include="..\src\thread\thread_id.cpp" />
+    <ClCompile Include="..\src\unit_test\unit_test.cpp" />
     <ClCompile Include="..\src\utility\chrono.cpp" />
     <ClCompile Include="..\src\utility\cpuid.cpp" />
     <ClCompile Include="..\src\utility\limits.cpp" />
@@ -417,6 +419,7 @@
     <None Include="..\..\gasha\include\gasha\type_traits.inl" />
     <None Include="..\..\gasha\include\gasha\unique_lock.inl" />
     <None Include="..\..\gasha\include\gasha\unique_shared_lock.inl" />
+    <None Include="..\..\gasha\include\gasha\unit_test.inl" />
     <None Include="..\..\gasha\include\gasha\unshared_spin_lock.inl" />
     <None Include="..\..\gasha\include\gasha\utility.inl" />
     <None Include="..\..\gasha\include\gasha\vs_console.inl" />
